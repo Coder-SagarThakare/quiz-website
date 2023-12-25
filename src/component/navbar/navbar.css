@@ -10,8 +10,8 @@
 }
 
 .input-field {
-  /* display: flex;
-  justify-content: center; */
+  display: flex;
+  justify-content: center;
   align-items: center;
   border-radius: 30px;
   width: 100%;
