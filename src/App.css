@@ -1,6 +1,8 @@
-body{
+body {
   background-color: rgb(20, 20, 20);
+  color: rgb(234, 234, 234) !important;
 }
+
 
 .cursor {
   cursor: pointer;
@@ -29,4 +31,3 @@ body{
   animation-name: underline-ani;
   animation-duration: 2s;
 }
-

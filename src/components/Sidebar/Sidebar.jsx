@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { RxDashboard } from "react-icons/rx";
 import { FaBars, FaUserAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import "./Sidebar.css";
+import "./SidebarStyle.css";
+
 import Nabar from "../Searchbar/SearchBar";
 
 function Sidebar({ children }) {
@@ -33,23 +34,29 @@ function Sidebar({ children }) {
       <div style={{ width: isOpen ? "20%" : "5%" }} className="sidebar">
         <div className="top-section">
           <h1
-            style={{ display: isOpen ? "block" : "none", cursor: "pointer" }}
-            className="logo"
+            style={{ display: isOpen ? "block" : "none" }}
+            className="logo cursor"
             onClick={openHome}
           >
             Quiz time
           </h1>
           <div
-            style={{ marginLeft: isOpen ? "70px" : "0px", cursor: "pointer" }}
-            className="bars"
+            // style={{ marginLeft: isOpen ? "70px" : "0px", cursor: "pointer" }}
+            className="bars cursor"
           >
             <FaBars onClick={toggle} />
           </div>
         </div>
+
         {MenuItem.map((item, index) => (
           <NavLink to={item.path} key={index} className="link">
             <div className="icon">{item.icon}</div>
-            <div style={{ display: isOpen ? "block" : "none"}} className="link-text">{item.name}</div>
+            <div
+              style={{ display: isOpen ? "block" : "none" }}
+              className="link-text"
+            >
+              {item.name}
+            </div>
           </NavLink>
         ))}
       </div>
