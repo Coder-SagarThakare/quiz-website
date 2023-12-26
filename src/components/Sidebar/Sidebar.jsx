@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { RxDashboard } from "react-icons/rx";
 import { FaBars, FaUserAlt } from "react-icons/fa";
+import { RiHomeHeartFill } from "react-icons/ri";
+
 import { NavLink } from "react-router-dom";
 import "./SidebarStyle.css";
 
@@ -18,6 +20,11 @@ function Sidebar({ children }) {
 
   const MenuItem = [
     {
+      name: "Homepage",
+      icon: <RiHomeHeartFill />,
+      path: "/",
+    },
+    {
       name: "Dashboard",
       icon: <RxDashboard />,
       path: "/Dashboard",
@@ -31,7 +38,10 @@ function Sidebar({ children }) {
 
   return (
     <div className="container-div">
-      <div style={{ width: isOpen ? "20%" : "5%" }} className="sidebar bg-primary1">
+      <div
+        style={{ width: isOpen ? "20%" : "5%" }}
+        className="sidebar bg-primary1"
+      >
         <div className="top-section">
           <h1
             style={{ display: isOpen ? "block" : "none" }}
