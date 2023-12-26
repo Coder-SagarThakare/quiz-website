@@ -1,1 +1,28 @@
+.cursor {
+  cursor: pointer;
+}
+
+.underline {
+  padding-bottom: 0.25rem; /* defines the space between text and underline */
+  position: relative;
+}
+
+.underline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: rgb(0, 123, 255);
+  transition: width 0.25s ease-out;
+}
+.underline:hover::before {
+  width: 100%;
+}
+
+.underline:hover {
+  animation-name: underline-ani;
+  animation-duration: 2s;
+}
 
