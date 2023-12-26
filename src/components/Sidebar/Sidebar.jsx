@@ -29,8 +29,8 @@ function Sidebar({ children }) {
   ];
 
   return (
-    <div className="container">
-      <div style={{ width: isOpen ? "300px" : "70px" }} className="sidebar">
+    <div className="container-div">
+      <div style={{ width: isOpen ? "20%" : "5%" }} className="sidebar">
         <div className="top-section">
           <h1
             style={{ display: isOpen ? "block" : "none", cursor: "pointer" }}
@@ -49,7 +49,7 @@ function Sidebar({ children }) {
         {MenuItem.map((item, index) => (
           <NavLink to={item.path} key={index} className="link">
             <div className="icon">{item.icon}</div>
-            <div className="link-text">{item.name}</div>
+            <div style={{ display: isOpen ? "block" : "none"}} className="link-text">{item.name}</div>
           </NavLink>
         ))}
       </div>
