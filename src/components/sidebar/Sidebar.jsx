@@ -6,7 +6,7 @@ import { RiHomeHeartFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import "./SidebarStyle.css";
 
-import SearchBar from "../Searchbar/SearchBar";
+import SearchBar from "../searchbar/SearchBar";
 
 function Sidebar({ children }) {
   const [isOpen, setIsOpen] = useState(true);
