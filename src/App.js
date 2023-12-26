@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 // import './styles/style.scss'
 
-import { Navbar, Sidebar } from "./components";
+import { Footer, Navbar, Sidebar } from "./components";
 import { About, Dashboard, Homepage } from "./pages";
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/About" element={<About />} />
         </Routes>
+        <Footer />
       </Sidebar>
     </BrowserRouter>
   );
