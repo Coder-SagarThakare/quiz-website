@@ -4,7 +4,7 @@ import { FaBars, FaUserAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "./SidebarStyle.css";
 
-import Nabar from "../Searchbar/SearchBar";
+import SearchBar from "../Searchbar/SearchBar";
 
 function Sidebar({ children }) {
   const [isOpen, setIsOpen] = useState(true);
@@ -38,7 +38,7 @@ function Sidebar({ children }) {
             className="logo cursor"
             onClick={openHome}
           >
-            Quiz time
+            Quiz Time
           </h1>
           <div
             // style={{ marginLeft: isOpen ? "70px" : "0px", cursor: "pointer" }}
@@ -60,8 +60,8 @@ function Sidebar({ children }) {
           </NavLink>
         ))}
       </div>
-      <main className="main">
-        <Nabar />
+      <main className="main page-component-bgcolor">
+        <SearchBar />
         {children}
       </main>
     </div>

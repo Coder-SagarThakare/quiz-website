@@ -2,8 +2,7 @@ import React from "react";
 import "./SearchBar.css";
 import { IoSearch } from "react-icons/io5";
 
-
-function Nabar() {
+function SearchBar() {
   return (
     <div className="navbar-div">
       <div className="input-field">
@@ -14,4 +13,4 @@ function Nabar() {
   );
 }
 
-export default Nabar;
+export default SearchBar;
