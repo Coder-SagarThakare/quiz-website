@@ -1,4 +1,4 @@
-.container {
+.container-div {
     display: flex;
   }
   
@@ -62,7 +62,7 @@
   }
   
   
-  @media (max-width: 668px) {
+  @media (max-width : 668px) {
    
     .sidebar {
       width: 80px !important;
@@ -74,7 +74,7 @@
       margin-left: 12px !important;
     }
     .link-text{
-      display: none;
+      display: none !important;
     }
   }
   
