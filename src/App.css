@@ -1,3 +1,7 @@
+body{
+  background-color: rgb(20, 20, 20);
+}
+
 .cursor {
   cursor: pointer;
 }
@@ -14,7 +18,7 @@
   bottom: 0;
   width: 0;
   height: 3px;
-  background-color: rgb(0, 123, 255);
+  background-color: rgb(0, 174, 255);
   transition: width 0.25s ease-out;
 }
 .underline:hover::before {

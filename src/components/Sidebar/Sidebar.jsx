@@ -3,17 +3,17 @@ import { RxDashboard } from "react-icons/rx";
 import { FaBars, FaUserAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
-import Nabar from "../navbar/Nabar";
+import Nabar from "../Searchbar/SearchBar";
 
 function Sidebar({ children }) {
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-  
-  const openHome = () =>{
-    window.location.href="/"
-  }
+
+  const openHome = () => {
+    window.location.href = "/";
+  };
 
   const MenuItem = [
     {
@@ -32,10 +32,17 @@ function Sidebar({ children }) {
     <div className="container">
       <div style={{ width: isOpen ? "300px" : "70px" }} className="sidebar">
         <div className="top-section">
-           <h1 style={{ display: isOpen ? "block" : "none", cursor: "pointer" }} className="logo" onClick={openHome}>
-              Quiz time
-            </h1>
-          <div style={{ marginLeft: isOpen ? "70px" : "0px", cursor: "pointer" }} className="bars">
+          <h1
+            style={{ display: isOpen ? "block" : "none", cursor: "pointer" }}
+            className="logo"
+            onClick={openHome}
+          >
+            Quiz time
+          </h1>
+          <div
+            style={{ marginLeft: isOpen ? "70px" : "0px", cursor: "pointer" }}
+            className="bars"
+          >
             <FaBars onClick={toggle} />
           </div>
         </div>

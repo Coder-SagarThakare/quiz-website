@@ -1,5 +1,5 @@
 import React from "react";
-import "./navbar.css";
+import "./SearchBar.css";
 import { IoSearch } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 
