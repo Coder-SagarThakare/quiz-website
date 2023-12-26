@@ -70,7 +70,7 @@ function Sidebar({ children }) {
           </NavLink>
         ))}
       </div>
-      <main className="main page-component-bgcolor">
+      <main className="main page-component-bgcolor p-4">
         <SearchBar />
         {children}
       </main>
