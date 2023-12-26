@@ -1,7 +1,6 @@
 import React from 'react'
 import logo from '../../images/org_logo.png'
 import './Footer.css'
-import { IoCallSharp } from "react-icons/io5";
 
 function Footer() {
 
