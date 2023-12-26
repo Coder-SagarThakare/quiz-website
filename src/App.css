@@ -2,9 +2,19 @@ body {
   /* background-color: rgb(20, 20, 20); */
   color: rgb(234, 234, 234) !important;
 }
-.bg-dark{
+.bg-dark {
   background-color: black !important ;
 }
+
+.bg-primary1 {
+  background-color: #252525 !important;
+}
+
+.primary-white {
+  color: rgb(234, 234, 234) !important ;
+}
+
+/* bg color for sidebar menu's childrens */
 .page-component-bgcolor {
   background-color: #141414;
 }
@@ -12,11 +22,11 @@ body {
   cursor: pointer;
 }
 
+/* underline effect for navbar menu */
 .underline {
   padding-bottom: 0.25rem; /* defines the space between text and underline */
   position: relative;
 }
-
 .underline::before {
   content: "";
   position: absolute;
@@ -30,7 +40,6 @@ body {
 .underline:hover::before {
   width: 100%;
 }
-
 .underline:hover {
   animation-name: underline-ani;
   animation-duration: 2s;
