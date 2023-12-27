@@ -1,12 +1,14 @@
 import React from "react";
-import slide1 from "../../images/istockphoto-837064622-170667a.webp";
-import slide2 from "../../images/download.jpeg";
-import slide3 from "../../images/download (1).jpeg";
+import slide1 from "../../images/slide1.jpg";
+import slide2 from "../../images/slide2.jpg";
+import slide3 from "../../images/slide3.svg";
 import { useState } from "react";
+import "./Carousel.css";
+
 
 function Carousel() {
   const [clickedIndex, setClickedINdex] = useState(0);
-  const img = [slide1, slide2, slide3];
+  const img = [ slide2,slide1, slide3];
 
   console.log(clickedIndex);
 
@@ -17,16 +19,16 @@ function Carousel() {
   };
   const handleToDecreaseClickIndex = () => {
     clickedIndex === 0
-      ? setClickedINdex(img.length)
+      ? setClickedINdex(img.length - 1)
       : setClickedINdex(clickedIndex - 1);
   };
 
   return (
-    <div id="carouselExampleDark" className="carousel carousel-dark slide">
+    <div id="carouselExampleIndicators" className="carousel slide">
       <div className="carousel-indicators">
         <button
           type="button"
-          data-bs-target="#carouselExampleDark"
+          data-bs-target="#carouselExampleIndicators"
           data-bs-slide-to="0"
           className="active"
           aria-current="true"
@@ -34,53 +36,27 @@ function Carousel() {
         ></button>
         <button
           type="button"
-          data-bs-target="#carouselExampleDark"
+          data-bs-target="#carouselExampleIndicators"
           data-bs-slide-to="1"
           aria-label="Slide 2"
         ></button>
         <button
           type="button"
-          data-bs-target="#carouselExampleDark"
+          data-bs-target="#carouselExampleIndicators"
           data-bs-slide-to="2"
           aria-label="Slide 3"
         ></button>
       </div>
-      <div className="carousel-inner ">
-        {/* <div className="carousel-item " data-bs-interval="1000">
-          <img src={slide1} className="d-block w-75" alt="..." />
-          <div className="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
-        </div>
-        <div className="carousel-item active" data-bs-interval="2000">
-          <img src={slide2} className="d-block w-100" alt="..." />
-          <div className="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img src={slide3} className="d-block w-100" alt="..." />
-          <div className="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div> */}
 
+      <div className="carousel-inner">
         {img.map((ele, ind) => (
           <div
-            className={`carousel-item  ${clickedIndex === ind ? "active d-flex justify-content-center"  : ""}`}
-            // data-bs-interval="1000"
+            className={`carousel-item  ${
+              clickedIndex === ind ? "active d-flex justify-content-center" : ""
+            }`}
             key={ind}
           >
-            <img src={ele} className="d-block w-75 object-fit-cover" alt="..." />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
-            </div>
+            <img src={ele} className="d-block border object-fit-fill" alt="sliding iamge" />
           </div>
         ))}
       </div>
@@ -88,7 +64,7 @@ function Carousel() {
       <button
         className="carousel-control-prev"
         type="button"
-        data-bs-target="#carouselExampleDark"
+        data-bs-target="#carouselExampleIndicators"
         data-bs-slide="prev"
         onClick={() => handleToDecreaseClickIndex()}
       >
@@ -98,7 +74,7 @@ function Carousel() {
       <button
         className="carousel-control-next"
         type="button"
-        data-bs-target="#carouselExampleDark"
+        data-bs-target="#carouselExampleIndicators"
         data-bs-slide="next"
         onClick={() => handleToIncreaseClickIndex()}
       >

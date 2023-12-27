@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { RxDashboard } from "react-icons/rx";
 import { FaBars, FaUserAlt } from "react-icons/fa";
 import { RiHomeHeartFill } from "react-icons/ri";
+<<<<<<< HEAD
 import { MdSubject } from "react-icons/md";
+=======
+import { Footer } from "../../components/";
+>>>>>>> e8cd3bb05d3a32a3f558270299272a4f4a46cdcc
 
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
@@ -43,10 +47,14 @@ function Sidebar({ children }) {
   ];
 
   return (
-    <div className="container-div">
+    <div className="container-div ">
       <div
         style={{ width: isOpen ? "20%" : "5%" }}
+<<<<<<< HEAD
         className="sidebar bg-primary1 mb-4"
+=======
+        className="sidebar bg-primary1  "
+>>>>>>> e8cd3bb05d3a32a3f558270299272a4f4a46cdcc
       >
         <div className="top-section">
           <h1
@@ -76,9 +84,14 @@ function Sidebar({ children }) {
           </NavLink>
         ))}
       </div>
-      <main className="main page-component-bgcolor p-4">
+
+      <main
+        className=" page-component-bgcolor p-4 overflow-y-auto main"
+        style={{ height: "93vh" }}
+      >
         <SearchBar />
         {children}
+        <Footer />
       </main>
     </div>
   );
