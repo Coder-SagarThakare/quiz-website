@@ -46,8 +46,8 @@ function Sidebar({ children }) {
   return (
     <div className="container-div ">
       <div
-        style={{ width: isOpen ? "20%" : "5%" }}
-        className="sidebar bg-primary1"
+        style={{ width: isOpen ? "250px" : "70px" }}
+        className="sidebar bg-primary1 mb-4"
       >
         <div className="top-section">
           <h1
