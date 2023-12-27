@@ -4,8 +4,12 @@ import { Carousel } from "../../components";
 function HomePage() {
   return (
     <div>
-      <div className="100">
+      <div className="">
         <Carousel />
+        {/* <h1>saas</h1>
+        <h1>saas</h1>
+        <h1>saas</h1>
+        <h1>saas</h1> */}
       </div>
     </div>
   );
