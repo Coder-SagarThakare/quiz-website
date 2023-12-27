@@ -3,9 +3,6 @@
 }
 
 .sidebar {
-  width: 250px;
-  min-width: 80px;
-  /* height: 100vh; */
   padding: 20px;
   box-sizing: border-box;
 }
@@ -28,7 +25,7 @@
   text-decoration: none;
   color: #0e0e0e;
   margin-bottom: 10px;
-  padding: 10px 15px;
+  padding: 10px 7px;
   gap: 15px;
   transition: all 0.3s ease;
 }
@@ -54,10 +51,9 @@
 .active {
   background-color: #d33636;
   padding: 10px 10px;
-  margin: 0;
 }
 
-@media (max-width: 668px) {
+@media (max-width: 760px) {
   .sidebar {
     width: 80px !important;
   }
