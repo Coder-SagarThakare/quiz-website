@@ -1,12 +1,11 @@
-.footer{
-    /* background-color: #323232; */
+.logo-div {
+  height: 75px;
 }
 
-
-.logo-div{
-    height: 75px;
+.subheading {
+  text-decoration: none;
 }
 
-.heading{
-    
-}
+    /* .subheading :hover {
+        color: rgb(40, 40, 174);
+    } */

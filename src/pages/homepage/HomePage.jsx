@@ -6,10 +6,7 @@ function HomePage() {
     <div>
       <div className="">
         <Carousel />
-        {/* <h1>saas</h1>
-        <h1>saas</h1>
-        <h1>saas</h1>
-        <h1>saas</h1> */}
+
       </div>
     </div>
   );
