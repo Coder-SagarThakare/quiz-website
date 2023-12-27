@@ -80,7 +80,7 @@ function Sidebar({ children }) {
 
       <main
         className=" page-component-bgcolor p-4 overflow-y-auto main"
-        style={{ height: "93vh" }}
+        style={{ height: "91vh" }}
       >
         <SearchBar />
         {children}
