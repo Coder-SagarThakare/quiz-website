@@ -5,7 +5,7 @@ import { RiHomeHeartFill } from "react-icons/ri";
 import { MdSubject } from "react-icons/md";
 
 import { NavLink } from "react-router-dom";
-import "./Sidebar.css";
+import "./SidebarStyle.css";
 
 import SearchBar from "../searchbar/SearchBar";
 
@@ -45,7 +45,7 @@ function Sidebar({ children }) {
   return (
     <div className="container-div">
       <div
-        style={{ width: isOpen ? "20%" : "5%" }}
+        style={{ width: isOpen ? "250px" : "70px" }}
         className="sidebar bg-primary1 mb-4"
       >
         <div className="top-section">
@@ -76,7 +76,7 @@ function Sidebar({ children }) {
           </NavLink>
         ))}
       </div>
-      <main className="main page-component-bgcolor p-4">
+      <main className="main page-component-bgcolor p-4 w-75">
         <SearchBar />
         {children}
       </main>
