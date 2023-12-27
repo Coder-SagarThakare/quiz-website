@@ -37,7 +37,7 @@ function Sidebar({ children }) {
   ];
 
   return (
-    <div className="container-div">
+    <div className="container-div overflow-hidden border border-danger" >
       <div
         style={{ width: isOpen ? "20%" : "5%" }}
         className="sidebar bg-primary1"
@@ -70,6 +70,7 @@ function Sidebar({ children }) {
           </NavLink>
         ))}
       </div>
+      
       <main className="main page-component-bgcolor p-4">
         <SearchBar />
         {children}
