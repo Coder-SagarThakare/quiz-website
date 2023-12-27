@@ -1,5 +1,5 @@
 body {
-  background-color: #141414;
+  /* background-color: rgb(20, 20, 20); */
   color: rgb(234, 234, 234) !important;
 }
 .bg-dark {
@@ -20,7 +20,6 @@ body {
 }
 .cursor {
   cursor: pointer;
-  margin-left: 28%;
 }
 
 /* underline effect for navbar menu */

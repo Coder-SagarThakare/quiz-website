@@ -1,9 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 // import './styles/style.scss'
 
-import { Footer, Navbar, Sidebar } from "./components";
+import { Navbar, Sidebar } from "./components";
 import { About, Dashboard, Homepage, SubjectAreas} from "./pages";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 
 function App() {
   return (
@@ -16,7 +17,6 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/SubjectAreas" element={<SubjectAreas />} />
         </Routes>
-        <Footer />
       </Sidebar>
     </BrowserRouter>
   );

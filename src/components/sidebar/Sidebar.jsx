@@ -3,6 +3,7 @@ import { RxDashboard } from "react-icons/rx";
 import { FaBars, FaUserAlt } from "react-icons/fa";
 import { RiHomeHeartFill } from "react-icons/ri";
 import { MdSubject } from "react-icons/md";
+import { Footer } from "../../components/";
 
 import { NavLink } from "react-router-dom";
 import "./SidebarStyle.css";
@@ -43,7 +44,7 @@ function Sidebar({ children }) {
   ];
 
   return (
-    <div className="container-div">
+    <div className="container-div ">
       <div
         style={{ width: isOpen ? "250px" : "70px" }}
         className="sidebar bg-primary1 mb-4"
@@ -76,9 +77,14 @@ function Sidebar({ children }) {
           </NavLink>
         ))}
       </div>
-      <main className="main page-component-bgcolor p-4 w-75">
+
+      <main
+        className=" page-component-bgcolor p-4 overflow-y-auto main"
+        style={{ height: "93vh" }}
+      >
         <SearchBar />
         {children}
+        <Footer />
       </main>
     </div>
   );
