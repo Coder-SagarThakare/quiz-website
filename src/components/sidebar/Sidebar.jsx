@@ -6,7 +6,7 @@ import { MdSubject } from "react-icons/md";
 import { Footer } from "../../components/";
 
 import { NavLink } from "react-router-dom";
-import "./SidebarStyle.css";
+import "./Sidebar.css";
 
 import SearchBar from "../searchbar/SearchBar";
 

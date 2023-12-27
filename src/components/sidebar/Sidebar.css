@@ -1,16 +1,11 @@
-.container {
-  display: flex;
-  border: 10px solid red !important;
-  width: 100vw !important;
-}
 .container-div {
   display: flex;
 }
 
 .sidebar {
   width: 250px;
-  background-color: #fcf9f9;
-  color: #0d0d0d;
+  min-width: 80px;
+  /* height: 100vh; */
   padding: 20px;
   box-sizing: border-box;
 }
@@ -53,6 +48,7 @@
 .main {
   flex-grow: 1;
   box-sizing: border-box;
+  /* background-color: #141414; */
 }
 
 .active {
@@ -61,19 +57,33 @@
   margin: 0;
 }
 
-@media (max-width: 800px) {
- 
+@media (max-width: 668px) {
   .sidebar {
     width: 80px !important;
   }
-  .logo{
+  .logo {
     display: none !important;
   }
   .bars {
     margin-left: 12px !important;
   }
-  .link-text{
+  .link-text {
     display: none !important;
   }
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(110, 110, 110);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
