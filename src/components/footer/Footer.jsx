@@ -31,9 +31,9 @@ function Footer() {
 
             <div className='d-flex justify-content-evenly '>
                 {footer.map((ele, ind) =>
-                    <div className='heading d-flex flex-column'>
+                    <div className='heading d-flex flex-column' key={ind}>
                         <h6>{ele.heading}</h6>
-                        {ele.subHeading.map((items) => <span>{items.icon} {items.route}</span>)}
+                        {ele.subHeading.map((items) => <span >{items.icon} {items.route}</span>)}
                     </div>
                 )}
 
