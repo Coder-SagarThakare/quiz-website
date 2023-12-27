@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import { RxDashboard } from "react-icons/rx";
 import { FaBars, FaUserAlt } from "react-icons/fa";
 import { RiHomeHeartFill } from "react-icons/ri";
-<<<<<<< HEAD
 import { MdSubject } from "react-icons/md";
-=======
 import { Footer } from "../../components/";
->>>>>>> e8cd3bb05d3a32a3f558270299272a4f4a46cdcc
 
 import { NavLink } from "react-router-dom";
-import "./Sidebar.css";
+import "./SidebarStyle.css";
 
 import SearchBar from "../searchbar/SearchBar";
 
@@ -50,11 +47,7 @@ function Sidebar({ children }) {
     <div className="container-div ">
       <div
         style={{ width: isOpen ? "20%" : "5%" }}
-<<<<<<< HEAD
-        className="sidebar bg-primary1 mb-4"
-=======
-        className="sidebar bg-primary1  "
->>>>>>> e8cd3bb05d3a32a3f558270299272a4f4a46cdcc
+        className="sidebar bg-primary1"
       >
         <div className="top-section">
           <h1
