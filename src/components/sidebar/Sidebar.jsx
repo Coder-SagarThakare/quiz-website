@@ -47,7 +47,7 @@ function Sidebar({ children }) {
     <div className="container-div ">
       <div
         style={{ width: isOpen ? "250px" : "70px" }}
-        className="sidebar bg-primary1 mb-4"
+        className="sidebar bg-primary1"
       >
         <div className="top-section">
           <h1
@@ -58,7 +58,8 @@ function Sidebar({ children }) {
             Quiz Time
           </h1>
           <div
-            className="bars cursor primary-white"
+            // style={{ marginLeft: isOpen ? "70px" : "0px", cursor: "pointer" }}
+            className="bars cursor primary-white mx-2"
           >
             <FaBars onClick={toggle} />
           </div>
