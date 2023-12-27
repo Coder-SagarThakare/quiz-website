@@ -29,17 +29,17 @@ function Sidebar({ children }) {
     {
       name: "Dashboard",
       icon: <RxDashboard />,
-      path: "/Dashboard",
+      path: "/dashboard",
     },
     {
-      name: "SubjectAreas",
+      name: "Subjects",
       icon: <MdSubject />,
-      path: "/SubjectAreas",
+      path: "/subjects",
     },
     {
       name: "About",
       icon: <FaUserAlt />,
-      path: "/About",
+      path: "/about",
     },
   ];
 
@@ -58,7 +58,6 @@ function Sidebar({ children }) {
             Quiz Time
           </h1>
           <div
-            // style={{ marginLeft: isOpen ? "70px" : "0px", cursor: "pointer" }}
             className="bars cursor primary-white"
           >
             <FaBars onClick={toggle} />

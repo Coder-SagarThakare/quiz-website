@@ -52,9 +52,8 @@ function Footer() {
               <NavLink
                 to={items.path}
                 key={ind}
-                className={`subheading primary-white p-1 ${
-                  items.animation !== false ? "underline" : ""
-                }`}
+                className={`subheading primary-white p-1 ${items.animation !== false ? "underline" : ""
+                  }`}
               >
                 <div> {items.route}</div>
               </NavLink>

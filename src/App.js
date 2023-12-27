@@ -13,9 +13,9 @@ function App() {
       <Sidebar>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/SubjectAreas" element={<SubjectAreas />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/subjects" element={<SubjectAreas />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>

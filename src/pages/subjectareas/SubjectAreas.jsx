@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "../../components";
-import { cardTitles } from "../../components/Utilities/Data";
+import { cardTitles } from "../../utilities/Data";
 
 function SubjectAreas() {
 

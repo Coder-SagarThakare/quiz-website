@@ -1,5 +1,5 @@
 import React from "react";
-import { subjectBackgrounds } from "../Utilities/Data";
+import { subjectBackgrounds } from "../../utilities/Data";
 
 const Card = ({ title }) => {
 
