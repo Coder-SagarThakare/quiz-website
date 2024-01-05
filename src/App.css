@@ -1,7 +1,8 @@
 body {
-  /* background-color: rgb(20, 20, 20); */
+  background-color: #252525 ;
   color: rgb(234, 234, 234) !important;
   overflow: hidden;
+  height: 100vh;
 }
 .bg-dark {
   background-color: black !important ;
@@ -44,4 +45,9 @@ body {
 .underline:hover {
   animation-name: underline-ani;
   animation-duration: 2s;
+}
+
+.layout{
+  height: 97vh;
+  margin: 10px;
 }
