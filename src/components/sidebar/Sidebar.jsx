@@ -5,6 +5,8 @@ import { RiHomeHeartFill } from "react-icons/ri";
 import { MdSubject } from "react-icons/md";
 import { Footer } from "../../components/";
 import '../../styles/global.css'
+import '../../styles/subcomponents.css'
+  
 
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
@@ -80,12 +82,16 @@ function Sidebar({ children }) {
       </div>
 
       <main
-        className=" page-component-bgcolor p-4 overflow-y-auto main"
-        style={{ height: "91vh" }}
-      >
+        className=" p-4 overflow-y-auto main border border-danger overflow-x-hidden subcomponet "
+      ><div className="ball-1"></div>
+        <div className="ball-2"></div>
+        <div className="ball-3"></div>
         <SearchBar />
-        {children}
-        <Footer />
+        <div className="box ">
+
+          {/* {children} */}
+          {/* <Footer /> */}
+        </div>
       </main>
     </div>
   );
