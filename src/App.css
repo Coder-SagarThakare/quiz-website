@@ -3,25 +3,14 @@ body {
   color: rgb(234, 234, 234) !important;
   overflow: hidden;
 }
-.bg-dark {
-  background-color: black !important ;
-}
 
-.bg-primary1 {
-  background-color: #252525 !important;
-}
 
-.primary-white {
-  color: rgb(234, 234, 234) !important ;
-}
 
-/* bg color for sidebar menu's childrens */
-.page-component-bgcolor {
-  background-color: #141414;
-}
-.cursor {
-  cursor: pointer;
-}
+
+
+
+
+
 
 /* underline effect for navbar menu */
 .underline {

@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../images/org_logo.png";
 import "./Footer.css";
+import '../../styles/global.css'
 import { NavLink } from "react-router-dom";
 
 function Footer() {

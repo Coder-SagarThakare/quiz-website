@@ -1,6 +1,7 @@
 import React from "react";
 import "./SearchBar.css";
 import { IoSearch } from "react-icons/io5";
+import '../../styles/global.css'
 
 function SearchBar() {
   return (

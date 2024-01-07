@@ -4,6 +4,7 @@ import { FaBars, FaUserAlt } from "react-icons/fa";
 import { RiHomeHeartFill } from "react-icons/ri";
 import { MdSubject } from "react-icons/md";
 import { Footer } from "../../components/";
+import '../../styles/global.css'
 
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
