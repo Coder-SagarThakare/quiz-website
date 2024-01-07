@@ -4,9 +4,8 @@ import { FaBars, FaUserAlt } from "react-icons/fa";
 import { RiHomeHeartFill } from "react-icons/ri";
 import { MdSubject } from "react-icons/md";
 import { Footer } from "../../components/";
-import '../../styles/global.css'
 import '../../styles/subcomponents.css'
-  
+
 
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
@@ -50,7 +49,7 @@ function Sidebar({ children }) {
     <div className="container-div ">
       <div
         style={{ width: isOpen ? "250px" : "70px" }}
-        className="sidebar bg-primary1"
+        className="sidebar "
       >
         <div className="top-section">
           <h1
@@ -82,15 +81,15 @@ function Sidebar({ children }) {
       </div>
 
       <main
-        className=" p-4 overflow-y-auto main border border-danger overflow-x-hidden subcomponet "
+        className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent "
       ><div className="ball-1"></div>
         <div className="ball-2"></div>
         <div className="ball-3"></div>
         <SearchBar />
-        <div className="box ">
+        <div className="glass">
 
-          {/* {children} */}
-          {/* <Footer /> */}
+          {children}
+          <Footer />
         </div>
       </main>
     </div>

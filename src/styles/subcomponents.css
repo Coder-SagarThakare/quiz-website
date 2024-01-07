@@ -1,80 +1,12 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* color: ; */
-}
 
-.subcomponet {
-    /* background-color: #141414; */
+.subcomponent {
     height: 91vh !important;
-
-    background-color: #000000;
-    /* for glass effect changed background */
-
-    position: relative;
-    /* display: flex; */
-
 }
 
-.subcomponet::before {
-    content: '';
-    position: absolute;
-    height: 300px;
-    width: 300px;
-    border-radius: 50%;
-    background: linear-gradient(#0b8cdc, #ff8c00);
-    transform: translate(100px, 10px);
-}
-
-.subcomponet::after {
-    content: '';
-    position: absolute;
-    height: 300px;
-    width: 300px;
-    border-radius: 50%;
-    background: linear-gradient(#bbff00, hsl(235, 100%, 49%));
-    transform: translate(1000px, -100px);
-    /* z-index: 0; */
-}
-
-.subcomponet .ball-1 {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background: rgb(0, 255, 0);
-    transform: translate(100px, 500px);
-    position: absolute;
-}
-
-.subcomponet .ball-2 {
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    background: rgb(0, 157, 255);
-    transform: translate(700px, 100px);
-    position: absolute;
-}
-
-.subcomponet .ball-3 {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    background: rgb(0, 255, 234);
-    transform: translate(300px, 600px);
-    position: absolute;
-}
-
-.subcomponet .box {
-    margin-top: 50px !important ;
-    /* remove after component added */
-    height: 70vh;       
+.subcomponent .box {
+    margin-top: 50px !important;
+    /* height: 70vh;        */
     width: 100%;
-    background-color: rgb(255, 255, 255,  0.06);
-    z-index: 10;
-    position: relative;
-    border-radius: 10px;
-    border: 1px solid rgb(255, 255, 255,0.7);
-    backdrop-filter: blur(20px);
-    box-shadow: -15px -17px 17px rgba(10, 10, 10, 0.25);
+
+   
 }

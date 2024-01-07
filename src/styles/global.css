@@ -14,4 +14,12 @@
     cursor: pointer;
 }
 
-/* bg color for sidebar menu's childrens */
+.glass{
+    background-color: rgb(255, 255, 255, 0.06);
+    z-index: 10;
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    box-shadow: -15px -17px 17px rgba(10, 10, 10, 0.25);
+}
