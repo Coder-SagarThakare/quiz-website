@@ -11,9 +11,9 @@ body::before {
   position: absolute;
   height: 300px;
   width: 300px;
-  border-radius: 50%;
-  background: linear-gradient(#0b8cdc, #ff8c00);
-  transform: translate(100px, 10px);
+  border-radius: 10px;
+  background: linear-gradient(#009dff, #df7d06);
+  transform:rotate(50deg) translate(200px, -100px);
 }
 
 body::after {
@@ -23,7 +23,7 @@ body::after {
   width: 300px;
   border-radius: 50%;
   background: linear-gradient(#bbff00, hsl(235, 100%, 49%));
-  transform: translate(1000px, -100px);
+  transform: translate(1200px, -150px);
   /* z-index: 0; */
 }
 
@@ -32,7 +32,7 @@ body .ball-1 {
   width: 50px;
   border-radius: 50%;
   background: rgb(0, 255, 0);
-  transform: translate(100px, 500px);
+  transform: translate(-100px, 500px);
   position: absolute;
 }
 
@@ -40,8 +40,8 @@ body .ball-2 {
   height: 80px;
   width: 80px;
   border-radius: 50%;
-  background: rgb(0, 157, 255);
-  transform: translate(700px, 100px);
+  background:linear-gradient( #00ffea,#bbff00);
+  transform: translate(900px, 45px);
   position: absolute;
 }
 
@@ -50,7 +50,7 @@ body .ball-3 {
   width: 100px;
   border-radius: 50%;
   background: rgb(0, 255, 234);
-  transform: translate(300px, 600px);
+  transform: translate(300px, 500px);
   position: absolute;
 }
 

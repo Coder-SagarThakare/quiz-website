@@ -86,11 +86,11 @@ function Sidebar({ children }) {
         <div className="ball-2"></div>
         <div className="ball-3"></div>
         <SearchBar />
-        <div className="glass">
+        <div className="glass-effect">
 
           {children}
-          <Footer />
         </div>
+          <Footer />
       </main>
     </div>
   );
