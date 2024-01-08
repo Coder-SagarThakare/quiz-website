@@ -1,51 +1,7 @@
-// import React from "react";
-
-// function SignUpForm() {
-//   return (
-//     <div>
-//       <h2>Sign Up</h2>
-//       <form>
-//         <div>
-//           <label htmlFor="fullname">Full Name </label>
-//           <input type="text" name="fullname" />
-//         </div>
-
-//         <div>
-//           <label htmlFor="">Email address </label>
-//           <input type="email" name="email" id="email" />
-//         </div>
-
-//         <div>
-//           <label htmlFor="password">Password</label>
-//           <input type="password" name="password" id="" />
-//         </div>
-
-//         <div>
-//           <label htmlFor="confirm-password">Confirm Password</label>
-//           <input type="password" name="confirm-password" id="" />
-//         </div>
-
-//         <div>
-//           <input type="radio" name="gender-male" id="gender-male" />{" "}
-//           <label htmlFor="gender-male">Male</label>
-//           <input type="radio" name="gender-female" id="gender-female" />{" "}
-//           <label htmlFor="gender-female">Female</label>
-//         </div>
-
-//         <div>
-//           <button type="reset">Reset</button>
-//           <button>Sign Up</button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default SignUpForm;
-
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SignInForm from "./SignInForm";
+// import "./style.css";
 
 function SignUpForm() {
 
