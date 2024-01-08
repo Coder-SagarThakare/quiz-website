@@ -37,7 +37,7 @@ const Card = ({ title }) => {
   const backgroundImage = subjectBackgrounds[title].image;
 
   return (
-    <div className="card rounded-5 cursor m-2" style={{ backgroundImage: `url(${backgroundImage})`, width: "95%", height: "200px", backgroundSize: "cover" }}>
+    <div className="card rounded-5 cursor" style={{ backgroundImage: `url(${backgroundImage})`, width: "95%", height: "200px", backgroundSize: "cover" }}>
       <div className="card-body d-flex flex-column justify-content-end text-light">
         <p className="card-text fs-6 bg-primary text-white w-75 p-2 rounded-4">{title}</p>
       </div>
