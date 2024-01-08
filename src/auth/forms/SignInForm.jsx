@@ -9,11 +9,20 @@ function SignInForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setlogin(true);
+    // onChange(false);
     console.log(`Form submitted! ${username} ${password}`);
   };
 
   return (
-    <div className="container mt-5">
+    <div className="d-flex layout">
+    <div className="w-50">
+      <img
+        src="https://cdn.designbump.com/wp-content/uploads/2021/01/quench-responsive-web-design-laptop-mockup.2.jpg"
+        className="img-fluid rounded-5 h-100"
+        alt="img"
+      />
+    </div>
+    <div className="container mt-5 w-50">
       <div className="row justify-content-center">
         <div className="col-md-6">
           <h2>Login to your Account</h2>
@@ -78,6 +87,7 @@ function SignInForm() {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 }
