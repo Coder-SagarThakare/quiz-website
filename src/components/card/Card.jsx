@@ -25,6 +25,7 @@
 
 import React from "react";
 import { subjectBackgrounds } from "../../utilities/Data";
+import '../../styles/global.css'
 
 const Card = ({ title }) => {
   // Check if the title exists in subjectBackgrounds which is in data.js
