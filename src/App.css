@@ -82,3 +82,7 @@ body .ball-3 {
   height: 97vh;
   margin: 10px;
 }
+
+.image{
+  transform: scalex(-1);
+}
