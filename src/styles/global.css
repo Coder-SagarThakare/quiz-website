@@ -1,6 +1,6 @@
-.bg-dark {
+/* .bg-dark {
     background-color: black !important;
-}
+} */
 
 .bg-primary1 {
     background-color: #252525 !important;
@@ -14,4 +14,12 @@
     cursor: pointer;
 }
 
-/* bg color for sidebar menu's childrens */
+.glass-effect{
+    background-color: rgb(255, 255, 255, 0.06);
+    z-index: 10;
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    box-shadow: -15px -17px 17px rgba(10, 10, 10, 0.25);
+}

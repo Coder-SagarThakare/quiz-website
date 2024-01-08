@@ -6,7 +6,7 @@ import '../../styles/global.css'
 
 function Navbar() {
   return (
-    <div className=" d-flex justify-content-between px-5 align-items-center shadow-lg user-select-none navbar">
+    <div className=" d-flex justify-content-between px-5 align-items-center user-select-none navbar">
       <div className="h-100 d-flex align-items-center ">
         <img className="h-75" src={logo} alt="logo"></img>
       </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "../../images/org_logo.png";
 import "./Footer.css";
-import '../../styles/global.css'
 import { NavLink } from "react-router-dom";
 
 function Footer() {
@@ -40,7 +39,7 @@ function Footer() {
   ];
 
   return (
-    <div className="footer bg-primary1 rounded-1 p-4 d-flex flex-column gap-4">
+    <div className=" rounded-1 p-4 d-flex flex-column gap-4 glass-effect mt-3">
       <div className="logo-div ">
         <img className="h-75" src={logo} alt="logo" />
       </div>

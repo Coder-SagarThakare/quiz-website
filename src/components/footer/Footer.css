@@ -6,6 +6,13 @@
   text-decoration: none;
 }
 
+/* override the opacity */
+.inc-bg-color {
+  /* opacity: ; */
+  background-color: rgb(255, 255, 255, 0);
+}
+
+
     /* .subheading :hover {
         color: rgb(40, 40, 174);
     } */

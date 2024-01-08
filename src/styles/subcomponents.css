@@ -1,13 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* color: ; */
-}
 
 .subcomponet {
     /* background-color: #141414; */
-    /* height: 91vh !important; */
+    height: 91vh !important;
 
     background-color: #000000;
     /* for glass effect changed background */
@@ -114,3 +108,14 @@
     font-size: 16px;
     cursor: pointer;
   } */
+.subcomponent {
+    height: 91vh !important;
+}
+
+.subcomponent .box {
+    margin-top: 50px !important;
+    /* height: 70vh;        */
+    width: 100%;
+
+   
+}
