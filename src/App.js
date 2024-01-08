@@ -10,13 +10,13 @@ function App() {
   return (
     <BrowserRouter>
       {/* {public routes here we can use for authentication} */}
-      <Routes>
+      {/* <Routes>
           <Route path="/SignIn" element={<SignInForm />} />
           <Route path="/SignUp" element={<SignUpForm />} />
-      </Routes>
+      </Routes> */}
 
       {/* {private routes here we can use for authentication} */}
-{/* 
+
       <Navbar />
       <Sidebar>
         <Routes>
@@ -25,7 +25,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/subjects" element={<SubjectAreas />} />
         </Routes>
-      </Sidebar> */}
+      </Sidebar>
     </BrowserRouter>
   );
 }

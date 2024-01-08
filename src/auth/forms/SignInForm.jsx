@@ -20,11 +20,11 @@ function SignInForm() {
       <div className="ball-2"></div>
       <div className="ball-3"></div>
       <div className="w-50">
-        <img
+         <img
           src="https://static.vecteezy.com/system/resources/thumbnails/011/654/703/small/cute-boy-going-to-school-and-bring-a-books-cartoon-3d-icon-illustration-people-education-icon-concept-png.png"
           className="img-fluid rounded-5 h-100"
           alt="img"
-        />
+        /> 
       </div>
       <div className="container mt-5 w-50">
         <div className="row justify-content-center">
