@@ -12,6 +12,7 @@ import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 
 import SearchBar from "../searchbar/SearchBar";
+import SignInForm from "../../auth/forms/SignInForm";
 
 function Sidebar({ children }) {
   const [isOpen, setIsOpen] = useState(true);
@@ -83,7 +84,8 @@ function Sidebar({ children }) {
 
       <main
         className=" p-4 overflow-y-auto main border border-danger overflow-x-hidden subcomponet "
-      ><div className="ball-1"></div>
+      >
+        <div className="ball-1"></div>
         <div className="ball-2"></div>
         <div className="ball-3"></div>
         <SearchBar />
