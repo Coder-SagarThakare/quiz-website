@@ -1,5 +1,5 @@
 body {
-  background-color: #252525 ;
+  /* background-color: #252525 ; */
   color: rgb(234, 234, 234) !important;
   overflow: hidden;
   background-color: rgb(0, 0, 0);
@@ -23,7 +23,7 @@ body::after {
   width: 300px;
   border-radius: 50%;
   background: linear-gradient(#bbff00, hsl(235, 100%, 49%));
-  transform: translate(1200px, -150px);
+  transform: translate(1200px, -300px);
   /* z-index: 0; */
 }
 
@@ -32,7 +32,7 @@ body .ball-1 {
   width: 50px;
   border-radius: 50%;
   background: rgb(0, 255, 0);
-  transform: translate(-100px, 500px);
+  transform: translate(700px, 500px);
   position: absolute;
 }
 
@@ -41,8 +41,9 @@ body .ball-2 {
   width: 80px;
   border-radius: 50%;
   background:linear-gradient( #00ffea,#bbff00);
-  transform: translate(900px, 45px);
+  transform: translate(700px, 45px);
   position: absolute;
+  /* z-index: -1; */
 }
 
 body .ball-3 {

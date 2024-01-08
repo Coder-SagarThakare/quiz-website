@@ -15,27 +15,24 @@ function SignInForm() {
   };
 
   return (
-    <div className="d-flex layout glass-effect subcomponet">
-      {/* <div className="ball-1"></div>
+    <div className="d-flex layout glass-effect">
+      <div className="ball-1"></div>
       <div className="ball-2"></div>
-      <div className="ball-3"></div> */}
+      {/* <div className="ball-3"></div> */}
       <div className="w-50">
          <img
           src="https://static.vecteezy.com/system/resources/thumbnails/011/654/703/small/cute-boy-going-to-school-and-bring-a-books-cartoon-3d-icon-illustration-people-education-icon-concept-png.png"
-          className="img-fluid rounded-5 h-100"
+          className="img-fluid rounded-5 h-100 zindex-5"
           alt="img"
         /> 
       </div>
       <div className="container mt-5 w-50">
         <div className="row justify-content-center">
           <div className="col-md-6">
-            {/* <div className="ball-4"></div>
-            <div className="ball-5"></div> 
-              <div className="ball-6"></div> */}
             <h2>Login to your Account</h2>
             <p className="mb-5">with your registered Email Address</p>
             <form
-              className="form-group d-flex row justify-content-center box"
+              className="form-group d-flex row justify-content-center"
               onSubmit={handleSubmit}
             >
               <label htmlFor="email" className="mb-3 fs-7">
@@ -78,7 +75,7 @@ function SignInForm() {
                 Login
               </button>
 
-              <div className="border border-light d-flex justify-content-center align-items-center text-dark bg-light w-100 mt-5 cursor">
+              <div className="border border-light d-flex justify-content-center align-items-center text-dark bg-light rounded-3 w-100 mt-5 cursor">
                 <FcGoogle className="fs-4" />
                 <button
                   type="button"
