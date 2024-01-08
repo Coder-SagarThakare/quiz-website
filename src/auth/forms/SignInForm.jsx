@@ -30,7 +30,8 @@ function SignInForm() {
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="ball-4"></div>
-            <div className="ball-5"></div> <div className="ball-6"></div>
+            <div className="ball-5"></div> 
+              <div className="ball-6"></div>
             <h2>Login to your Account</h2>
             <p className="mb-5">with your registered Email Address</p>
             <form
