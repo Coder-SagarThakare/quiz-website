@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../images/org_logo.png";
 import { HiMiniUserCircle } from "react-icons/hi2";
 import "./Navbar.css";
+import '../../styles/global.css'
 
 function Navbar() {
   return (
