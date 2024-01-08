@@ -1,5 +1,7 @@
 body {
-  background-color: #252525 ;
+  /* background-color: #252525 ;
+   */
+   background-color: #000000;
   color: rgb(234, 234, 234) !important;
   overflow: hidden;
   height: 100vh;
