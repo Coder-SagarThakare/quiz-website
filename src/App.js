@@ -18,7 +18,7 @@ function App() {
 
       {/* {private routes here we can use for authentication} */}
 
-      {/* <Navbar />
+      <Navbar />
       <Sidebar>
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -26,7 +26,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/subjects" element={<SubjectAreas />} />
         </Routes>
-      </Sidebar> */}
+      </Sidebar>
     </BrowserRouter>
   );
 }

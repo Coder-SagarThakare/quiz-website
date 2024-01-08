@@ -10,8 +10,6 @@ function Carousel() {
   const [clickedIndex, setClickedINdex] = useState(0);
   const img = [ slide2,slide1, slide3];
 
-  console.log(clickedIndex);
-
   const handleToIncreaseClickIndex = () => {
     clickedIndex === img.length - 1
       ? setClickedINdex(0)
