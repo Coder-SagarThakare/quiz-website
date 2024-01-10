@@ -6,7 +6,7 @@ body {
   position: relative
 }
 
-body::before {
+/* body::before {
   content: '';
   position: absolute;
   height: 300px;
@@ -24,10 +24,9 @@ body::after {
   border-radius: 50%;
   background: linear-gradient(#bbff00, hsl(235, 100%, 49%));
   transform: translate(1100px, -150px);
-  /* z-index: 0; */
-}
+} */
 
-body .ball-1 {
+/* body .ball-1 {
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -43,7 +42,6 @@ body .ball-2 {
   background:linear-gradient( #00ffea,#bbff00);
   transform: translate(1000px, 45px);
   position: absolute;
-  /* z-index: -1; */
 }
 
 body .ball-3 {
@@ -53,7 +51,7 @@ body .ball-3 {
   background: rgb(18, 23, 181);
   transform: translate(300px, 500px);
   position: absolute;
-}
+} */
 
 /* underline effect for navbar menu */
 .underline {

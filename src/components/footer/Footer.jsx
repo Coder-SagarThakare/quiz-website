@@ -38,49 +38,64 @@ function Footer() {
     },
   ];
 
+  {/* {footer.map((ele, ind) => (
+      <div className="heading d-flex flex-column" key={ind}>
+        <h6 className="text-decoration-underline">{ele.heading}</h6>
+        {ele.subHeading.map((items,index) => (
+          <NavLink
+            to={items.path}
+            key={`${ind}${index}`}
+            className={`subheading primary-white p-0 p-sm-1 ${items.animation !== false ? "underline" : ""
+              }`}
+          >
+            <div> {items.route}</div>
+          </NavLink>
+        ))}
+      </div>
+    ))} */}
+
   return (
-    <div className=" rounded-1 p-4 d-flex flex-column gap-4 glass-effect mt-3">
+    <div className=" rounded-1 p-4 d-flex flex-column gap-3 glass-effect mt-3">
+
       <div className="logo-div ">
         <img className="h-75" src={logo} alt="logo" />
       </div>
 
-      <div className="d-flex justify-content-between ">
-        {footer.map((ele, ind) => (
-          <div className="heading d-flex flex-column" key={ind}>
-            <h6>{ele.heading}</h6>
-            {ele.subHeading.map((items) => (
-              <NavLink
-                to={items.path}
-                key={ind}
-                className={`subheading primary-white p-1 ${items.animation !== false ? "underline" : ""
-                  }`}
-              >
-                <div> {items.route}</div>
-              </NavLink>
-            ))}
+      <div className="d-flex flex-column  gap-4 flex-md-row justify-content-md-between">
+        <div className=" d-flex flex-column gap-3 flex-sm-row justify-content-sm-around width-50">
+
+          <div className='heading d-flex flex-column'>
+            <h6>GET IN TOUCH</h6>
+            <span>contact</span>
+            <span>email</span>
+            <span>address</span>
           </div>
-        ))}
 
-        {/* <div className='heading d-flex flex-column'>
-                    <h6>GET IN TOUCH</h6>
-                    <span>contact</span>
-                    <span>email</span>
-                    <span>address</span>
-                </div>
+          <div className='heading d-flex flex-column'>
+            <h6>Terms and Conditions</h6>
+            <span>Privacy policy</span>
+            <span>Cookie policy</span>
+          </div>
+        </div>
 
-                <div className='heading d-flex flex-column'>
-                    <h6>Terms and Conditions</h6>
-                    <span>Privacy policy</span>
-                    <span>Cookie policy</span>
-                </div>
+        <div className=" d-flex flex-column gap-3 flex-sm-row justify-content-sm-around width-50">
 
-                <div className='heading d-flex flex-column'>
-                    <h6>Social</h6>
-                    <span>Instagram</span>
-                    <span>Facebook</span>
-                    <span>Twitter</span>
-                </div> */}
+          <div className='heading d-flex flex-column'>
+            <h6>Social</h6>
+            <span>Instagram</span>
+            <span>Facebook</span>
+            <span>Twitter</span>
+          </div>
+
+          <div className='heading d-flex flex-column'>
+            <h6>Careers</h6>
+            <span>Overview</span>
+            <span>Life @Coding Company</span>
+            <span>FAQ's</span>
+          </div>
+        </div>
       </div>
+
 
       <div className="text-center">
         <span>© Copyright 2024. All rights reserved.</span>
