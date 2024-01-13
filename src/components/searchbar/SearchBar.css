@@ -1,0 +1,31 @@
+
+.input-field {
+  border-radius: 30px;
+  width: 100%;
+}
+.searchbar:focus {
+  background: rgb(255, 255, 255,0.2) !important;
+}
+
+input {
+  padding: 8px;
+  border: none;
+  outline: none;
+}
+
+
+@media (max-width: 768px) {
+  .navbar-div {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .input-field {
+    margin-bottom: 10px;
+  }
+}
+
+::placeholder {
+  color: rgb(255, 255, 255);
+}

@@ -1,1 +1,88 @@
+body {
+  /* background-color: #252525 ; */
+  background-image: url('./images/bg_img.jpg');
+  background-size: cover;
+  color: rgb(234, 234, 234) !important;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  position: relative
+}
 
+/* body::before {
+  content: '';
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+  background: linear-gradient(#009dff, #df7d06);
+  transform:rotate(50deg) translate(200px, -100px);
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background: linear-gradient(#bbff00, hsl(235, 100%, 49%));
+  transform: translate(1100px, -150px);
+} */
+
+/* body .ball-1 {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: rgb(0, 255, 0);
+  transform: translate(-100px, 550px);
+  position: absolute;
+}
+
+body .ball-2 {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background:linear-gradient( #00ffea,#bbff00);
+  transform: translate(1000px, 45px);
+  position: absolute;
+}
+
+body .ball-3 {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background: rgb(18, 23, 181);
+  transform: translate(300px, 500px);
+  position: absolute;
+} */
+
+/* underline effect for navbar menu */
+.underline {
+  padding-bottom: 0.25rem; /* defines the space between text and underline */
+  position: relative;
+}
+.underline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: rgb(0, 174, 255);
+  transition: width 0.25s ease-out;
+}
+.underline:hover::before {
+  width: 100%;
+}
+.underline:hover {
+  animation-name: underline-ani;
+  animation-duration: 2s;
+}
+
+.layout{
+  height: 97vh;
+  margin: 10px;
+}
+
+.image{
+  transform: scalex(-1);
+}

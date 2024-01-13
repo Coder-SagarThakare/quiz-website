@@ -1,0 +1,13 @@
+.logo-div {
+  height: 75px;
+}
+
+.subheading {
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .width-50 {
+    width: 50% !important;
+  }
+}
