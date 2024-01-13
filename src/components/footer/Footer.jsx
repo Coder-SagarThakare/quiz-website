@@ -3,6 +3,19 @@ import logo from "../../images/org_logo.png";
 import "./Footer.css";
 import { NavLink } from "react-router-dom";
 
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { IoIosMail } from "react-icons/io";
+import { MdLocationPin } from "react-icons/md";
+import { SiGnuprivacyguard } from "react-icons/si";
+import { MdCookie } from "react-icons/md";
+import { AiFillInstagram } from "react-icons/ai";
+import { FaSquareFacebook } from "react-icons/fa6";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaQuestionCircle } from "react-icons/fa";
+import { ImWink2 } from "react-icons/im";
+import { CiViewTimeline } from "react-icons/ci";
+
+
 function Footer() {
   const footer = [
     {
@@ -55,7 +68,7 @@ function Footer() {
     ))} */}
 
   return (
-    <div className=" rounded-1 p-4 d-flex flex-column gap-3 glass-effect mt-3">
+    <div className=" rounded-1 p-4 d-flex flex-column gap-3 glass-effect mt-3 user-select-none">
 
       <div className="logo-div ">
         <img className="h-75" src={logo} alt="logo" />
@@ -66,32 +79,32 @@ function Footer() {
 
           <div className='heading d-flex flex-column'>
             <h6>GET IN TOUCH</h6>
-            <span>contact</span>
-            <span>email</span>
-            <span>address</span>
+            <span className="cursor mb-1"> <BiSolidPhoneCall size={20} /> +91 9876543210</span>
+            <span className="cursor mb-1"><IoIosMail size={20} /> info@IndianCoders.com</span>
+            <span className="cursor mb-1"><MdLocationPin size={20} /> Address</span>
           </div>
 
           <div className='heading d-flex flex-column'>
             <h6>Terms and Conditions</h6>
-            <span>Privacy policy</span>
-            <span>Cookie policy</span>
+            <span className="underline"> <SiGnuprivacyguard size={20} /> Privacy policy</span>
+            <span className="underline"><MdCookie size={20} /> Cookie policy</span>
           </div>
         </div>
 
         <div className=" d-flex flex-column gap-3 flex-sm-row justify-content-sm-around width-50">
 
-          <div className='heading d-flex flex-column'>
+          <div className='heading d-flex flex-column '>
             <h6>Social</h6>
-            <span>Instagram</span>
-            <span>Facebook</span>
-            <span>Twitter</span>
+            <span className="underline"><AiFillInstagram size={20} /> Instagram</span>
+            <span className="underline"><FaSquareFacebook size={20} /> Facebook</span>
+            <span className="underline"><FaSquareXTwitter size={20} /> Twitter</span>
           </div>
 
-          <div className='heading d-flex flex-column'>
+          <div className='heading d-flex flex-column '>
             <h6>Careers</h6>
-            <span>Overview</span>
-            <span>Life @Coding Company</span>
-            <span>FAQ's</span>
+            <span className="underline"><CiViewTimeline /> Overview</span>
+            <span className="underline"><ImWink2 /> Life @Coding Company</span>
+            <span className="underline"><FaQuestionCircle /> FAQ's</span>
           </div>
         </div>
       </div>

@@ -6,12 +6,6 @@
   text-decoration: none;
 }
 
-/* override the opacity */
-.inc-bg-color {
-  /* opacity: ; */
-  background-color: rgb(255, 255, 255, 0);
-}
-
 @media only screen and (min-width: 768px) {
   .width-50 {
     width: 50% !important;

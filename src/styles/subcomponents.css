@@ -96,7 +96,7 @@
     cursor: pointer;
   } 
 .subcomponent {
-    height: 91vh !important;
+    height: 100vh !important;
 }
 
 .subcomponent .box {

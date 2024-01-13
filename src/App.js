@@ -5,20 +5,20 @@ import SignUpForm from "./auth/forms/SignUpForm";
 import { Navbar, Sidebar } from "./components";
 import { About, Dashboard, Homepage, SubjectAreas } from "./pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import '../src//styles/global.css'  
+import '../src/styles/global.css'  
 
 function App() {
   return (
     <BrowserRouter>
       {/* {public routes here we can use for authentication} */}
       <Routes>
-          <Route path="/SignIn" element={<SignInForm />} />
-          <Route path="/SignUp" element={<SignUpForm />} />
+          <Route path="/signin" element={<SignInForm />} />
+          <Route path="/signup" element={<SignUpForm />} />
       </Routes>
 
       {/* {private routes here we can use for authentication} */}
 
-      <Navbar />
+      {/* <Navbar /> */}
       <Sidebar>
         <Routes>
           <Route path="/" element={<Homepage />} />
