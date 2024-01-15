@@ -12,18 +12,15 @@ function SignUpForm() {
 
   return (
     <div className="d-flex layout glass-effect">
-        <div className="ball-1"></div>
-      <div className="ball-2"></div>
-      {/* <div className="ball-3"></div> */}
-      <div className="w-50">
+      <div className="w-md-50 w-sm-100">
         <div className="container mt-5">
           <div className="row justify-content-center">
-            <div className="col-md-6">
-              <h2 className="mb-3">Sign Up</h2>
+            <div className="col-md-8 col-sm-9 col-8">
+              <h2 className="mb-3 text-sm-center">Sign Up</h2>
 
               <form
                 onSubmit={handleSubmit}
-                className="form-group d-flex row justify-content-center gap-2"
+                className="form-group d-flex row justify-content-center gap-1"
               >
                 <label htmlFor="fullname">Full Name </label>
                 <input
@@ -93,7 +90,7 @@ function SignUpForm() {
           </div>
         </div>
       </div>
-      <div className="w-50 image">
+      <div className="w-md-50 d-none d-md-block image">
         <img
           src="https://static.vecteezy.com/system/resources/thumbnails/011/654/703/small/cute-boy-going-to-school-and-bring-a-books-cartoon-3d-icon-illustration-people-education-icon-concept-png.png"
           className="img-fluid rounded-5 h-100"
