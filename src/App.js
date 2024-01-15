@@ -3,7 +3,7 @@ import SignInForm from "./auth/forms/SignInForm";
 import SignUpForm from "./auth/forms/SignUpForm";
 
 import { Navbar, Sidebar } from "./components";
-import { About, Dashboard, Homepage, SubjectAreas } from "./pages";
+import { About, Dashboard, Homepage, SubjectAreas, Interview} from "./pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import '../src/styles/global.css'  
 
@@ -25,6 +25,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
           <Route path="/subjects" element={<SubjectAreas />} />
+          <Route path="/interview" element={<Interview />} />
+
         </Routes>
       </Sidebar>
     </BrowserRouter>

@@ -13,6 +13,7 @@ import "./Sidebar.css";
 import SearchBar from "../searchbar/SearchBar";
 import SignInForm from "../../auth/forms/SignInForm";
 
+
 function Sidebar({ children }) {
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => {
@@ -38,6 +39,11 @@ function Sidebar({ children }) {
       name: "Subjects",
       icon: <MdSubject />,
       path: "/subjects",
+    },
+    {
+      name: "Interview",
+      icon:"INT",
+      path: "/interview",
     },
     {
       name: "About",
