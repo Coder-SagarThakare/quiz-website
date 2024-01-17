@@ -11,7 +11,6 @@ import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 
 import SearchBar from "../searchbar/SearchBar";
-import SignInForm from "../../auth/forms/SignInForm";
 
 function Sidebar({ children }) {
   const [isOpen, setIsOpen] = useState(true);

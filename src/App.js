@@ -2,7 +2,7 @@ import "./App.css";
 import SignInForm from "./auth/forms/SignInForm";
 import SignUpForm from "./auth/forms/SignUpForm";
 
-import { Navbar, Sidebar } from "./components";
+import {Sidebar } from "./components";
 import { About, Dashboard, Homepage, SubjectAreas } from "./pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import '../src/styles/global.css'  
