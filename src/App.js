@@ -3,7 +3,7 @@ import SignInForm from "./auth/forms/SignInForm";
 import SignUpForm from "./auth/forms/SignUpForm";
 
 import {Sidebar } from "./components";
-import { About, Dashboard, Homepage, SubjectAreas } from "./pages";
+import { About, Dashboard, Homepage, Interview, SubjectAreas } from "./pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import '../src/styles/global.css'  
 
