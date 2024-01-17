@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "../../images/org_logo.png";
 import "./Footer.css";
-import { NavLink } from "react-router-dom";
 
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { IoIosMail } from "react-icons/io";
@@ -17,55 +16,55 @@ import { CiViewTimeline } from "react-icons/ci";
 
 
 function Footer() {
-  const footer = [
-    {
-      heading: "GET IN TOUCH",
-      subHeading: [
-        { route: "+91-987654321", path: "/contact", animation: false },
-        { route: "dummy@gmail.com", path: "/email", animation: false },
-        { route: "At post katraj", path: "/address", animation: false },
-      ],
-    },
-    {
-      heading: "Terms and Conditions",
-      subHeading: [
-        { route: "Privacy policy", path: "/privacy-policy" },
-        { route: "Cookie policy", path: "/cookie-policy" },
-      ],
-    },
-    {
-      heading: "Social",
-      subHeading: [
-        { route: "Facebook", path: "/facebook" },
-        { route: "Instagram", path: "/instagram" },
-        { route: "Twitter", path: "/twitter" },
-      ],
-    },
-    {
-      heading: "Careers",
-      subHeading: [
-        { route: "Overview", path: "/overview" },
-        { route: "Life @Coding Company", path: "/life" },
-        { route: `FAQ's`, path: "/faq" },
-      ],
-    },
-  ];
+  // const footer = [
+  //   {
+  //     heading: "GET IN TOUCH",
+  //     subHeading: [
+  //       { route: "+91-987654321", path: "/contact", animation: false },
+  //       { route: "dummy@gmail.com", path: "/email", animation: false },
+  //       { route: "At post katraj", path: "/address", animation: false },
+  //     ],
+  //   },
+  //   {
+  //     heading: "Terms and Conditions",
+  //     subHeading: [
+  //       { route: "Privacy policy", path: "/privacy-policy" },
+  //       { route: "Cookie policy", path: "/cookie-policy" },
+  //     ],
+  //   },
+  //   {
+  //     heading: "Social",
+  //     subHeading: [
+  //       { route: "Facebook", path: "/facebook" },
+  //       { route: "Instagram", path: "/instagram" },
+  //       { route: "Twitter", path: "/twitter" },
+  //     ],
+  //   },
+  //   {
+  //     heading: "Careers",
+  //     subHeading: [
+  //       { route: "Overview", path: "/overview" },
+  //       { route: "Life @Coding Company", path: "/life" },
+  //       { route: `FAQ's`, path: "/faq" },
+  //     ],
+  //   },
+  // ];
 
-  {/* {footer.map((ele, ind) => (
-      <div className="heading d-flex flex-column" key={ind}>
-        <h6 className="text-decoration-underline">{ele.heading}</h6>
-        {ele.subHeading.map((items,index) => (
-          <NavLink
-            to={items.path}
-            key={`${ind}${index}`}
-            className={`subheading primary-white p-0 p-sm-1 ${items.animation !== false ? "underline" : ""
-              }`}
-          >
-            <div> {items.route}</div>
-          </NavLink>
-        ))}
-      </div>
-    ))} */}
+  // {/* {footer.map((ele, ind) => (
+  //     <div className="heading d-flex flex-column" key={ind}>
+  //       <h6 className="text-decoration-underline">{ele.heading}</h6>
+  //       {ele.subHeading.map((items,index) => (
+  //         <NavLink
+  //           to={items.path}
+  //           key={`${ind}${index}`}
+  //           className={`subheading primary-white p-0 p-sm-1 ${items.animation !== false ? "underline" : ""
+  //             }`}
+  //         >
+  //           <div> {items.route}</div>
+  //         </NavLink>
+  //       ))}
+  //     </div>
+  //   ))} */}
 
   return (
     <div className=" rounded-1 p-4 d-flex flex-column gap-3 glass-effect mt-3 user-select-none">

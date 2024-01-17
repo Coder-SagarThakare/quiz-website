@@ -1,6 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import SignInForm from "./SignInForm";
+
 // import "./style.css";
 
 function SignUpForm() {
