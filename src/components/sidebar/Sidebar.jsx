@@ -14,6 +14,7 @@ import SearchBar from "../searchbar/SearchBar";
 
 
 function Sidebar({ children }) {
+  console.log('in sidebar');
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -86,7 +87,7 @@ function Sidebar({ children }) {
         ))}
       </div>
 
-      <main
+      <div
         className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent "
       ><div className="ball-1"></div>
         <div className="ball-2"></div>
@@ -97,7 +98,7 @@ function Sidebar({ children }) {
           {children}
         </div>
           <Footer />
-      </main>
+      </div>
     </div>
   );
 }
