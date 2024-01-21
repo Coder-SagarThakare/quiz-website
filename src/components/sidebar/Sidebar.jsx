@@ -59,9 +59,15 @@ function Sidebar({ children }) {
         <div className="icon primary-white ">{item.icon}</div>
         <div
           style={{ display: isOpen ? "block" : "none" }}
-          className="link-text primary-white"
+          className="link-text primary-white position-relative w-100"
         >
           {item.name}
+          {index === 3 && <span class="badge bg-info position-absolute top-0 ">Beta</span>}
+          {index == 1 && <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+            <span class="visually-hidden">New alerts</span>
+          </span>}
+
+
         </div>
       </NavLink>
     ))
