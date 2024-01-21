@@ -23,3 +23,20 @@
     backdrop-filter: blur(20px);
     box-shadow: -15px -17px 17px rgba(10, 10, 10, 0.25);
 }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(110, 110, 110);
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+  }

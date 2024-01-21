@@ -1,6 +1,6 @@
                                        
 .sidebar {
-  width: 250px;
+  /* width: 300px !important; */
   min-width: 80px;
   height: 99.99vh;
 }
@@ -15,16 +15,19 @@
 }
 
 .link:hover {
-  /* border : 1px solid white; */
   background-color: rgb(110, 110, 110,0.4);
 }
-.logout:hover{
+.logout-btn ,.login-btn{
+  position: sticky;
+  bottom: 0;
+}
+.login-btn:hover {
+  background-color: #1e4ead;
+
+}
+
+.logout-btn:hover{
   background-color: #bf4747;
-
-  /* opacity: 0.3; */
-  /* color: black; */
-  font-size: 1rem;
-
 }
 
 .icon {
@@ -36,8 +39,8 @@
 }
 
 .main {
-  flex-grow: 1;
-  box-sizing: border-box;
+  /* flex-grow: 1; */
+  /* box-sizing: border-box; */
   /* background-color: #141414; */
 }
 
@@ -64,20 +67,4 @@
   .link-text {
     display: none !important;
   }
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(110, 110, 110);
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
 }

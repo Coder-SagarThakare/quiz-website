@@ -5,13 +5,17 @@ import { RiHomeHeartFill } from "react-icons/ri";
 import { MdSubject } from "react-icons/md";
 import { Footer } from "../../components/";
 import '../../styles/subcomponents.css'
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 import { TbLogout2 } from "react-icons/tb";
 import SearchBar from "../searchbar/SearchBar";
+import { TbLogin2 } from "react-icons/tb";
+
 
 function Sidebar({ children }) {
   console.log('in sidebar');
+  const navigate = useNavigate()
+
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -66,10 +70,10 @@ function Sidebar({ children }) {
   return (
     <div className="d-flex ">
       <div
-        style={{ width: isOpen ? "250px" : "70px" }}
-        className="p-3 glass-effect sidebar d-flex flex-column"
+        style={{ width: isOpen ? "300px" : "70px" }}
+        className="glass-effect sidebar d-flex flex-column overflow-x-hidden"
       >
-        <div className="d-flex align-items-center justify-content-between ">
+        <div className="d-flex align-items-center justify-content-between p-3 pb-2 ">
           <h3
             style={{ display: isOpen ? "block" : "none" }}
             className="cursor primary-white m-0 logo"
@@ -77,30 +81,37 @@ function Sidebar({ children }) {
           >
             Quizzy
           </h3>
-          <FaBars className="bars cursor primary-white" onClick={toggle} />
+          <FaBars size={25} className="bars cursor primary-white" onClick={toggle} />
 
         </div>
         {/* middle horizontal line */}
-        <div className="position-absolute w-100 start-0 border mt-5"
-          style={{ opacity: "0.3" }}
-        ></div>
 
-        <div className=" d-flex flex-column justify-content-between mt-4 h-100">
+        <div className=" d-flex flex-column justify-content-between h-100 p-2 border-top">
           <div>
             {allMenus()}
           </div>
 
-          <div className="d-flex align-items-center gap-3 cursor border-top p-2 rounded logout sticky-top ">
-            <TbLogout2 size={25} />
-            <span>
-              Logout
-            </span>
-          </div>
+          {true ?
+            <div className="d-flex align-items-center gap-3 cursor border-top p-2 rounded login-btn"
+              onClick={() => navigate('/signin')}>
+              <TbLogin2 size={25} />
+              <span>
+                Login
+              </span>
+            </div>
+            :
+            <div className="d-flex align-items-center gap-3 cursor border-top p-2 rounded logout-btn" >
+
+              <TbLogout2 size={25} />
+              <span>
+                Logout
+              </span>
+            </div>}
         </div>
       </div>
 
       <div
-        className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent "
+        className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100"
       ><div className="ball-1"></div>
         <div className="ball-2"></div>
         <div className="ball-3"></div>
