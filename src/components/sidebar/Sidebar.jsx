@@ -5,13 +5,10 @@ import { RiHomeHeartFill } from "react-icons/ri";
 import { MdSubject } from "react-icons/md";
 import { Footer } from "../../components/";
 import '../../styles/subcomponents.css'
-
-
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
-
+import { TbLogout2 } from "react-icons/tb";
 import SearchBar from "../searchbar/SearchBar";
-
 
 function Sidebar({ children }) {
   console.log('in sidebar');
@@ -42,7 +39,7 @@ function Sidebar({ children }) {
     },
     {
       name: "Interview",
-      icon:"INT",
+      icon: "INT",
       path: "/interview",
     },
     {
@@ -52,39 +49,54 @@ function Sidebar({ children }) {
     },
   ];
 
+  const allMenus = () =>
+    MenuItem.map((item, index) => (
+      <NavLink to={item.path} key={index} className="link rounded-1">
+        <div className="icon primary-white ">{item.icon}</div>
+        <div
+          style={{ display: isOpen ? "block" : "none" }}
+          className="link-text primary-white"
+        >
+          {item.name}
+        </div>
+      </NavLink>
+    ))
+
+
   return (
-    <div className="container-div ">
+    <div className="d-flex ">
       <div
         style={{ width: isOpen ? "250px" : "70px" }}
-        className="sidebar "
+        className="p-3 glass-effect sidebar d-flex flex-column"
       >
-        <div className="top-section">
-          <h1
+        <div className="d-flex align-items-center justify-content-between ">
+          <h3
             style={{ display: isOpen ? "block" : "none" }}
-            className="logo cursor primary-white"
+            className="cursor primary-white m-0 logo"
             onClick={openHome}
           >
-            Quiz Time
-          </h1>
-          <div
-            // style={{ marginLeft: isOpen ? "70px" : "0px", cursor: "pointer" }}
-            className="bars cursor primary-white mx-2"
-          >
-            <FaBars onClick={toggle} />
+            Quizzy
+          </h3>
+          <FaBars className="bars cursor primary-white" onClick={toggle} />
+
+        </div>
+        {/* middle horizontal line */}
+        <div className="position-absolute w-100 start-0 border mt-5"
+          style={{ opacity: "0.3" }}
+        ></div>
+
+        <div className=" d-flex flex-column justify-content-between mt-4 h-100">
+          <div>
+            {allMenus()}
+          </div>
+
+          <div className="d-flex align-items-center gap-3 cursor border-top p-2 rounded logout sticky-top ">
+            <TbLogout2 size={25} />
+            <span>
+              Logout
+            </span>
           </div>
         </div>
-
-        {MenuItem.map((item, index) => (
-          <NavLink to={item.path} key={index} className="link">
-            <div className="icon primary-white ">{item.icon}</div>
-            <div
-              style={{ display: isOpen ? "block" : "none" }}
-              className="link-text primary-white"
-            >
-              {item.name}
-            </div>
-          </NavLink>
-        ))}
       </div>
 
       <div
@@ -97,7 +109,7 @@ function Sidebar({ children }) {
 
           {children}
         </div>
-          <Footer />
+        <Footer />
       </div>
     </div>
   );
