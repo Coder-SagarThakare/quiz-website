@@ -55,7 +55,7 @@ function Sidebar({ children }) {
 
   const allMenus = () =>
     MenuItem.map((item, index) => (
-      <NavLink to={item.path} key={index} className="link rounded-1">
+      <NavLink to={item.path} key={index} className="link rounded-1 ">
         <div className="icon primary-white ">{item.icon}</div>
         <div
           style={{ display: isOpen ? "block" : "none" }}
@@ -67,7 +67,6 @@ function Sidebar({ children }) {
             <span class="visually-hidden">New alerts</span>
           </span>}
 
-
         </div>
       </NavLink>
     ))
@@ -77,7 +76,7 @@ function Sidebar({ children }) {
     <div className="d-flex ">
       <div
         style={{ width: isOpen ? "300px" : "70px" }}
-        className="glass-effect sidebar d-flex flex-column overflow-x-hidden"
+        className="glass-effect sidebar d-flex flex-column overflow-x-hidden mt-4"
       >
         <div className="d-flex align-items-center justify-content-between p-3 pb-2 ">
           <h3
@@ -97,8 +96,8 @@ function Sidebar({ children }) {
             {allMenus()}
           </div>
 
-          {true ?
-            <div className="d-flex align-items-center gap-3 cursor border-top p-2 rounded login-btn"
+          {false ?
+            <div className="d-flex align-items-center gap-3 cursor p-2 login-btn glass-effect"
               onClick={() => navigate('/signin')}>
               <TbLogin2 size={25} />
               <span>
@@ -106,7 +105,7 @@ function Sidebar({ children }) {
               </span>
             </div>
             :
-            <div className="d-flex align-items-center gap-3 cursor border-top p-2 rounded logout-btn" >
+            <div className="d-flex align-items-center gap-3 cursor p-2 logout-btn  glass-effect" >
 
               <TbLogout2 size={25} />
               <span>
