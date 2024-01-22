@@ -63,7 +63,7 @@ function Sidebar({ children }) {
         >
           {item.name}
           {index === 3 && <span class="badge bg-info position-absolute top-0 ">Beta</span>}
-          {index == 1 && <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+          {index === 1 && <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
             <span class="visually-hidden">New alerts</span>
           </span>}
 
