@@ -5,15 +5,17 @@ import { RiHomeHeartFill } from "react-icons/ri";
 import { MdSubject } from "react-icons/md";
 import { Footer } from "../../components/";
 import '../../styles/subcomponents.css'
-
-
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Sidebar.css";
-
+import { TbLogout2 } from "react-icons/tb";
 import SearchBar from "../searchbar/SearchBar";
+import { TbLogin2 } from "react-icons/tb";
 
 
 function Sidebar({ children }) {
+  console.log('in sidebar');
+  const navigate = useNavigate()
+
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -41,7 +43,7 @@ function Sidebar({ children }) {
     },
     {
       name: "Interview",
-      icon:"INT",
+      icon: "INT",
       path: "/interview",
     },
     {
@@ -51,43 +53,70 @@ function Sidebar({ children }) {
     },
   ];
 
+  const allMenus = () =>
+    MenuItem.map((item, index) => (
+      <NavLink to={item.path} key={index} className="link rounded-1 ">
+        <div className="icon primary-white ">{item.icon}</div>
+        <div
+          style={{ display: isOpen ? "block" : "none" }}
+          className="link-text primary-white position-relative w-100"
+        >
+          {item.name}
+          {index === 3 && <span class="badge bg-info position-absolute top-0 ">Beta</span>}
+          {index === 1 && <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+            <span class="visually-hidden">New alerts</span>
+          </span>}
+
+        </div>
+      </NavLink>
+    ))
+
+
   return (
-    <div className="container-div">
+    <div className="d-flex ">
       <div
-        style={{ width: isOpen ? "250px" : "70px" }}
-        className="sidebar "
+        style={{ width: isOpen ? "300px" : "70px" }}
+        className="glass-effect sidebar d-flex flex-column overflow-x-hidden mt-4"
       >
-        <div className="top-section">
-          <h1
+        <div className="d-flex align-items-center justify-content-between p-3 pb-2 ">
+          <h3
             style={{ display: isOpen ? "block" : "none" }}
-            className="logo cursor primary-white"
+            className="cursor primary-white m-0 logo"
             onClick={openHome}
           >
-            Quiz Time
-          </h1>
-          <div
-            // style={{ marginLeft: isOpen ? "70px" : "0px", cursor: "pointer" }}
-            className="bars cursor primary-white mx-2"
-          >
-            <FaBars onClick={toggle} />
-          </div>
-        </div>
+            Quizzy
+          </h3>
+          <FaBars size={25} className="bars cursor primary-white" onClick={toggle} />
 
-        {MenuItem.map((item, index) => (
-          <NavLink to={item.path} key={index} className="link">
-            <div className="icon primary-white ">{item.icon}</div>
-            <div
-              style={{ display: isOpen ? "block" : "none" }}
-              className="link-text primary-white"
-            >
-              {item.name}
+        </div>
+        {/* middle horizontal line */}
+
+        <div className=" d-flex flex-column justify-content-between h-100 p-2 border-top">
+          <div>
+            {allMenus()}
+          </div>
+
+          {false ?
+            <div className="d-flex align-items-center gap-3 cursor p-2 login-btn glass-effect"
+              onClick={() => navigate('/signin')}>
+              <TbLogin2 size={25} />
+              <span>
+                Login
+              </span>
             </div>
-          </NavLink>
-        ))}
+            :
+            <div className="d-flex align-items-center gap-3 cursor p-2 logout-btn  glass-effect" >
+
+              <TbLogout2 size={25} />
+              <span>
+                Logout
+              </span>
+            </div>}
+        </div>
       </div>
 
-      <main
-        className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent "
+      <div
+        className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100"
       ><div className="ball-1"></div>
         <div className="ball-2"></div>
         <div className="ball-3"></div>
@@ -96,8 +125,8 @@ function Sidebar({ children }) {
 
           {children}
         </div>
-          <Footer />
-      </main>
+        <Footer />
+      </div>
     </div>
   );
 }

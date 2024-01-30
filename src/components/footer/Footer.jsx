@@ -67,7 +67,7 @@ function Footer() {
   //   ))} */}
 
   return (
-    <div className=" rounded-1 p-4 d-flex flex-column gap-3 glass-effect mt-3 user-select-none">
+    <div className=" p-4 d-flex flex-column gap-3 glass-effect mt-3 user-select-none">
 
       <div className="logo-div ">
         <img className="h-75" src={logo} alt="logo" />
