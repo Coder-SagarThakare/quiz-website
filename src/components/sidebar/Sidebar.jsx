@@ -105,7 +105,7 @@ function Sidebar({ children }) {
               </span>
             </div>
             :
-            <div className="d-flex align-items-center gap-3 cursor p-2 logout-btn  glass-effect" >
+            <div className="d-flex align-items-center gap-3 cursor p-2 logout-btn glass-effect" >
 
               <TbLogout2 size={25} />
               <span>
