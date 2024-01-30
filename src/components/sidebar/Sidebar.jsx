@@ -52,7 +52,7 @@ function Sidebar({ children }) {
   ];
 
   return (
-    <div className="container-div ">
+    <div className="container-div">
       <div
         style={{ width: isOpen ? "250px" : "70px" }}
         className="sidebar "
