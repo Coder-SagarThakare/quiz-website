@@ -107,3 +107,13 @@
 .font-8 {
   font-size: 9rem;
 }
+
+
+@media (max-width: 760px) {
+
+  .subcomponent{
+    position: fixed;
+    /* display: none; */
+  }
+}
+  
