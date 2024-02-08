@@ -15,6 +15,7 @@ import { TbLogin2 } from "react-icons/tb";
 function Sidebar({ children }) {
   console.log('in sidebar');
   const navigate = useNavigate()
+  const [isMobile, setMobile] = useState(false);
 
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => {
@@ -28,6 +29,12 @@ function Sidebar({ children }) {
 
     // console.log(isOpen);
     // setMobile(!isMobile);
+  };
+
+  const toggleIfMobile = () => {
+    console.log(isMobile);
+    // setIsMobileToggle(!isMobileToggle)
+    setMobile(!isMobile);
   };
 
   const openHome = () => {
@@ -108,7 +115,9 @@ function Sidebar({ children }) {
           className={`d-flex flex-column justify-content-between h-100 p-2 border-top ${isMobile ? "d-none" : "d-block"
             }`}
         >
-          <div><AllMenus/></div>
+          <div>
+            <AllMenus/>
+          </div>
 
           {false ?
             <div className="d-flex align-items-center gap-3 cursor p-2 login-btn glass-effect"

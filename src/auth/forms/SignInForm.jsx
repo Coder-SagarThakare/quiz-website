@@ -27,7 +27,7 @@ function SignInForm() {
         />
       </div>
       <div className="mt-5 w-md-50">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center ">
           <div className="col-md-7 col-sm-8 col-9">
             <h2>Login to your Account</h2>
             <p className="mb-5">with your registered Email Address</p>
