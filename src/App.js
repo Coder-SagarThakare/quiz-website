@@ -2,18 +2,18 @@ import "./App.css";
 import SignInForm from "./auth/forms/SignInForm";
 import SignUpForm from "./auth/forms/SignUpForm";
 
-import {Sidebar } from "./components";
+import { Sidebar } from "./components";
 import { About, Dashboard, Homepage, Interview, SubjectAreas } from "./pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import '../src/styles/global.css'  
+import '../src/styles/global.css'
 
 function App() {
   return (
     <BrowserRouter>
       {/* {public routes here we can use for authentication} */}
       <Routes>
-          <Route path="/signin" element={<SignInForm />} />
-          <Route path="/signup" element={<SignUpForm />} />
+        <Route path="/signin" element={<SignInForm />} />
+        <Route path="/signup" element={<SignUpForm />} />
       </Routes>
 
       {/* {private routes here we can use for authentication} */}
@@ -27,6 +27,7 @@ function App() {
           <Route path="/subjects" element={<SubjectAreas />} />
           <Route path="/interview" element={<Interview />} />
 
+          <Route path="/*" element={<h1>not found </h1>} />
         </Routes>
       </Sidebar>
     </BrowserRouter>
