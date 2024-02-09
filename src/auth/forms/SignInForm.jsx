@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { LabelledInput } from "../../components";
 import { useForm } from "react-hook-form";
-// import "./style.css";
+import { useNavigate } from "react-router";
 
 function SignInForm() {
   const { handleSubmit, register ,formState: { errors },} = useForm();
+  const navigate = useNavigate();
 
   const onsubmit = (data) => {
     console.log(data);
@@ -20,11 +21,12 @@ function SignInForm() {
           alt="img"
         />
       </div>
+
       <div className="mt-5 w-md-50">
         <div className="row justify-content-center ">
           <div className="col-md-7 col-sm-8 col-9">
             <h2>Login to your Account</h2>
-            <p className="mb-5">with your registered Email Address</p>
+            <p className="mb-4">with your registered Email Address</p>
             <form
               className="form-group d-flex row justify-content-center"
               onSubmit={handleSubmit(onsubmit)}
@@ -50,17 +52,9 @@ function SignInForm() {
                 errors= {errors}
               />
 
-              <div className="mt-3">
-                <input type="checkbox" name="rememberPass" id="rememberPass" />
-                <label htmlFor="rememberPass" className="fs-7">
-                  {"                               "}
-                  Remember my password
-                </label>
-              </div>
-
               <button
                 type="submit"
-                className="btn btn-primary mt-3 w-100 rounded-3 fs-6"
+                className="btn btn-primary mt-3 w-100 rounded-3"
               >
                 Login
               </button>
@@ -77,9 +71,7 @@ function SignInForm() {
 
               <div className="mt-3">
                 Don't have an account?{" "}
-                <a href="/SignUp" className="fw-bold text-decoration-none">
-                  Sign Up
-                </a>
+                <span className="fw-bold text-primary cursor" onClick={() => navigate('/signup')}>Sign Up</span>
               </div>
             </form>
           </div>

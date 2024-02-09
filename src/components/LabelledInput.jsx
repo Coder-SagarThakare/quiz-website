@@ -15,7 +15,7 @@
 
 function LabelledInput(props) {
   return (
-    <div className="p-2">
+    <div className="py-2 px-0">
       <label className="mb-1"> {props.label}</label>
 
       <input
