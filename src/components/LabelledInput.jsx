@@ -7,9 +7,10 @@
  * @param {Boolean} isRequired  is field is required or not
  * @param {object}  errors   it is object of react-hook-form
  * @param {object}  register    to register our field in react-hook-from , object of react-hook-form
- * @param {className} className  to apply customised classnames of bootstrap
- * @param {}
- * @returns returns a HTML of inputfield
+ * @param {String}  className  to apply customised classnames of bootstrap
+ * @param {Object}  style   apply customized styling
+ *
+ * @returns - returns a HTML of inputfield
  */
 
 function LabelledInput(props) {
@@ -18,7 +19,8 @@ function LabelledInput(props) {
       <label className="mb-1"> {props.label}</label>
 
       <input
-        className="form-control w-100 "
+        style={props.style}
+        className={`form-control w-100 ${props.className}`}
         type={`${props.type}`}
         name={`${props.name}`}
         id={props.id}
@@ -36,6 +38,5 @@ function LabelledInput(props) {
     </div>
   );
 }
-
 
 export default LabelledInput;
