@@ -81,11 +81,11 @@ function Sidebar({ children }) {
           {index === 3 && (
             <span className="badge bg-info position-absolute top-0 ">Beta</span>
           )}
-          {index === 1 && (
+          {/* {index === 1 && (
             <span className="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
               <span className="visually-hidden">New alerts</span>
             </span>
-          )}
+          )} */}
         </div>
       </NavLink>
     ))

@@ -1,24 +1,18 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { LabelledInput } from "../../components";
+import { useForm } from "react-hook-form";
 // import "./style.css";
 
 function SignInForm() {
-  const [username, setusername] = useState("");
-  const [password, setpassword] = useState("");
-  const [setlogin] = useState(false);
+  const { handleSubmit, register ,formState: { errors },} = useForm();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setlogin(true);
-    // onChange(false);
-    console.log(`Form submitted! ${username} ${password}`);
+  const onsubmit = (data) => {
+    console.log(data);
   };
 
   return (
     <div className="d-flex layout glass-effect">
-      <div className="ball-1"></div>
-      <div className="ball-2"></div>
-      {/* <div className="ball-3"></div> */}
       <div className="w-md-50 d-none d-md-block">
         <img
           src="https://static.vecteezy.com/system/resources/thumbnails/011/654/703/small/cute-boy-going-to-school-and-bring-a-books-cartoon-3d-icon-illustration-people-education-icon-concept-png.png"
@@ -33,34 +27,29 @@ function SignInForm() {
             <p className="mb-5">with your registered Email Address</p>
             <form
               className="form-group d-flex row justify-content-center"
-              onSubmit={handleSubmit}
+              onSubmit={handleSubmit(onsubmit)}
             >
-              <label htmlFor="email" className="mb-3 fs-7">
-                User Name:
-              </label>
-              <input
+
+              <LabelledInput
+                label="Username"  
+                name="name"
                 type="text"
-                className="form-control rounded-3 mb-3 fs-7 "
-                name="username"
-                id="username"
-                value={username}
-                onChange={(e) => setusername(e.target.value)}
-                placeholder="Enter Email Address"
-                required
+                placeholder="Enter Username"
+                isRequired={true}
+                register={register}
+                errors= {errors}
               />
-              <label htmlFor="password" className="mb-3 fs-7">
-                Password:
-              </label>
-              <input
-                type="password"
-                className="form-control rounded-3 fs-7"
+
+              <LabelledInput
+                label="Password"
                 name="password"
-                id="password"
-                value={password}
-                onChange={(e) => setpassword(e.target.value)}
-                placeholder="Password"
-                required
+                type="password"
+                placeholder="Enter Password"
+                isRequired={true}
+                register={register}
+                errors= {errors}
               />
+
               <div className="mt-3">
                 <input type="checkbox" name="rememberPass" id="rememberPass" />
                 <label htmlFor="rememberPass" className="fs-7">
@@ -68,6 +57,7 @@ function SignInForm() {
                   Remember my password
                 </label>
               </div>
+
               <button
                 type="submit"
                 className="btn btn-primary mt-3 w-100 rounded-3 fs-6"

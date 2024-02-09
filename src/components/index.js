@@ -4,3 +4,4 @@ export { default as Sidebar } from "./sidebar/Sidebar";
 export { default as Carousel } from './carousel/Carousel';
 export { default as Footer } from './footer/Footer';
 export { default as Card } from './card/Card';
+export { default as LabelledInput } from './LabelledInput';
