@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { LabelledInput } from "../../components";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-const { REACT_APP_BASE_URL } = process.env
+import { BASE_URL } from "../../constants";
 
 function SignInForm() {
   const { handleSubmit, register, formState: { errors }, } = useForm();
@@ -11,7 +11,7 @@ function SignInForm() {
 
   const onsubmit = (data) => {
     console.log(data);
-    console.log('process.env.PUBLIC_URL : ', REACT_APP_BASE_URL);
+    console.log('process.env.PUBLIC_URL : ', BASE_URL);
   };
 
   return (

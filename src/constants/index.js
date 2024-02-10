@@ -1,0 +1,4 @@
+//process.env data
+export const BASE_URL = process.env.REACT_APP_BASE_URL
+
+// static data to add in component
