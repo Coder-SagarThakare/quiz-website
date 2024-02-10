@@ -3,13 +3,15 @@ import { FcGoogle } from "react-icons/fc";
 import { LabelledInput } from "../../components";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+const { REACT_APP_BASE_URL } = process.env
 
 function SignInForm() {
-  const { handleSubmit, register ,formState: { errors },} = useForm();
+  const { handleSubmit, register, formState: { errors }, } = useForm();
   const navigate = useNavigate();
 
   const onsubmit = (data) => {
     console.log(data);
+    console.log('process.env.PUBLIC_URL : ', REACT_APP_BASE_URL);
   };
 
   return (
@@ -33,13 +35,13 @@ function SignInForm() {
             >
 
               <LabelledInput
-                label="Username"  
+                label="Username"
                 name="name"
                 type="text"
                 placeholder="Enter Username"
                 isRequired={true}
                 register={register}
-                errors= {errors}
+                errors={errors}
               />
 
               <LabelledInput
@@ -49,7 +51,7 @@ function SignInForm() {
                 placeholder="Enter Password"
                 isRequired={true}
                 register={register}
-                errors= {errors}
+                errors={errors}
               />
 
               <button
