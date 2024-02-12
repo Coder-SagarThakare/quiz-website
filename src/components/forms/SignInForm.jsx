@@ -16,7 +16,6 @@ function SignInForm() {
 
   /**
    *  Function to handle form submission
-   *
    * @param {object} data - The user login data to be submitted.
    */
   const onsubmit = async (data) => {
@@ -25,8 +24,8 @@ function SignInForm() {
 
       // Manage the authentication token received from the server
       manageToken("set", "token", result.token);
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
     }
   };
 

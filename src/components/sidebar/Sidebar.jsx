@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { RxDashboard } from "react-icons/rx";
-import { FaBars, FaUserAlt } from "react-icons/fa";
-import { RiHomeHeartFill } from "react-icons/ri";
-import { MdSubject } from "react-icons/md";
+import { FaBars } from "react-icons/fa";
 import { Footer } from "../../components/";
 import '../../styles/subcomponents.css'
-import { NavLink, useNavigate } from "react-router-dom";
 import "./Sidebar.css";
+import { NavLink, useNavigate } from "react-router-dom";
 import { TbLogout2 } from "react-icons/tb";
 import SearchBar from "../searchbar/SearchBar";
 import { TbLogin2 } from "react-icons/tb";
-
+import { MenuItem } from "../../constants";
 
 function Sidebar({ children }) {
   console.log('in sidebar');
@@ -41,37 +38,11 @@ function Sidebar({ children }) {
     window.location.href = "/";
   };
 
-  const MenuItem = [
-    {
-      name: "Homepage",
-      icon: <RiHomeHeartFill />,
-      path: "/",
-    },
-    {
-      name: "Dashboard",
-      icon: <RxDashboard />,
-      path: "/dashboard",
-    },
-    {
-      name: "Subjects",
-      icon: <MdSubject />,
-      path: "/subjects",
-    },
-    {
-      name: "Interview",
-      icon: "INT",
-      path: "/interview",
-    },
-    {
-      name: "About",
-      icon: <FaUserAlt />,
-      path: "/about",
-    },
-  ];
+
 
   const AllMenus = () =>
     MenuItem.map((item, index) => (
-      <NavLink to={item.path} key={index} className="link rounded-1 ">
+      <NavLink to={item.path} key={index} className="link rounded-1">
         <div className="icon primary-white ">{item.icon}</div>
         <div
           style={{ display: isOpen ? "block" : "none" }}
@@ -116,7 +87,7 @@ function Sidebar({ children }) {
             }`}
         >
           <div>
-            <AllMenus/>
+            <AllMenus />
           </div>
 
           {false ?
