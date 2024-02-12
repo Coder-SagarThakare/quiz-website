@@ -14,15 +14,20 @@ function SignInForm() {
   } = useForm();
   const navigate = useNavigate();
 
+  /**
+   * Submits user login data to the server for authentication.
+   *
+   * @param {object} data - The user login data to be submitted.
+   */
   const onsubmit = (data) => {
     loginUser(`/auth/login?captcha=false`, data)
       .then((result) => {
-        // console.log("response : ", result);
+        console.log("response : ", result);
+        
+        // Manage the authentication token received from the server
         manageToken("set", "token", result.token);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
 
   return (
