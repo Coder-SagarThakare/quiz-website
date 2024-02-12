@@ -8,6 +8,7 @@ import { TbLogout2 } from "react-icons/tb";
 import SearchBar from "../searchbar/SearchBar";
 import { TbLogin2 } from "react-icons/tb";
 import { MenuItem } from "../../constants";
+import { manageToken } from "../../services";
 
 function Sidebar({ children }) {
   console.log('in sidebar');
@@ -61,6 +62,24 @@ function Sidebar({ children }) {
       </NavLink>
     ))
 
+  const IsUserLoggedIn = () => {
+    return (!manageToken('get', 'token') ?
+      <div className="d-flex align-items-center gap-3 cursor p-2 login-btn glass-effect"
+        onClick={() => navigate('/signin')}>
+        <TbLogin2 size={25} />
+        <span>
+          Login
+        </span>
+      </div>
+      :
+      <div className="d-flex align-items-center gap-3 cursor p-2 logout-btn glass-effect" >
+        <TbLogout2 size={25} />
+        <span>
+          Logout
+        </span>
+      </div>)
+  }
+
 
   return (
     <div className="d-flex ">
@@ -90,22 +109,7 @@ function Sidebar({ children }) {
             <AllMenus />
           </div>
 
-          {false ?
-            <div className="d-flex align-items-center gap-3 cursor p-2 login-btn glass-effect"
-              onClick={() => navigate('/signin')}>
-              <TbLogin2 size={25} />
-              <span>
-                Login
-              </span>
-            </div>
-            :
-            <div className="d-flex align-items-center gap-3 cursor p-2 logout-btn glass-effect" >
-
-              <TbLogout2 size={25} />
-              <span>
-                Logout
-              </span>
-            </div>}
+          <IsUserLoggedIn />
         </div>
       </div>
 
