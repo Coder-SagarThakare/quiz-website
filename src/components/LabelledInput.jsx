@@ -29,12 +29,11 @@ function LabelledInput(props) {
           required: `${props.isRequired}`,
         })}
       />
+  
+      {props.errors?.[props.name]?.type === "required" && (
+        <p className="text-danger">{props.name} is required</p>
+      )}
 
-      {props.errors &&
-        props.errors[props.name] &&
-        props.errors[props.name].type === "required" && (
-          <p className="text-danger">{props.name} is required</p>
-        )}
     </div>
   );
 }

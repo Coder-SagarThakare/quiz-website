@@ -3,8 +3,8 @@ import { FcGoogle } from "react-icons/fc";
 import { LabelledInput } from "..";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { BASE_URL, signinImg } from "../../constants";
-import { manageToken } from "../../services";
+import { signinImg } from "../../constants";
+import { loginUser, manageToken } from "../../services";
 
 function SignInForm() {
   const {
@@ -15,10 +15,14 @@ function SignInForm() {
   const navigate = useNavigate();
 
   const onsubmit = (data) => {
-    console.log(data);
-    console.log("process.env.PUBLIC_URL : ", BASE_URL);
-    // manageToken('get','token')
-    // console.log(manageToken('set','token'));
+    loginUser(`/auth/login?captcha=false`, data)
+      .then((result) => {
+        // console.log("response : ", result);
+        manageToken("set", "token", result.token);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -42,7 +46,7 @@ function SignInForm() {
             >
               <LabelledInput
                 label="Username"
-                name="name"
+                name="email"
                 type="text"
                 placeholder="Enter Username"
                 isRequired={true}
