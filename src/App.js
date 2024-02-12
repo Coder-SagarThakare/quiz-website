@@ -1,19 +1,17 @@
 import "./App.css";
-import SignInForm from "./auth/forms/SignInForm";
-import SignUpForm from "./auth/forms/SignUpForm";
 
-import { Sidebar } from "./components";
+import { Sidebar, SignIn, SignUp } from "./components";
 import { About, Dashboard, Homepage, Interview, SubjectAreas } from "./pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import '../src/styles/global.css'
+import "../src/styles/global.css";
 
 function App() {
   return (
     <BrowserRouter>
       {/* {public routes here we can use for authentication} */}
       <Routes>
-        <Route path="/signin" element={<SignInForm />} />
-        <Route path="/signup" element={<SignUpForm />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
 
       {/* {private routes here we can use for authentication} */}

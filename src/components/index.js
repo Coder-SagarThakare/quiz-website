@@ -5,3 +5,5 @@ export { default as Carousel } from './carousel/Carousel';
 export { default as Footer } from './footer/Footer';
 export { default as Card } from './card/Card';
 export { default as LabelledInput } from './LabelledInput';
+export {default as SignIn} from './forms/SignInForm'
+export {default as SignUp} from './forms/SignUpForm'

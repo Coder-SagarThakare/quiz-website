@@ -25,7 +25,7 @@ function Sidebar({ children }) {
       setIsOpen(!isOpen);
     }
 
-    const toggle = () => (window.innerWidth < 760) ? setMobile(!isMobile) : setIsOpen(!isOpen);
+    // const toggle = () => (window.innerWidth < 760) ? setMobile(!isMobile) : setIsOpen(!isOpen);
 
     // console.log(isOpen);
     // setMobile(!isMobile);

@@ -1,24 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import { LabelledInput } from "../../components";
+import { LabelledInput } from "..";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { BASE_URL } from "../../constants";
+import { BASE_URL, signinImg } from "../../constants";
+import { manageToken } from "../../services";
 
 function SignInForm() {
-  const { handleSubmit, register, formState: { errors }, } = useForm();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
 
   const onsubmit = (data) => {
     console.log(data);
-    console.log('process.env.PUBLIC_URL : ', BASE_URL);
+    console.log("process.env.PUBLIC_URL : ", BASE_URL);
+    // manageToken('get','token')
+    // console.log(manageToken('set','token'));
   };
 
   return (
     <div className="d-flex layout glass-effect">
       <div className="w-md-50 d-none d-md-block">
         <img
-          src="https://static.vecteezy.com/system/resources/thumbnails/011/654/703/small/cute-boy-going-to-school-and-bring-a-books-cartoon-3d-icon-illustration-people-education-icon-concept-png.png"
+          src={signinImg}
           className="img-fluid rounded-5 h-100 zindex-5"
           alt="img"
         />
@@ -33,7 +40,6 @@ function SignInForm() {
               className="form-group d-flex row justify-content-center"
               onSubmit={handleSubmit(onsubmit)}
             >
-
               <LabelledInput
                 label="Username"
                 name="name"
@@ -73,7 +79,12 @@ function SignInForm() {
 
               <div className="mt-3">
                 Don't have an account?{" "}
-                <span className="fw-bold text-primary cursor" onClick={() => navigate('/signup')}>Sign Up</span>
+                <span
+                  className="fw-bold text-primary cursor"
+                  onClick={() => navigate("/signup")}
+                >
+                  Sign Up
+                </span>
               </div>
             </form>
           </div>
