@@ -1,13 +1,14 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import { LabelledInput } from "..";
+import { Button, LabelledInput } from "..";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { SignIn, SignInImg } from "../../images"
+import { SignIn } from "../../images"
 import { loginUser, manageToken } from "../../services";
 import Img from "../Img";
 
 function SignInForm() {
+
   const {
     handleSubmit,
     register,
@@ -31,7 +32,7 @@ function SignInForm() {
   };
 
   return (
-    <div className="d-flex layout glass-effect p-2">
+    <div className="d-flex layout glass-effect p-lg-5 ">
       <div className="w-50 d-none d-md-block m-auto ">
         <Img src={SignIn} alt="signin-img" />
       </div>
@@ -65,12 +66,13 @@ function SignInForm() {
                 errors={errors}
               />
 
-              <button
+              {/* <button
                 type="submit"
                 className="btn btn-primary mt-3 w-100 rounded-3"
               >
                 Login
-              </button>
+              </button> */}
+              <Button title='Login' type='submit' onClick={() => { console.log('sagar') }} />
 
               <div className="border border-light d-flex justify-content-center align-items-center text-dark bg-light rounded-3 w-100 mt-5 cursor">
                 <FcGoogle className="fs-4" />
