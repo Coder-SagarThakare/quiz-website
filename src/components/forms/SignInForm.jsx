@@ -3,8 +3,9 @@ import { FcGoogle } from "react-icons/fc";
 import { LabelledInput } from "..";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { signinImg } from "../../constants";
+import { SignIn, SignInImg } from "../../images"
 import { loginUser, manageToken } from "../../services";
+import Img from "../Img";
 
 function SignInForm() {
   const {
@@ -30,16 +31,12 @@ function SignInForm() {
   };
 
   return (
-    <div className="d-flex layout glass-effect">
-      <div className="w-md-50 d-none d-md-block">
-        <img
-          src={signinImg}
-          className="img-fluid rounded-5 h-100 zindex-5"
-          alt="img"
-        />
+    <div className="d-flex layout glass-effect p-2">
+      <div className="w-50 d-none d-md-block m-auto ">
+        <Img src={SignIn} alt="signin-img" />
       </div>
 
-      <div className="mt-5 w-md-50">
+      <div className=" w-md-50  m-auto">
         <div className="row justify-content-center ">
           <div className="col-md-7 col-sm-8 col-9">
             <h2>Login to your Account</h2>
