@@ -5,7 +5,7 @@ function Button({ className, title, type, src, ...props }) {
     return (
         <button
 
-            className={`w-100 d-flex justify-content-evenly align-items-center ${className}`}
+            className={`w-100 d-flex justify-content-between align-items-center ${className}`}
             {...props}
         >
             <img src={src}></img>

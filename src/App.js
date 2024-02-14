@@ -16,7 +16,6 @@ function App() {
 
       {/* {private routes here we can use for authentication} */}
 
-      {/* <Navbar /> */}
       <Sidebar>
         <Routes>
           <Route path="/" element={<Homepage />} />
