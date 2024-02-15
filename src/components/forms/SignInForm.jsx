@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { SignIn } from "../../images";
 import { loginUser, manageToken } from "../../services";
 import Img from "../Img";
+import "./style.css";
 
 function SignInForm() {
   const {
@@ -38,6 +39,7 @@ function SignInForm() {
 
       <div className="w-100 w-md-50 d-flex flex-column align-items-center justify-content-center ">
         <div className="glass-effect p-4">
+          {/* <div className="ball-1 "></div>  */}
           <h2>Login to your Account</h2>
           <p className="mb-4">with your registered Email</p>
           <form
@@ -78,9 +80,9 @@ function SignInForm() {
             />
 
             <div className="mt-3">
-              Don't have an account?{" "}
+              <span>Don't have an account? </span>
               <span
-                className="fw-bold text-primary cursor "
+                className="fw-semibold cursor text-decoration-underline"
                 onClick={() => navigate("/signup")}
               >
                 Sign Up
