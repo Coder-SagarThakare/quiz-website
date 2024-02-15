@@ -37,66 +37,57 @@ function SignInForm() {
       </div>
 
       <div className="w-100 w-md-50 d-flex flex-column align-items-center justify-content-center ">
-        <h2>Login to your Account</h2>
-        <p className="mb-4">with your registered Email-id</p>
-        <form
-          className="form-group d-flex d-flex flex-column "
-          onSubmit={handleSubmit(onsubmit)}
-        >
-          <LabelledInput
-            label="Username"
-            name="email"
-            type="text"
-            placeholder="Enter Username"
-            isRequired={true}
-            register={register}
-            errors={errors}
-          />
+        <div className="glass-effect p-4">
+          <h2>Login to your Account</h2>
+          <p className="mb-4">with your registered Email</p>
+          <form
+            className="d-flex flex-column "
+            onSubmit={handleSubmit(onsubmit)}
+          >
+            <LabelledInput
+              label="Username"
+              name="email"
+              type="text"
+              placeholder="Enter Username"
+              isRequired={true}
+              register={register}
+              errors={errors}
+            />
 
-          <LabelledInput
-            label="Password"
-            name="password"
-            type="password"
-            placeholder="Enter Password"
-            isRequired={true}
-            register={register}
-            errors={errors}
-          />
+            <LabelledInput
+              label="Password"
+              name="password"
+              type="password"
+              placeholder="Enter Password"
+              isRequired={true}
+              register={register}
+              errors={errors}
+            />
 
-          {/* <button
-                type="submit"
-                className="btn btn-primary mt-3 w-100 rounded-3"
-              >
-                Login
-              </button> */}
-          <Button
-            title="Login"
-            type="submit"
-            onClick={() => {
-              console.log("sagar");
-            }}
-          />
+            <Button
+              title="Login"
+              type="submit"
+              className="btn-primary border-0"
+            />
 
-          <div className="border border-light d-flex justify-content-center align-items-center text-dark bg-light rounded-3 w-100 mt-5 cursor">
-            <FcGoogle className="fs-4" />
-            <button
+            <Button
               type="button"
-              className="border-0 p-2 bg-light w-75 w-md-auto mt-2 mt-md-0"
-            >
-              Login with Google
-            </button>
-          </div>
+              title={"Login with Google"}
+              className={"mt-4 bg-light"}
+              Icon={FcGoogle}
+            />
 
-          <div className="mt-3">
-            Don't have an account?{" "}
-            <span
-              className="fw-bold text-primary cursor"
-              onClick={() => navigate("/signup")}
-            >
-              Sign Up
-            </span>
-          </div>
-        </form>
+            <div className="mt-3">
+              Don't have an account?{" "}
+              <span
+                className="fw-bold text-primary cursor "
+                onClick={() => navigate("/signup")}
+              >
+                Sign Up
+              </span>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

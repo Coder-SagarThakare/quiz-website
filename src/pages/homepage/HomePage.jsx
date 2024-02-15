@@ -5,6 +5,7 @@ function HomePage() {
   return (
     <div>
       <div className="">
+        
         <Carousel />
 
       </div>

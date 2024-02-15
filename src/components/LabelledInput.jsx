@@ -31,7 +31,7 @@ function LabelledInput(props) {
       />
   
       {props.errors?.[props.name]?.type === "required" && (
-        <p className="text-danger">{props.name} is required</p>
+        <p className="text-danger m-0">{props.name} is required</p>
       )}
 
     </div>
