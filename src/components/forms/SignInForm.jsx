@@ -7,8 +7,10 @@ import { SignIn } from "../../images";
 import { loginUser, manageToken } from "../../services";
 import Img from "../Img";
 import "./style.css";
+import toast from "react-hot-toast";
 
 function SignInForm() {
+  console.log('in sign in form');
   const {
     handleSubmit,
     register,
@@ -22,7 +24,34 @@ function SignInForm() {
    */
   const onsubmit = async (data) => {
     try {
-      const result = await loginUser(`/auth/login?captcha=false`, data);
+
+
+      const result = loginUser(`/auth/login?captcha=false`, data);
+
+      toast.success('done ',{
+        id: 'clipboard',
+      })
+
+      // toast.promise(
+      //   loginUser(`/auth/login?captcha=false`, data),
+      //   {
+      //     loading: 'Loading',
+      //     success: (data) => {
+      //       toast.dismiss();
+      //       return `Successfully saved ${data.name}`
+      //     },
+      //     error: (err) => `This just happened: ${err.toString()}`,
+      //   },
+      //   {
+      //     style: {
+      //       minWidth: '250px',
+      //     },
+      //     success: {
+      //       duration: 3000,
+      //       icon: '🔥',
+      //     },
+      //   }
+      // );
 
       // Manage the authentication token received from the server
       manageToken("set", "token", result.token);
@@ -32,7 +61,7 @@ function SignInForm() {
   };
 
   return (
-    <div className="d-flex layout glass-effect p-lg-5 ">
+    <div className="d-flex layout glass-effect p-lg-5 user-select-none">
       <div className="w-50 h-100 d-none d-md-block ">
         <Img src={SignIn} alt="signin-img" className="h-100" />
       </div>

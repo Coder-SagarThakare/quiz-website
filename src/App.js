@@ -4,6 +4,7 @@ import { Sidebar, SignIn, SignUp } from "./components";
 import { About, Dashboard, Homepage, Interview, SubjectAreas } from "./pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../src/styles/global.css";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           <Route path="/*" element={<h1>not found </h1>} />
         </Routes>
       </Sidebar>
+
+      <Toaster />
+
     </BrowserRouter>
   );
 }

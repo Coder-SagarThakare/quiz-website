@@ -1,6 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../constants";
 import { manageToken } from "../services";
+import toast from "react-hot-toast";
 
 // Create a reusable Axios instance with a base URL
 // The base URL for all HTTP requests
@@ -30,6 +31,7 @@ axiosInstance.interceptors.response.use(
   },
   (err) => {
     console.log("ERROR : ", err.response.data.message);
+    toast.error(err.response.data.message)
     return Promise.reject(err);
   }
 );
