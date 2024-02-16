@@ -5,6 +5,36 @@ import { About, Dashboard, Homepage, Interview, SubjectAreas } from "./pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
+import Router from "./routes/Router";
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       {/* {public routes here we can use for authentication} */}
+//       <Routes>
+//         <Route path="/signin" element={<SignIn />} />
+//         <Route path="/signup" element={<SignUp />} />
+//       </Routes>
+
+//       {/* {private routes here we can use for authentication} */}
+
+//       <Sidebar>
+//         <Routes>
+//           <Route path="/" element={<Homepage />} />
+//           <Route path="/dashboard" element={<Dashboard />} />
+//           <Route path="/about" element={<About />} />
+//           <Route path="/subjects" element={<SubjectAreas />} />
+//           <Route path="/interview" element={<Interview />} />
+
+//           <Route path="/*" element={<h1>not found </h1>} />
+//         </Routes>
+//       </Sidebar>
+
+//       <Toaster />
+
+//     </BrowserRouter>
+//   );
+// }
 
 function App() {
   return (
@@ -19,18 +49,11 @@ function App() {
 
       <Sidebar>
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/subjects" element={<SubjectAreas />} />
-          <Route path="/interview" element={<Interview />} />
-
-          <Route path="/*" element={<h1>not found </h1>} />
+          <Route path="/*" element={<Router />} />
         </Routes>
       </Sidebar>
 
       <Toaster />
-
     </BrowserRouter>
   );
 }
