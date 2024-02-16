@@ -10,3 +10,7 @@ import axiosInstance from "../middlewares";
 export const loginUser = (url, data) => {
   return axiosInstance.post(url, data);
 };
+
+export const manageUser = (url)=>{
+  return axiosInstance.get(url)
+}

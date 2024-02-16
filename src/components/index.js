@@ -8,4 +8,5 @@ export { default as SignIn } from './forms/SignInForm'
 export { default as SignUp } from './forms/SignUpForm'
 export { default as Button } from './Button'
 export { default as Img } from './Img'
+export {default as SagarSidebar } from './sidebar/SagarSidebar'
 
