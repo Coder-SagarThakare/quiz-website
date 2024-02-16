@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { SagarSidebar, Sidebar, SignIn, SignUp } from "./components";
+import { SagarSidebar, SignIn, SignUp } from "./components";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
