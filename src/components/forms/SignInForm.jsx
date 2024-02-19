@@ -26,9 +26,7 @@ function SignInForm() {
     try {
       const result = await loginUser(`/auth/login?captcha=false`, data);
 
-      toast.success("Login Sucessfull !!!", {
-        id: "clipboard",
-      });
+      toast.success("Login Successful !!!");
 
       manageToken("set", "token", result.token);
     } catch (err) {
