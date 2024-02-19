@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
 import { manageToken, manageUser } from "../services";
 
@@ -6,21 +6,32 @@ import { manageToken, manageUser } from "../services";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setuser] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    if (manageToken("get", "token")) {
-      const data = manageUser("get", "/user/self");
 
-      if (data) {
-        setuser(data);
+    const fetchData = async () => {
+
+      if (manageToken("get", "token")) {
+        const data = await manageUser("get", "/user/self");
+        console.log(data);
+
+        if (data) {
+          setUser(data);
+        }
       }
     }
+
+    fetchData()
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setuser }}>
+    <AuthContext.Provider value={{ user, setUser }}>
       {children}
     </AuthContext.Provider>
   );
+};
+
+export const useAuth = () => {
+  return useContext(AuthContext);
 };

@@ -9,11 +9,14 @@ import SearchBar from "../searchbar/SearchBar";
 import { TbLogin2 } from "react-icons/tb";
 import { MenuItem } from "../../constants";
 import { manageToken } from "../../services";
+import { useAuth } from "../../context/AuthContext";
 
 function SagarSidebar({ children }) {
   console.log('in sidebar');
   const navigate = useNavigate()
   const [isMobile, setMobile] = useState(false);
+  const {user,setUser} = useAuth()
+
 
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => {
@@ -63,7 +66,7 @@ function SagarSidebar({ children }) {
     ))
 
   const IsUserLoggedIn = () => {
-    return (!manageToken('get', 'token') ?
+    return (!user ?
       <div className="d-flex align-items-center gap-3 cursor p-2 login-btn glass-effect"
         onClick={() => navigate('/signin')}>
         <TbLogin2 size={25} />
