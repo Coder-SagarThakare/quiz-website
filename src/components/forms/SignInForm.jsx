@@ -8,6 +8,7 @@ import { loginUser, manageToken } from "../../services";
 import Img from "../Img";
 import "./style.css";
 import toast from "react-hot-toast";
+import { useAuth } from "../../context/AuthContext";
 
 function SignInForm() {
   console.log("in sign in form");
@@ -17,6 +18,7 @@ function SignInForm() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
+  const { setUser } = useAuth();
 
   /**
    *  Function to handle form submission
@@ -25,12 +27,12 @@ function SignInForm() {
   const onsubmit = async (data) => {
     try {
       const result = await loginUser(`/auth/login?captcha=false`, data);
-
-      toast.success("Login Successful !!!");
-
       manageToken("set", "token", result.token);
+      setUser(result.user)
+      toast.success("Login Successfully !!!");
+      navigate('/')
     } catch (err) {
-      console.log("in error catch ", err);
+      console.log("Error in SignInForm.jsx ", err);
     }
   };
 

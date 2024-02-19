@@ -10,12 +10,14 @@ import { TbLogin2 } from "react-icons/tb";
 import { MenuItem } from "../../constants";
 import { manageToken } from "../../services";
 import { useAuth } from "../../context/AuthContext";
+import { PiStudentFill } from "react-icons/pi";
+
 
 function SagarSidebar({ children }) {
   console.log('in sidebar');
   const navigate = useNavigate()
   const [isMobile, setMobile] = useState(false);
-  const {user,setUser} = useAuth()
+  const { user, setUser } = useAuth()
 
 
   const [isOpen, setIsOpen] = useState(true);
@@ -66,25 +68,39 @@ function SagarSidebar({ children }) {
     ))
 
   const IsUserLoggedIn = () => {
-    return (!user ?
-      <div className="d-flex align-items-center gap-3 cursor p-2 login-btn glass-effect"
-        onClick={() => navigate('/signin')}>
-        <TbLogin2 size={25} />
-        <span>
-          Login
-        </span>
-      </div>
-      :
-      <div className="d-flex align-items-center gap-3 cursor p-2 logout-btn glass-effect" 
-      onClick={()=>manageToken('delete','token')}
+    return <div>
+
+      <div
+        className={`d-flex align-items-center gap-3 cursor p-2 glass-effect ${user ? 'logout-btn' : 'login-btn'}`}
+        onClick={handleUser}
+        title={user ? `Logout as ${user.name}` : `Login`}
       >
-        <TbLogout2 size={25} />
-        <span>
-          Logout
-        </span>
-      </div>)
+        {/* {user && <div className="d-flex gap-3 align-items-center">
+          <PiStudentFill />
+          <div > <span>{user.name}</span></div>
+        </div>
+        } */}
+        {/* {user ? <TbLogout2 size={25} /> : <TbLogin2 size={25} />}
+        <span>{user ? `${user.name}` : `Login`}</span> */}
+
+        {user ?
+          <><TbLogout2 size={25} /> {user.name}</>
+          :
+          <><TbLogin2 size={25} /> Login </>}
+
+
+      </div>
+    </div>
   }
 
+  const handleUser = () => {
+    if (user) {
+      manageToken('delete', "token")
+      setUser(null)
+    } else {
+      navigate('/signin')
+    }
+  }
 
   return (
     <div className="d-flex ">
