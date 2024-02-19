@@ -10,7 +10,7 @@ import "./style.css";
 import toast from "react-hot-toast";
 
 function SignInForm() {
-  console.log('in sign in form');
+  console.log("in sign in form");
   const {
     handleSubmit,
     register,
@@ -24,38 +24,15 @@ function SignInForm() {
    */
   const onsubmit = async (data) => {
     try {
+      const result = await loginUser(`/auth/login?captcha=false`, data);
 
-      const result = loginUser(`/auth/login?captcha=false`, data);
+      toast.success("Login Sucessfull !!!", {
+        id: "clipboard",
+      });
 
-      toast.success('done ',{
-        id: 'clipboard',
-      })
-
-      // toast.promise(
-      //   loginUser(`/auth/login?captcha=false`, data),
-      //   {
-      //     loading: 'Loading',
-      //     success: (data) => {
-      //       toast.dismiss();
-      //       return `Successfully saved ${data.name}`
-      //     },
-      //     error: (err) => `This just happened: ${err.toString()}`,
-      //   },
-      //   {
-      //     style: {
-      //       minWidth: '250px',
-      //     },
-      //     success: {
-      //       duration: 3000,
-      //       icon: '🔥',
-      //     },
-      //   }
-      // );
-
-      // Manage the authentication token received from the server
       manageToken("set", "token", result.token);
     } catch (err) {
-      console.log(err);
+      console.log("in error catch ", err);
     }
   };
 
