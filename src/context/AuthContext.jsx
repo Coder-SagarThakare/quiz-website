@@ -8,17 +8,18 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setuser] = useState(null);
 
-  console.log('user',user);
-
   useEffect(() => {
     if (manageToken("get", "token")) {
-      const user = manageUser("/user/self");
-      console.log(user);
+      const data = manageUser("get", "/user/self");
+
+      if (data) {
+        setuser(data);
+      }
     }
-  });
+  }, []);
 
   return (
-    <AuthContext.Provider Provider={{ user, setuser }}>
+    <AuthContext.Provider value={{ user, setuser }}>
       {children}
     </AuthContext.Provider>
   );
