@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 // import "./style.css";
 
 function SignUpForm() {
+
+  const API = "http://localhost:8022";
+
+  let [formData, setFormData] = useState({ name: "", password: "", email:"" });
+
+
+  const handleChange = (e) => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+  }
+
+  const registerUser = async (Data) => {
+    console.log(Data);
+   await axios.post(`${API}/auth/register?captcha=false`, Data)
+       .then((res)=>{
+           alert('Registration Successful!');
+           window.location.reload();
+       })
+       .catch((error) => {
+           console.error('Registration Error:', error);
+           alert('Registration Failed');
+       });
+};
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // onChange(true);
-    console.log(`Form submitted!`);
+    // if(formData.fullname && formData.password && formData.email){
+        registerUser(formData);
+        console.log('You have submitted the form', formData);
+    // }
   };
 
   return (
@@ -21,17 +50,19 @@ function SignUpForm() {
                 onSubmit={handleSubmit}
                 className="form-group d-flex row justify-content-center gap-1"
               >
-                <label htmlFor="fullname">Full Name </label>
+                <label htmlFor="name">Full Name </label>
                 <input
                   type="text"
+                  onChange={handleChange}
                   className="form-control rounded-5"
-                  name="fullname"
+                  name="name"
                 />
 
                 <label htmlFor="email">Email address </label>
                 <input
                   type="email"
                   className="form-control mt-2 rounded-5"
+                  onChange={handleChange}
                   name="email"
                   id="email"
                 />
@@ -40,20 +71,23 @@ function SignUpForm() {
                 <input
                   type="password"
                   className="form-control rounded-5"
+                  onChange={handleChange}
                   name="password"
                 />
 
-                <label htmlFor="confirm-password">Confirm Password</label>
+                {/* <label htmlFor="confirmPassword">Confirm Password</label>
                 <input
                   type="password"
                   className="form-control rounded-5"
-                  name="confirm-password"
-                />
-
+                  onChange={handleChange}
+                  name="confirmPassword"
+                /> */}
+{/* 
                 <div className="my-2">
                   <input
                     type="radio"
                     className="form-check-input mx-2"
+                    onChange={handleChange}
                     name="gender"
                     id="gender-male"
                   />
@@ -64,13 +98,14 @@ function SignUpForm() {
                   <input
                     type="radio"
                     className="form-check-input mx-2"
+                    onChange={handleChange}
                     name="gender"
                     id="gender-female"
                   />
                   <label className="form-check-label" htmlFor="gender-female">
                     Female
                   </label>
-                </div>
+                </div> */}
 
                 <button type="submit" className="btn btn-primary rounded-5">
                   Sign Up

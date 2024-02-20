@@ -28,6 +28,7 @@ function Sidebar({ children }) {
      
     
     // console.log(isOpen);
+    
     // setMobile(!isMobile);
   };
 

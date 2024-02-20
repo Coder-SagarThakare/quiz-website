@@ -1,17 +1,35 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import axios from "axios";
 // import "./style.css";
 
 function SignInForm() {
-  const [username, setusername] = useState("");
+  const API = "http://localhost:8022";
+
+  const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
-  const [setlogin] = useState(false);
+  const [login,setlogin] = useState(false);
+
+  const userData = {email, password};
+
+  const loginUser = async (userData) => {
+    console.log("userdata",userData);
+    
+    try {
+        const response = await axios.post(`${API}/auth/login?captcha=false`,userData);
+        console.log("response",response.data);
+    } catch (error) {
+        console.error('Login Error:', error);
+        alert('Login Failed. Please try again later.');
+    }
+};
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setlogin(true);
-    // onChange(false);
-    console.log(`Form submitted! ${username} ${password}`);
+    loginUser(userData);
+    console.log(`Form submitted! ${email} ${password}`);
   };
 
   return (
@@ -41,10 +59,10 @@ function SignInForm() {
               <input
                 type="text"
                 className="form-control rounded-3 mb-3 fs-7 "
-                name="username"
+                name="email"
                 id="username"
-                value={username}
-                onChange={(e) => setusername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter Email Address"
                 required
               />
