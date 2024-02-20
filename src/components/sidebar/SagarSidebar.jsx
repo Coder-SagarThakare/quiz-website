@@ -4,9 +4,8 @@ import { Footer } from "../../components/";
 import '../../styles/subcomponents.css'
 import "./Sidebar.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import { TbLogout2 } from "react-icons/tb";
+import { TbLogout2, TbLogin2} from "react-icons/tb";
 import SearchBar from "../searchbar/SearchBar";
-import { TbLogin2 } from "react-icons/tb";
 import { MenuItem } from "../../constants";
 import { manageToken } from "../../services";
 import { useAuth } from "../../context/AuthContext";
@@ -17,8 +16,9 @@ function SagarSidebar({ children }) {
   const [isMobile, setMobile] = useState(false);
   const { user, setUser } = useAuth()
 
-
   const [isOpen, setIsOpen] = useState(true);
+
+
   const toggle = () => {
     if (window.innerWidth < 760) {
       setMobile(!isMobile);
@@ -27,22 +27,16 @@ function SagarSidebar({ children }) {
     }
 
     // const toggle = () => (window.innerWidth < 760) ? setMobile(!isMobile) : setIsOpen(!isOpen);
-
-    // console.log(isOpen);
-    // setMobile(!isMobile);
   };
 
   const toggleIfMobile = () => {
     console.log(isMobile);
-    // setIsMobileToggle(!isMobileToggle)
     setMobile(!isMobile);
   };
 
   const openHome = () => {
     window.location.href = "/";
   };
-
-
 
   const AllMenus = () =>
     MenuItem.map((item, index) => (
@@ -56,11 +50,11 @@ function SagarSidebar({ children }) {
           {index === 3 && (
             <span className="badge bg-info position-absolute top-0 ">Beta</span>
           )}
-          {/* {index === 1 && (
+          {index === 1 && (
             <span className="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
               <span className="visually-hidden">New alerts</span>
             </span>
-          )} */}
+          )}
         </div>
       </NavLink>
     ))

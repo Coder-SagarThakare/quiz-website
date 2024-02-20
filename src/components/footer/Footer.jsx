@@ -4,18 +4,18 @@ import "./Footer.css";
 
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { IoIosMail } from "react-icons/io";
-import { MdLocationPin } from "react-icons/md";
+import { MdLocationPin,  MdCookie } from "react-icons/md";
 import { SiGnuprivacyguard } from "react-icons/si";
-import { MdCookie } from "react-icons/md";
+import { FaSquareXTwitter,  FaSquareFacebook } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
-import { FaSquareFacebook } from "react-icons/fa6";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaQuestionCircle } from "react-icons/fa";
 import { ImWink2 } from "react-icons/im";
 import { CiViewTimeline } from "react-icons/ci";
+import { FaQuestionCircle } from "react-icons/fa";
+import { memo } from "react";
 
 
 function Footer() {
+  console.log('footer');
   // const footer = [
   //   {
   //     heading: "GET IN TOUCH",
@@ -79,7 +79,7 @@ function Footer() {
           <div className='heading d-flex flex-column'>
             <h6>GET IN TOUCH</h6>
             <span className="cursor mb-1"> <BiSolidPhoneCall size={20} /> +91 9876543210</span>
-            <span className="cursor mb-1"><IoIosMail size={20} /> info@IndianCoders.com</span>
+            <span className="cursor mb-1 text-truncate"><IoIosMail size={20} /> info@IndianCoders.com</span>
             <span className="cursor mb-1"><MdLocationPin size={20} /> Address</span>
           </div>
 
@@ -116,4 +116,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default memo(Footer);

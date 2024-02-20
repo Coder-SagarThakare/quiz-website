@@ -14,7 +14,6 @@ export const AuthProvider = ({ children }) => {
 
       if (manageToken("get", "token")) {
         const data = await manageUser("get", "/user/self");
-        console.log(data);
 
         if (data) {
           setUser(data);
