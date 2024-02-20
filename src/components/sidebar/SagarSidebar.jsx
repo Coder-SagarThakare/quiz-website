@@ -10,8 +10,6 @@ import { TbLogin2 } from "react-icons/tb";
 import { MenuItem } from "../../constants";
 import { manageToken } from "../../services";
 import { useAuth } from "../../context/AuthContext";
-import { PiStudentFill } from "react-icons/pi";
-
 
 function SagarSidebar({ children }) {
   console.log('in sidebar');

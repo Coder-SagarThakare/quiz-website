@@ -28,9 +28,9 @@ function SignInForm() {
     try {
       const result = await loginUser(`/auth/login?captcha=false`, data);
       manageToken("set", "token", result.token);
-      setUser(result.user)
+      setUser(result.user);
       toast.success("Login Successfully !!!");
-      navigate('/')
+      navigate("/");
     } catch (err) {
       console.log("Error in SignInForm.jsx ", err);
     }
@@ -77,10 +77,16 @@ function SignInForm() {
               className="btn-primary border-0"
             />
 
+            <div className="d-flex align-items-center my-3">
+              <span className="border w-100 mx-1"></span>
+              <div>OR</div>
+              <div className="border w-100 mx-1"></div>
+            </div>
+
             <Button
               type="button"
-              title={"Login with Google"}
-              className={"mt-4 bg-light"}
+              title="Login with Google"
+              className=" btn-light"
               Icon={FcGoogle}
             />
 
