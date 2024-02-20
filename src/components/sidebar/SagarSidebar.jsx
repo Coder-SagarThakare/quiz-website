@@ -79,11 +79,10 @@ function SagarSidebar({ children }) {
         </div>
       </NavLink>
     ));
-    
+
   // return login/logout button according to scenario
   const IsUserLoggedIn = () => {
     return (
-      <div>
         <div
           className={`d-flex align-items-center  gap-3 cursor p-2 glass-effect  
             ${user ? "logout-btn" : "login-btn"} ${!isOpen && "justify-content-center"}`}
@@ -104,7 +103,6 @@ function SagarSidebar({ children }) {
             </>
           )}
         </div>
-      </div>
     );
   };
 
@@ -156,9 +154,6 @@ function SagarSidebar({ children }) {
       </div>
 
       <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100">
-        <div className="ball-1"></div>
-        <div className="ball-2"></div>
-        <div className="ball-3"></div>
 
         {isMobile ? (
           <>
