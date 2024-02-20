@@ -31,7 +31,7 @@
 }
 
 .link-text {
-  font-size: 1rem;
+  /* font-size: 1rem; */
 }
 
 .main {
@@ -61,7 +61,7 @@
     margin-left: 12px !important;
   }
 
-  .link-text {
+  .menu-text {
     display: none !important;
   }
 }
