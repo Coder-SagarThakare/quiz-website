@@ -5,18 +5,14 @@
   max-width: 99vh;
 }
 
-.link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 10px 7px;
-  gap: 15px;
-  transition: all 0.3s ease;
+.menu {
+  transition: all 0.3s linear ;
 }
 
-.link:hover {
+.menu:hover {
   background-color: rgb(110, 110, 110,0.4);
 }
+
 .logout-btn ,.login-btn{
   position: sticky;
   bottom: 0;
@@ -31,7 +27,7 @@
 }
 
 .icon {
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .link-text {
@@ -47,8 +43,9 @@
 .active {
   background-color: #4a2fad;
   transform: scale(1.05);
+  transition: all 1s linear ;
 
-  padding: 10px 10px;
+  /* padding: 10px 10px; */
 }
 
 @media (max-width: 760px) {

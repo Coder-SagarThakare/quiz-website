@@ -13,8 +13,8 @@ import { useAuth } from "../../context/AuthContext";
 function SagarSidebar({ children }) {
   console.log('in sidebar');
   const navigate = useNavigate()
-  const [isMobile, setMobile] = useState(false);
   const { user, setUser } = useAuth()
+  const [isMobile, setMobile] = useState(false);
 
   const [isOpen, setIsOpen] = useState(true);
 
@@ -38,27 +38,49 @@ function SagarSidebar({ children }) {
     window.location.href = "/";
   };
 
-  const AllMenus = () =>
-    MenuItem.map((item, index) => (
-      <NavLink to={item.path} key={index} className="link rounded-1">
-        <div className="icon primary-white ">{item.icon}</div>
-        <div
-          style={{ display: isOpen ? "block" : "none" }}
-          className="link-text primary-white position-relative w-100"
-        >
-          {item.name}
-          {index === 3 && (
-            <span className="badge bg-info position-absolute top-0 ">Beta</span>
-          )}
-          {index === 1 && (
-            <span className="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
-              <span className="visually-hidden">New alerts</span>
-            </span>
-          )}
-        </div>
-      </NavLink>
-    ))
+  // return all menu of sidebar
+  // const AllMenus = () =>
+  //   MenuItem.map((item, index) => (
+  //     <NavLink to={item.path} key={index} className="link rounded-1">
+  //       <div className="icon primary-white ">{item.icon}</div>
+  //       <div
+  //         style={{ display: isOpen ? "block" : "none" }}
+  //         className="link-text primary-white position-relative w-100"
+  //       >
+  //         {item.name}
+  //         {index === 3 && (
+  //           <span className="badge bg-info position-absolute top-0 ">Beta</span>
+  //         )}
+  //         {index === 1 && (
+  //           <span className="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+  //             <span className="visually-hidden">New alerts</span>
+  //           </span>
+  //         )}
+  //       </div>
+  //     </NavLink>
+  //   ))
 
+  const AllMenus = () =>
+  MenuItem.map((item, index) => (
+    <NavLink to={item.path} key={index} className="text-decoration-none rounded-2 d-flex justify-content-center align-items-center p-2 gap-3 menu"  >
+      <div className="icon primary-white d-flex align-items-center">{item.icon}</div>
+
+      <div
+        className={`link-text primary-white position-relative w-100 align-items-center  ${isOpen ? "d-block" : "d-flex"}`}
+      >
+        {item.name}
+        {/* {index === 3 && (
+          <span className="badge bg-info position-absolute top-0 ">Beta</span>
+        )}
+        {index === 1 && (
+          <span className="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+            <span className="visually-hidden">New alerts</span>
+          </span>
+        )} */}
+      </div>
+    </NavLink>
+  ))
+    // return login/logout button according to scenario
   const IsUserLoggedIn = () => {
     return <div>
 
@@ -67,13 +89,6 @@ function SagarSidebar({ children }) {
         onClick={handleUser}
         title={user ? `Logout as ${user.name}` : `Login`}
       >
-        {/* {user && <div className="d-flex gap-3 align-items-center">
-          <PiStudentFill />
-          <div > <span>{user.name}</span></div>
-        </div>
-        } */}
-        {/* {user ? <TbLogout2 size={25} /> : <TbLogin2 size={25} />}
-        <span>{user ? `${user.name}` : `Login`}</span> */}
 
         {user ?
           <><TbLogout2 size={25} /> {user.name}</>
@@ -85,6 +100,7 @@ function SagarSidebar({ children }) {
     </div>
   }
 
+  // to handle user's token nad navigation
   const handleUser = () => {
     if (user) {
       manageToken('delete', "token")
@@ -97,7 +113,7 @@ function SagarSidebar({ children }) {
   return (
     <div className="d-flex ">
       <div
-        style={{ width: isOpen ? "300px" : "70px" }}
+        style={{ width: isOpen ? "300px" : "50px " }}
         className={`glass-effect sidebar d-flex flex-column overflow-x-hidden mt-4  ${isMobile ? "mobile" : "desktop"
           }`}
       >
