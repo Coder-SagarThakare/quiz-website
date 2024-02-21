@@ -1,6 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { LoginModal } from "../components";
 import Swal from "sweetalert2";
 
 function ProtectedRoutes() {
@@ -11,17 +10,16 @@ function ProtectedRoutes() {
 
 function Alert() {
   const navigate = useNavigate();
+
   Swal.fire({
     title: "Please Login to access this feature ?",
-    // showDenyButton: true,
     showCancelButton: true,
     confirmButtonText: "Login",
-    // denyButtonText: `Register`,
   }).then((result) => {
-    /* Read more about isConfirmed, isDenied below */
+    console.log(result);
     if (result.isConfirmed) {
       navigate("/signin");
-    } else if (result.isDenied) {
+    } else if (result.isDismissed) {
       navigate("/");
     }
   });

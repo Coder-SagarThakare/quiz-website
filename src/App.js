@@ -4,9 +4,8 @@ import { SagarSidebar, SignIn, SignUp } from "./components";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
-import Router from "./routes/Router";
 import { AuthProvider } from "./context/AuthContext";
-import { Homepage } from "./pages";
+import { About, Dashboard, Homepage, SubjectAreas } from "./pages";
 import { ProtectedRoutes } from "./utilities";
 
 function App() {
@@ -25,7 +24,10 @@ function App() {
           <Routes>
             <Route path="" element={<Homepage />} />
             <Route path="/" element={<> <ProtectedRoutes /></>}>
-              <Route path="/*" element={<Router />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/subject" element={<SubjectAreas />} />
+              <Route path="/interview" element={<Dashboard />} />
+              <Route path="/about" element={<About />} />
             </Route>
           </Routes>
         </SagarSidebar>
