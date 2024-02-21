@@ -24,7 +24,7 @@ function App() {
         <SagarSidebar>
           <Routes>
             <Route path="" element={<Homepage />} />
-            <Route path="/" element={ <ProtectedRoutes />}>
+            <Route path="/" element={<> <ProtectedRoutes /></>}>
               <Route path="/*" element={<Router />} />
             </Route>
           </Routes>
