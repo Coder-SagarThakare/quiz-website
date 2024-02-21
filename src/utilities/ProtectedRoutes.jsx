@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 
 function ProtectedRoutes() {
   const { user } = useAuth();
-  console.log(user);
   return user ? <Outlet /> : <Alert />;
 }
 

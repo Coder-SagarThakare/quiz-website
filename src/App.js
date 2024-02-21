@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
-import { About, Dashboard, Homepage, SubjectAreas } from "./pages";
+import { About, Dashboard, Homepage, Interview, SubjectAreas } from "./pages";
 import { ProtectedRoutes } from "./utilities";
 
 function App() {
@@ -22,12 +22,12 @@ function App() {
 
         <SagarSidebar>
           <Routes>
-            <Route path="" element={<Homepage />} />
-            <Route path="/" element={<> <ProtectedRoutes /></>}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/subject" element={<SubjectAreas />} />
-              <Route path="/interview" element={<Dashboard />} />
-              <Route path="/about" element={<About />} />
+            <Route path="/" element={<Homepage />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="subjects" element={<SubjectAreas />} />
+              <Route path="interview" element={<Interview />} />
+              <Route path="about" element={<About />} />
             </Route>
           </Routes>
         </SagarSidebar>
