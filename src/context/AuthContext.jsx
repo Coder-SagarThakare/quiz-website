@@ -9,19 +9,21 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-
     const fetchData = async () => {
-
       if (manageToken("get", "token")) {
-        const data = await manageUser("get", "/user/self");
+        try {
+          const data = await manageUser("get", "/user/self");
 
-        if (data) {
-          setUser(data);
+          if (data) {
+            setUser(data);
+          }
+        } catch (error) {
+          console.log('AuthContext error ' ,error);
         }
       }
-    }
+    };
 
-    fetchData()
+    fetchData();
   }, []);
 
   return (
