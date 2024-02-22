@@ -7,63 +7,80 @@ import { About, Dashboard, Homepage, Interview, SubjectAreas } from "../pages";
 import { Outlet } from "react-router-dom";
 
 //process.env data
-export const BASE_URL = process.env.REACT_APP_BASE_URL
+export const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 // static data to add in component
-export const signinImg = 'https://static.vecteezy.com/system/resources/thumbnails/011/654/703/small/cute-boy-going-to-school-and-bring-a-books-cartoon-3d-icon-illustration-people-education-icon-concept-png.png'
+export const signinImg =
+  "https://static.vecteezy.com/system/resources/thumbnails/011/654/703/small/cute-boy-going-to-school-and-bring-a-books-cartoon-3d-icon-illustration-people-education-icon-concept-png.png";
 
-// sidebar menu items
+// sidebar menu items routes
 export const MenuItem = [
-    {
-        name: "Homepage",
-        icon: <RiHomeHeartFill />,
-        path: "/",
-    },
-    {
-        name: "Dashboard",
-        icon: <RxDashboard />,
-        path: "/dashboard",
-    },
-    {
-        name: "Subjects",
-        icon: <MdSubject />,
-        path: "/subjects",
-    },
-    {
-        name: "Interview",
-        icon: <PiStudentFill />,
-        path: "/interview",
-    },
-    {
-        name: "About",
-        icon: <FaUserAlt />,
-        path: "/about",
-    },
+  {
+    name: "Homepage",
+    icon: <RiHomeHeartFill />,
+    path: "/",
+  },
+  {
+    name: "Dashboard",
+    icon: <RxDashboard />,
+    path: "/dashboard",
+  },
+  {
+    name: "Subjects",
+    icon: <MdSubject />,
+    path: "/subjects",
+  },
+  {
+    name: "Interview",
+    icon: <PiStudentFill />,
+    path: "/interview",
+  },
+  {
+    name: "About",
+    icon: <FaUserAlt />,
+    path: "/about",
+  },
 ];
 
-// routes   
+// frontend routes
 export const routes = [
-    {
-        path: "/",
-        element: <Outlet />,
-        children: [
-            { path: "", element: <Homepage /> },
-            { path: "dashboard", element: <Dashboard /> },
-            { path: "interview", element: <Interview /> },
-            { path: "subjects", element: <SubjectAreas /> },
-            { path: "about", element: <About /> },
-        ],
-    },
-    {
-        path: "/admin",
-        element: <Outlet />,
-        children: [
-            { path: "", element: <h1>Working on Admin Routes</h1> },
-            { path: "dashboard", element: <h1>Working on Admin Dashboard</h1> },
-        ],
-    },
-    {
-        path: "*",
-        element: <h1>URL chukliy bhava</h1>,
-    },
-]
+  {
+    path: "/",
+    element: <Outlet />,
+    children: [
+      { path: "", element: <Homepage /> },
+      { path: "dashboard", element: <Dashboard /> },
+      { path: "interview", element: <Interview /> },
+      { path: "subjects", element: <SubjectAreas /> },
+      { path: "about", element: <About /> },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <Outlet />,
+    children: [
+      { path: "", element: <h1>Working on Admin Routes</h1> },
+      { path: "dashboard", element: <h1>Working on Admin Dashboard</h1> },
+    ],
+  },
+  {
+    path: "*",
+    element: <h1>URL chukliy bhava</h1>,
+  },
+];
+
+// url path
+export const apiPaths = {
+  STUDENT: {
+    SELF: "/student/self",
+  },
+  AUTH: {
+    LOGIN: "/auth/login",
+    REGISTER: "/auth/register",
+  },
+  TEACHER: {
+    SELF: "/self", // dummy
+    ADD_SUBJECT: "/teacher/add-subject",
+  },
+  ADMIN: "/admin",
+};
