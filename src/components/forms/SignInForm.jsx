@@ -27,6 +27,7 @@ function SignInForm() {
   const onsubmit = async (data) => {
     try {
       const result = await loginUser(`/auth/login?captcha=false`, data);
+      console.log(result);
       manageToken("set", "token", result.token);
       setUser(result.user);
       toast.success("Login Successfully !!!");

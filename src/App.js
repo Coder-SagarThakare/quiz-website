@@ -18,11 +18,10 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
         </Routes>
 
-        {/* {private routes goes here} */}
-
         <SagarSidebar>
           <Routes>
             <Route path="/" element={<Homepage />} />
+            {/* {private routes goes here} */}
             <Route element={<ProtectedRoutes />}>
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="subjects" element={<SubjectAreas />} />
