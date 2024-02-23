@@ -28,11 +28,6 @@ function SagarSidebar({ children }) {
     // const toggle = () => (window.innerWidth < 760) ? setMobile(!isMobile) : setIsOpen(!isOpen);
   };
 
-  const toggleIfMobile = () => {
-    console.log(isMobile);
-    setMobile(!isMobile);
-  };
-
   // return all menu of sidebar
 
   const AllMenus = () =>
@@ -133,19 +128,6 @@ function SagarSidebar({ children }) {
       </div>
 
       <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100">
-        {isMobile ? (
-          <>
-            <FaBars
-              size={25}
-              className="bars cursor primary-white"
-              onClick={toggleIfMobile}
-            />
-            <span>{children.name}</span>
-          </>
-        ) : (
-          <div></div>
-        )}
-
         <div className="d-flex align-items-center justify-content-between gap-2 py-2">
           <SearchBar />
 
