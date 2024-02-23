@@ -16,8 +16,8 @@
 
 .glass-effect{
     background-color: rgb(255, 255, 255, 0.06);
-    z-index: 10;
-    position: relative;
+    z-index: 10 !important;
+    position: relative !important;
     border-radius: 1rem;
     border: 1px solid rgb(255, 255, 255, 0.3);
     backdrop-filter: blur(20px);
