@@ -9,9 +9,10 @@
 .burger-menu{
   display: none;
 }
+
 .menu {
-  transition: 1s ease-in-out !important;
-  /* transition: all 0.1s linear ; */
+  transition: all 0.4s linear ;
+  box-shadow: 2px 1px 1px rgb(2, 2, 2,0.3);
 }
 
 .menu:hover {
