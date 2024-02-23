@@ -3,14 +3,15 @@
   /* width: 300px !important; */
   min-width: 80px;
   max-width: 99vh;
-  transition: 0.09s linear ;
+  transition: 0.7s ease-in-out ;
 }
 
 .burger-menu{
   display: none;
 }
 .menu {
-  transition: all 0.1s linear ;
+  transition: 1s ease-in-out !important;
+  /* transition: all 0.1s linear ; */
 }
 
 .menu:hover {

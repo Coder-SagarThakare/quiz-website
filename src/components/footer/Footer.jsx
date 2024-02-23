@@ -73,8 +73,8 @@ function Footer() {
         <img className="h-75" src={logo} alt="logo" />
       </div>
 
-      <div className="d-flex flex-column  gap-4 flex-md-row justify-content-md-between">
-        <div className=" d-flex flex-column gap-3 flex-sm-row justify-content-sm-around width-50">
+      <div className="d-flex flex-column gap-4 flex-lg-row justify-content-lg-between ">
+        <div className=" d-flex flex-column gap-3 flex-sm-row justify-content-sm-around width-50 ">
 
           <div className='heading d-flex flex-column'>
             <h6>GET IN TOUCH</h6>
@@ -90,7 +90,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className=" d-flex flex-column gap-3 flex-sm-row justify-content-sm-around width-50">
+        <div className=" d-flex flex-column gap-3 flex-sm-row justify-content-sm-around width-50 ">
 
           <div className='heading d-flex flex-column '>
             <h6>Social</h6>
