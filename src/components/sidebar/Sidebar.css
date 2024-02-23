@@ -3,10 +3,11 @@
   /* width: 300px !important; */
   min-width: 80px;
   max-width: 99vh;
+  transition: 0.09s linear ;
 }
 
 .menu {
-  transition: all 0.25s linear ;
+  transition: all 0.1s linear ;
 }
 
 .menu:hover {

@@ -104,7 +104,7 @@ function SagarSidebar({ children }) {
           isMobile ? "mobile" : "desktop"
         }`}
       >
-        <div className="d-flex align-items-center justify-content-between p-3 pb-2 ">
+        <div className={`d-flex align-items-center p-3 pb-2 ${isOpen ? 'justify-content-between' : 'justify-content-center'}`}>
           <h3
             style={{ display: isOpen ? "block" : "none" }}
             className="cursor primary-white m-0 logo"
