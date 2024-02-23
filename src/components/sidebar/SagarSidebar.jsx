@@ -63,26 +63,30 @@ function SagarSidebar({ children }) {
   // return login/logout button according to scenario
   const IsUserLoggedIn = () => {
     return (
-        <div
-          className={`d-flex align-items-center  gap-3 cursor p-2 glass-effect  
-            ${user ? "logout-btn" : "login-btn"} ${!isOpen && "justify-content-center"}`}
-          onClick={handleUser}
-          title={user ? `Logout as ${user.name}` : `Login`}
-        >
-          {user ? (
-            <>
-              <TbLogout2 size={25} />
+      <div
+        className={`d-flex align-items-center  gap-3 cursor p-2 glass-effect  
+            ${user ? "logout-btn" : "login-btn"} ${
+          !isOpen && "justify-content-center"
+        }`}
+        onClick={handleUser}
+        title={user ? `Logout as ${user.name}` : `Login`}
+      >
+        {user ? (
+          <>
+            <TbLogout2 size={25} />
 
-              <span className={`${isOpen ? "d-flex" : "d-none"}`}>
-                {user.name}
-              </span>
-            </>
-          ) : (
-            <>
-              <TbLogin2 size={25} /> Login{" "}
-            </>
-          )}
-        </div>
+            <span className={`${isOpen ? "d-flex" : "d-none"}`}>
+              {user.name}
+            </span>
+          </>
+        ) : (
+          <>
+            <TbLogin2 size={25} /> <span className={`${isOpen ? "d-flex" : "d-none"}`}>
+            Login
+            </span>{" "}
+          </>
+        )}
+      </div>
     );
   };
 
@@ -104,7 +108,11 @@ function SagarSidebar({ children }) {
           isMobile ? "mobile" : "desktop"
         }`}
       >
-        <div className={`d-flex align-items-center p-3 pb-2 ${isOpen ? 'justify-content-between' : 'justify-content-center'}`}>
+        <div
+          className={`d-flex align-items-center p-3 pb-2 ${
+            isOpen ? "justify-content-between" : "justify-content-center"
+          }`}
+        >
           <h3
             style={{ display: isOpen ? "block" : "none" }}
             className="cursor primary-white m-0 logo"
@@ -134,7 +142,6 @@ function SagarSidebar({ children }) {
       </div>
 
       <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100">
-
         {isMobile ? (
           <>
             <FaBars
