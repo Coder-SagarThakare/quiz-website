@@ -6,6 +6,9 @@
   transition: 0.09s linear ;
 }
 
+.burger-menu-icon{
+
+}
 .menu {
   transition: all 0.1s linear ;
 }
@@ -28,12 +31,6 @@
   background-color: #bf4747;
 }
 
-
-
-
-
-
-
 .active {
   background-color: #4a2fad;
   transform: scale(1.05);
@@ -44,14 +41,11 @@
 @media (max-width: 760px) {
   .sidebar {
     width: 80px !important;
+    display: none !important;
   }
 
   .logo {
     display: none !important;
-  }
-
-  .bars {
-    margin-left: 12px !important;
   }
 
   .menu-text {

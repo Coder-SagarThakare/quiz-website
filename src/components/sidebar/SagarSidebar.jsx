@@ -33,10 +33,6 @@ function SagarSidebar({ children }) {
     setMobile(!isMobile);
   };
 
-  const openHome = () => {
-    window.location.href = "/";
-  };
-
   // return all menu of sidebar
 
   const AllMenus = () =>
@@ -81,9 +77,8 @@ function SagarSidebar({ children }) {
           </>
         ) : (
           <>
-            <TbLogin2 size={25} /> <span className={`${isOpen ? "d-flex" : "d-none"}`}>
-            Login
-            </span>{" "}
+            <TbLogin2 size={25} />{" "}
+            <span className={`${isOpen ? "d-flex" : "d-none"}`}>Login</span>{" "}
           </>
         )}
       </div>
@@ -104,9 +99,9 @@ function SagarSidebar({ children }) {
     <div className="d-flex ">
       <div
         style={{ width: isOpen ? "300px" : "50px " }}
-        className={`glass-effect sidebar d-flex flex-column overflow-x-hidden mt-4  ${
+        className={`glass-effect d-flex flex-column overflow-x-hidden mt-4  ${
           isMobile ? "mobile" : "desktop"
-        }`}
+        } sidebar`}
       >
         <div
           className={`d-flex align-items-center p-3 pb-2 ${
@@ -116,15 +111,11 @@ function SagarSidebar({ children }) {
           <h3
             style={{ display: isOpen ? "block" : "none" }}
             className="cursor primary-white m-0 logo"
-            onClick={openHome}
+            onClick={() => navigate("/")}
           >
             Quizzy
           </h3>
-          <FaBars
-            size={25}
-            className="bars cursor primary-white"
-            onClick={toggle}
-          />
+          <FaBars size={25} className="cursor primary-white" onClick={toggle} />
         </div>
         {/* middle horizontal line */}
 
@@ -155,7 +146,11 @@ function SagarSidebar({ children }) {
           <div></div>
         )}
 
-        <SearchBar />
+        <div className="d-flex align-items-center justify-content-between gap-2 py-2">
+          <SearchBar />
+
+          <FaBars size={25} className="cursor primary-white "/>
+        </div>
         <div className="glass-effect">{children}</div>
         <Footer />
       </div>
