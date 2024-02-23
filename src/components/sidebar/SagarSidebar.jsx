@@ -149,7 +149,7 @@ function SagarSidebar({ children }) {
         <div className="d-flex align-items-center justify-content-between gap-2 py-2">
           <SearchBar />
 
-          <FaBars size={25} className="cursor primary-white "/>
+          <FaBars size={25} className="burger-menu cursor primary-white "/>
         </div>
         <div className="glass-effect">{children}</div>
         <Footer />

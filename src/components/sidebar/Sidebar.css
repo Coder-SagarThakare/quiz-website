@@ -6,8 +6,8 @@
   transition: 0.09s linear ;
 }
 
-.burger-menu-icon{
-
+.burger-menu{
+  display: none;
 }
 .menu {
   transition: all 0.1s linear ;
@@ -38,7 +38,7 @@
 
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .sidebar {
     width: 80px !important;
     display: none !important;
@@ -46,6 +46,9 @@
 
   .logo {
     display: none !important;
+  }
+  .burger-menu{
+    display: block;
   }
 
   .menu-text {

@@ -3,9 +3,6 @@
   /* border-radius: 30px; */
   width: 100%;
 }
-.searchbar:focus {
-  /* background: rgb(255, 255, 255,0.2) !important; */
-}
 
 input {
   padding: 8px;
