@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
             setUser(data);
           }
         } catch (error) {
-          console.log('AuthContext error ' ,error);
+          console.log('AuthContext.jsx error ' ,error);
         }
       }
     };
