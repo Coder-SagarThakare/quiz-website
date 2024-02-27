@@ -40,35 +40,6 @@ const AllMenus = React.memo(({ isOpen = false }) => {
   );
 });
 
-// return login/logout button according to scenario
-// const IsUserLoggedIn = React.memo(({ user, isOpen, handleUser }) => {
-//   console.log("in user logged in");
-
-//   return (
-//     <div
-//       className={`d-flex align-items-center  gap-3 cursor p-2 glass-effect
-//             ${user ? "logout-btn" : "login-btn"} ${
-//         !isOpen && "justify-content-center"
-//       }`}
-//       onClick={handleUser}
-//       title={user ? `Logout as ${user.name}` : `Login`}
-//     >
-//       {user ? (
-//         <>
-//           <TbLogout2 size={25} />
-
-//           <span className={`${isOpen ? "d-flex" : "d-none"}`}>{user.name}</span>
-//         </>
-//       ) : (
-//         <>
-//           <TbLogin2 size={25} />{" "}
-//           <span className={`${isOpen ? "d-flex" : "d-none"}`}>Login</span>{" "}
-//         </>
-//       )}
-//     </div>
-//   );
-// });
-
 function SagarSidebar({ children }) {
   console.log("in sidebar");
   const navigate = useNavigate();
@@ -91,7 +62,7 @@ function SagarSidebar({ children }) {
       console.log("in else block");
       navigate("/signin");
     }
-  }, []);
+  }, [user]);
 
   // const IsUserLoggedIn = useMemo(({ user, isOpen, handleUser }) => {
   //   console.log("in user logged in");
