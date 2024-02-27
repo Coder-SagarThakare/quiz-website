@@ -46,7 +46,7 @@ function SagarSidebar({ children }) {
   const { user, setUser } = useAuth();
   console.log("user", user);
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   // to handle user's token and navigation
   const handleUser = useCallback(() => {
@@ -99,9 +99,8 @@ function SagarSidebar({ children }) {
         className={`glass-effect d-flex flex-column overflow-x-hidden mt-4 sidebar`}
       >
         <div
-          className={`d-flex align-items-center p-3 pb-2 ${
-            isOpen ? "justify-content-between" : "justify-content-center"
-          }`}
+          className={`d-flex align-items-center p-3 pb-2 ${isOpen ? "justify-content-between" : "justify-content-center"
+            }`}
         >
           <h3
             style={{ display: isOpen ? "block" : "none" }}
@@ -132,7 +131,7 @@ function SagarSidebar({ children }) {
 
           {isOpen ? (
             <div
-              className="mob-view-menu w-100 h-100 border border-3"
+              className="mob-view-menu w-100  border border-3 position-absolute"
               style={{ zIndex: "16" }}
             >
               <AllMenus isOpen={isOpen} />
@@ -141,11 +140,16 @@ function SagarSidebar({ children }) {
             <FaBars
               size={25}
               className="burger-menu cursor primary-white"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => {
+                const sidebar = document.getElementById('subcomponent-body');
+                sidebar.style.display = "none"
+                console.log("document.body.style.display",sidebar.style.display);
+                setIsOpen(!isOpen)
+              }}
             />
           )}
         </div>
-        <div className="glass-effect">{children}</div>
+        <div className="glass-effect" id="subcomponent-body">{children}</div>
         <Footer />
       </div>
     </div>
