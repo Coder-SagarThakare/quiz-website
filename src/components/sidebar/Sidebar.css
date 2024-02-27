@@ -26,7 +26,8 @@
 }
 
 .login-btn:hover {
-  background-color: #1e4ead;
+  transition: 1s  ;
+  background-color: #218b9e;
 }
 
 .logout-btn:hover{
