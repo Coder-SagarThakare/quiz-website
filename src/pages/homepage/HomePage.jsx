@@ -1,17 +1,15 @@
 import React from "react";
-import { Carousel } from "../../components";
+import { Carousel, HeroImg } from "../../components";
 
 function HomePage() {
   return (
-    <div>
-      <div className="">
-        
-        <Carousel />
+    <div className="">
 
-      </div>
+      <HeroImg />
+      <Carousel />
+
     </div>
   );
 }
 
 export default HomePage;
-  

@@ -14,24 +14,8 @@ function SagarSidebar({ children }) {
   console.log("in sidebar");
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
-  const [isMobile, setMobile] = useState(false);
 
   const [isOpen, setIsOpen] = useState(true);
-
-  const toggle = () => {
-    if (window.innerWidth < 760) {
-      setMobile(!isMobile);
-    } else {
-      setIsOpen(!isOpen);
-    }
-
-    // const toggle = () => (window.innerWidth < 760) ? setMobile(!isMobile) : setIsOpen(!isOpen);
-  };
-
-  const toggleIfMobile = () => {
-    console.log(isMobile);
-    setMobile(!isMobile);
-  };
 
   // return all menu of sidebar
 
@@ -61,9 +45,8 @@ function SagarSidebar({ children }) {
     return (
       <div
         className={`d-flex align-items-center  gap-3 cursor p-2 glass-effect  
-            ${user ? "logout-btn" : "login-btn"} ${
-          !isOpen && "justify-content-center"
-        }`}
+            ${user ? "logout-btn" : "login-btn"} ${!isOpen && "justify-content-center"
+          }`}
         onClick={handleUser}
         title={user ? `Logout as ${user.name}` : `Login`}
       >
@@ -99,30 +82,25 @@ function SagarSidebar({ children }) {
     <div className="d-flex ">
       <div
         style={{ width: isOpen ? "300px" : "50px " }}
-        className={`glass-effect d-flex flex-column overflow-x-hidden mt-4  ${
-          isMobile ? "mobile" : "desktop"
-        } sidebar`}
+        className={`glass-effect d-flex flex-column overflow-x-hidden mt-4 sidebar`}
       >
         <div
-          className={`d-flex align-items-center p-3 pb-2 ${
-            isOpen ? "justify-content-between" : "justify-content-center"
-          }`}
+          className={`d-flex align-items-center p-3 pb-2 ${isOpen ? "justify-content-between" : "justify-content-center"
+            }`}
         >
           <h3
             style={{ display: isOpen ? "block" : "none" }}
             className="cursor primary-white m-0 logo"
             onClick={() => navigate("/")}
           >
-            Quizzy
+            Quizify
           </h3>
-          <FaBars size={25} className="cursor primary-white" onClick={toggle} />
+          <FaBars size={25} className="cursor primary-white" onClick={() => setIsOpen(!isOpen)} />
         </div>
         {/* middle horizontal line */}
 
         <div
-          className={`d-flex flex-column justify-content-between h-100 p-2 border-top ${
-            isMobile ? "d-none" : "d-block"
-          }`}
+          className={`d-flex flex-column justify-content-between h-100 p-2 border-top `}
         >
           <div>
             <AllMenus />
@@ -133,23 +111,10 @@ function SagarSidebar({ children }) {
       </div>
 
       <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100">
-        {isMobile ? (
-          <>
-            <FaBars
-              size={25}
-              className="bars cursor primary-white"
-              onClick={toggleIfMobile}
-            />
-            <span>{children.name}</span>
-          </>
-        ) : (
-          <div></div>
-        )}
-
         <div className="d-flex align-items-center justify-content-between gap-2 py-2">
           <SearchBar />
 
-          <FaBars size={25} className="burger-menu cursor primary-white "/>
+          <FaBars size={25} className="burger-menu cursor primary-white " />
         </div>
         <div className="glass-effect">{children}</div>
         <Footer />
