@@ -5,7 +5,7 @@
   transition: 0.7s ease-in-out ;
 }
 
-.burger-menu{
+.burger-menu, .mob-view-menu{
   display: none;
 }
 
@@ -75,5 +75,8 @@
     /* display: flex !important;
     justify-content: space-between !important; */
     align-items: center !important;
+  }
+  .mob-view-menu{
+    display: block;
   }
 }

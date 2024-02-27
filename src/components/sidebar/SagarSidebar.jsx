@@ -10,6 +10,35 @@ import { MenuItem } from "../../constants";
 import { manageToken } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 
+// return all menu of sidebar
+
+const AllMenus = React.memo(({ isOpen = false }) => {
+  console.log("in all menus", "isOpen", isOpen);
+  return (
+    <div>
+      {MenuItem.map((item, index) => (
+        <NavLink
+          to={item.path}
+          key={index}
+          className={`text-decoration-none rounded-2 d-flex justify-content-center align-items-center gap-3 menu 
+        ${isOpen ? "p-2" : "p-3"}`}
+        >
+          <div className="primary-white d-flex align-items-center">
+            {item.icon}
+          </div>
+
+          <div
+            className={`menu-text primary-white position-relative w-100 align-items-center
+           ${isOpen ? "d-flex" : "d-none"}`}
+          >
+            {item.name}
+          </div>
+        </NavLink>
+      ))}
+    </div>
+  );
+});
+
 function SagarSidebar({ children }) {
   console.log("in sidebar");
   const navigate = useNavigate();
@@ -17,36 +46,16 @@ function SagarSidebar({ children }) {
 
   const [isOpen, setIsOpen] = useState(true);
 
-  // return all menu of sidebar
-
-  const AllMenus = () =>
-    MenuItem.map((item, index) => (
-      <NavLink
-        to={item.path}
-        key={index}
-        className={`text-decoration-none rounded-2 d-flex justify-content-center align-items-center gap-3 menu 
-        ${isOpen ? "p-2" : "p-3"}`}
-      >
-        <div className="primary-white d-flex align-items-center">
-          {item.icon}
-        </div>
-
-        <div
-          className={`menu-text primary-white position-relative w-100 align-items-center
-           ${isOpen ? "d-flex" : "d-none"}`}
-        >
-          {item.name}
-        </div>
-      </NavLink>
-    ));
-
   // return login/logout button according to scenario
   const IsUserLoggedIn = () => {
+    console.log("in user logged in");
+
     return (
       <div
         className={`d-flex align-items-center  gap-3 cursor p-2 glass-effect  
-            ${user ? "logout-btn" : "login-btn"} ${!isOpen && "justify-content-center"
-          }`}
+            ${user ? "logout-btn" : "login-btn"} ${
+          !isOpen && "justify-content-center"
+        }`}
         onClick={handleUser}
         title={user ? `Logout as ${user.name}` : `Login`}
       >
@@ -85,8 +94,9 @@ function SagarSidebar({ children }) {
         className={`glass-effect d-flex flex-column overflow-x-hidden mt-4 sidebar`}
       >
         <div
-          className={`d-flex align-items-center p-3 pb-2 ${isOpen ? "justify-content-between" : "justify-content-center"
-            }`}
+          className={`d-flex align-items-center p-3 pb-2 ${
+            isOpen ? "justify-content-between" : "justify-content-center"
+          }`}
         >
           <h3
             style={{ display: isOpen ? "block" : "none" }}
@@ -95,26 +105,41 @@ function SagarSidebar({ children }) {
           >
             Quizify
           </h3>
-          <FaBars size={25} className="cursor primary-white" onClick={() => setIsOpen(!isOpen)} />
+          <FaBars
+            size={25}
+            className="cursor primary-white"
+            onClick={() => setIsOpen(!isOpen)}
+          />
         </div>
         {/* middle horizontal line */}
 
         <div
           className={`d-flex flex-column justify-content-between h-100 p-2 border-top `}
         >
-          <div>
-            <AllMenus />
-          </div>
+          <AllMenus isOpen={isOpen} />
 
           <IsUserLoggedIn />
         </div>
       </div>
 
-      <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100">
-        <div className="d-flex align-items-center justify-content-between gap-2 py-2">
+      <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100 ">
+        <div className="d-flex align-items-center justify-content-between gap-2 py-2 ">
           <SearchBar />
 
-          <FaBars size={25} className="burger-menu cursor primary-white " />
+          {isOpen ? (
+            <div
+              className="mob-view-menu w-100 h-100 border border-3"
+              style={{ zIndex: "16" }}
+            >
+              <AllMenus isOpen={isOpen} />
+            </div>
+          ) : (
+            <FaBars
+              size={25}
+              className="burger-menu cursor primary-white"
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          )}
         </div>
         <div className="glass-effect">{children}</div>
         <Footer />
@@ -123,4 +148,4 @@ function SagarSidebar({ children }) {
   );
 }
 
-export default SagarSidebar;
+export default React.memo(SagarSidebar);
