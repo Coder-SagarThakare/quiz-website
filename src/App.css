@@ -18,6 +18,10 @@ body {
   font-optical-sizing: auto;
 }
 
+.width{
+  width: calc(100% - 250px);
+}
+
 /* body::before {
   content: '';
   position: absolute;

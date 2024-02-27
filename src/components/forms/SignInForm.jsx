@@ -18,6 +18,7 @@ function SignInForm() {
     register,
     formState: { errors },
   } = useForm();
+  
   const navigate = useNavigate();
   const { setUser } = useAuth();
 

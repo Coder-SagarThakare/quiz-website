@@ -1,6 +1,7 @@
 .subcomponet {
   /* background-color: #141414; */
   height: 91vh !important;
+ 
 
   background-color: #000000;
   /* for glass effect changed background */
@@ -94,6 +95,7 @@
 }
 .subcomponent {
   height: 100vh !important;
+  width: 750px;
 }
 
 .subcomponent .box {
@@ -105,3 +107,13 @@
 .font-8 {
   font-size: 9rem;
 }
+
+
+@media (max-width: 760px) {
+
+  .subcomponent{
+    position: fixed;
+    /* display: none; */
+  }
+}
+  

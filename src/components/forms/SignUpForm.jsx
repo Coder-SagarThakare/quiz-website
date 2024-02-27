@@ -1,100 +1,149 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { Button, LabelledInput } from "..";
+import { useForm } from "react-hook-form";
+import Img from "../Img";
+import { SignUp } from "../../images";
+import { useNavigate } from "react-router";
 
+import "./style.css";
 // import "./style.css";
 
 function SignUpForm() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // onChange(true);
-    console.log(`Form submitted!`);
+  const API = "http://localhost:8022";
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
+  const navigate = useNavigate();
+
+  let [formData, setFormData] = useState({ name: "", password: "", email: "" });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
+  const registerUser = async (Data) => {
+    console.log(Data);
+    await axios
+      .post(`${API}/auth/register?captcha=false`, Data)
+      .then((res) => {
+        alert("Registration Successful!");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Registration Error:", error);
+        alert("Registration Failed");
+      });
+  };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   // if(formData.fullname && formData.password && formData.email){
+  //   registerUser(formData);
+  //   console.log("You have submitted the form", formData);
+  //   // }
+  // };
+
   return (
-    <div className="d-flex layout glass-effect">
-      <div className="w-md-50 w-sm-100">
-        <div className="container mt-5">
-          <div className="row justify-content-center">
-            <div className="col-md-8 col-sm-9 col-8">
-              <h2 className="mb-3 text-sm-center">Sign Up</h2>
+    <div className="d-flex layout glass-effect p-lg-5 user-select-none">
+      {/* // <div className="w-50 h-100 d-none d-md-block "> */}
+      <div className="w-100 w-md-50 d-flex flex-column align-items-center justify-content-center ">
+        <div className="glass-effect p-4 w-75">
+          <h2>Sign Up</h2>
+          <form onSubmit={handleSubmit(registerUser)} className="d-flex flex-column">
+            <LabelledInput
+              label="Name"
+              name="name"
+              type="text"
+              placeholder="Enter full Name"
+              isRequired={true}
+              register={register}
+              errors={errors}
+            />
 
-              <form
-                onSubmit={handleSubmit}
-                className="form-group d-flex row justify-content-center gap-1"
-              >
-                <label htmlFor="fullname">Full Name </label>
-                <input
-                  type="text"
-                  className="form-control rounded-5"
-                  name="fullname"
-                />
+            <LabelledInput
+              label="Email Address"
+              name="email"
+              type="text"
+              placeholder="Enter Email"
+              isRequired={true}
+              register={register}
+              errors={errors}
+            />
 
-                <label htmlFor="email">Email address </label>
-                <input
-                  type="email"
-                  className="form-control mt-2 rounded-5"
-                  name="email"
-                  id="email"
-                />
-
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  className="form-control rounded-5"
-                  name="password"
-                />
-
-                <label htmlFor="confirm-password">Confirm Password</label>
-                <input
-                  type="password"
-                  className="form-control rounded-5"
-                  name="confirm-password"
-                />
-
+            <LabelledInput
+              label="Password"
+              name="password"
+              type="password"
+              placeholder="Enter Password"
+              isRequired={true}
+              register={register}
+              errors={errors}
+            />
+  
                 <div className="my-2">
+                Gender
                   <input
                     type="radio"
                     className="form-check-input mx-2"
+                    onChange={handleChange}
                     name="gender"
                     id="gender-male"
                   />
-                  <label className="form-check-label" htmlFor="gender-male">
+                  <label htmlFor="gender-male">
                     Male
                   </label>
 
                   <input
                     type="radio"
                     className="form-check-input mx-2"
+                    onChange={handleChange}
                     name="gender"
                     id="gender-female"
                   />
-                  <label className="form-check-label" htmlFor="gender-female">
+                  <label htmlFor="gender-female">
                     Female
+                  </label>
+
+                  <input
+                    type="radio"
+                    className="form-check-input mx-2"
+                    onChange={handleChange}
+                    name="gender"
+                    id="gender-other"
+                  />
+                  <label htmlFor="gender-other">
+                    Other
                   </label>
                 </div>
 
-                <button type="submit" className="btn btn-primary rounded-5">
-                  Sign Up
-                </button>
+            <Button
+              title="Sign Up"
+              type="submit"
+              className="btn-primary border-0"
+            />
 
-                <div className="mt-3">
-                  Already have an account?{" "}
-                  <a href="/SignIn" className="fw-bold text-decoration-none">
-                    Sign In
-                  </a>
-                </div>
-                
-              </form>
-
+            <div className="mt-3">
+              <span>Already have an account? </span>
+              <span
+                className="fw-semibold cursor text-decoration-underline"
+                onClick={() => navigate("/signin")}
+              >
+                Sign In
+              </span>
             </div>
-          </div>
+          </form>
         </div>
       </div>
-      <div className="w-md-50 d-none d-md-block image">
-        <img
-          src="https://static.vecteezy.com/system/resources/thumbnails/011/654/703/small/cute-boy-going-to-school-and-bring-a-books-cartoon-3d-icon-illustration-people-education-icon-concept-png.png"
-          className="img-fluid rounded-5 h-100"
-          alt="img"
-        />
+      <div className="w-50 h-100 d-none d-md-block ">
+        <Img src={SignUp} alt="signin-img" className="h-100" />
       </div>
     </div>
   );

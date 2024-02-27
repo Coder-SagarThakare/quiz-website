@@ -1,4 +1,4 @@
-/**
+ /**
  * @param {String}  label to show labe on input field at the top of input field
  * @param {String}  type type of input field you want
  * @param {String}  name name to store in register object

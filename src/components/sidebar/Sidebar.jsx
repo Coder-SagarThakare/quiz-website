@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { FaBars } from "react-icons/fa";
+// import { RxDashboard } from "react-icons/rx";
+import { FaBars, FaUserAlt } from "react-icons/fa";
+// import { RiHomeHeartFill } from "react-icons/ri";
+// import { MdSubject } from "react-icons/md";
 import { Footer } from "../../components/";
 import '../../styles/subcomponents.css'
 import "./Sidebar.css";
@@ -13,9 +16,11 @@ import { manageToken } from "../../services";
 function Sidebar({ children }) {
   console.log('in sidebar');
   const navigate = useNavigate()
-  const [isMobile, setMobile] = useState(false);
 
   const [isOpen, setIsOpen] = useState(true);
+  const [isMobile, setMobile] = useState(false);
+  // const [isMobileToggle, setIsMobileToggle] = useState(false);
+
   const toggle = () => {
     if (window.innerWidth < 760) {
       setMobile(!isMobile);
@@ -98,7 +103,29 @@ function Sidebar({ children }) {
           >
             Quizzy
           </h3>
-          <FaBars size={25} className="bars cursor primary-white" onClick={toggle} />
+          <FaBars
+            size={25}
+            className="bars cursor primary-white"
+            onClick={toggle}
+          />
+
+          {/* {isMobile ? (
+            <>
+              <FaBars
+                size={25}
+                className="bars cursor primary-white"
+                onClick={toggleIfMobile}
+              />
+              <span>{children.name}</span>
+            </>
+          ) : (
+            <FaBars
+            size={25}
+            className="bars cursor primary-white"
+            onClick={toggle}
+          />
+          )} */}
+
 
         </div>
         {/* middle horizontal line */}
@@ -115,9 +142,8 @@ function Sidebar({ children }) {
         </div>
       </div>
 
-      <div
-        className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100"
-      ><div className="ball-1"></div>
+      <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100">
+        <div className="ball-1"></div>
         <div className="ball-2"></div>
         <div className="ball-3"></div>
 

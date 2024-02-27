@@ -1,4 +1,3 @@
-                                       
 .sidebar {
   /* width: 300px !important; */
   min-width: 80px;
@@ -28,7 +27,7 @@
   background-color: #1e4ead;
 }
 
-.logout-btn:hover{
+.logout-btn:hover {
   background-color: #bf4747;
 }
 
@@ -54,5 +53,25 @@
 
   .menu-text {
     display: none !important;
+  }
+
+  .desktop{
+    display: block !important;
+  }
+
+  .sidebar{
+    /* position: absolute !important; */
+    z-index: 1;
+    width: 100% !important;
+    height: 95vh !important;
+    margin: 0 20px 0 20px;
+
+    /* display: none !important; */
+  }
+
+  .link{
+    /* display: flex !important;
+    justify-content: space-between !important; */
+    align-items: center !important;
   }
 }
