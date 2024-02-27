@@ -5,9 +5,7 @@ import { useForm } from "react-hook-form";
 import Img from "../Img";
 import { SignUp } from "../../images";
 import { useNavigate } from "react-router";
-
 import "./style.css";
-// import "./style.css";
 
 function SignUpForm() {
   const API = "http://localhost:8022";
@@ -19,15 +17,6 @@ function SignUpForm() {
   } = useForm();
 
   const navigate = useNavigate();
-
-  let [formData, setFormData] = useState({ name: "", password: "", email: "" });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const registerUser = async (Data) => {
     console.log(Data);
@@ -51,13 +40,15 @@ function SignUpForm() {
   //   // }
   // };
 
-  return (
+  return 
     <div className="d-flex layout glass-effect p-lg-5 user-select-none">
-      {/* // <div className="w-50 h-100 d-none d-md-block "> */}
       <div className="w-100 w-md-50 d-flex flex-column align-items-center justify-content-center ">
         <div className="glass-effect p-4 w-75">
           <h2>Sign Up</h2>
-          <form onSubmit={handleSubmit(registerUser)} className="d-flex flex-column">
+          <form
+            onSubmit={handleSubmit(registerUser)}
+            className="d-flex flex-column"
+          >
             <LabelledInput
               label="Name"
               name="name"
@@ -87,42 +78,47 @@ function SignUpForm() {
               register={register}
               errors={errors}
             />
-  
-                <div className="my-2">
-                Gender
-                  <input
-                    type="radio"
-                    className="form-check-input mx-2"
-                    onChange={handleChange}
-                    name="gender"
-                    id="gender-male"
-                  />
-                  <label htmlFor="gender-male">
-                    Male
-                  </label>
 
-                  <input
-                    type="radio"
-                    className="form-check-input mx-2"
-                    onChange={handleChange}
-                    name="gender"
-                    id="gender-female"
-                  />
-                  <label htmlFor="gender-female">
-                    Female
-                  </label>
+            {/* <div className="my-2"> */}
+            <h6>Gender</h6>
+            <div className="d-md-flex mb-1">
+              <div>
+                <input
+                  {...register("gender", { required: true })}
+                  value="male"
+                  type="radio"
+                  className="form-check-input mx-2"
+                  name="gender"
+                  id="male"
+                />
+                <label htmlFor="male">Male</label>
+              </div>
 
-                  <input
-                    type="radio"
-                    className="form-check-input mx-2"
-                    onChange={handleChange}
-                    name="gender"
-                    id="gender-other"
-                  />
-                  <label htmlFor="gender-other">
-                    Other
-                  </label>
-                </div>
+              <div>
+                <input
+                  {...register("gender", { required: true })}
+                  value="female"
+                  type="radio"
+                  className="form-check-input mx-2"
+                  name="gender"
+                  id="female"
+                />
+                <label htmlFor="female">Female</label>
+              </div>
+
+              <div>
+                <input
+                  {...register("gender", { required: true })}
+                  value="other"
+                  type="radio"
+                  className="form-check-input mx-2"
+                  name="gender"
+                  id="other"
+                />
+                <label htmlFor="other"> Other</label>
+
+              </div>
+            </div>
 
             <Button
               title="Sign Up"
@@ -146,7 +142,7 @@ function SignUpForm() {
         <Img src={SignUp} alt="signin-img" className="h-100" />
       </div>
     </div>
-  );
+  ;
 }
 
 export default SignUpForm;
