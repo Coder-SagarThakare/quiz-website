@@ -6,6 +6,9 @@ import Img from "../Img";
 import { SignUp } from "../../images";
 import { useNavigate } from "react-router";
 import "./style.css";
+import RadioButton from "../RadioButton";
+import toast from "react-hot-toast";
+
 
 function SignUpForm() {
   const API = "http://localhost:8022";
@@ -20,16 +23,25 @@ function SignUpForm() {
 
   const registerUser = async (Data) => {
     console.log(Data);
+    if(Data.password !== Data.confirmPassword){
+      // alert("Passwords not match");
+      toast.error("Passwords not match !!!");
+    }else{
     await axios
       .post(`${API}/auth/register?captcha=false`, Data)
       .then((res) => {
-        alert("Registration Successful!");
+        // alert("Registration Successful!");
+      toast.success("Registration Successful!!");
         window.location.reload();
       })
       .catch((error) => {
         console.error("Registration Error:", error);
-        alert("Registration Failed");
+        // alert("Registration Failed");
+        window.location.reload();
+      toast.error("Registration  Failed!!");
+    
       });
+    }
   };
 
   // const handleSubmit = (event) => {
@@ -40,7 +52,7 @@ function SignUpForm() {
   //   // }
   // };
 
-  return 
+  return (
     <div className="d-flex layout glass-effect p-lg-5 user-select-none">
       <div className="w-100 w-md-50 d-flex flex-column align-items-center justify-content-center ">
         <div className="glass-effect p-4 w-75">
@@ -78,46 +90,47 @@ function SignUpForm() {
               register={register}
               errors={errors}
             />
+            <LabelledInput
+              label="Confirm Password"
+              name="confirmPassword"
+              type="password"
+              placeholder="Enter Password"
+              isRequired={true}
+              register={register}
+              errors={errors}
+            />
 
             {/* <div className="my-2"> */}
             <h6>Gender</h6>
             <div className="d-md-flex mb-1">
-              <div>
-                <input
-                  {...register("gender", { required: true })}
-                  value="male"
-                  type="radio"
-                  className="form-check-input mx-2"
-                  name="gender"
-                  id="male"
-                />
-                <label htmlFor="male">Male</label>
-              </div>
+            <RadioButton
+              value="male"
+              type="radio"
+              className="form-check-input mx-2"
+              name="gender"
+              id="male"
+              label="Male"
+              register={register}
+            />
+            <RadioButton
+              value="female"
+              type="radio"
+              className="form-check-input mx-2"
+              name="gender"
+              id="female"
+              label="Female"
+              register={register}
+            />
 
-              <div>
-                <input
-                  {...register("gender", { required: true })}
-                  value="female"
-                  type="radio"
-                  className="form-check-input mx-2"
-                  name="gender"
-                  id="female"
-                />
-                <label htmlFor="female">Female</label>
-              </div>
-
-              <div>
-                <input
-                  {...register("gender", { required: true })}
-                  value="other"
-                  type="radio"
-                  className="form-check-input mx-2"
-                  name="gender"
-                  id="other"
-                />
-                <label htmlFor="other"> Other</label>
-
-              </div>
+            <RadioButton
+              value="other"
+              type="radio"
+              className="form-check-input mx-2"
+              name="gender"
+              id="other"
+              label="Other"
+              register={register}
+            />
             </div>
 
             <Button
@@ -142,7 +155,7 @@ function SignUpForm() {
         <Img src={SignUp} alt="signin-img" className="h-100" />
       </div>
     </div>
-  ;
+  );
 }
 
 export default SignUpForm;
