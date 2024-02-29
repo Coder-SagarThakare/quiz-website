@@ -50,47 +50,14 @@ function SagarSidebar({ children }) {
 
   // to handle user's token and navigation
   const handleUser = useCallback(() => {
-    console.log("in handle user");
-    console.log(user);
     if (user) {
       manageToken("delete", "token");
       setUser(null);
       manageToken("get", "token");
-
-      console.log("in if block");
     } else {
-      console.log("in else block");
       navigate("/signin");
     }
   }, [user]);
-
-  // const IsUserLoggedIn = useMemo(({ user, isOpen, handleUser }) => {
-  //   console.log("in user logged in");
-
-  //   return (
-  //     <div
-  //       className={`d-flex align-items-center  gap-3 cursor p-2 glass-effect
-  //             ${user ? "logout-btn" : "login-btn"} ${
-  //         !isOpen && "justify-content-center"
-  //       }`}
-  //       onClick={handleUser}
-  //       title={user ? `Logout as ${user.name}` : `Login`}
-  //     >
-  //       {user ? (
-  //         <>
-  //           <TbLogout2 size={25} />
-
-  //           <span className={`${isOpen ? "d-flex" : "d-none"}`}>{user.name}</span>
-  //         </>
-  //       ) : (
-  //         <>
-  //           <TbLogin2 size={25} />{" "}
-  //           <span className={`${isOpen ? "d-flex" : "d-none"}`}>Login</span>{" "}
-  //         </>
-  //       )}
-  //     </div>
-  //   );
-  // },[user]);
 
   return (
     <div className="d-flex ">
@@ -131,7 +98,7 @@ function SagarSidebar({ children }) {
 
           {isOpen ? (
             <div
-              className="mob-view-menu w-100  border border-3 position-absolute"
+              className="mob-view-menu w-100 border border-3 position-absolute"
               style={{ zIndex: "16" }}
             >
               <AllMenus isOpen={isOpen} />
@@ -143,7 +110,6 @@ function SagarSidebar({ children }) {
               onClick={() => {
                 const sidebar = document.getElementById('subcomponent-body');
                 sidebar.style.display = "none"
-                console.log("document.body.style.display",sidebar.style.display);
                 setIsOpen(!isOpen)
               }}
             />
