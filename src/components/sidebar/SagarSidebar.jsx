@@ -13,10 +13,9 @@ import IsUserLoggedIn from "../IsUserLoggedIn";
 
 // return all menu of sidebar
 
-const AllMenus = React.memo(({ isOpen = false }) => {
-  console.log("in all menus", "isOpen", isOpen);
+const AllMenus = React.memo(({ isOpen = false, view = undefined }) => {
   return (
-    <div>
+    <div className={`${view && "d-flex flex-column gap-3"}`}>
       {MenuItem.map((item, index) => (
         <NavLink
           to={item.path}
@@ -44,7 +43,6 @@ function SagarSidebar({ children }) {
   console.log("in sidebar");
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
-  console.log("user", user);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -66,8 +64,9 @@ function SagarSidebar({ children }) {
         className={`glass-effect d-flex flex-column overflow-x-hidden mt-4 sidebar`}
       >
         <div
-          className={`d-flex align-items-center p-3 pb-2 ${isOpen ? "justify-content-between" : "justify-content-center"
-            }`}
+          className={`d-flex align-items-center p-3 pb-2 ${
+            isOpen ? "justify-content-between" : "justify-content-center"
+          }`}
         >
           <h3
             style={{ display: isOpen ? "block" : "none" }}
@@ -93,29 +92,39 @@ function SagarSidebar({ children }) {
       </div>
 
       <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100 ">
-        <div className="d-flex align-items-center justify-content-between gap-2 py-2 ">
+        <div
+          className={`d-flex align-items-center justify-content-between gap-2 py-2  ${
+            isOpen && "glass-effect h-100"
+          }`}
+        >
           <SearchBar />
 
           {isOpen ? (
             <div
-              className="mob-view-menu w-100 border border-3 position-absolute"
+              className={`mob-view-menu w-100 position-fixed border ${
+                isOpen && "h-100 d-flex flex-column p-3 "
+              }`}
               style={{ zIndex: "16" }}
             >
-              <AllMenus isOpen={isOpen} />
+              <AllMenus isOpen={isOpen} view='mobile'/>
             </div>
           ) : (
             <FaBars
               size={25}
               className="burger-menu cursor primary-white"
               onClick={() => {
-                const sidebar = document.getElementById('subcomponent-body');
-                sidebar.style.display = "none"
-                setIsOpen(!isOpen)
+                const sidebar = document.getElementById("subcomponent-body");
+                sidebar.style.display = "none";
+                document.getElementsByClassName("subcomponent")[0].style.cssText = "overflow:hidden !important";
+                
+                setIsOpen(!isOpen);
               }}
             />
           )}
         </div>
-        <div className="glass-effect" id="subcomponent-body">{children}</div>
+        <div className="glass-effect" id="subcomponent-body">
+          {children}
+        </div>
         <Footer />
       </div>
     </div>

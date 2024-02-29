@@ -5,8 +5,8 @@
   transition: 0.7s ease-in-out ;
 }
 
-.burger-menu, .mob-view-menu{
-  display: none;
+.burger-menu{
+  display: none !important;
 }
 
 .menu {
@@ -50,7 +50,7 @@
     display: none !important;
   }
   .burger-menu{
-    display: block;
+    display: block !important;
   }
 
   .menu-text {
