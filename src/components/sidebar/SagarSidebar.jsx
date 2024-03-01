@@ -13,23 +13,25 @@ import IsUserLoggedIn from "../IsUserLoggedIn";
 
 // return all menu of sidebar
 
-const AllMenus = React.memo(({ isOpen = false, view = undefined }) => {
+const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen }) => {
+  console.log('in all menu', 'isOpen', view);
   return (
     <div className={`${view && "d-flex flex-column gap-3"}`}>
       {MenuItem.map((item, index) => (
         <NavLink
           to={item.path}
           key={index}
+          title={item.name}
           className={`text-decoration-none rounded-2 d-flex justify-content-center align-items-center gap-3 menu 
-        ${isOpen ? "p-2" : "p-3"}`}
+        ${isOpen ? "p-2" : "p-3"} `}
+          onClick={() => { view && setIsOpen(!isOpen) }}
         >
           <div className="primary-white d-flex align-items-center">
             {item.icon}
           </div>
 
           <div
-            className={`menu-text primary-white position-relative w-100 align-items-center
-           ${isOpen ? "d-flex" : "d-none"}`}
+            className={`menu-text primary-white position-relative w-100 align-items-center ${isOpen ? "d-flex " : "d-none"}`}
           >
             {item.name}
           </div>
@@ -39,11 +41,32 @@ const AllMenus = React.memo(({ isOpen = false, view = undefined }) => {
   );
 });
 
+export const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
+
+  console.log('inn header');
+  return (<div
+    className={`d-flex align-items-center p-3 pb-2 ${isOpen ? "justify-content-between" : "justify-content-center"
+      }`}
+  >
+    <h3
+      style={{ display: isOpen ? "block" : "none" }}
+      className="cursor primary-white m-0 logo"
+      onClick={() => navigate("/")}
+    >
+      Quizify
+    </h3>
+    <FaBars
+      size={25}
+      className="cursor primary-white"
+      onClick={() => setIsOpen(!isOpen)}
+    />
+  </div>)
+})
+
 function SagarSidebar({ children }) {
   console.log("in sidebar");
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
-
   const [isOpen, setIsOpen] = useState(false);
 
   // to handle user's token and navigation
@@ -57,35 +80,20 @@ function SagarSidebar({ children }) {
     }
   }, [user]);
 
+
+
   return (
     <div className="d-flex ">
       <div
         style={{ width: isOpen ? "300px" : "50px " }}
         className={`glass-effect d-flex flex-column overflow-x-hidden mt-4 sidebar`}
       >
-        <div
-          className={`d-flex align-items-center p-3 pb-2 ${
-            isOpen ? "justify-content-between" : "justify-content-center"
-          }`}
-        >
-          <h3
-            style={{ display: isOpen ? "block" : "none" }}
-            className="cursor primary-white m-0 logo"
-            onClick={() => navigate("/")}
-          >
-            Quizify
-          </h3>
-          <FaBars
-            size={25}
-            className="cursor primary-white"
-            onClick={() => setIsOpen(!isOpen)}
-          />
-        </div>
+        <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
 
         <div
           className={`d-flex flex-column justify-content-between h-100 p-2 border-top `}
         >
-          <AllMenus isOpen={isOpen} />
+          <AllMenus isOpen={isOpen} setIsOpen={setIsOpen} />
 
           <IsUserLoggedIn user={user} isOpen={isOpen} handleUser={handleUser} />
         </div>
@@ -93,30 +101,28 @@ function SagarSidebar({ children }) {
 
       <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100 ">
         <div
-          className={`d-flex align-items-center justify-content-between gap-2 py-2  ${
-            isOpen && "glass-effect h-100"
-          }`}
+          className={`d-flex align-items-center justify-content-between gap-2 py-2 border-0 ${isOpen && "glass-effect verticle-100 border border-1"
+            }`}
         >
           <SearchBar />
 
           {isOpen ? (
             <div
-              className={`mob-view-menu w-100 position-fixed border ${
-                isOpen && "h-100 d-flex flex-column p-3 "
-              }`}
+              className={`mob-view-menu w-100 position-fixed ${isOpen && " d-flex flex-column p-4 h-100 bg-dark"
+                }`}
               style={{ zIndex: "16" }}
             >
-              <AllMenus isOpen={isOpen} view='mobile'/>
+              <div className="d-flex justify-content-between p-3">
+                <span className="cursor">QuizEasy</span>
+                <span className="cursor">X</span>
+              </div>
+              <AllMenus isOpen={true} view={'mobile'} setIsOpen={setIsOpen} />
             </div>
           ) : (
             <FaBars
               size={25}
               className="burger-menu cursor primary-white"
               onClick={() => {
-                const sidebar = document.getElementById("subcomponent-body");
-                sidebar.style.display = "none";
-                document.getElementsByClassName("subcomponent")[0].style.cssText = "overflow:hidden !important";
-                
                 setIsOpen(!isOpen);
               }}
             />
