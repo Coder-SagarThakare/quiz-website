@@ -11,8 +11,7 @@ import { manageToken } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import IsUserLoggedIn from "../IsUserLoggedIn";
 
-// return all menu of sidebar
-
+// Return all menu of sidebar
 const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen }) => {
   console.log('in all menu', 'isOpen', view);
   return (
@@ -41,19 +40,19 @@ const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen }) => {
   );
 });
 
-export const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
+// Header section of Sidebar
+const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
 
-  console.log('inn header');
+  console.log('in Header');
   return (<div
     className={`d-flex align-items-center p-3 pb-2 ${isOpen ? "justify-content-between" : "justify-content-center"
-      }`}
+      }`} 
   >
     <h3
-      style={{ display: isOpen ? "block" : "none" }}
-      className="cursor primary-white m-0 logo"
+      className={`cursor primary-white m-0 logo ${ isOpen ? 'd-block' : "d-none"}`}
       onClick={() => navigate("/")}
     >
-      Quizify
+      QuizEasy
     </h3>
     <FaBars
       size={25}
@@ -80,8 +79,6 @@ function SagarSidebar({ children }) {
     }
   }, [user]);
 
-
-
   return (
     <div className="d-flex ">
       <div
@@ -101,21 +98,18 @@ function SagarSidebar({ children }) {
 
       <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100 ">
         <div
-          className={`d-flex align-items-center justify-content-between gap-2 py-2 border-0 ${isOpen && "glass-effect verticle-100 border border-1"
-            }`}
+          className={`d-flex align-items-center justify-content-between gap-2 py-2 border-0 ${isOpen &&"glass-effect verticle-100 border border-1"}`}
         >
           <SearchBar />
 
           {isOpen ? (
             <div
-              className={`mob-view-menu w-100 position-fixed ${isOpen && " d-flex flex-column p-4 h-100 bg-dark"
+              className={`mob-view-menu w-100 position-absolute ${isOpen && " d-flex flex-column gap-5 p-4 h-100 bg-dark top-0 bottom-0 right-0 left-0"
                 }`}
               style={{ zIndex: "16" }}
             >
-              <div className="d-flex justify-content-between p-3">
-                <span className="cursor">QuizEasy</span>
-                <span className="cursor">X</span>
-              </div>
+              <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
+
               <AllMenus isOpen={true} view={'mobile'} setIsOpen={setIsOpen} />
             </div>
           ) : (
