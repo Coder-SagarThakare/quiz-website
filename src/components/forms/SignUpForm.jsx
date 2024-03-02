@@ -6,9 +6,8 @@ import Img from "../Img";
 import { SignUp } from "../../images";
 import { useNavigate } from "react-router";
 import "./style.css";
-import RadioButton from "../RadioButton";
 import toast from "react-hot-toast";
-
+import RadioButton from "../RadioButton";
 
 function SignUpForm() {
   const API = "http://localhost:8022";
@@ -21,36 +20,27 @@ function SignUpForm() {
 
   const navigate = useNavigate();
 
+// This registerUser function is used to register data  into the database using Axios and then redirecting user to dashboard page if registration is successful otherwise
   const registerUser = async (Data) => {
     console.log(Data);
-    if(Data.password !== Data.confirmPassword){
-      // alert("Passwords not match");
+    if (Data.password !== Data.confirmPassword) {
       toast.error("Passwords not match !!!");
-    }else{
-    await axios
-      .post(`${API}/auth/register?captcha=false`, Data)
-      .then((res) => {
-        // alert("Registration Successful!");
-      toast.success("Registration Successful!!");
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.error("Registration Error:", error);
-        // alert("Registration Failed");
-        window.location.reload();
-      toast.error("Registration  Failed!!");
-    
-      });
+    } else {
+      delete  Data.confirmPassword;
+      await axios
+        .post(`${API}/auth/register?captcha=false`, Data)
+        .then((res) => {
+          toast.success("Registration Successful!!");
+          navigate("/signup");
+          // window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Registration Error:", error);
+          // window.location.reload();
+          toast.error("Registration  Failed!!");
+        });
     }
   };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // if(formData.fullname && formData.password && formData.email){
-  //   registerUser(formData);
-  //   console.log("You have submitted the form", formData);
-  //   // }
-  // };
 
   return (
     <div className="d-flex layout glass-effect p-lg-5 user-select-none">
@@ -100,37 +90,36 @@ function SignUpForm() {
               errors={errors}
             />
 
+            {/* <div>
+              <label htmlFor="cpassword">Confirm Password</label> <br></br>
+              <input type="password"  name="cpassword" placeholder="Confirm password"/>
+            </div> */}
+
             {/* <div className="my-2"> */}
             <h6>Gender</h6>
             <div className="d-md-flex mb-1">
-            <RadioButton
-              value="male"
-              type="radio"
-              className="form-check-input mx-2"
-              name="gender"
-              id="male"
-              label="Male"
-              register={register}
-            />
-            <RadioButton
-              value="female"
-              type="radio"
-              className="form-check-input mx-2"
-              name="gender"
-              id="female"
-              label="Female"
-              register={register}
-            />
+              <RadioButton
+                value="male"
+                name="gender"
+                id="male"
+                label="Male"
+                register={register}
+              />
+              <RadioButton
+                value="female"
+                name="gender"
+                id="female"
+                label="Female"
+                register={register}
+              />
 
-            <RadioButton
-              value="other"
-              type="radio"
-              className="form-check-input mx-2"
-              name="gender"
-              id="other"
-              label="Other"
-              register={register}
-            />
+              <RadioButton
+                value="other"
+                name="gender"
+                id="other"
+                label="Other"
+                register={register}
+              />
             </div>
 
             <Button
