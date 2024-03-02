@@ -15,7 +15,6 @@ function Alert() {
     showCancelButton: true,
     confirmButtonText: "Login",
   }).then((result) => {
-    console.log(result);
     if (result.isConfirmed) {
       navigate("/signin");
     } else if (result.isDismissed) {

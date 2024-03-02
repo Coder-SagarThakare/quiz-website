@@ -1,12 +1,12 @@
 import React from "react";
-import { Carousel, HeroImg } from "../../components";
+import { HeroImg } from "../../components";
 
 function HomePage() {
   return (
     <div className="">
 
       <HeroImg />
-      <Carousel />
+      {/* <Carousel /> */}
 
     </div>
   );
