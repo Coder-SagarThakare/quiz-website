@@ -24,7 +24,7 @@
 
 
 import React from "react";
-import { subjectBackgrounds } from "../../utilities/Data";
+import { subjectBackgrounds } from "../../utils/Data";
 import '../../styles/global.css'
 
 const Card = ({ title }) => {

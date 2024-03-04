@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import { Footer } from "../../components/";
+import { Footer } from "..";
 import "../../styles/subcomponents.css";
 import "./Sidebar.css";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -68,7 +68,7 @@ const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
   );
 });
 
-function SagarSidebar({ children }) {
+function Sidebar({ children }) {
   console.log("in sidebar");
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
@@ -142,4 +142,4 @@ function SagarSidebar({ children }) {
   );
 }
 
-export default React.memo(SagarSidebar);
+export default React.memo(Sidebar);

@@ -13,7 +13,6 @@
     "PhysicalEducation",
   ];
 
-
 const subjectBackgrounds = {
   Mathematics: {
     image: "https://img.freepik.com/free-vector/chalkboard-with-math-elements_1411-88.jpg?w=996&t=st=1703684684~exp=1703685284~hmac=f4abbdd135e0421ceb6344a20a0e744e5b8c3aaa08fbf94b00a513933a7b9399",

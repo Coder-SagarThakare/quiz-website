@@ -1,12 +1,12 @@
 import "./App.css";
 
-import { SagarSidebar, SignIn, SignUp } from "./components";
+import { Sidebar, SignIn, SignUp } from "./components";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
 import { About, Dashboard, Homepage, Interview, SubjectAreas } from "./pages";
-import { ProtectedRoutes } from "./utilities";
+import { ProtectedRoutes } from "./utils";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
         </Routes>
 
-        <SagarSidebar>
+        <Sidebar>
           <Routes>
             <Route path="/" element={<Homepage />} />
             {/* {private routes goes here} */}
@@ -29,7 +29,7 @@ function App() {
               <Route path="about" element={<About />} />
             </Route>
           </Routes>
-        </SagarSidebar>
+        </Sidebar>
 
         <Toaster />
       </BrowserRouter>
