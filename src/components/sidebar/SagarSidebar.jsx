@@ -22,14 +22,18 @@ const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen }) => {
           title={item.name}
           className={`text-decoration-none rounded-2 d-flex justify-content-center align-items-center gap-3 menu 
         ${isOpen ? "p-2" : "p-3"} `}
-          onClick={() => { view && setIsOpen(!isOpen) }}
+          onClick={() => {
+            view && setIsOpen(!isOpen);
+          }}
         >
           <div className="primary-white d-flex align-items-center">
             {item.icon}
           </div>
 
           <div
-            className={`menu-text primary-white position-relative w-100 align-items-center ${isOpen ? "d-flex " : "d-none"}`}
+            className={`menu-text primary-white position-relative w-100 align-items-center ${
+              isOpen ? "d-flex " : "d-none"
+            }`}
           >
             {item.name}
           </div>
@@ -41,24 +45,28 @@ const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen }) => {
 
 // Header section of Sidebar
 const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
-
-  return (<div
-    className={`d-flex align-items-center p-3 pb-2 ${isOpen ? "justify-content-between" : "justify-content-center"
-      }`} 
-  >
-    <h3
-      className={`cursor primary-white m-0 logo user-select-none ${ isOpen ? 'd-block' : "d-none"}`}
-      onClick={() => navigate("/")}
+  return (
+    <div
+      className={`d-flex align-items-center p-3 pb-2 ${
+        isOpen ? "justify-content-between" : "justify-content-center"
+      }`}
     >
-      {constants.WEBAPP_TITLE}
-    </h3>
-    <FaBars
-      size={25}
-      className="cursor primary-white"
-      onClick={() => setIsOpen(!isOpen)}
-    />
-  </div>)
-})
+      <h3
+        className={`cursor primary-white m-0 logo user-select-none ${
+          isOpen ? "d-block" : "d-none"
+        }`}
+        onClick={() => navigate("/")}
+      >
+        {constants.WEBAPP_TITLE}
+      </h3>
+      <FaBars
+        size={25}
+        className="cursor primary-white"
+        onClick={() => setIsOpen(!isOpen)}
+      />
+    </div>
+  );
+});
 
 function SagarSidebar({ children }) {
   console.log("in sidebar");
@@ -78,7 +86,7 @@ function SagarSidebar({ children }) {
   }, [user]);
 
   return (
-    <div className="d-flex ">
+    <div className={`d-flex`}>
       <div
         style={{ width: isOpen ? "300px" : "50px " }}
         className={`glass-effect d-flex flex-column overflow-x-hidden mt-4 sidebar`}
@@ -93,38 +101,43 @@ function SagarSidebar({ children }) {
           <IsUserLoggedIn user={user} isOpen={isOpen} handleUser={handleUser} />
         </div>
       </div>
-    {/* using subcomponent class dont delete it */}
+
       <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100 ">
         <div
-          className={`d-flex align-items-center justify-content-between gap-2 py-2 border-0 ${isOpen &&"glass-effect verticle-100 border border-1"}`}
+          className={`d-flex align-items-center justify-content-between gap-2 py-2 border-0 
+           `}
         >
           <SearchBar />
 
-          {isOpen ? (
-            <div
-              className={`mob-view-menu w-100 position-absolute ${isOpen && " d-flex flex-column gap-5 p-4 h-100 bg-dark top-0 bottom-0 right-0 left-0"}` }
-              style={{ zIndex: "16" }}
-            >
-              <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
-
-              <AllMenus isOpen={true} view={'mobile'} setIsOpen={setIsOpen} />
-            </div>
-          ) : (
+          {!isOpen && (
             <FaBars
               size={25}
               className="burger-menu cursor primary-white"
               onClick={() => {
-                document.getElementsByClassName('subcomponent')[0].style.cssText = "overflow-y : hidden !important"
                 setIsOpen(!isOpen);
               }}
             />
           )}
         </div>
+        {/* sidebar  */}
         <div className="glass-effect" id="subcomponent-body">
           {children}
-        </div>
+        </div>  
         <Footer />
       </div>
+
+{/* mob view sidebar  */}
+      {isOpen && (
+        <div
+          className={`mob-view-menu w-100 vh-100 glass-effect p-4 d-flex`}
+          style={{ zIndex: "20" }}
+        >
+          <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
+          <AllMenus isOpen={true} view={"mobile"} setIsOpen={setIsOpen} />
+          <IsUserLoggedIn isOpen={isOpen} handleUser={handleUser}/>
+        </div>
+      )}
+
     </div>
   );
 }
