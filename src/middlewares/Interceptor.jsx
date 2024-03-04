@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL } from "../constants";
+import { constants } from "../constants";
 import { manageToken } from "../services";
 import toast from "react-hot-toast";
 
@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 // The base URL for all HTTP requests
 
 export const axiosInstance = axios.create({
-  baseURL: BASE_URL,
+  baseURL: constants.BASE_URL,
 });
 
 /**

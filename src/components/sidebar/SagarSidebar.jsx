@@ -6,14 +6,13 @@ import "./Sidebar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 // import { TbLogout2, TbLogin2 } from "react-icons/tb";
 import SearchBar from "../searchbar/SearchBar";
-import { MenuItem } from "../../constants";
+import { MenuItem, constants } from "../../constants";
 import { manageToken } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import IsUserLoggedIn from "../IsUserLoggedIn";
 
 // Return all menu of sidebar
 const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen }) => {
-  console.log('in all menu', 'isOpen', view);
   return (
     <div className={`${view && "d-flex flex-column gap-3"}`}>
       {MenuItem.map((item, index) => (
@@ -43,16 +42,15 @@ const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen }) => {
 // Header section of Sidebar
 const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
 
-  console.log('in Header');
   return (<div
     className={`d-flex align-items-center p-3 pb-2 ${isOpen ? "justify-content-between" : "justify-content-center"
       }`} 
   >
     <h3
-      className={`cursor primary-white m-0 logo ${ isOpen ? 'd-block' : "d-none"}`}
+      className={`cursor primary-white m-0 logo user-select-none ${ isOpen ? 'd-block' : "d-none"}`}
       onClick={() => navigate("/")}
     >
-      QuizEasy
+      {constants.WEBAPP_TITLE}
     </h3>
     <FaBars
       size={25}
@@ -95,7 +93,7 @@ function SagarSidebar({ children }) {
           <IsUserLoggedIn user={user} isOpen={isOpen} handleUser={handleUser} />
         </div>
       </div>
-
+    {/* using subcomponent class dont delete it */}
       <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100 ">
         <div
           className={`d-flex align-items-center justify-content-between gap-2 py-2 border-0 ${isOpen &&"glass-effect verticle-100 border border-1"}`}
@@ -104,8 +102,7 @@ function SagarSidebar({ children }) {
 
           {isOpen ? (
             <div
-              className={`mob-view-menu w-100 position-absolute ${isOpen && " d-flex flex-column gap-5 p-4 h-100 bg-dark top-0 bottom-0 right-0 left-0"
-                }`}
+              className={`mob-view-menu w-100 position-absolute ${isOpen && " d-flex flex-column gap-5 p-4 h-100 bg-dark top-0 bottom-0 right-0 left-0"}` }
               style={{ zIndex: "16" }}
             >
               <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
@@ -117,6 +114,7 @@ function SagarSidebar({ children }) {
               size={25}
               className="burger-menu cursor primary-white"
               onClick={() => {
+                document.getElementsByClassName('subcomponent')[0].style.cssText = "overflow-y : hidden !important"
                 setIsOpen(!isOpen);
               }}
             />

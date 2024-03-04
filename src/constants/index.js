@@ -7,11 +7,14 @@ import { About, Dashboard, Homepage, Interview, SubjectAreas } from "../pages";
 import { Outlet } from "react-router-dom";
 
 //process.env data
-export const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 // static data to add in component
-export const signinImg =
-  "https://static.vecteezy.com/system/resources/thumbnails/011/654/703/small/cute-boy-going-to-school-and-bring-a-books-cartoon-3d-icon-illustration-people-education-icon-concept-png.png";
+
+// Object containing global constants used throughout the app.
+export const constants = {
+  WEBAPP_TITLE: "QuizEasy",
+  BASE_URL: process.env.REACT_APP_BASE_URL,
+};
 
 // sidebar menu items routes
 export const MenuItem = [
