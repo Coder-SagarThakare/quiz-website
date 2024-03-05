@@ -1,6 +1,6 @@
 import React from "react";
-import { Feature, HeroImg } from "../../components";
-import { constants } from "../../constants";
+import { Feature, HeroImg } from "../components";
+import { constants } from "../constants";
 
 function ShowFeatures() {
   return (

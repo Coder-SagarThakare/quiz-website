@@ -1,5 +1,5 @@
-export { default as Homepage } from "./homepage/HomePage";
-export { default as Dashboard } from "./dashboard/Dashboard";
-export { default as About } from "./about/About";
-export { default as SubjectAreas } from "./subjects/Subjects";
-export {default as Interview} from "./interview/Interview"
+export { default as Homepage } from "./HomePage";
+export { default as Dashboard } from "./Dashboard";
+export { default as About } from "./About";
+export { default as SubjectAreas } from "./Subjects";
+export {default as Interview} from "./Interview"
