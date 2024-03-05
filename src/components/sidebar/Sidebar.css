@@ -1,5 +1,4 @@
 .sidebar {
-  /* width: 300px !important; */
   min-width: 80px;
   max-width: 99vh;
   transition: 0.7s ease-in-out;
@@ -61,18 +60,13 @@
   }
 
   .sidebar {
-    /* position: absolute !important; */
     z-index: 1;
     width: 100% !important;
     height: 95vh !important;
     margin: 0 20px 0 20px;
-
-    /* display: none !important; */
   }
 
   .link {
-    /* display: flex !important;
-    justify-content: space-between !important; */
     align-items: center !important;
   }
 

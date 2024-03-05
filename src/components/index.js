@@ -1,4 +1,4 @@
-export { default as SearchBar } from "./searchbar/SearchBar";
+export { default as SearchBar } from "./SearchBar";
 export { default as Footer } from './footer/Footer';
 export { default as Card } from './card/Card';
 export { default as LabelledInput } from './LabelledInput';

@@ -49,7 +49,6 @@ function SignInForm() {
 
       <div className="w-100 w-md-50 d-flex flex-column align-items-center justify-content-center ">
         <div className="glass-effect p-4">
-          {/* <div className="ball-1 "></div>  */}
           <h2>Login to your Account</h2>
           <p className="mb-4">with your registered Email</p>
           <form
