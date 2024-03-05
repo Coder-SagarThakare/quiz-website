@@ -14,7 +14,7 @@ export const constants = {
     {
       id: 1,
       img: "https://res.cloudinary.com/difupvzin/image/upload/v1709636941/feature_1_w1g3is.jpg",
-      title: "Comprehensive Subject Coverage",
+      title: "Covering Many Subjects",
       desc_1:
         "Our platform offers a diverse range of subjects covering various disciplines from mathematics and science to history and literature. ",
       desc_2:

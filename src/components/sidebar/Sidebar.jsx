@@ -102,7 +102,7 @@ function Sidebar({ children }) {
         </div>
       </div>
 
-      <div className=" p-4 overflow-y-auto main overflow-x-hidden subcomponent w-100 ">
+      <div className="p-2 p-sm-4 overflow-y-auto main overflow-x-hidden subcomponent w-100 ">
         <div
           className={`d-flex align-items-center justify-content-between gap-2 py-2 border-0 
            `}
