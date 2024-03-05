@@ -6,7 +6,7 @@ import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
 import { About, Dashboard, Homepage, Interview, SubjectAreas } from "./pages";
-import { ProtectedRoutes } from "./utils";
+import { AuthGuard, ProtectedRoutes } from "./utils";
 
 function App() {
   return (
@@ -14,8 +14,10 @@ function App() {
       <BrowserRouter>
         {/* {public routes here we can use for authentication} */}
         <Routes>
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={<AuthGuard />} >
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Route>
         </Routes>
 
         <Sidebar>

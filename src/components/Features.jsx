@@ -21,4 +21,4 @@ function Features({ path, title, desc_1, desc_2, isReverse }) {
   );
 }
 
-export default Features;
+export default React.memo(Features);

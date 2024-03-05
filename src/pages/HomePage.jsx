@@ -5,6 +5,7 @@ import { constants } from "../constants";
 function ShowFeatures() {
   return (
     <div>
+      <h1 className="m-2">Features</h1>
       {constants.FEATURES.map((ele) => (
         <Feature
           path={ele.img}
@@ -20,6 +21,7 @@ function ShowFeatures() {
 }
 
 function HomePage() {
+  console.log('homepage loaded');
   return (
     <div className="">
       <HeroImg />
