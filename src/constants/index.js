@@ -6,14 +6,50 @@ import { PiStudentFill } from "react-icons/pi";
 import { About, Dashboard, Homepage, Interview, SubjectAreas } from "../pages";
 import { Outlet } from "react-router-dom";
 
-//process.env data
-
-// static data to add in component
-
 // Object containing global constants used throughout the app.
 export const constants = {
   WEBAPP_TITLE: "QuizEasy",
   BASE_URL: process.env.REACT_APP_BASE_URL,
+  FEATURES: [
+    {
+      id: 1,
+      img: "https://res.cloudinary.com/difupvzin/image/upload/v1709636941/feature_1_w1g3is.jpg",
+      title: "Comprehensive Subject Coverage",
+      desc_1:
+        "Our platform offers a diverse range of subjects covering various disciplines from mathematics and science to history and literature. ",
+      desc_2:
+        "Whether you're preparing for exams or simply eager to expand your knowledge, we've got you covered.",
+    },
+    {
+      id: 2,
+      img: "https://res.cloudinary.com/difupvzin/image/upload/v1709636830/feature_2_hqzdmw.jpg",
+      title: "Detailed Analysis",
+      desc_1:
+        "Gain valuable insights into your performance with our detailed test analysis feature. Track your progress over time, view your scores, and analyze your strengths and weaknesses. ",
+      desc_2:
+        "Our intuitive dashboard provides comprehensive metrics, including time taken per question and accuracy rates, empowering you to make informed decisions about your study strategy.",
+      isReverse: true,
+    },
+    {
+      id: 3,
+      img: "https://res.cloudinary.com/difupvzin/image/upload/v1709636654/feature_3_gthfrv.jpg",
+      title: "User-Friendly Interface",
+      desc_1:
+        "We understand the importance of simplicity and ease of use. That`s why our platform features a user-friendly interface designed with students in mind. ",
+      desc_2:
+        "Navigate effortlessly between subjects, quizzes, and analysis tools, enjoying a seamless learning experience from start to finish.",
+    },
+    {
+      id: 4,
+      img: "https://res.cloudinary.com/difupvzin/image/upload/v1709636981/feature_4_bhouzm.jpg",
+      title: "Interactive Learning Experience",
+      desc_1:
+        "Immerse yourself in an interactive learning experience that goes beyond traditional study methods. ",
+      desc_2:
+        "Engage with dynamic quiz questions, multimedia content, and interactive exercises designed to enhance your understanding and retention of key concepts.",
+      isReverse: true,
+    },
+  ],
 };
 
 // sidebar menu items routes
