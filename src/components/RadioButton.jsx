@@ -14,7 +14,7 @@ function RadioButton(props) {
           required: `${props.isRequired}`,
         })}
       />
-      <label className="mb-1"> {props.label}</label>
+      <label className="mb-2"> {props.label}</label>
     </div>
   );
 }

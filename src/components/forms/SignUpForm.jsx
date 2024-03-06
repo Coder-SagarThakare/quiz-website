@@ -26,18 +26,18 @@ function SignUpForm() {
     if (Data.password !== Data.confirmPassword) {
       toast.error("Passwords not match !!!");
     } else {
+
+      // delete confirmpassword value before sending request to  server
       delete  Data.confirmPassword;
       await axios
         .post(`${API}/auth/register?captcha=false`, Data)
         .then((res) => {
           toast.success("Registration Successful!!");
-          navigate("/signup");
-          // window.location.reload();
+          navigate("/signin");
         })
         .catch((error) => {
-          console.error("Registration Error:", error);
-          // window.location.reload();
-          toast.error("Registration  Failed!!");
+          console.error("Registration Error:",error.response.data.message );
+          toast.error(error.response.data.message);
         });
     }
   };
@@ -89,11 +89,6 @@ function SignUpForm() {
               register={register}
               errors={errors}
             />
-
-            {/* <div>
-              <label htmlFor="cpassword">Confirm Password</label> <br></br>
-              <input type="password"  name="cpassword" placeholder="Confirm password"/>
-            </div> */}
 
             {/* <div className="my-2"> */}
             <h6>Gender</h6>
