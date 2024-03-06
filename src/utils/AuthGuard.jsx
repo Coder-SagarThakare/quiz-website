@@ -1,9 +1,9 @@
-import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
-import { manageUser } from '../services'
+import React from "react";
+import { Navigate, Outlet } from "react-router-dom";
+import { manageToken } from "../services";
 
 function AuthGuard() {
-    return (manageUser('get', "token") ? <Outlet /> : <Navigate to="/" />)
+  return manageToken("get", "token") ? <Navigate to="/" /> : <Outlet />;
 }
 
-export default AuthGuard
+export default AuthGuard;
