@@ -4,7 +4,7 @@ import { Button, LabelledInput } from "..";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { SignIn } from "../../images";
-import { loginUser, manageToken } from "../../services";
+import { manageToken, manageUser } from "../../services";
 import Img from "../Img";
 import "./style.css";
 import toast from "react-hot-toast";
@@ -28,7 +28,7 @@ function SignInForm() {
    */
   const onsubmit = async (data) => {
     try {
-      const result = await loginUser(
+      const result = await manageUser("post",
         `${apiPaths.AUTH.LOGIN}?captcha=false`,
         data
       );
