@@ -4,7 +4,7 @@ import { constants } from "../constants";
 
 function ShowFeatures() {
   return (
-    <div>
+    <>
       <h1 className="m-2">Features</h1>
       {constants.FEATURES.map((ele) => (
         <Feature
@@ -16,8 +16,14 @@ function ShowFeatures() {
           isReverse={ele.isReverse}
         />
       ))}
-    </div>
+    </>
   );
+}
+
+function ShowStreams(){
+  <div>
+    
+  </div>
 }
 
 function HomePage() {
@@ -26,6 +32,7 @@ function HomePage() {
     <div className="">
       <HeroImg />
       <ShowFeatures />
+      <ShowStreams />
     </div>
   );
 }

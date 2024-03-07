@@ -14,16 +14,6 @@ export const loginUser = (url, data) => {
 
 export const manageUser = (action, url, payload) => {
 
-  const token = manageToken('get', "token")
-  
-  if (token) {
-    console.log("token",token);
-
-    const decoded = jwtDecode(token)
-
-    console.log("decoded value :", decoded);
-  }
-
   switch (action) {
     case "get":
       return axiosInstance.get(url);
