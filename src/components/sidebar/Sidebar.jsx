@@ -5,7 +5,7 @@ import "../../styles/subcomponents.css";
 import "./Sidebar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar";
-import { MenuItem, constants } from "../../constants";
+import { MenuItem, CONSTANTS } from "../../constants";
 import { manageToken } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import IsUserLoggedIn from "../IsUserLoggedIn";
@@ -56,7 +56,7 @@ const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
         }`}
         onClick={() => navigate("/")}
       >
-        {constants.WEBAPP_TITLE}
+        {CONSTANTS.WEBAPP_TITLE}
       </h3>
       <FaBars
         size={25}

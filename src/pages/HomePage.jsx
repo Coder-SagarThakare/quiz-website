@@ -1,19 +1,19 @@
 import React from "react";
 import { Feature, HeroImg } from "../components";
-import { constants } from "../constants";
+import { CONSTANTS } from "../constants";
 
 function ShowFeatures() {
   return (
     <>
       <h1 className="m-2">Features</h1>
-      {constants.FEATURES.map((ele) => (
+      {CONSTANTS.FEATURES.map((ele) => (
         <Feature
-          path={ele.img}
-          title={ele.title}
-          desc_1={ele.desc_1}
-          desc_2={ele.desc_2}
-          key={ele.id}
-          isReverse={ele.isReverse}
+          path={ele.IMG}
+          title={ele.TITLE}
+          desc_1={ele.DESC_1}
+          desc_2={ele.DESC_2}
+          key={ele.ID}
+          isReverse={ele.ISREVERSE}
         />
       ))}
     </>

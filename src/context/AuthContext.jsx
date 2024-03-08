@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      
       if (manageToken("get", "token")) {
         try {
           const data = await manageUser("get", "/user/self");
