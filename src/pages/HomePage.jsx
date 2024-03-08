@@ -1,5 +1,5 @@
 import React from "react";
-import { Feature, HeroImg } from "../components";
+import { Feature, Footer, HeroImg } from "../components";
 import { CONSTANTS } from "../constants";
 
 function ShowFeatures() {
@@ -20,19 +20,20 @@ function ShowFeatures() {
   );
 }
 
-function ShowStreams(){
-  <div>
-    
-  </div>
+function ShowStreams() {
+  <div></div>;
 }
 
 function HomePage() {
-  console.log('homepage loaded');
+  console.log("homepage loaded");
   return (
     <div className="">
       <HeroImg />
       <ShowFeatures />
       <ShowStreams />
+      <div className="m-2">
+        <Footer />
+      </div>
     </div>
   );
 }

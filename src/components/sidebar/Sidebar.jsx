@@ -76,9 +76,10 @@ function Sidebar({ children }) {
   // to handle user's token and navigation
   const handleUser = useCallback(() => {
     if (user) {
-      manageToken("delete", "token");
+      // manageToken("delete", "token");
+      localStorage.removeItem(CONSTANTS.TOKEN)
       setUser(null);
-      manageToken("get", "token");
+      // manageToken("get", "token");
     } else {
       navigate("/signin");
     }

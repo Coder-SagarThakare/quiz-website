@@ -82,7 +82,7 @@ export const MenuItem = [
   },
 ];
 
-// frontend routes
+// frontend routes of sidebar menu
 export const routes = [
   {
     path: "/",
@@ -109,7 +109,12 @@ export const routes = [
   },
 ];
 
-// api 
+// client side all routes
+export const CLIENT_PATHS = {
+  HOME: "/",
+};
+
+// api
 export const apiPaths = {
   STUDENT: {
     SELF: "/student/self",

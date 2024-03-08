@@ -35,6 +35,7 @@ function SignInForm() {
         data
       );
 
+      // manageToken("set", "token", result.token);
       localStorage.setItem(CONSTANTS.TOKEN, result.token)
       setUser(result.user);
       toast.success("Login Successfully !!!");
