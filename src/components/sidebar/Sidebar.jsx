@@ -86,15 +86,15 @@ function Sidebar() {
   }, [user]);
 
   return (
-    <div className={`d-flex`}>
+    <div className={`d-flex `}>
       <div
         style={{ width: isOpen ? "300px" : "50px " }}
-        className={`glass-effect d-flex flex-column overflow-x-hidden mt-4 sidebar`}
+        className={`glass-effect d-flex flex-column overflow-x-hidden sidebar`}
       >
         <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
 
         <div
-          className={`d-flex flex-column justify-content-between h-100 p-2 border-top `}
+          className={`d-flex flex-column justify-content-between p-2 border-top  h-100`}
         >
           <AllMenus isOpen={isOpen} setIsOpen={setIsOpen} />
 

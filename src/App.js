@@ -42,9 +42,11 @@ import { AuthGuard, ProtectedRoutes } from "./utils";
 function AppLayout() {
   console.log("in app layout");
   return (
-    <div style={{ display: "flex" }}>
+    <div className="d-flex vh-100 mt-4">
       <Sidebar />
+      <div className="overflow-scroll w-100 glass-effect border mx-4">
       <Outlet />
+      </div>
     </div>
   );
 }
