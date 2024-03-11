@@ -67,7 +67,7 @@ const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
   );
 });
 
-function Sidebar({ children }) {
+function Sidebar() {
   console.log("in sidebar");
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
@@ -101,31 +101,6 @@ function Sidebar({ children }) {
           <IsUserLoggedIn user={user} isOpen={isOpen} handleUser={handleUser} />
         </div>
       </div>
-
-      <div className="p-2 p-sm-4 overflow-y-auto main overflow-x-hidden subcomponent w-100 ">
-        <div
-          className={`d-flex align-items-center justify-content-between gap-2 py-2 border-0 
-           `}
-        >
-          <SearchBar />
-
-          {!isOpen && (
-            <FaBars
-              size={25}
-              className="burger-menu cursor primary-white"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            />
-          )}
-        </div>
-        {/* sidebar  */}
-        <div className="glass-effect" id="subcomponent-body">
-          {children}
-        </div>  
-        <Footer />
-      </div>
-
 {/* mob view sidebar  */}
       {isOpen && (
         <div
