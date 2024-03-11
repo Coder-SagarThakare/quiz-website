@@ -7,14 +7,30 @@ import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
 import { About, Dashboard, Homepage, Interview, SubjectAreas } from "./pages";
 import { AuthGuard, ProtectedRoutes } from "./utils";
+import { useState } from "react";
+import { FaBars } from "react-icons/fa6";
 
 
 function AppLayout() {
   console.log("in app layout");
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="d-flex vh-100 pt-4 ">
-      <Sidebar />
+    <div className={`d-flex vh-100 pt-4 ${isOpen && 'flex-column' }`}>
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+
+      {!isOpen && (
+        <FaBars
+          size={25}
+          className="burger-menu cursor primary-white border p-2 "
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+        />
+      )}
+
       <div className="overflow-scroll w-100 vh-100 px-4 ">
+
         <Outlet />
       </div>
     </div>

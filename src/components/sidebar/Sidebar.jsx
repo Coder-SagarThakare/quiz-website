@@ -1,12 +1,9 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { FaBars } from "react-icons/fa";
-import { Footer } from "..";
 import "../../styles/subcomponents.css";
 import "./Sidebar.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import SearchBar from "../SearchBar";
 import { MenuItem, CONSTANTS } from "../../constants";
-import { manageToken } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import IsUserLoggedIn from "../IsUserLoggedIn";
 
@@ -67,11 +64,11 @@ const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
   );
 });
 
-function Sidebar() {
+function Sidebar({isOpen,setIsOpen}) {
   console.log("in sidebar");
+
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
-  const [isOpen, setIsOpen] = useState(false);
 
   // to handle user's token and navigation
   const handleUser = useCallback(() => {
@@ -89,18 +86,25 @@ function Sidebar() {
     <div className={`d-flex `}>
       <div
         style={{ width: isOpen ? "300px" : "50px " }}
-        className={`glass-effect d-flex flex-column overflow-x-hidden sidebar`}
-      >
+        className={`glass-effect d-flex flex-column overflow-x-hidden sidebar`} >
         <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
 
-        <div
-          className={`d-flex flex-column justify-content-between p-2 border-top  h-100`}
-        >
+        <div className={`d-flex flex-column justify-content-between p-2 border-top  h-100`}>
           <AllMenus isOpen={isOpen} setIsOpen={setIsOpen} />
-
           <IsUserLoggedIn user={user} isOpen={isOpen} handleUser={handleUser} />
         </div>
+
+        {!isOpen && (
+            <FaBars
+              size={25}
+              className="burger-menu cursor primary-white"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            />
+          )}
       </div>
+
 {/* mob view sidebar  */}
       {isOpen && (
         <div
