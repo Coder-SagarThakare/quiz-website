@@ -8,43 +8,13 @@ import { AuthProvider } from "./context/AuthContext";
 import { About, Dashboard, Homepage, Interview, SubjectAreas } from "./pages";
 import { AuthGuard, ProtectedRoutes } from "./utils";
 
-// function App() {
-//   return (
-//     <AuthProvider>
-//       <BrowserRouter>
-//         {/* {public routes here we can use for authentication} */}
-//         <Routes>
-//           <Route path="/" element={<AuthGuard />} >
-//             <Route path="/signin" element={<SignIn />} />
-//             <Route path="/signup" element={<SignUp />} />
-//           </Route>
-//         </Routes>
-
-//         <Sidebar>
-//           <Routes>
-//             <Route path="/" element={<Homepage />} />
-//             {/* {private routes goes here} */}
-//             <Route element={<ProtectedRoutes />}>
-//               <Route path="dashboard" element={<Dashboard />} />
-//               <Route path="subjects" element={<SubjectAreas />} />
-//               <Route path="interview" element={<Interview />} />
-//               <Route path="about" element={<About />} />
-//             </Route>
-//           </Routes>
-//         </Sidebar>
-
-//         <Toaster />
-//       </BrowserRouter>
-//     </AuthProvider>
-//   );
-// }
 
 function AppLayout() {
   console.log("in app layout");
   return (
-    <div className="d-flex vh-100 mt-4 ">
+    <div className="d-flex vh-100 pt-4 ">
       <Sidebar />
-      <div className="overflow-scroll w-100 px-4">
+      <div className="overflow-scroll w-100 vh-100 px-4 ">
         <Outlet />
       </div>
     </div>
@@ -55,9 +25,10 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        {/* {public routes here we can use for authentication} */}
+
         <Routes>
 
+          {/* {public routes } */}
           <Route element={<AuthGuard />}>
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
@@ -65,6 +36,7 @@ function App() {
 
           <Route element={<AppLayout />}>
             <Route path="/" element={<Homepage />} />
+
             {/* {private routes goes here} */}
             <Route element={<ProtectedRoutes />}>
               <Route path="dashboard" element={<Dashboard />} />
