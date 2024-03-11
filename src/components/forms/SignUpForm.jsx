@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import { Button, LabelledInput } from "..";
 import { useForm } from "react-hook-form";
 import Img from "../Img";
 import { SignUp } from "../../images";
 import { useNavigate } from "react-router";
 import "./style.css";
+import { loginUser, manageToken } from "../../services";
+// import { useAuth } from "../../context/AuthContext";
+import { apiPaths } from "../../constants";
 import toast from "react-hot-toast";
 import RadioButton from "../RadioButton";
 
 function SignUpForm() {
-  const API = "http://localhost:8022";
+  // const API = "http://localhost:8022";
 
   const {
     handleSubmit,
@@ -21,31 +23,36 @@ function SignUpForm() {
   const navigate = useNavigate();
 
 // This registerUser function is used to register data  into the database using Axios and then redirecting user to dashboard page if registration is successful otherwise
-  const registerUser = async (Data) => {
-    console.log(Data);
-    if (Data.password !== Data.confirmPassword) {
+
+  const registerUser = async (data) => {
+    if (data.password !== data.confirmPassword) {
       toast.error("Passwords not match !!!");
     } else {
-
-      // delete confirmpassword value before sending request to  server
-      delete  Data.confirmPassword;
-      await axios
-        .post(`${API}/auth/register?captcha=false`, Data)
-        .then((res) => {
-          toast.success("Registration Successful!!");
-          navigate("/signin");
-        })
-        .catch((error) => {
-          console.error("Registration Error:",error.response.data.message );
-          toast.error(error.response.data.message);
-        });
+    try {
+      console.log("Data :>> ", data);
+      // we not need to pass confirm  password to  the server side database
+      delete  data.confirmPassword;
+      const result = await loginUser(
+        `${apiPaths.AUTH.REGISTER}?captcha=false`,
+        data
+      );
+      console.log(result);
+      manageToken("post", "token", result.token);
+      toast.success("Registration Successful!!");
+      navigate("/signin");
+    } catch (error) {
+      console.error("Registration Error:",error.response.data.message );
+      //toast.error(error.response.data.message);
     }
+  }
   };
+
+  
 
   return (
     <div className="d-flex layout glass-effect p-lg-5 user-select-none">
       <div className="w-100 w-md-50 d-flex flex-column align-items-center justify-content-center ">
-        <div className="glass-effect p-4 w-75">
+        <div className="glass-effect p-3 w-md-95 w-75">
           <h2>Sign Up</h2>
           <form
             onSubmit={handleSubmit(registerUser)}

@@ -106,4 +106,12 @@ body .ball-3 {
   .w-md-50 {
     width: 50% !important;
   }
+  
+}
+@media  (max-width: 768px) {
+
+  .w-md-95 {
+    width: 90% !important;
+
+  }
 }
