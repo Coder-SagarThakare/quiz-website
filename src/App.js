@@ -42,10 +42,10 @@ import { AuthGuard, ProtectedRoutes } from "./utils";
 function AppLayout() {
   console.log("in app layout");
   return (
-    <div className="d-flex vh-100 mt-4">
+    <div className="d-flex vh-100 mt-4 ">
       <Sidebar />
-      <div className="overflow-scroll w-100 glass-effect border mx-4">
-      <Outlet />
+      <div className="overflow-scroll w-100 px-4">
+        <Outlet />
       </div>
     </div>
   );
@@ -57,6 +57,7 @@ function App() {
       <BrowserRouter>
         {/* {public routes here we can use for authentication} */}
         <Routes>
+
           <Route element={<AuthGuard />}>
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
@@ -72,6 +73,7 @@ function App() {
               <Route path="about" element={<About />} />
             </Route>
           </Route>
+
         </Routes>
         <Toaster />
       </BrowserRouter>
