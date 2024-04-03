@@ -117,12 +117,13 @@ export const CLIENT_PATHS = {
 // api
 export const apiPaths = {
   STUDENT: {
-    SELF: "/student/self",
+    AUTH: {
+      LOGIN: "/api/v1/auth/student/login",
+      REGISTER: "/api/v1/auth/student/register",
+    },
+    SELF: "/api/student/self",
   },
-  AUTH: {
-    LOGIN: "/auth/login",
-    REGISTER: "/auth/register",
-  },
+  
   TEACHER: {
     SELF: "/self", // dummy
     ADD_SUBJECT: "/teacher/add-subject",

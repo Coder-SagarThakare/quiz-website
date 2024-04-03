@@ -31,7 +31,7 @@ function SignInForm() {
     try {
 
       const result = await axiosInstance.post(
-        `${apiPaths.AUTH.LOGIN}?captcha=false`,
+        `${apiPaths.STUDENT.AUTH.LOGIN}?captcha=false`,
         data
       );
 
