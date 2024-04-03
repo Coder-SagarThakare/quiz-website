@@ -115,13 +115,14 @@ export const CLIENT_PATHS = {
 };
 
 // api
+const API_V1 = "/api/v1";
 export const apiPaths = {
   STUDENT: {
     AUTH: {
-      LOGIN: "/api/v1/auth/student/login",
-      REGISTER: "/api/v1/auth/student/register",
+      LOGIN: `${API_V1}/auth/student/login`,
+      REGISTER: `${API_V1}/auth/student/register`,
     },
-    SELF: "/api/student/self",
+    SELF: `${API_V1}/user/self`,
   },
   
   TEACHER: {
