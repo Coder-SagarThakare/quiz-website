@@ -104,6 +104,16 @@ body .ball-3 {
   transform: scalex(-1);
 }
 
+
+
+
+
+@media only screen and (max-width: 768px) {
+  .flex-column-custom{
+   flex-direction: column !important;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .w-md-50 {
     width: 50% !important;

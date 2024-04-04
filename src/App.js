@@ -16,7 +16,7 @@ function AppLayout() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={`d-flex vh-100 pt-4 ${isOpen && 'flex-column' }`}>
+    <div className={`d-flex vh-100 pt-4 ${isOpen && 'flex-column-custom' }`}>
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
 
       {!isOpen && (
