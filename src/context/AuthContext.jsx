@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
-import { manageToken, manageUser } from "../services";
+import { get, manageToken, manageUser } from "../services";
 import { CONSTANTS, apiPaths } from "../constants";
 
 // to provide authenticate user data throught the project
@@ -11,18 +11,21 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      
+
       // if (manageToken("get", "token")) {
       if (localStorage.getItem(CONSTANTS.TOKEN)) {
 
         try {
-          const data = await manageUser("get",apiPaths.STUDENT.SELF);
+          // const data = await manageUser("get",apiPaths.STUDENT.SELF);
+          const data = get(apiPaths.STUDENT.SELF);
+
+          console.log(data);
 
           if (data) {
             setUser(data);
           }
         } catch (error) {
-          console.log('AuthContext.jsx error ' ,error);
+          console.log('AuthContext.jsx error ', error);
         }
       }
     };

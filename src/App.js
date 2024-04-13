@@ -5,7 +5,7 @@ import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
-import { About, Dashboard, Homepage, Interview, SubjectAreas } from "./pages";
+import { About, Dashboard, Homepage, Interview, Profile, SubjectAreas } from "./pages";
 import { AuthGuard, ProtectedRoutes } from "./utils";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
@@ -59,6 +59,7 @@ function App() {
               <Route path="subjects" element={<SubjectAreas />} />
               <Route path="interview" element={<Interview />} />
               <Route path="about" element={<About />} />
+              <Route path="profile" element={<Profile />} />
             </Route>
           </Route>
 

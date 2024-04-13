@@ -1,6 +1,5 @@
 import axiosInstance from "../middlewares";
-import { jwtDecode } from "jwt-decode";
-import manageToken from "./LocalStorageService";
+
 /**
  *
  * @param {string} url - The URL to which the POST request should be sent.
@@ -25,3 +24,7 @@ export const manageUser = (action, url, payload) => {
       return console.error("Invalid action provided.");
   }
 };
+
+export const get = (url) => {
+  return axiosInstance.get(url)
+}

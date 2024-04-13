@@ -10,4 +10,3 @@ export {default as Sidebar } from './sidebar/Sidebar'
 export {default as LoginModal } from './LoginModal'
 export {default as HeroImg } from './HeroImg'
 export {default as Feature} from './Features'
-

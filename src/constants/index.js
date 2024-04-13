@@ -1,9 +1,9 @@
 import { RiHomeHeartFill } from "react-icons/ri";
 import { MdSubject } from "react-icons/md";
 import { RxDashboard } from "react-icons/rx";
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt, FaUserCircle} from "react-icons/fa";
 import { PiStudentFill } from "react-icons/pi";
-import { About, Dashboard, Homepage, Interview, SubjectAreas } from "../pages";
+import { About, Dashboard, Homepage, Interview, Profile, SubjectAreas } from "../pages";
 import { Outlet } from "react-router-dom";
 
 // Object containing global constants used throughout the app.
@@ -76,10 +76,15 @@ export const MenuItem = [
     path: "/interview",
   },
   {
+    name: "Profile",
+    icon: <FaUserCircle />,
+    path: "/profile",
+  },
+  {
     name: "About",
     icon: <FaUserAlt />,
     path: "/about",
-  },
+  }
 ];
 
 // frontend routes of sidebar menu
@@ -93,6 +98,7 @@ export const routes = [
       { path: "interview", element: <Interview /> },
       { path: "subjects", element: <SubjectAreas /> },
       { path: "about", element: <About /> },
+      { path: "profile", element: <Profile /> },
     ],
   },
   {
@@ -123,6 +129,12 @@ export const apiPaths = {
       REGISTER: `${API_V1}/auth/student/register`,
     },
     SELF: `${API_V1}/user/self`,
+    SUBJECT : {
+
+    },
+    STREAM : {
+      
+    }
   },
   
   TEACHER: {
