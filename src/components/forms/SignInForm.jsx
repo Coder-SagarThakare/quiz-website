@@ -4,7 +4,6 @@ import { Button, LabelledInput } from "..";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { SignIn } from "../../images";
-import { manageToken, manageUser } from "../../services";
 import Img from "../Img";
 import "./style.css";
 import toast from "react-hot-toast";
@@ -35,7 +34,6 @@ function SignInForm() {
         data
       );
 
-      // manageToken("set", "token", result.token);
       localStorage.setItem(CONSTANTS.TOKEN, result.token)
       setUser(result.user);
       toast.success("Login Successfully !!!");
