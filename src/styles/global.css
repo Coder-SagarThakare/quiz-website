@@ -21,6 +21,11 @@
     overflow-x: hidden !important;
 }
 
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(15.25rem,100%), 1fr));
+  grid-gap: 2rem;
+}
 
 /* width */
 ::-webkit-scrollbar {
