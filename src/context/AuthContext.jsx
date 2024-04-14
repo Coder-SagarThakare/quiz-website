@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
 
         try {
           // const data = await manageUser("get",apiPaths.STUDENT.SELF);
-          const data = get(apiPaths.STUDENT.SELF);
+          const data =await get(apiPaths.STUDENT.SELF);
 
           console.log(data);
 
