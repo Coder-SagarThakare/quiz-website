@@ -16,7 +16,6 @@ export const AuthProvider = ({ children }) => {
       if (localStorage.getItem(CONSTANTS.TOKEN)) {
 
         try {
-          // const data = await manageUser("get",apiPaths.STUDENT.SELF);
           const data =await get(apiPaths.STUDENT.SELF);
 
           console.log(data);

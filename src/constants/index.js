@@ -122,18 +122,19 @@ export const CLIENT_PATHS = {
 
 // api
 const API_V1 = "/api/v1";
+const STUDENT = `${API_V1}/user`
 export const apiPaths = {
   STUDENT: {
     AUTH: {
       LOGIN: `${API_V1}/auth/student/login`,
       REGISTER: `${API_V1}/auth/student/register`,
     },
-    SELF: `${API_V1}/user/self`,
+    SELF: `${STUDENT}/self`,
     SUBJECT : {
 
     },
     STREAM : {
-      
+      ALL : `${STUDENT}/all-streams`
     }
   },
   

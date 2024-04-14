@@ -6,12 +6,17 @@ import { useAuth } from '../context/AuthContext'
 function Profile() {
   const { user, setUser } = useAuth();
 
+  async function fetchUserData(){
+    try{
+      const data = await get(apiPaths.STUDENT.SELF)
+      setUser(data)
+      console.log(data);
+    }catch(err){}
+  }
+
   useEffect(() => {
-    get(apiPaths.STUDENT.SELF)
-      .then((result) => {
-        setUser(result)
-        console.log(result);
-      }).catch(() => { })
+
+    fetchUserData()
   }, [])
 
   return (
