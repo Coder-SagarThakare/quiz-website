@@ -26,6 +26,12 @@
   grid-template-columns: repeat(auto-fit, minmax(min(15.25rem,100%), 1fr));
   grid-gap: 2rem;
 }
+.empty-card{
+  background: linear-gradient(transparent, rgb(0, 0, 0)) !important;
+
+  /* background-color: linear-gradient(red, yellow,0.05); */
+  /* background: linear-gradient(red, transparent,0.01); */
+}
 
 /* width */
 ::-webkit-scrollbar {
