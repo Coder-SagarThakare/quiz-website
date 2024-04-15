@@ -9,7 +9,7 @@ import "./style.css";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
 import { CONSTANTS, apiPaths } from "../../constants";
-import axiosInstance from "../../middlewares";
+import { post } from "../../services";
 
 function SignInForm() {
   console.log("in sign in form");
@@ -28,13 +28,9 @@ function SignInForm() {
    */
   const onsubmit = async (data) => {
     try {
+      const result = await post(`${apiPaths.STUDENT.AUTH.LOGIN}?captcha=false`, data);
 
-      const result = await axiosInstance.post(
-        `${apiPaths.STUDENT.AUTH.LOGIN}?captcha=false`,
-        data
-      );
-
-      localStorage.setItem(CONSTANTS.TOKEN, result.token)
+      localStorage.setItem(CONSTANTS.TOKEN, result.token);
       setUser(result.user);
       toast.success("Login Successfully !!!");
       navigate("/");

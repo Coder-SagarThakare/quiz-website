@@ -28,3 +28,11 @@ export const manageUser = (action, url, payload) => {
 export const get = (url) => {
   return axiosInstance.get(url)
 }
+
+export const post = (url,payload)=>{
+  return axiosInstance.post(url,payload)
+}
+
+export const delet = (q)=>{
+  return axiosInstance.delete()
+}

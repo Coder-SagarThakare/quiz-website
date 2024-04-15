@@ -21,6 +21,7 @@ function Profile() {
 
   return (
     <div>
+
       <img src={user.picture} alt={user.picture}/>
       <p>Name : {user.name}</p>
       <p>Bio : {user.bio}</p>
