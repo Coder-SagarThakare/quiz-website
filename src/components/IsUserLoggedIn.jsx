@@ -2,6 +2,7 @@ import React from "react";
 import { TbLogin2, TbLogout2 } from "react-icons/tb";
 
 function IsUserLoggedIn({ user, isOpen, handleUser }) {
+  console.log("in is userlogged in");
 
   return (
     <div

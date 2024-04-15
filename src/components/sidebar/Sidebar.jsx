@@ -73,14 +73,12 @@ function Sidebar({isOpen,setIsOpen}) {
   // to handle user's token and navigation
   const handleUser = useCallback(() => {
     if (user) {
-      // manageToken("delete", "token");
       localStorage.removeItem(CONSTANTS.TOKEN)
       setUser(null);
-      // manageToken("get", "token");
     } else {
       navigate("/signin");
     }
-  }, [user]);
+  }, [navigate, setUser, user]);
 
   return (
     <div className={`d-flex `}>
