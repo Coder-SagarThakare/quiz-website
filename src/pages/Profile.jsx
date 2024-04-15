@@ -21,11 +21,10 @@ function Profile() {
 
   return (
     <div>
-      <img src={user.picture}/>
+      <img src={user.picture} alt={user.picture}/>
       <p>Name : {user.name}</p>
       <p>Bio : {user.bio}</p>
       <p>Email verified : {user.isEmailVerified ? "yes" : "no"}</p>
-      <p></p>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Card, SearchBar } from "../components";
-import { cardTitles } from "../utils/Data";
 import { get } from "../services";
 import { apiPaths } from "../constants";
 
