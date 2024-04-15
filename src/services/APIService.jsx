@@ -12,6 +12,7 @@ export const loginUser = (url, data) => {
 };
 
 export const manageUser = (action, url, payload) => {
+
   switch (action) {
     case "get":
       return axiosInstance.get(url);
@@ -23,3 +24,7 @@ export const manageUser = (action, url, payload) => {
       return console.error("Invalid action provided.");
   }
 };
+
+export const get = (url) => {
+  return axiosInstance.get(url)
+}

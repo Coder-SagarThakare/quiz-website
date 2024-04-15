@@ -3,11 +3,9 @@
 }
 
 body {
-  /* background-color: #252525 ; */
   background-image: url("./images/bg_img.jpg");
   background-size: cover;
   color: #eaeaea !important;
-  /* font-family: cursive; */
   overflow: hidden;
   background-color: rgb(0, 0, 0);
   position: relative;
@@ -84,13 +82,17 @@ body .ball-3 {
   height: 3px;
   background-color: rgb(0, 174, 255);
   transition: width 0.25s ease-out;
+  border-radius: 100%;
+
 }
 .underline:hover::before {
   width: 100%;
+  border-radius: 100%;
 }
 .underline:hover {
   animation-name: underline-ani;
   animation-duration: 2s;
+  border-radius: 100%;
 }
 
 .layout {
@@ -100,6 +102,16 @@ body .ball-3 {
 
 .image {
   transform: scalex(-1);
+}
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+  .flex-column-custom{
+   flex-direction: column !important;
+  }
 }
 
 @media only screen and (min-width: 768px) {

@@ -36,7 +36,6 @@ function SignInForm() {
     <div className="d-flex layout glass-effect">
       <div className="ball-1"></div>
       <div className="ball-2"></div>
-      {/* <div className="ball-3"></div> */}
       <div className="w-md-50 d-none d-md-block">
         <img
           src="https://static.vecteezy.com/system/resources/thumbnails/011/654/703/small/cute-boy-going-to-school-and-bring-a-books-cartoon-3d-icon-illustration-people-education-icon-concept-png.png"

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { constants } from "../constants";
+import { CONSTANTS } from "../constants";
 import { manageToken } from "../services";
 import toast from "react-hot-toast";
 
@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 // The base URL for all HTTP requests
 
 export const axiosInstance = axios.create({
-  baseURL: constants.BASE_URL,
+  baseURL: CONSTANTS.BASE_URL,
 });
 
 /**
@@ -18,7 +18,8 @@ export const axiosInstance = axios.create({
  */
 
 axiosInstance.interceptors.request.use((req) => {
-  const token = manageToken("get", "token");
+  // const token = manageToken("get", "token");
+  const token = localStorage.getItem(CONSTANTS.TOKEN);
   if (token) req.headers.Authorization = `Bearer ${token}`;
 
   return req;

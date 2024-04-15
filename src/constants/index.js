@@ -1,19 +1,56 @@
 import { RiHomeHeartFill } from "react-icons/ri";
 import { MdSubject } from "react-icons/md";
 import { RxDashboard } from "react-icons/rx";
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt, FaUserCircle} from "react-icons/fa";
 import { PiStudentFill } from "react-icons/pi";
-import { About, Dashboard, Homepage, Interview, SubjectAreas } from "../pages";
+import { About, Dashboard, Homepage, Interview, Profile, SubjectAreas } from "../pages";
 import { Outlet } from "react-router-dom";
 
-//process.env data
-
-// static data to add in component
-
 // Object containing global constants used throughout the app.
-export const constants = {
+export const CONSTANTS = {
   WEBAPP_TITLE: "QuizEasy",
   BASE_URL: process.env.REACT_APP_BASE_URL,
+  TOKEN: "activeuser_token",
+  FEATURES: [
+    {
+      ID: 1,
+      IMG: "https://res.cloudinary.com/difupvzin/image/upload/v1709636941/feature_1_w1g3is.jpg",
+      TITLE: "Covering Many Subjects",
+      DESC_1:
+        "Our platform offers a diverse range of subjects covering various disciplines from mathematics and science to history and literature. ",
+      DESC_2:
+        "Whether you're preparing for exams or simply eager to expand your knowledge, we've got you covered.",
+    },
+    {
+      ID: 2,
+      IMG: "https://res.cloudinary.com/difupvzin/image/upload/v1709636830/feature_2_hqzdmw.jpg",
+      TITLE: "Detailed Analysis",
+      DESC_1:
+        "Gain valuable insights into your performance with our detailed test analysis feature. Track your progress over time, view your scores, and analyze your strengths and weaknesses. ",
+      DESC_2:
+        "Our intuitive dashboard provides comprehensive metrics, including time taken per question and accuracy rates, empowering you to make informed decisions about your study strategy.",
+      ISREVERSE: true,
+    },
+    {
+      ID: 3,
+      IMG: "https://res.cloudinary.com/difupvzin/image/upload/v1709636654/feature_3_gthfrv.jpg",
+      TITLE: "User-Friendly Interface",
+      DESC_1:
+        "We understand the importance of simplicity and ease of use. That`s why our platform features a user-friendly interface designed with students in mind. ",
+      DESC_2:
+        "Navigate effortlessly between subjects, quizzes, and analysis tools, enjoying a seamless learning experience from start to finish.",
+    },
+    {
+      ID: 4,
+      IMG: "https://res.cloudinary.com/difupvzin/image/upload/v1709636981/feature_4_bhouzm.jpg",
+      TITLE: "Interactive Learning Experience",
+      DESC_1:
+        "Immerse yourself in an interactive learning experience that goes beyond traditional study methods. ",
+      DESC_2:
+        "Engage with dynamic quiz questions, multimedia content, and interactive exercises designed to enhance your understanding and retention of key concepts.",
+      ISREVERSE: true,
+    },
+  ],
 };
 
 // sidebar menu items routes
@@ -39,13 +76,18 @@ export const MenuItem = [
     path: "/interview",
   },
   {
+    name: "Profile",
+    icon: <FaUserCircle />,
+    path: "/profile",
+  },
+  {
     name: "About",
     icon: <FaUserAlt />,
     path: "/about",
-  },
+  }
 ];
 
-// frontend routes
+// frontend routes of sidebar menu
 export const routes = [
   {
     path: "/",
@@ -56,6 +98,7 @@ export const routes = [
       { path: "interview", element: <Interview /> },
       { path: "subjects", element: <SubjectAreas /> },
       { path: "about", element: <About /> },
+      { path: "profile", element: <Profile /> },
     ],
   },
   {
@@ -72,15 +115,29 @@ export const routes = [
   },
 ];
 
-// url path
+// client side all routes
+export const CLIENT_PATHS = {
+  HOME: "/",
+};
+
+// api
+const API_V1 = "/api/v1";
+const STUDENT = `${API_V1}/user`
 export const apiPaths = {
   STUDENT: {
-    SELF: "/student/self",
+    AUTH: {
+      LOGIN: `${API_V1}/auth/student/login`,
+      REGISTER: `${API_V1}/auth/student/register`,
+    },
+    SELF: `${STUDENT}/self`,
+    SUBJECT : {
+
+    },
+    STREAM : {
+      ALL : `${STUDENT}/all-streams`
+    }
   },
-  AUTH: {
-    LOGIN: "/auth/login",
-    REGISTER: "/auth/register",
-  },
+  
   TEACHER: {
     SELF: "/self", // dummy
     ADD_SUBJECT: "/teacher/add-subject",
