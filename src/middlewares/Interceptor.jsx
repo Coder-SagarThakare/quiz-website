@@ -1,6 +1,5 @@
 import axios from "axios";
 import { CONSTANTS } from "../constants";
-import { manageToken } from "../services";
 import toast from "react-hot-toast";
 
 // Create a reusable Axios instance with a base URL

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
-import { get, manageToken, manageUser } from "../services";
+import { get } from "../services";
 import { CONSTANTS, apiPaths } from "../constants";
 
 // to provide authenticate user data throught the project
