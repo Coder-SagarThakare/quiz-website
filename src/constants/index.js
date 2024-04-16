@@ -66,9 +66,9 @@ export const MenuItem = [
     path: "/dashboard",
   },
   {
-    name: "Subjects",
+    name: "Quizes",
     icon: <MdSubject />,
-    path: "/subjects",
+    path: "/quiz/stream",
   },
   {
     name: "Interview",
@@ -96,7 +96,7 @@ export const routes = [
       { path: "", element: <Homepage /> },
       { path: "dashboard", element: <Dashboard /> },
       { path: "interview", element: <Interview /> },
-      { path: "subjects", element: <SubjectAreas /> },
+      { path: "quiz/stream", element: <SubjectAreas /> },
       { path: "about", element: <About /> },
       { path: "profile", element: <Profile /> },
     ],

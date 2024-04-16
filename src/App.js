@@ -56,7 +56,7 @@ function App() {
             {/* {private routes goes here} */}
             <Route element={<ProtectedRoutes />}>
               <Route path="dashboard" element={<Dashboard />} />
-              <Route path="subjects" element={<SubjectAreas />} />
+              <Route path="quiz/stream" element={<SubjectAreas />} />
               <Route path="interview" element={<Interview />} />
               <Route path="about" element={<About />} />
               <Route path="profile" element={<Profile />} />
