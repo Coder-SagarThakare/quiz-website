@@ -3,8 +3,7 @@ import { MdSubject } from "react-icons/md";
 import { RxDashboard } from "react-icons/rx";
 import { FaUserAlt, FaUserCircle} from "react-icons/fa";
 import { PiStudentFill } from "react-icons/pi";
-import { About, Dashboard, Homepage, Interview, Profile, SubjectAreas } from "../pages";
-import { Outlet } from "react-router-dom";
+
 
 // Object containing global constants used throughout the app.
 export const CONSTANTS = {
@@ -53,72 +52,82 @@ export const CONSTANTS = {
   ],
 };
 
+// client side all routes
+const QUIZ = "/quiz";
+
+export const CLIENT_PATHS = {
+  HOME: "/",
+  DASHBOARD : "/dashboard",
+  INTERVIEW : "/interview",
+  PROFILE : "/profile",
+  ABOUT : "/about",
+  STREAM : `${QUIZ}/stream`,
+  SUBJECT : `${QUIZ}/stream/:streamId`,
+};
+
 // sidebar menu items routes
 export const MenuItem = [
   {
     name: "Homepage",
     icon: <RiHomeHeartFill />,
-    path: "/",
+    path: `${CLIENT_PATHS.HOME}`,
   },
   {
     name: "Dashboard",
     icon: <RxDashboard />,
-    path: "/dashboard",
+    path: CLIENT_PATHS.DASHBOARD,
   },
   {
     name: "Quizes",
     icon: <MdSubject />,
-    path: "/quiz/stream",
+    path: CLIENT_PATHS.STREAM,
   },
   {
     name: "Interview",
     icon: <PiStudentFill />,
-    path: "/interview",
+    path: CLIENT_PATHS.INTERVIEW,
   },
   {
     name: "Profile",
     icon: <FaUserCircle />,
-    path: "/profile",
+    path: CLIENT_PATHS.PROFILE ,
   },
   {
     name: "About",
     icon: <FaUserAlt />,
-    path: "/about",
+    path: CLIENT_PATHS.ABOUT,
   }
 ];
 
-// frontend routes of sidebar menu
-export const routes = [
-  {
-    path: "/",
-    element: <Outlet />,
-    children: [
-      { path: "", element: <Homepage /> },
-      { path: "dashboard", element: <Dashboard /> },
-      { path: "interview", element: <Interview /> },
-      { path: "quiz/stream", element: <SubjectAreas /> },
-      { path: "about", element: <About /> },
-      { path: "profile", element: <Profile /> },
-    ],
-  },
-  {
-    path: "/admin",
-    element: <Outlet />,
-    children: [
-      { path: "", element: <h1>Working on Admin Routes</h1> },
-      { path: "dashboard", element: <h1>Working on Admin Dashboard</h1> },
-    ],
-  },
-  {
-    path: "*",
-    element: <h1>URL chukliy bhava</h1>,
-  },
-];
+// // frontend routes of sidebar menu
+// export const routes = [
+//   {
+//     path: "/",
+//     element: <Outlet />,
+//     children: [
+//       { path: "", element: <Homepage /> },
+//       { path: "dashboard", element: <Dashboard /> },
+//       { path: "interview", element: <Interview /> },
+//       { path: "quiz/stream", element: <SubjectAreas /> },
+//       { path: "about", element: <About /> },
+//       { path: "profile", element: <Profile /> },
+//     ],
+//   },
+//   {
+//     path: "/admin",
+//     element: <Outlet />,
+//     children: [
+//       { path: "", element: <h1>Working on Admin Routes</h1> },
+//       { path: "dashboard", element: <h1>Working on Admin Dashboard</h1> },
+//     ],
+//   },
+//   {
+//     path: "*",
+//     element: <h1>URL chukliy bhava</h1>,
+//   },
+// ];
 
-// client side all routes
-export const CLIENT_PATHS = {
-  HOME: "/",
-};
+
 
 // api
 const API_V1 = "/api/v1";

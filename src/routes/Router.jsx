@@ -1,9 +1,9 @@
-import { useRoutes } from "react-router-dom";
-import { routes } from "../constants";
+// import { useRoutes } from "react-router-dom";
+// import { routes } from "../constants";
 
-function Router() {
-  let element = useRoutes(routes);
-  return element;
-}
+// function Router() {
+//   let element = useRoutes(routes);
+//   return element;
+// }
 
-export default Router;
+// export default Router;

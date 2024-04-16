@@ -1,11 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { CLIENT_PATHS } from "../../constants";
 // import { subjectBackgrounds } from "../../utils/Data";
 
-const Card = ({ name, backgroundImage }) => {
+const Card = ({ name, backgroundImage, id }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       className=" position-relative border rounded-4 cursor overflow-hidden"
-      style={{ height: "200px" }}
+      style={{ height: "200px" }} 
+      onClick={() => navigate(`${CLIENT_PATHS.STREAM}/${id}`)}
     >
       <img src={backgroundImage} alt={backgroundImage} className="w-100" />
 
