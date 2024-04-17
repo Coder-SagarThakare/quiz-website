@@ -18,8 +18,11 @@ function SubjectAreas() {
 
   const streamPath = "Streams >";
 
+  const isStream =  location.pathname.endsWith("stream")
+  console.log("isStream ",isStream);
+
   useEffect(() => {
-    if (location.pathname.endsWith("stream"))
+    if (isStream)
       fetchStream(apiPaths.STUDENT.STREAM.ALL, setData);
     else {
       const data = location.pathname.split("/");
@@ -53,6 +56,7 @@ function SubjectAreas() {
                 name={ele.name}
                 backgroundImage={ele.bgImage}
                 id={ele._id}
+                type = {!isStream && "subject"}
               />
             </div>
           ))}

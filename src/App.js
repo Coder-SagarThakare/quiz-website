@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Sidebar, SignIn, SignUp } from "./components";
+import { Sidebar, SignIn, SignUp, Topics } from "./components";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
@@ -63,6 +63,7 @@ function App() {
               <Route path="quiz">
                 <Route path="stream" element={<SubjectAreas />} />
                 <Route path="stream/:streamId" element={<SubjectAreas />} />
+                <Route path="stream/subject/:subjectId" element={<Topics />} />
               </Route>
 
               <Route path="interview" element={<Interview />} />
