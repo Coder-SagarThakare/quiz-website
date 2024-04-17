@@ -4,10 +4,12 @@ import { get } from "../services";
 import { apiPaths } from "../constants";
 import { useLocation } from "react-router-dom";
 
-const fetchStream = async (setData) => {
+const fetchStream = async (url,setData) => {
   try {
-    const streams = await get(apiPaths.STUDENT.STREAM.ALL)
+    
+    const streams = await get(url)
     setData(streams)
+    console.log(streams);
   } catch (err) { }
 }
 
@@ -19,15 +21,12 @@ const location = useLocation()
 
   useEffect(() => {
     if(location.pathname.endsWith("stream"))
-    fetchStream(setData)
+    fetchStream(apiPaths.STUDENT.STREAM.ALL,setData)
   else{
     const data = location.pathname.split('/')
     const streamId = data[data.length-1]
 
-    fetchStream()
-    
-
-    console.log();
+    fetchStream(`${apiPaths.STUDENT.SUBJECT.FROM_STREAM}/${streamId}`,setData)
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

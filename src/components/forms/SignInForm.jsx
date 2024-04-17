@@ -44,7 +44,7 @@ function SignInForm() {
       <div className="w-50 h-100 d-none d-md-block ">
         <Img src={SignIn} alt="signin-img" className="h-100" />
       </div>
-
+ 
       <div className="w-100 w-md-50 d-flex flex-column align-items-center justify-content-center ">
         <div className="glass-effect p-4">
           <h2>Login to your Account</h2>

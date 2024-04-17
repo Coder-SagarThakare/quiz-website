@@ -140,7 +140,7 @@ export const apiPaths = {
     },
     SELF: `${STUDENT}/self`,
     SUBJECT : {
-
+      FROM_STREAM : `${STUDENT}/stream`
     },
     STREAM : {
       ALL : `${STUDENT}/all-streams`
