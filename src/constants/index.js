@@ -1,9 +1,8 @@
 import { RiHomeHeartFill } from "react-icons/ri";
 import { MdSubject } from "react-icons/md";
 import { RxDashboard } from "react-icons/rx";
-import { FaUserAlt, FaUserCircle} from "react-icons/fa";
+import { FaUserAlt, FaUserCircle } from "react-icons/fa";
 import { PiStudentFill } from "react-icons/pi";
-
 
 // Object containing global constants used throughout the app.
 export const CONSTANTS = {
@@ -57,12 +56,13 @@ const QUIZ = "/quiz";
 
 export const CLIENT_PATHS = {
   HOME: "/",
-  DASHBOARD : "/dashboard",
-  INTERVIEW : "/interview",
-  PROFILE : "/profile",
-  ABOUT : "/about",
-  STREAM : `${QUIZ}/stream`,
-  SUBJECT : `${QUIZ}/stream/:streamId`,
+  DASHBOARD: "/dashboard",
+  INTERVIEW: "/interview",
+  PROFILE: "/profile",
+  ABOUT: "/about",
+  STREAM: `${QUIZ}/stream`,
+  SUBJECT: `${QUIZ}/stream/:streamId`,
+  TOPIC: `${QUIZ}/stream/subject/:subjectId`,
 };
 
 // sidebar menu items routes
@@ -90,13 +90,13 @@ export const MenuItem = [
   {
     name: "Profile",
     icon: <FaUserCircle />,
-    path: CLIENT_PATHS.PROFILE ,
+    path: CLIENT_PATHS.PROFILE,
   },
   {
     name: "About",
     icon: <FaUserAlt />,
     path: CLIENT_PATHS.ABOUT,
-  }
+  },
 ];
 
 // // frontend routes of sidebar menu
@@ -127,11 +127,9 @@ export const MenuItem = [
 //   },
 // ];
 
-
-
 // api
 const API_V1 = "/api/v1";
-const STUDENT = `${API_V1}/user`
+const STUDENT = `${API_V1}/user`;
 export const apiPaths = {
   STUDENT: {
     AUTH: {
@@ -139,14 +137,17 @@ export const apiPaths = {
       REGISTER: `${API_V1}/auth/student/register`,
     },
     SELF: `${STUDENT}/self`,
-    SUBJECT : {
-      FROM_STREAM : `${STUDENT}/stream`
+    TOPIC: {
+      FROM_SUBJECT: `${STUDENT}/stream/subject`,
     },
-    STREAM : {
-      ALL : `${STUDENT}/all-streams`
-    }
+    SUBJECT: {
+      FROM_STREAM: `${STUDENT}/stream`,
+    },
+    STREAM: {
+      ALL: `${STUDENT}/all-streams`,
+    },
   },
-  
+
   TEACHER: {
     SELF: "/self", // dummy
     ADD_SUBJECT: "/teacher/add-subject",
