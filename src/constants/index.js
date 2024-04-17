@@ -60,6 +60,7 @@ export const CLIENT_PATHS = {
   INTERVIEW: "/interview",
   PROFILE: "/profile",
   ABOUT: "/about",
+  SIGNIN : "/signin",
   
   STREAM: `${QUIZ}/stream`,
   SUBJECT: `${QUIZ}/stream/:streamId`,

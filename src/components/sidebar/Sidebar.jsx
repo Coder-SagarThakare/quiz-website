@@ -3,7 +3,7 @@ import { FaBars } from "react-icons/fa";
 import "../../styles/subcomponents.css";
 import "./Sidebar.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import { MenuItem, CONSTANTS } from "../../constants";
+import { MenuItem, CONSTANTS, CLIENT_PATHS } from "../../constants";
 import { useAuth } from "../../context/AuthContext";
 import IsUserLoggedIn from "../IsUserLoggedIn";
 
@@ -75,8 +75,9 @@ function Sidebar({isOpen,setIsOpen}) {
     if (user) {
       localStorage.removeItem(CONSTANTS.TOKEN)
       setUser(null);
+      navigate(CLIENT_PATHS.HOME)
     } else {
-      navigate("/signin");
+      navigate(CLIENT_PATHS.SIGNIN);
     }
   }, [navigate, setUser, user]);
 
