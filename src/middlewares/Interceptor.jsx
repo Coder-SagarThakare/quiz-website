@@ -30,13 +30,12 @@ axiosInstance.interceptors.response.use(
     return res.data;
   },
   (err) => {
-    if(err.response.status === 401){
+    if (err.response.status === 401) {
       localStorage.clear();
-      window.location.replace("/")
+      window.location.replace("/");
       return;
     }
 
-    console.log("ERROR : ", err.response.status);
     toast.error(err.response.data.message);
     return Promise.reject(err);
   }

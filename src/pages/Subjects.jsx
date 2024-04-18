@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Card, SearchBar } from "../components";
 import { get } from "../services";
 import { apiPaths } from "../constants";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
-const fetchStream = async (url, setData) => {
+const fetchData = async (url, setData) => {
   try {
-    const streams = await get(url);
-    setData(streams);
-    console.log(streams);
-  } catch (err) {}
+    const data = await get(url);
+    setData(data);
+  } catch (err) {
+    console.log(err.message);
+  }
 };
 
 function SubjectAreas() {
   const location = useLocation();
   const [data, setData] = useState();
+  const {streamId} = useParams();
 
   const streamPath = "Streams >";
 
@@ -23,12 +25,10 @@ function SubjectAreas() {
 
   useEffect(() => {
     if (isStream)
-      fetchStream(apiPaths.STUDENT.STREAM.ALL, setData);
+      fetchData(apiPaths.STUDENT.STREAM.ALL, setData);
     else {
-      const data = location.pathname.split("/");
-      const streamId = data[data.length - 1];
 
-      fetchStream(
+      fetchData(
         `${apiPaths.STUDENT.SUBJECT.FROM_STREAM}/${streamId}`,
         setData
       );
