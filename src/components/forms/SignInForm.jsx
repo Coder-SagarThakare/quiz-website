@@ -8,7 +8,7 @@ import Img from "../Img";
 import "./style.css";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
-import { CONSTANTS, apiPaths } from "../../constants";
+import { CLIENT_PATHS, CONSTANTS, apiPaths } from "../../constants";
 import { post } from "../../services";
 
 function SignInForm() {
@@ -33,7 +33,7 @@ function SignInForm() {
       localStorage.setItem(CONSTANTS.TOKEN, result.token);
       setUser(result.user);
       toast.success("Login Successfully !!!");
-      navigate("/");
+      navigate(CLIENT_PATHS.HOME);
     } catch (err) {
       console.log("Error in SignInForm.jsx ", err);
     }
@@ -96,7 +96,7 @@ function SignInForm() {
               <span>Don't have an account? </span>
               <span
                 className="fw-semibold cursor text-decoration-underline"
-                onClick={() => navigate("/signup")}
+                onClick={() => navigate(CLIENT_PATHS.SIGNUP)}
               >
                 Sign Up
               </span>

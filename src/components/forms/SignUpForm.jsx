@@ -8,6 +8,7 @@ import { useNavigate } from "react-router";
 import "./style.css";
 import toast from "react-hot-toast";
 import RadioButton from "../RadioButton";
+import { CLIENT_PATHS } from "../../constants";
 
 function SignUpForm() {
   const API = "http://localhost:8022";
@@ -33,7 +34,7 @@ function SignUpForm() {
         .post(`${API}/auth/register?captcha=false`, Data)
         .then((res) => {
           toast.success("Registration Successful!!");
-          navigate("/signin");
+          navigate(CLIENT_PATHS.SIGNIN);
         })
         .catch((error) => {
           console.error("Registration Error:",error.response.data.message );
@@ -127,7 +128,7 @@ function SignUpForm() {
               <span>Already have an account? </span>
               <span
                 className="fw-semibold cursor text-decoration-underline"
-                onClick={() => navigate("/signin")}
+                onClick={() => navigate(CLIENT_PATHS.SIGNIN)}
               >
                 Sign In
               </span>

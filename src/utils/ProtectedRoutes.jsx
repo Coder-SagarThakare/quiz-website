@@ -1,17 +1,16 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
-import { CLIENT_PATHS } from "../constants";
+import { CLIENT_PATHS, CONSTANTS } from "../constants";
 
 function ProtectedRoutes() {
   const { user } = useAuth();
   const isAuthenticated =
-    localStorage.getItem("activeuser_token") || user !== null;
-  console.log("USER :", user);
+    localStorage.getItem(CONSTANTS.TOKEN) || user !== null;
   return isAuthenticated ? <Outlet /> : <Alert />;
 }
 
-function Alert({ user }) {
+function Alert() {
   const navigate = useNavigate();
 
   Swal.fire({

@@ -51,7 +51,7 @@ const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
         className={`cursor primary-white m-0 logo user-select-none ${
           isOpen ? "d-block" : "d-none"
         }`}
-        onClick={() => navigate("/")}
+        onClick={() => navigate(CLIENT_PATHS.HOME)}
       >
         {CONSTANTS.WEBAPP_TITLE}
       </h3>
