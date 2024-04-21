@@ -13,7 +13,7 @@ const fetchData = async (url, setData) => {
   }
 };
 
-function SubjectAreas() {
+function QuizHomepage() {
   const location = useLocation();
   const [data, setData] = useState();
   const {streamId} = useParams();
@@ -66,4 +66,4 @@ function SubjectAreas() {
   );
 }
 
-export default SubjectAreas;
+export default QuizHomepage;

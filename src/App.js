@@ -11,11 +11,11 @@ import {
   Homepage,
   Interview,
   Profile,
-  SubjectAreas,
 } from "./pages";
 import { AuthGuard, ProtectedRoutes } from "./utils";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
+import QuizHomepage from "./pages/QuizHomepage";
 
 function AppLayout() {
   console.log("in app layout");
@@ -61,8 +61,8 @@ function App() {
               <Route path="dashboard" element={<Dashboard />} />
 
               <Route path="quiz">
-                <Route path="stream" element={<SubjectAreas />} />
-                <Route path="stream/:streamId" element={<SubjectAreas />} />
+                <Route path="stream" element={<QuizHomepage />} />
+                <Route path="stream/:streamId" element={<QuizHomepage />} />
                 <Route path="stream/subject/:subjectId" element={<Topics />} />
               </Route>
 

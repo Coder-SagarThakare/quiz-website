@@ -8,7 +8,6 @@ const Card = ({ name, backgroundImage, id, type }) => {
   const navigateTo = () => {
     if (type === "subject")
       navigate(`${CLIENT_PATHS.STREAM}/subject/${id}`)
-      // console.log(`${CLIENT_PATHS.TOPIC}/${id}`);
     else navigate(`${CLIENT_PATHS.STREAM}/${id}`);
   };
 
