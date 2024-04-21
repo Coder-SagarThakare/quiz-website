@@ -9,6 +9,12 @@ export const CONSTANTS = {
   WEBAPP_TITLE: "QuizEasy",
   BASE_URL: process.env.REACT_APP_BASE_URL,
   TOKEN: "activeuser_token",
+  HOMEPAGE : "Homepage",
+  DASHBOARD : "Dashboard",
+  QUIZES :  "Quizes",
+  INTERVIEW :  "Interview",
+  PROFILE : "Profile",
+  ABOUT : "About",
   FEATURES: [
     {
       ID: 1,
@@ -67,36 +73,36 @@ export const CLIENT_PATHS = {
   SUBJECT: `${QUIZ}/stream/:streamId`,
   TOPIC: `${QUIZ}/stream/subject/:subjectId`,
 };
-
+  
 // sidebar menu items routes
 export const MenuItem = [
   {
-    name: "Homepage",
+    name: CONSTANTS.HOMEPAGE,
     icon: <RiHomeHeartFill />,
     path: `${CLIENT_PATHS.HOME}`,
   },
   {
-    name: "Dashboard",
+    name: CONSTANTS.DASHBOARD,
     icon: <RxDashboard />,
     path: CLIENT_PATHS.DASHBOARD,
   },
   {
-    name: "Quizes",
+    name:CONSTANTS.QUIZES,
     icon: <MdSubject />,
     path: CLIENT_PATHS.STREAM,
   },
   {
-    name: "Interview",
+    name:CONSTANTS.INTERVIEW,
     icon: <PiStudentFill />,
     path: CLIENT_PATHS.INTERVIEW,
   },
   {
-    name: "Profile",
+    name: CONSTANTS.PROFILE,
     icon: <FaUserCircle />,
     path: CLIENT_PATHS.PROFILE,
   },
   {
-    name: "About",
+    name: CONSTANTS.ABOUT,
     icon: <FaUserAlt />,
     path: CLIENT_PATHS.ABOUT,
   },
