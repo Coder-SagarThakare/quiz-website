@@ -17,11 +17,15 @@ function Topics() {
   useEffect(() => {
     getTopics()
 
-    
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <div>{data?.map((e)=><p>{e.name}</p>)}</div>;
+  return <div>{data?.map((e) => <div key={e._id} className="border p-3 rounded my-1">
+    <span>
+      {e.name}
+    </span>
+  </div>)}</div>;
+
 }
 
 export default Topics;
