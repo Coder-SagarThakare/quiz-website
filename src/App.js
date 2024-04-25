@@ -18,7 +18,6 @@ import { FaBars } from "react-icons/fa6";
 import QuizHomepage from "./pages/QuizHomepage";
 
 function AppLayout() {
-  console.log("in app layout");
   const [isOpen, setIsOpen] = useState(false);
 
   return (

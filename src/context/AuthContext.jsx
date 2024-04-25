@@ -7,17 +7,13 @@ import { CONSTANTS, apiPaths } from "../constants";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  console.log("in auth provider");
   const [user, setUser] = useState(null);
-  console.log(user);
   useEffect(() => {
     const fetchData = async () => {
       // if (manageToken("get", "token")) {
       if (localStorage.getItem(CONSTANTS.TOKEN)) {
         try {
           const data = await get(apiPaths.STUDENT.SELF);
-
-          console.log(data);
 
           if (data) {
             setUser(data);
@@ -33,7 +29,6 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <>
-      {console.log("return authcontext")}
       <AuthContext.Provider value={{ user, setUser }}>
         {children}
       </AuthContext.Provider>

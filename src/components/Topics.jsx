@@ -20,7 +20,7 @@ function Topics() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <div>{data?.map((e) => <div key={e._id} className="border p-3 rounded my-1">
+  return <div>{data?.map((e) => <div key={e._id} className="border p-3 rounded my-1 cursor">
     <span>
       {e.name}
     </span>
