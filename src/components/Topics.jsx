@@ -8,24 +8,31 @@ function Topics() {
   const [data, setData] = useState();
 
   const getTopics = async () => {
-    const data = await get(
-      `${apiPaths.STUDENT.TOPIC.FROM_SUBJECT}/${subjectId}`
-    );
-    console.log(data);
-    setData(data);
+    try {
+      const data = await get(
+        `${apiPaths.STUDENT.TOPIC.FROM_SUBJECT}/${subjectId}`
+      );
+      console.log(data);
+      setData(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
   useEffect(() => {
-    getTopics()
+    getTopics();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <div>{data?.map((e) => <div key={e._id} className="border p-3 rounded my-1 cursor">
-    <span>
-      {e.name}
-    </span>
-  </div>)}</div>;
-
+  return (
+    <div>
+      {data?.map((e) => (
+        <div key={e._id} className="border p-3 rounded my-1 cursor">
+          <span>{e.name}</span>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default Topics;

@@ -1,7 +1,7 @@
 import "./App.css";
 
 import { Sidebar, SignIn, SignUp, Topics } from "./components";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Outlet, Route, Routes } from "react-router-dom";
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
@@ -38,7 +38,7 @@ function AppLayout() {
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <Router>
         <Routes>
           {/* {public routes } */}
           <Route element={<AuthGuard />}>
@@ -66,7 +66,7 @@ function App() {
           </Route>
         </Routes>
         <Toaster />
-      </BrowserRouter>
+      </Router>
     </AuthProvider>
   );
 }

@@ -9,7 +9,8 @@ const fetchData = async (url, setData) => {
     const data = await get(url);
     setData(data);
   } catch (err) {
-    console.log(err.message);
+    console.log("in quiz home page");
+    console.log(err.message); 
   }
 };
 
