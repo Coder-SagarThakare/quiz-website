@@ -53,13 +53,11 @@ function App() {
             <Route element={<ProtectedRoutes />}>
               <Route path="dashboard" element={<Dashboard />} />
 
-              <Route path="quiz">
-                <Route path="stream" >
+                <Route path="quiz/stream" >
                   <Route path="" element={<QuizHomepage />} />
                   <Route path=":streamId" element={<QuizHomepage />} />
                   <Route path="subject/:subjectId" element={<Topics />} />
                 </Route>
-              </Route>
 
               <Route path="interview" element={<Interview />} />
               <Route path="about" element={<About />} />
