@@ -5,13 +5,7 @@ import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
-import {
-  About,
-  Dashboard,
-  Homepage,
-  Interview,
-  Profile,
-} from "./pages";
+import { About, Dashboard, Homepage, Interview, Profile } from "./pages";
 import { AuthGuard, ProtectedRoutes } from "./utils";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
@@ -60,9 +54,11 @@ function App() {
               <Route path="dashboard" element={<Dashboard />} />
 
               <Route path="quiz">
-                <Route path="stream" element={<QuizHomepage />} />
-                <Route path="stream/:streamId" element={<QuizHomepage />} />
-                <Route path="stream/subject/:subjectId" element={<Topics />} />
+                <Route path="stream" >
+                  <Route path="" element={<QuizHomepage />} />
+                  <Route path=":streamId" element={<QuizHomepage />} />
+                  <Route path="subject/:subjectId" element={<Topics />} />
+                </Route>
               </Route>
 
               <Route path="interview" element={<Interview />} />
