@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { memo, useCallback } from "react";
 import { FaBars } from "react-icons/fa";
 import "../../styles/subcomponents.css";
 import "./Sidebar.css";
@@ -79,7 +79,7 @@ function Sidebar({isOpen,setIsOpen}) {
     } else {
       navigate(CLIENT_PATHS.SIGNIN);
     }
-  }, [navigate, setUser, user]);
+  }, [ user]);
 
   return (
     <div className={`d-flex `}>
@@ -120,4 +120,4 @@ function Sidebar({isOpen,setIsOpen}) {
   );
 }
 
-export default React.memo(Sidebar);
+export default memo(Sidebar);

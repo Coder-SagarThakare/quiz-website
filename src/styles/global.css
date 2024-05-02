@@ -1,47 +1,54 @@
 .bg-primary1 {
-    background-color: #252525 !important;
+  background-color: #252525 !important;
 }
 
 .primary-white {
-    color: rgb(234, 234, 234) !important;
+  color: rgb(234, 234, 234) !important;
 }
 
 .cursor {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.glass-effect{
-    background-color: rgb(255, 255, 255, 0.06);
-    z-index: 10 !important;
-    position: relative !important;
-    border-radius: 1rem;
-    border: 1px solid rgb(255, 255, 255, 0.3);
-    backdrop-filter: blur(20px);
-    box-shadow: -15px -17px 17px rgba(10, 10, 10, 0.25);
-    overflow-x: hidden !important;
+.glass-effect {
+  background-color: rgb(255, 255, 255, 0.06);
+  z-index: 10 !important;
+  position: relative !important;
+  border-radius: 1rem;
+  border: 1px solid rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  box-shadow: -15px -17px 17px rgba(10, 10, 10, 0.25);
+  overflow-x: hidden !important;
 }
 
-.wrapper{
+.wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(15.25rem,100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(15.25rem, 100%), 1fr));
   grid-gap: 2rem;
 }
-.empty-card{
+
+.empty-card {
   background: linear-gradient(transparent, rgb(0, 0, 0)) !important;
+}
+
+.topic:hover {
+  background : #0076bb; 
+  color: black;
+  /* background-color: rgb(0, 218, 247); */
 }
 
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgb(110, 110, 110);
-    border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #ffffff;
-  }
+  width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(110, 110, 110);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}

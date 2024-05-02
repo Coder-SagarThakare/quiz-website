@@ -27,7 +27,7 @@ function Topics() {
   return (
     <div>
       {data?.map((e) => (
-        <div key={e._id} className="border p-3 rounded my-1 cursor">
+        <div key={e._id} className="border p-3 rounded my-1 cursor topic">
           <span>{e.name}</span>
         </div>
       ))}
