@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from "react";
+import React, { useCallback } from "react";
 import { FaBars } from "react-icons/fa";
 import "../../styles/subcomponents.css";
 import "./Sidebar.css";
@@ -79,7 +79,7 @@ function Sidebar({isOpen,setIsOpen}) {
     } else {
       navigate(CLIENT_PATHS.SIGNIN);
     }
-  }, [ user]);
+  }, [navigate, setUser, user]);
 
   return (
     <div className={`d-flex `}>
@@ -88,7 +88,7 @@ function Sidebar({isOpen,setIsOpen}) {
         className={`glass-effect d-flex flex-column overflow-x-hidden sidebar`} >
         <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
 
-        <div className={`d-flex flex-column justify-content-between p-2 border-top  h-100`}>
+        <div className={`d-flex flex-column justify-content-between p-2 border-top h-100`}>
           <AllMenus isOpen={isOpen} setIsOpen={setIsOpen} />
           <IsUserLoggedIn user={user} isOpen={isOpen} handleUser={handleUser} />
         </div>
@@ -120,4 +120,4 @@ function Sidebar({isOpen,setIsOpen}) {
   );
 }
 
-export default memo(Sidebar);
+export default React.memo(Sidebar);
