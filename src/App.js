@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Sidebar, SignIn, SignUp, Topics } from "./components";
+import { Question, Sidebar, SignIn, SignUp, Topics } from "./components";
 import { BrowserRouter as Router, Outlet, Route, Routes } from "react-router-dom";
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
@@ -44,9 +44,13 @@ function App() {
           <Route element={<AuthGuard />}>
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
+
+            
           </Route>
 
           <Route element={<AppLayout />}>
+            {/*make it private route */}
+            <Route path="/question" element={<Question />} />   
             <Route path="/" element={<Homepage />} />
 
             {/* {private routes goes here} */}
