@@ -36,6 +36,9 @@
   color: black;
   /* background-color: rgb(0, 218, 247); */
 }
+.question-header{
+  background-color: rgba(88, 88, 88, 0.5);
+}
 
 /* width */
 ::-webkit-scrollbar {
