@@ -12,7 +12,12 @@ import { FaBars } from "react-icons/fa6";
 import QuizHomepage from "./pages/QuizHomepage";
 
 function AppLayout() {
-  const [isOpen, setIsOpen] = useState(false);
+
+  const checkDevice = () => {
+    return window.innerWidth > 768 ? true : false;
+  }
+  
+  const [isOpen, setIsOpen] = useState(checkDevice);
 
   return (
     <div className={`d-flex vh-100 pt-4 ${isOpen && "flex-column-custom"}`}>
@@ -45,23 +50,23 @@ function App() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
 
-            
+
           </Route>
 
           <Route element={<AppLayout />}>
             {/*make it private route */}
-            <Route path="/question" element={<Question />} />   
+            <Route path="/question" element={<Question />} />
             <Route path="/" element={<Homepage />} />
 
             {/* {private routes goes here} */}
             <Route element={<ProtectedRoutes />}>
               <Route path="dashboard" element={<Dashboard />} />
 
-                <Route path="quiz/stream" >
-                  <Route path="" element={<QuizHomepage />} />
-                  <Route path=":streamId" element={<QuizHomepage />} />
-                  <Route path="subject/:subjectId" element={<Topics />} />
-                </Route>
+              <Route path="quiz/stream" >
+                <Route path="" element={<QuizHomepage />} />
+                <Route path=":streamId" element={<QuizHomepage />} />
+                <Route path="subject/:subjectId" element={<Topics />} />
+              </Route>
 
               <Route path="interview" element={<Interview />} />
               <Route path="about" element={<About />} />
