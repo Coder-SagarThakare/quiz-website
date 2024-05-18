@@ -1,30 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { Card, SearchBar } from "../components";
+import { Card, Loader, SearchBar } from "../components";
 import { get } from "../services";
 import { apiPaths } from "../constants";
 import { useLocation, useParams } from "react-router-dom";
 
-const fetchData = async (url, setData) => {
-  try {
-    const data = await get(url);
-    setData(data);
-  } catch (err) {
-    console.log("in quiz home page");
-    console.log(err.message); 
-  }
-};
 
 function QuizHomepage() {
   const location = useLocation();
   const [data, setData] = useState();
-  const {streamId} = useParams();
+  const [Loading, setLoading] = useState(true)
+  const { streamId } = useParams();
 
+  const fetchData = async (url, setData) => {
+    try {
+      const data = await get(url);
+      setData(data);
+    } catch (err) {
+      console.log("in quiz home page");
+      console.log(err.message);
+    } finally {
+      setLoading(false)
+    }
+  };
   const streamPath = "Streams >";
 
-  const isStream =  location.pathname.endsWith("stream")
-  console.log("isStream ",isStream);
+  const isStream = location.pathname.endsWith("stream")
+  console.log("isStream ", isStream);
 
   useEffect(() => {
+    setLoading(true)
+
     if (isStream)
       fetchData(apiPaths.STUDENT.STREAM.ALL, setData);
     else {
@@ -37,6 +42,10 @@ function QuizHomepage() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
+
+  if (Loading) {
+    return <Loader />
+  }
 
   return (
     <div className=" p-2">
@@ -57,7 +66,7 @@ function QuizHomepage() {
                 name={ele.name}
                 backgroundImage={ele.bgImage}
                 id={ele._id}
-                type = {!isStream && "subject"}
+                type={!isStream && "subject"}
               />
             </div>
           ))}
