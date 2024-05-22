@@ -64,7 +64,7 @@ const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
   );
 });
 
-function Sidebar({isOpen,setIsOpen}) {
+function Sidebar({ isOpen, setIsOpen }) {
   console.log("in sidebar");
 
   const navigate = useNavigate();
@@ -73,38 +73,42 @@ function Sidebar({isOpen,setIsOpen}) {
   // to handle user's token and navigation
   const handleUser = useCallback(() => {
     if (user) {
-      localStorage.removeItem(CONSTANTS.TOKEN)
+      localStorage.removeItem(CONSTANTS.TOKEN);
       setUser(null);
-      navigate(CLIENT_PATHS.HOME)
+      navigate(CLIENT_PATHS.HOME);
     } else {
       navigate(CLIENT_PATHS.SIGNIN);
     }
-  }, [navigate, setUser, user]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   return (
     <div className={`d-flex `}>
       <div
         style={{ width: isOpen ? "275px" : "50px " }}
-        className={`glass-effect d-flex flex-column overflow-x-hidden sidebar`} >
+        className={`glass-effect d-flex flex-column overflow-x-hidden sidebar`}
+      >
         <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
 
-        <div className={`d-flex flex-column justify-content-between p-2 border-top h-100`}>
+        <div
+          className={`d-flex flex-column justify-content-between p-2 border-top h-100`}
+        >
           <AllMenus isOpen={isOpen} setIsOpen={setIsOpen} />
           <IsUserLoggedIn user={user} isOpen={isOpen} handleUser={handleUser} />
         </div>
 
         {!isOpen && (
-            <FaBars
-              size={25}
-              className="burger-menu cursor primary-white"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            />
-          )}
+          <FaBars
+            size={25}
+            className="burger-menu cursor primary-white"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          />
+        )}
       </div>
 
-{/* mob view sidebar  */}
+      {/* mob view sidebar  */}
       {isOpen && (
         <div
           className={`mob-view-menu w-100 vh-100 glass-effect p-4 d-flex`}
@@ -112,10 +116,9 @@ function Sidebar({isOpen,setIsOpen}) {
         >
           <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
           <AllMenus isOpen={true} view={"mobile"} setIsOpen={setIsOpen} />
-          <IsUserLoggedIn isOpen={isOpen} handleUser={handleUser}/>
+          <IsUserLoggedIn isOpen={isOpen} handleUser={handleUser} />
         </div>
       )}
-
     </div>
   );
 }

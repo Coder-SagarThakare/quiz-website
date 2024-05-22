@@ -3,14 +3,16 @@ import { useAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import { CLIENT_PATHS, CONSTANTS } from "../constants";
 
-function ProtectedRoutes() {
+function ProtectedRoutes({ access }) {
   const { user } = useAuth();
+  console.log(user);
   const isAuthenticated =
     localStorage.getItem(CONSTANTS.TOKEN) || user !== null;
-  return isAuthenticated ? <Outlet /> : <Alert />;
+  console.log(isAuthenticated);
+  return isAuthenticated && user?.role === access ? <Outlet /> : <LoginAlert />;
 }
 
-function Alert() {
+function LoginAlert() {
   const navigate = useNavigate();
 
   Swal.fire({
@@ -25,5 +27,17 @@ function Alert() {
     }
   });
 }
+
+// function AccessForbiddenAlert() {
+//   // const navigate = useNavigate();
+//   // window.history.back()
+
+//   Swal.fire({
+//     icon: "error",
+//     title: "Oops...! ",
+//     text: "Access Forbidden!",
+//     // footer: '<a href="#">Why do I have this issue?</a>'
+//   });
+// }
 
 export default ProtectedRoutes;

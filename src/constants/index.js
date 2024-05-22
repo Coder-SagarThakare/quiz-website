@@ -9,12 +9,12 @@ export const CONSTANTS = {
   WEBAPP_TITLE: "QuizEasy",
   BASE_URL: process.env.REACT_APP_BASE_URL,
   TOKEN: "activeuser_token",
-  HOMEPAGE : "Homepage",
-  DASHBOARD : "Dashboard",
-  QUIZES :  "Quizes",
-  INTERVIEW :  "Interview",
-  PROFILE : "Profile",
-  ABOUT : "About",
+  HOMEPAGE: "Homepage",
+  DASHBOARD: "Dashboard",
+  QUIZES: "Quizes",
+  INTERVIEW: "Interview",
+  PROFILE: "Profile",
+  ABOUT: "About",
   FEATURES: [
     {
       ID: 1,
@@ -55,6 +55,11 @@ export const CONSTANTS = {
       ISREVERSE: true,
     },
   ],
+  ROLE: {
+    STUDENT: "student",
+    TEACHER: "teacher",
+    ADMIN: "admin",
+  },
 };
 
 // client side all routes
@@ -66,14 +71,14 @@ export const CLIENT_PATHS = {
   INTERVIEW: "/interview",
   PROFILE: "/profile",
   ABOUT: "/about",
-  SIGNIN : "/signin",
-  SIGNUP : "/signup",
-  
+  SIGNIN: "/signin",
+  SIGNUP: "/signup",
+
   STREAM: `${QUIZ}/stream`,
   SUBJECT: `${QUIZ}/stream/:streamId`,
   TOPIC: `${QUIZ}/stream/subject/:subjectId`,
 };
-  
+
 // sidebar menu items routes
 export const MenuItem = [
   {
@@ -87,12 +92,12 @@ export const MenuItem = [
     path: CLIENT_PATHS.DASHBOARD,
   },
   {
-    name:CONSTANTS.QUIZES,
+    name: CONSTANTS.QUIZES,
     icon: <MdSubject />,
     path: CLIENT_PATHS.STREAM,
   },
   {
-    name:CONSTANTS.INTERVIEW,
+    name: CONSTANTS.INTERVIEW,
     icon: <PiStudentFill />,
     path: CLIENT_PATHS.INTERVIEW,
   },

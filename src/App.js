@@ -16,6 +16,7 @@ import { AuthGuard, ProtectedRoutes } from "./utils";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import QuizHomepage from "./pages/QuizHomepage";
+import { CONSTANTS } from "./constants";
 
 function AppLayout() {
   const checkDevice = () => {
@@ -62,29 +63,27 @@ function App() {
             <Route path="/" element={<Homepage />} />
 
             {/* {private routes goes here} */}
-            <Route element={<ProtectedRoutes />}>
+            <Route
+              element={<ProtectedRoutes access={CONSTANTS.ROLE.STUDENT} />}
+            >
               <Route path="dashboard" element={<Dashboard />} />
-
               <Route path="quiz/stream">
                 <Route path="" element={<QuizHomepage />} />
                 <Route path=":streamId" element={<QuizHomepage />} />
                 <Route path="subject/:subjectId" element={<Topics />} />
               </Route>
-
               <Route path="interview" element={<Interview />} />
-              <Route path="about" element={<About />} />
-              <Route path="profile" element={<Profile />} />
+              <Route path="about" element={<About />} />{" "}
+              {/*user and teacher both have access */}
+              <Route path="profile" element={<Profile />} />{" "}
+              {/*user and teacher both have access */}
             </Route>
           </Route>
           <Route
             path="/page-not-found"
             element={<h1 className="text-center ">404 Page Not Found</h1>}
           />
-          <Route
-            path="*"
-            element={<Navigate to="/page-not-found" />}
-          />
-
+          <Route path="*" element={<Navigate to="/page-not-found" />} />
         </Routes>
         <Toaster />
       </Router>
