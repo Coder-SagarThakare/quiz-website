@@ -1,7 +1,13 @@
 import "./App.css";
 
 import { Question, Sidebar, SignIn, SignUp, Topics } from "./components";
-import { BrowserRouter as Router, Outlet, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Outlet,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
@@ -12,11 +18,10 @@ import { FaBars } from "react-icons/fa6";
 import QuizHomepage from "./pages/QuizHomepage";
 
 function AppLayout() {
-
   const checkDevice = () => {
     return window.innerWidth > 768 ? true : false;
-  }
-  
+  };
+
   const [isOpen, setIsOpen] = useState(checkDevice);
 
   return (
@@ -49,8 +54,6 @@ function App() {
           <Route element={<AuthGuard />}>
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
-
-
           </Route>
 
           <Route element={<AppLayout />}>
@@ -62,7 +65,7 @@ function App() {
             <Route element={<ProtectedRoutes />}>
               <Route path="dashboard" element={<Dashboard />} />
 
-              <Route path="quiz/stream" >
+              <Route path="quiz/stream">
                 <Route path="" element={<QuizHomepage />} />
                 <Route path=":streamId" element={<QuizHomepage />} />
                 <Route path="subject/:subjectId" element={<Topics />} />
@@ -73,6 +76,15 @@ function App() {
               <Route path="profile" element={<Profile />} />
             </Route>
           </Route>
+          <Route
+            path="/page-not-found"
+            element={<h1 className="text-center ">404 Page Not Found</h1>}
+          />
+          <Route
+            path="*"
+            element={<Navigate to="/page-not-found" />}
+          />
+
         </Routes>
         <Toaster />
       </Router>
