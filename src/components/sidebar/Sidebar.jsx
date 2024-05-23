@@ -8,7 +8,7 @@ import { useAuth } from "../../context/AuthContext";
 import IsUserLoggedIn from "../IsUserLoggedIn";
 
 // Return all menu of sidebar
-const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen }) => {
+const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen, role }) => {
   return (
     <div className={`${view && "d-flex flex-column gap-3"}`}>
       {MenuItem.map((item, index) => (
@@ -16,7 +16,9 @@ const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen }) => {
           to={item.path}
           key={index}
           title={item.name}
-          className={`text-decoration-none rounded-2 d-flex justify-content-center align-items-center gap-3 menu 
+
+          className={`text-decoration-none rounded-2 d-flex justify-content-center align-items-center gap-3 menu
+         
         ${isOpen ? "p-2" : "p-3"} `}
           onClick={() => {
             view && setIsOpen(!isOpen);
@@ -93,7 +95,7 @@ function Sidebar({ isOpen, setIsOpen }) {
         <div
           className={`d-flex flex-column justify-content-between p-2 border-top h-100`}
         >
-          <AllMenus isOpen={isOpen} setIsOpen={setIsOpen} />
+          <AllMenus isOpen={isOpen} setIsOpen={setIsOpen} role={user.role}/>
           <IsUserLoggedIn user={user} isOpen={isOpen} handleUser={handleUser} />
         </div>
 
@@ -115,7 +117,7 @@ function Sidebar({ isOpen, setIsOpen }) {
           style={{ zIndex: "20" }}
         >
           <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
-          <AllMenus isOpen={true} view={"mobile"} setIsOpen={setIsOpen} />
+          <AllMenus isOpen={true} view={"mobile"} setIsOpen={setIsOpen} role={user.role}/>
           <IsUserLoggedIn isOpen={isOpen} handleUser={handleUser} />
         </div>
       )}

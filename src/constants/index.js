@@ -85,31 +85,61 @@ export const MenuItem = [
     name: CONSTANTS.HOMEPAGE,
     icon: <RiHomeHeartFill />,
     path: `${CLIENT_PATHS.HOME}`,
+    access: [
+      CONSTANTS.ROLE.STUDENT,
+      CONSTANTS.ROLE.ADMIN,
+      CONSTANTS.ROLE.TEACHER,
+    ],
   },
   {
     name: CONSTANTS.DASHBOARD,
     icon: <RxDashboard />,
     path: CLIENT_PATHS.DASHBOARD,
+    access: [
+      CONSTANTS.ROLE.STUDENT,
+      CONSTANTS.ROLE.ADMIN,
+      CONSTANTS.ROLE.TEACHER,
+    ],
   },
   {
     name: CONSTANTS.QUIZES,
     icon: <MdSubject />,
     path: CLIENT_PATHS.STREAM,
+    access: [
+      CONSTANTS.ROLE.STUDENT,
+      CONSTANTS.ROLE.ADMIN,
+      CONSTANTS.ROLE.TEACHER,
+    ],
   },
   {
     name: CONSTANTS.INTERVIEW,
     icon: <PiStudentFill />,
     path: CLIENT_PATHS.INTERVIEW,
+    access: [
+      CONSTANTS.ROLE.STUDENT,
+      CONSTANTS.ROLE.ADMIN,
+      CONSTANTS.ROLE.TEACHER,
+    ]
   },
   {
     name: CONSTANTS.PROFILE,
     icon: <FaUserCircle />,
     path: CLIENT_PATHS.PROFILE,
+    access: [
+      CONSTANTS.ROLE.STUDENT,
+      CONSTANTS.ROLE.ADMIN,
+      CONSTANTS.ROLE.TEACHER,
+    ]
   },
   {
     name: CONSTANTS.ABOUT,
     icon: <FaUserAlt />,
     path: CLIENT_PATHS.ABOUT,
+    access: [
+      CONSTANTS.ROLE.STUDENT,
+      CONSTANTS.ROLE.ADMIN,
+      CONSTANTS.ROLE.TEACHER,
+    ]
   },
 ];
 
