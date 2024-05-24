@@ -16,10 +16,17 @@ const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen, role }) => {
           to={item.path}
           key={index}
           title={item.name}
-
           className={`text-decoration-none rounded-2 d-flex justify-content-center align-items-center gap-3 menu
-         
-        ${isOpen ? "p-2" : "p-3"} `}
+          ${
+            role
+              ? item.access.includes(role)
+                ? ""
+                : "d-none"
+              : item.access.includes(CONSTANTS.ROLE.STUDENT)
+              ? ""
+              : "d-none"
+          } 
+          ${isOpen ? "p-2" : "p-3"} `}
           onClick={() => {
             view && setIsOpen(!isOpen);
           }}
@@ -95,7 +102,7 @@ function Sidebar({ isOpen, setIsOpen }) {
         <div
           className={`d-flex flex-column justify-content-between p-2 border-top h-100`}
         >
-          <AllMenus isOpen={isOpen} setIsOpen={setIsOpen} role={user.role}/>
+          <AllMenus isOpen={isOpen} setIsOpen={setIsOpen} role={user?.role} />
           <IsUserLoggedIn user={user} isOpen={isOpen} handleUser={handleUser} />
         </div>
 
@@ -117,7 +124,12 @@ function Sidebar({ isOpen, setIsOpen }) {
           style={{ zIndex: "20" }}
         >
           <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
-          <AllMenus isOpen={true} view={"mobile"} setIsOpen={setIsOpen} role={user.role}/>
+          <AllMenus
+            isOpen={true}
+            view={"mobile"}
+            setIsOpen={setIsOpen}
+            role={user?.role}
+          />
           <IsUserLoggedIn isOpen={isOpen} handleUser={handleUser} />
         </div>
       )}

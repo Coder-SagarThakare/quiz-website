@@ -8,7 +8,6 @@ function ProtectedRoutes({ access }) {
   console.log(user);
   const isAuthenticated =
     localStorage.getItem(CONSTANTS.TOKEN) || user !== null;
-  console.log(isAuthenticated);
   return isAuthenticated && user?.role === access ? <Outlet /> : <LoginAlert />;
 }
 

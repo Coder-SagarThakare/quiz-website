@@ -141,6 +141,15 @@ export const MenuItem = [
       CONSTANTS.ROLE.TEACHER,
     ]
   },
+  {
+    name: "Only for Teacher ",
+    // icon: <MdSubject />,
+    path: CLIENT_PATHS.STREAM,
+    access: [
+      CONSTANTS.ROLE.ADMIN,
+      CONSTANTS.ROLE.TEACHER,
+    ],
+  },
 ];
 
 // // frontend routes of sidebar menu
