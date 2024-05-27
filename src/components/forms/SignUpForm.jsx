@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { Button, LabelledInput } from "..";
 import { useForm } from "react-hook-form";
 import Img from "../Img";
@@ -8,14 +7,12 @@ import { useNavigate } from "react-router";
 import "./style.css";
 import toast from "react-hot-toast";
 import RadioButton from "../RadioButton";
-import { CLIENT_PATHS } from "../../constants";
+import { CLIENT_PATHS, apiPaths } from "../../constants";
 import { useState } from "react";
-
+import { post } from "../../services";
 
 function SignUpForm() {
-  const API = "http://localhost:8022";
   const [selected, setselected] = useState("");
-
 
   const {
     handleSubmit,
@@ -25,7 +22,7 @@ function SignUpForm() {
 
   const navigate = useNavigate();
 
-// This registerUser function is used to register data  into the database using Axios and then redirecting user to dashboard page if registration is successful otherwise
+  // This registerUser function is used to register data  into the database using Axios and then redirecting user to dashboard page if registration is successful otherwise
   const registerUser = async (Data) => {
     console.log(Data);
     if (Data.password !== Data.confirmPassword) {
@@ -33,17 +30,13 @@ function SignUpForm() {
     } else {
 
       // delete confirmpassword value before sending request to  server
-      delete  Data.confirmPassword;
-      await axios
-        .post(`${API}/auth/register?captcha=false`, Data)
-        .then((res) => {
-          toast.success("Registration Successful!!");
-          navigate(CLIENT_PATHS.SIGNIN);
-        })
-        .catch((error) => {
-          console.error("Registration Error:",error.response.data.message );
-          toast.error(error.response.data.message);
-        });
+      delete Data.confirmPassword;
+
+      try {
+        await post(`${apiPaths.STUDENT.AUTH.REGISTER}?captcha=false`, Data);
+        toast.success("Registration Successful!!");
+        navigate(CLIENT_PATHS.SIGNIN);
+      } catch (error) {}
     }
   };
 
