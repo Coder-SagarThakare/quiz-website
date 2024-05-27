@@ -9,9 +9,13 @@ import "./style.css";
 import toast from "react-hot-toast";
 import RadioButton from "../RadioButton";
 import { CLIENT_PATHS } from "../../constants";
+import { useState } from "react";
+
 
 function SignUpForm() {
   const API = "http://localhost:8022";
+  const [selected, setselected] = useState("");
+
 
   const {
     handleSubmit,
@@ -56,7 +60,7 @@ function SignUpForm() {
               label="Name"
               name="name"
               type="text"
-              placeholder="Enter full Name"
+              placeholder="Enter Full Name"
               isRequired={true}
               register={register}
               errors={errors}
@@ -93,13 +97,15 @@ function SignUpForm() {
 
             {/* <div className="my-2"> */}
             <h6>Gender</h6>
-            <div className="d-md-flex mb-1">
+            <div className="d-md-flex mb-1 ms-2">
               <RadioButton
                 value="male"
                 name="gender"
                 id="male"
                 label="Male"
                 register={register}
+                selected={selected}
+                setselected={setselected}
               />
               <RadioButton
                 value="female"
@@ -107,6 +113,8 @@ function SignUpForm() {
                 id="female"
                 label="Female"
                 register={register}
+                selected={selected}
+                setselected={setselected}
               />
 
               <RadioButton
@@ -115,6 +123,8 @@ function SignUpForm() {
                 id="other"
                 label="Other"
                 register={register}
+                selected={selected}
+                setselected={setselected}
               />
             </div>
 

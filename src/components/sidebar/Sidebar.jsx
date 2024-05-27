@@ -26,7 +26,8 @@ const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen, role }) => {
               ? ""
               : "d-none"
           } 
-          ${isOpen ? "p-2" : "p-3"} `}
+          ${isOpen ? "p-2" : "p-3"} 
+          `}
           onClick={() => {
             view && setIsOpen(!isOpen);
           }}
