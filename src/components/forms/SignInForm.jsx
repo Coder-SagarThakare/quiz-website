@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Button, LabelledInput } from "..";
 import { useForm } from "react-hook-form";
@@ -21,6 +21,8 @@ function SignInForm() {
 
   const navigate = useNavigate();
   const { setUser } = useAuth();
+  const [selected, setSelected] = useState("");
+  console.log("selected : ", selected);
 
   /**
    *  Function to handle form submission
@@ -28,7 +30,10 @@ function SignInForm() {
    */
   const onsubmit = async (data) => {
     try {
-      const result = await post(`${apiPaths.STUDENT.AUTH.LOGIN}?captcha=false`, data);
+      const result = await post(
+        `${apiPaths.STUDENT.AUTH.LOGIN}?captcha=false`,
+        data
+      );
 
       localStorage.setItem(CONSTANTS.TOKEN, result.token);
       setUser(result.user);
@@ -44,7 +49,7 @@ function SignInForm() {
       <div className="w-50 h-100 d-none d-md-block ">
         <Img src={SignIn} alt="signin-img" className="h-100" />
       </div>
- 
+
       <div className="w-100 w-md-50 d-flex flex-column align-items-center justify-content-center ">
         <div className="glass-effect p-4">
           <h2>Login to your Account</h2>
@@ -53,6 +58,9 @@ function SignInForm() {
             className="d-flex flex-column "
             onSubmit={handleSubmit(onsubmit)}
           >
+            <>
+              
+            </>
             <LabelledInput
               label="Username"
               name="email"
@@ -72,6 +80,25 @@ function SignInForm() {
               register={register}
               errors={errors}
             />
+
+            {/* <>
+              <RadioButton
+                register={register}
+                label=" Login as Teacher"
+                value="teacher"
+                name="role"
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <RadioButton
+                register={register}
+                label=" Login as Student"
+                value="student"
+                name="role"
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </> */}
 
             <Button
               title="Login"

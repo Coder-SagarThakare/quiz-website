@@ -1,13 +1,19 @@
 // This component is used to create a radio button with basic property
 
+
 function RadioButton(props) {
   const buttonStyle = {
     height: "20px",
     width: "20px",
-    border: props.selected === props.value ? ' : "0.5px solid #ccff00"' : "",
+    border: props.selected === props.value ? ' : "5px solid #ccff00"' : "",
   };
+
+  const handleSelect = (e) => {
+    props.setSelected(e.target.value);
+  };
+
   return (
-    <div className="d-flex align-items-center">
+    <div className="d-flex align-items-center py-1">
       <div
         className="d-flex align-items-center justify-content-center rounded-circle"
         style={buttonStyle}
@@ -22,9 +28,7 @@ function RadioButton(props) {
           {...props.register(`${props.name}`, {
             required: `${props.isRequired}`,
           })}
-          onChange={(e) => {
-            props.setselected(e.target.value);
-          }}
+          onChange={handleSelect}
         />
       </div>
       <label className="mx-2 "> {props.label} </label>

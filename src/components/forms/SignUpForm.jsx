@@ -12,7 +12,7 @@ import { useState } from "react";
 import { post } from "../../services";
 
 function SignUpForm() {
-  const [selected, setselected] = useState("");
+  const [selected, setSelected] = useState("");
 
   const {
     handleSubmit,
@@ -98,7 +98,7 @@ function SignUpForm() {
                 label="Male"
                 register={register}
                 selected={selected}
-                setselected={setselected}
+                setselected={setSelected}
               />
               <RadioButton
                 value="female"
@@ -107,7 +107,7 @@ function SignUpForm() {
                 label="Female"
                 register={register}
                 selected={selected}
-                setselected={setselected}
+                setselected={setSelected}
               />
 
               <RadioButton
@@ -117,7 +117,7 @@ function SignUpForm() {
                 label="Other"
                 register={register}
                 selected={selected}
-                setselected={setselected}
+                setselected={setSelected}
               />
             </div>
 
