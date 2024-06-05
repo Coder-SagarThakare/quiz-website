@@ -39,9 +39,8 @@
 }
 
 .active {
-  background-color: #4a2fad;
-  transform: scale(1.05);
-  transition: all 1s linear;
+  background-color: #0d6efd;
+  transition: all 0.5s linear;
 
 }
 

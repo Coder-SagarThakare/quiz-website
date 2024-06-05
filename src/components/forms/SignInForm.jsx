@@ -21,8 +21,7 @@ function SignInForm() {
 
   const navigate = useNavigate();
   const { setUser } = useAuth();
-  const [selected, setSelected] = useState("");
-  console.log("selected : ", selected);
+  const [role, setRole] = useState("student");
 
   /**
    *  Function to handle form submission
@@ -58,9 +57,25 @@ function SignInForm() {
             className="d-flex flex-column "
             onSubmit={handleSubmit(onsubmit)}
           >
-            <>
-              
-            </>
+            <div className="border d-flex w-100 p-1 rounded my-2">
+              <span
+                className={`w-50 cursor text-center p-1 rounded  ${
+                  role === "student" && "active"
+                }`}
+                onClick={() => setRole("student")}
+              >
+                Student
+              </span>
+              <span
+                className={`w-50 cursor text-center p-1 rounded  ${
+                  role === "teacher" && "active"
+                }`}
+                onClick={() => setRole("teacher")}
+              >
+                Teacher
+              </span>
+            </div>
+
             <LabelledInput
               label="Username"
               name="email"
