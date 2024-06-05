@@ -29,10 +29,16 @@ function SignInForm() {
    */
   const onsubmit = async (data) => {
     try {
-      const result = await post(
-        `${apiPaths.STUDENT.AUTH.LOGIN}?captcha=false`,
-        data
-      );
+      var result;
+      if (role === CONSTANTS.ROLE.STUDENT) {
+        result = await post(
+          `${apiPaths.STUDENT.AUTH.LOGIN}?captcha=false`,
+          data
+        );
+      } else {
+        result = await post(`${apiPaths.TEACHER.AUTH.LOGIN}`, data);
+        console.log("result : ", result);
+      }
 
       localStorage.setItem(CONSTANTS.TOKEN, result.token);
       setUser(result.user);
