@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CONSTANTS } from "../constants";
+import { CLIENT_PATHS, CONSTANTS } from "../constants";
 import toast from "react-hot-toast";
 
 // Create a reusable Axios instance with a base URL
@@ -32,8 +32,11 @@ axiosInstance.interceptors.response.use(
   (err) => {
     if (err.response.status === 401) {
       localStorage.clear();
-      window.location.replace("/");
-      return;
+
+      if (window.location.pathname !== CLIENT_PATHS.SIGNIN) {
+        window.location.assign(CLIENT_PATHS.HOME);
+        return;
+      }
     }
 
     toast.error(err.response.data.message);
