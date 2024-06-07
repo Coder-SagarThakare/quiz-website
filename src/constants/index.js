@@ -205,7 +205,7 @@ export const apiPaths = {
     AUTH :{
       LOGIN : `${API_V1}/auth/teacher/login`
     },
-    SELF: "/self", // dummy
+    SELF: `${API_V1}/teacher/self`, 
     ADD_SUBJECT: "/teacher/add-subject",
   },
   ADMIN: "/admin",

@@ -30,6 +30,7 @@ axiosInstance.interceptors.response.use(
     return res.data;
   },
   (err) => {
+    console.log(err);
     if (err.response.status === 401) {
       localStorage.clear();
 
