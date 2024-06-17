@@ -64,7 +64,9 @@ function App() {
 
             {/* {private routes goes here} */}
             <Route
-              element={<ProtectedRoutes access={CONSTANTS.ROLE.STUDENT} />}
+              element={
+                <ProtectedRoutes />
+              }
             >
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="quiz/stream">

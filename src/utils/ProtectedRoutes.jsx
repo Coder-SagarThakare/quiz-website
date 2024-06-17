@@ -3,12 +3,14 @@ import { useAuth } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import { CLIENT_PATHS, CONSTANTS } from "../constants";
 
-function ProtectedRoutes({ access }) {
+function ProtectedRoutes() {
   const { user } = useAuth();
   console.log(user);
+
   const isAuthenticated =
     localStorage.getItem(CONSTANTS.TOKEN) || user !== null;
-  return isAuthenticated && user?.role === access ? <Outlet /> : <LoginAlert />;
+
+  return isAuthenticated  ? <Outlet /> : <LoginAlert />;
 }
 
 function LoginAlert() {
