@@ -16,7 +16,7 @@ import { AuthGuard, ProtectedRoutes } from "./utils";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import QuizHomepage from "./pages/QuizHomepage";
-import { CONSTANTS } from "./constants";
+
 
 function AppLayout() {
   const checkDevice = () => {
@@ -39,7 +39,7 @@ function AppLayout() {
         />
       )}
 
-      <div className="overflow-scroll w-100 vh-100 px-4 ">
+      <div className="overflow-scroll w-100 h-100 px-4 border" >
         <Outlet />
       </div>
     </div>

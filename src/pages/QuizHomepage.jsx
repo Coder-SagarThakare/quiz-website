@@ -25,7 +25,6 @@ function QuizHomepage() {
   const streamPath = "Streams >";
 
   const isStream = location.pathname.endsWith("stream")
-  console.log("isStream ", isStream);
 
   useEffect(() => {
     setLoading(true)

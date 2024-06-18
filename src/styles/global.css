@@ -66,3 +66,7 @@
   outline: 0;
   box-shadow: 0 0 0 .25rem rgba(204, 255, 0, .25) ;
 }
+
+.vh-99{
+  max-height: 99vh;
+}
