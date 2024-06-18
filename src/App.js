@@ -26,7 +26,7 @@ function AppLayout() {
   const [isOpen, setIsOpen] = useState(checkDevice);
 
   return (
-    <div className={`d-flex vh-100 pt-4 ${isOpen && "flex-column-custom"}`}>
+    <div className={`d-flex vh-100 pt-4  ${isOpen && "flex-column-custom"}`}>
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
 
       {!isOpen && (
@@ -39,7 +39,7 @@ function AppLayout() {
         />
       )}
 
-      <div className="overflow-scroll w-100 h-100 px-4 border" >
+      <div className=" w-100 h-100 px-4 overflow-y-scroll " >
         <Outlet />
       </div>
     </div>
