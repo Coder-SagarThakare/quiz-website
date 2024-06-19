@@ -60,6 +60,10 @@ export const CONSTANTS = {
     TEACHER: "teacher",
     ADMIN: "admin",
   },
+  GENDER : {
+    MALE:"male",
+    FEMALE : "female"
+  }
 };
 
 // client side all routes
