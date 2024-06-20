@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
-import {  apiPaths } from "../../constants";
+import { apiPaths } from "../../constants";
 import { get } from "../../services";
 import { FaUserEdit } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import { FaLinkedin } from "react-icons/fa";
 
 function TeacherProfile() {
   const { user, setUser } = useAuth();
@@ -33,18 +36,25 @@ function TeacherProfile() {
           />
         </div>
         <div className=" ">
-          <FaUserEdit size={50} onClick={() => setEdit(!edit)} /><br/>
-
-          Mr/Ms {edit ? <input type="text" defaultValue={user.name}/> : <p> {user.name} </p>}
-
+          <FaUserEdit size={50} onClick={() => setEdit(!edit)} />
+          <br />
+          Mr/Ms{" "}
+          {edit ? (
+            <input type="text" defaultValue={user.name} />
+          ) : (
+            <p> {user.name} </p>
+          )}
           <p>Email-ID : {user.email}</p>
           <p>Mobile : {user.mobNo}</p>
+          <p>Gender : {user.gender}</p>
           <p>Bio : {user.bio}</p>
-          <p>Birth Date : {user.birthDate.slice(0, 10)}</p>
+          {edit ? (
+            <input type="date" value={user.birthDate.slice(0, 10)} />
+          ) : (
+            <p>Birth Date : {user.birthDate.slice(0, 10)}</p>
+          )}
           <p>Organization : {user.organization}</p>
           <p>Highest Education : {user.highestEducation}</p>
-          <input type="date" value={user.birthDate.slice(0, 10)} />
-
           <div className="d-flex gap-4">
             <p>College ID : </p>
             <img
@@ -54,7 +64,26 @@ function TeacherProfile() {
             />
           </div>
 
+          <p>Role : {user.role}</p>
+          <p>Teaching Experience : {user.teachingExperience}</p>
+          <p>specialization : {user.specialization}</p>
+          
           <p>Email verified : {user.isEmailVerified ? "yes" : "no"}</p>
+          <p>isTeacherVerfied : {user.isTeacherVerfied ? "yes" : "no"}</p>
+          <p>isPasswordUpdated : {user.isPasswordUpdated ? "yes" : "no"}</p>
+          <div className="d-flex gap-2">
+            <div>
+              <Link to={user.github} target="_blank">
+                <FaGithub />{" "}
+              </Link>
+            </div>
+            <div>
+              <Link to={user.linkedin} target="_blank">
+                <FaLinkedin />{" "}
+              </Link>
+            </div>
+          </div>
+          <p>Acoount created At : {user.createdAt.slice(0, 10)}</p>
         </div>
       </div>
     </>
