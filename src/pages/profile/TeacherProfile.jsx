@@ -6,6 +6,8 @@ import { FaUserEdit } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaLinkedin } from "react-icons/fa";
+import { Cake, Mail, Phone, User } from "lucide-react";
+import { Button } from "../../components";
 
 function TeacherProfile() {
   const { user, setUser } = useAuth();
@@ -26,29 +28,43 @@ function TeacherProfile() {
   }, []);
 
   return (
-    <div className="p-3  ">
+    <div className="p-3 d-block">
+
+        <div className="d-flex justify-content-end border">
+        {edit ?
+          <Button title="Save" style={{width: "100px"}} className={"bg-info"} onClick={() => setEdit(!edit)}/>:
+          <Button title="Edit"  style={{width: "100px"}} className={"bg-primary"} onClick={() => setEdit(!edit)} /> 
+        }
+        </div>
+
       {/* profile data card */}
       <div className="glass-effect row align-items-center justify-content-between p-3 gx-0 border ">
         {/* profile photo div */}
         <div className=" col-12 col-lg-2 text-center border ">
-          <img
+          <img  
             src={user.picture}
             alt={user.picture}
             className="w-100 h-100 rounded-pill profile-img float-center border m-1"
           />
-        </div>
+      </div>
 
         {/* profile info */}
-        <div className=" p-0  col-xl-9 col-xxl-10 gx-0 row text-md-start text-lg-start border align-items-baseline"> 
-          <div className="row col-12 gx-0 border">
-            <div className="col-6 gx-0  border border-danger">
+        <div className=" p-0 col-lg-9 col-xl-9 me-xl-5 gx-0 row border border-success border-2 p-1">
+          <div className="col-2 d-md-none"></div>
+
+          <div className="row col-8 col-md-12 gx-0 border p-1">
+            <div className="col-12 gx-0 col-md-6 border border-danger ">
               {edit ? (
                 <input type="text" defaultValue={user.name} />
               ) : (
-                <p> {user.name} </p>
+                <p>
+                  {" "}
+                  <b>{user.name}</b>
+                </p>
               )}
             </div>
-            <div className="d-flex gap-2 col-6 gx-0 border border-danger text-center d-flex ">
+
+            <div className="d-flex gap-2 col-12  col-md-6 gx-0 border border-danger text-center d-flex ">
               <>
                 <Link to={user.github} target="_blank">
                   <FaGithub />{" "}
@@ -60,32 +76,42 @@ function TeacherProfile() {
                 </Link>
               </>
             </div>
-          </div>  
+          </div>
           <div className="row gx-0 border">
-
             <div className="col-6 gx-0 border border-success">
-              <p> {user.email}</p>
-              <p> {user.mobNo}</p>
+              <p>
+                <Mail size={20} /> {user.email}
+              </p>
+              <p>
+                {" "}
+                <Phone size={20} /> {user.mobNo}
+              </p>
             </div>
 
             <div className=" col-6 gx-0 border border-success">
-              <p>{user.gender}</p>
+              <p>
+                {" "}
+                <User size={20} /> {user.gender}
+              </p>
               {edit ? (
                 <input type="date" value={user.birthDate.slice(0, 10)} />
               ) : (
-                <p> {user.birthDate.slice(0, 10)}</p>
+                <p>
+                  <Cake size={20} /> {user.birthDate.slice(0, 10)}
+                </p>
               )}
             </div>
           </div>
+          <div className="col-2 d-md-none"></div>
         </div>
 
-        <p className="ms-3">Bio : {user.bio}</p>
+        <p className="ms-4">Bio : {user.bio}</p>
       </div>
 
       {/* delete below div */}
       <div className="d-flex w-100 p-3 gap-5 ">
         <div className=" ">
-          <FaUserEdit size={50} onClick={() => setEdit(!edit)} />
+          <FaUserEdit size={50}  />
           <br />
           Mr/Ms
           <p>Organization : {user.organization}</p>
