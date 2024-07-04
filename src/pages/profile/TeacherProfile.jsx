@@ -46,14 +46,14 @@ function TeacherProfile() {
             alt={user.picture}
             className="w-100 h-100 rounded-pill profile-img float-center border m-1"
           />
-      </div>
+        </div>
 
         {/* profile info */}
-        <div className=" p-0 col-lg-9 col-xl-9 me-xl-5 gx-0 row border border-success border-2 p-1">
-          <div className="col-2 d-md-none"></div>
+        <div className=" p-0 col-lg-9 col-xl-9 me-xl-5 gx-0 row border border-success border-1 p-1">
+          <div className="d-none d-sm-block col-2 d-md-none"></div>
 
-          <div className="row col-8 col-md-12 gx-0 border p-1">
-            <div className="col-12 gx-0 col-md-6 border border-danger ">
+          <div className="row col-12 col-sm-10 col-md-12 gx-0 border  p-1">
+            <div className="col-12 gx-0 col-md-6 border border-danger ">  
               {edit ? (
                 <input type="text" defaultValue={user.name} />
               ) : (
@@ -64,7 +64,8 @@ function TeacherProfile() {
               )}
             </div>
 
-            <div className="d-flex gap-2 col-12  col-md-6 gx-0 border border-danger text-center d-flex ">
+            <div className="d-none d-md-flex gap-2 col-12 col-md-6 gx-0 border border-danger text-center d-flex ">
+              
               <>
                 <Link to={user.github} target="_blank">
                   <FaGithub />{" "}
@@ -77,8 +78,11 @@ function TeacherProfile() {
               </>
             </div>
           </div>
+
           <div className="row gx-0 border">
-            <div className="col-6 gx-0 border border-success">
+          <div className="d-none d-sm-block col-2 d-md-none gx-0 border border-danger row">  </div>
+            
+            <div className="col-12 col-sm-10 col-md-6 gx-0 border border-success">
               <p>
                 <Mail size={20} /> {user.email}
               </p>
@@ -87,8 +91,10 @@ function TeacherProfile() {
                 <Phone size={20} /> {user.mobNo}
               </p>
             </div>
+            
+            <div className="d-none d-sm-block col-2 d-md-none gx-0  border border-danger row">  </div>
 
-            <div className=" col-6 gx-0 border border-success">
+            <div className="col-12 col-sm-10 col-md-6 gx-0 border border-success">
               <p>
                 {" "}
                 <User size={20} /> {user.gender}
@@ -101,11 +107,14 @@ function TeacherProfile() {
                 </p>
               )}
             </div>
+
           </div>
-          <div className="col-2 d-md-none"></div>
+
         </div>
 
-        <p className="ms-4">Bio : {user.bio}</p>
+        <div className="d-none d-sm-block col-2 d-md-none gx-0  border border-danger row">  </div>
+
+        <p className="col-10 ms-sm-4">Bio : {user.bio}</p>
       </div>
 
       {/* delete below div */}
