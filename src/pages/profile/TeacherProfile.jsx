@@ -84,7 +84,7 @@ function TeacherProfile() {
             
             <div className="col-12 col-sm-10 col-md-6 gx-0 border border-success">
               <p>
-                <Mail size={20} /> {user.email}
+                <Mail size={20} /> sagar.thakare@angularminds.com
               </p>
               <p>
                 {" "}

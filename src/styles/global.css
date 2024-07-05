@@ -72,6 +72,25 @@
 }
 
 .profile-img {
-  width: 150px !important;
-  height: 150px !important;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+p{
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 576px) {
+  p {
+    font-size: 0.8rem;
+  }
+
+}
+
+@media only screen and (max-width: 992px) {
+
+  .profile-img {
+    width: 30% !important;
+    height: auto;
+  }
 }
