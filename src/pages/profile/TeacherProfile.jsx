@@ -40,7 +40,7 @@ function TeacherProfile() {
       {/* profile data card */}
       <div className="glass-effect row align-items-center justify-content-between p-3 gx-0 border ">
         {/* profile photo div */}
-        <div className=" col-12 col-lg-2 text-center border ">
+        <div className=" col-12  col-lg-2 text-center border ">
           <img  
             src={user.picture}
             alt={user.picture}
@@ -53,7 +53,7 @@ function TeacherProfile() {
           <div className="d-none d-sm-block col-2 d-md-none"></div>
 
           <div className="row col-12 col-sm-10 col-md-12 gx-0 border  p-1">
-            <div className="col-12 gx-0 col-md-6 border border-danger ">  
+            <div className="col-12 gx-0 col-md-8 col-xl-6 border border-danger ">  
               {edit ? (
                 <input type="text" defaultValue={user.name} />
               ) : (
@@ -64,7 +64,7 @@ function TeacherProfile() {
               )}
             </div>
 
-            <div className="d-none d-md-flex gap-2 col-12 col-md-6 gx-0 border border-danger text-center d-flex ">
+            <div className="d-none d-md-flex gap-2 col-12 col-md-4 col-xl-6 gx-0 border border-danger text-center d-flex ">
               
               <>
                 <Link to={user.github} target="_blank">
@@ -82,7 +82,7 @@ function TeacherProfile() {
           <div className="row gx-0 border">
           <div className="d-none d-sm-block col-2 d-md-none gx-0 border border-danger row">  </div>
             
-            <div className="col-12 col-sm-10 col-md-6 gx-0 border border-success">
+            <div className="col-12 col-sm-10 col-md-8 col-xl-6 gx-0 border border-success">
               <p>
                 <Mail size={20} /> sagar.thakare@angularminds.com
               </p>
@@ -94,7 +94,7 @@ function TeacherProfile() {
             
             <div className="d-none d-sm-block col-2 d-md-none gx-0  border border-danger row">  </div>
 
-            <div className="col-12 col-sm-10 col-md-6 gx-0 border border-success">
+            <div className="col-12 col-sm-10 col-md-4 col-xl-6 gx-0 border border-success">
               <p>
                 {" "}
                 <User size={20} /> {user.gender}
