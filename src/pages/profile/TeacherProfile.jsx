@@ -31,12 +31,12 @@ function TeacherProfile() {
     return (<>
       <>
         <Link to={user.github} target="_blank">
-          <FaGithub size={25} color="black"/>{" "}
+          <FaGithub size={25} color="black" />{" "}
         </Link>
       </>
       <>
         <Link to={user.linkedin} target="_blank">
-          <FaLinkedin size={25} color=""/>{" "}
+          <FaLinkedin size={25} color="" />{" "}
         </Link>
       </>
     </>)
@@ -68,7 +68,7 @@ function TeacherProfile() {
           <div className="d-none d-sm-block col-2 d-md-none"></div>
 
           <div className="row col-12 col-sm-10 col-md-12 gx-0 border  p-1">
-            <div className="col-12 gx-0 col-lg-8 col-xl-6 border border-danger ">
+            <div className="col-12 gx-0 col-lg-8 col-xl-8 border border-danger ">
               {edit ? (
                 <input type="text" defaultValue={user.name} />
               ) : (
@@ -79,7 +79,7 @@ function TeacherProfile() {
               )}
             </div>
 
-            <div className="d-none d-lg-flex gap-2 col-12 col-md-4 col-xl-6 gx-0 border border-danger text-center d-flex ">
+            <div className="d-none d-lg-flex gap-2 col-12 col-md-4 col-xl-4 gx-0 border border-danger text-center d-flex ">
               <GetSocialMedia />
 
             </div>
@@ -88,11 +88,13 @@ function TeacherProfile() {
           <div className="row gx-0 border">
             <div className="d-none d-sm-block col-2 d-md-none gx-0 border border-danger row">  </div>
 
-            <div className="col-12 col-sm-10 col-md-12 col-lg-8 col-xl-6 gx-0 border border-success">
-              <p>
-                <Mail size={20} /> sagar.thakare@angularminds.compleasecChangeThis
+            <div className="col-12 col-sm-10 col-md-12 col-lg-8 col-xl-8 gx-0 border border-success ">
+              <p className="d-flex gap-2">  
+                <Mail size={20} className="mt-1"/>
+                  sagar.thakare@angularminds.compleasecChangeTHis
+               
               </p>
-              <p>
+              <p className="d-flex gap-2">
                 {" "}
                 <Phone size={20} /> {user.mobNo}
               </p>
@@ -100,7 +102,7 @@ function TeacherProfile() {
 
             <div className="d-none d-sm-block col-2 d-md-none gx-0  border border-danger row">  </div>
 
-            <div className="col-12 col-sm-12 col-lg-4 col-xl-6 gx-0 border border-success">
+            <div className="col-12 col-sm-12 col-lg-4 col-xl-4 gx-0 border border-success">
               <p>
                 {" "}
                 <User size={20} /> {user.gender}
