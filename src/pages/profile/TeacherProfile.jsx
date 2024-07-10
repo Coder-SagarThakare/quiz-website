@@ -31,12 +31,12 @@ function TeacherProfile() {
     return (<>
       <>
         <Link to={user.github} target="_blank">
-          <FaGithub size={25}/>{" "}
+          <FaGithub size={25} color="black"/>{" "}
         </Link>
       </>
       <>
         <Link to={user.linkedin} target="_blank">
-          <FaLinkedin size={25}/>{" "}
+          <FaLinkedin size={25} color=""/>{" "}
         </Link>
       </>
     </>)
@@ -90,7 +90,7 @@ function TeacherProfile() {
 
             <div className="col-12 col-sm-10 col-md-12 col-lg-8 col-xl-6 gx-0 border border-success">
               <p>
-                <Mail size={20} /> sagar.thakare@angularminds.com-pleasecChangeThis
+                <Mail size={20} /> sagar.thakare@angularminds.compleasecChangeThis
               </p>
               <p>
                 {" "}
