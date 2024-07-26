@@ -10,7 +10,7 @@ function Dashboard() {
 
   console.log(user);
   return (
-    <div className="glass-effect h-100 " >
+    <div className="h-100" >
       {user.role === CONSTANTS.ROLE.STUDENT ? (
         <StudentDashboard />
       ) : user.role === CONSTANTS.ROLE.TEACHER ? (

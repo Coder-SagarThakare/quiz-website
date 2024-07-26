@@ -8,7 +8,7 @@ function Profile() {
   const { user } = useAuth();
 
   return (
-    <div className="glass-effect h-100 ">
+    <div className="h-100 ">
       {user.role === CONSTANTS.ROLE.STUDENT ? (
         <StudentProfile />
       ) : user.role === CONSTANTS.ROLE.TEACHER ? (

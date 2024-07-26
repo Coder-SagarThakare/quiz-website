@@ -27,7 +27,7 @@ function ShowStreams() {
 function HomePage() {
   console.log("homepage loaded");
   return (
-    <div className="glass-effect ">
+    <div className=" ">
       <HeroImg />
       <ShowFeatures />
       <ShowStreams />

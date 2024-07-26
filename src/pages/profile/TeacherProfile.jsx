@@ -91,7 +91,7 @@ function TeacherProfile() {
             <div className="col-12 col-sm-10 col-md-12 col-lg-8 col-xl-8 gx-0 border border-success ">
               <p className="d-flex gap-2">  
                 <Mail size={20} className="mt-1"/>
-                  sagar.thakare@angularminds.compleasecChangeTHis
+                  {user.email}
                
               </p>
               <p className="d-flex gap-2">

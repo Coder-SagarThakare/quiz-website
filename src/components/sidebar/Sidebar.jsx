@@ -96,7 +96,7 @@ function Sidebar({ isOpen, setIsOpen }) {
     <div className={`d-flex `}>
       <div
         style={{ width: isOpen ? "275px" : "50px " }}
-        className={`glass-effect d-flex flex-column overflow-x-hidden sidebar`}
+        className={`glass-effect d-flex flex-column overflow-x-hidden sidebar `}
       >
         <Header isOpen={isOpen} setIsOpen={setIsOpen} navigate={navigate} />
 
