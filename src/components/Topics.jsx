@@ -10,18 +10,18 @@ function Topics() {
   const [Loading, setLoading] = useState(true)
 
   const getTopics = async () => {
+
     try {
-      const data = await get(
-        `${apiPaths.STUDENT.TOPIC.FROM_SUBJECT}/${subjectId}`
-      );
+      const data = await get(`${apiPaths.STUDENT.TOPIC.FROM_SUBJECT}`.replace("subjectId", subjectId));
       console.log(data);
       setData(data);
     } catch (e) {
       console.log(e);
-    }finally{
+    } finally {
       setLoading(false)
     }
   };
+
   useEffect(() => {
     // setLoading(true)
     getTopics();
@@ -29,12 +29,12 @@ function Topics() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if(Loading){
+  if (Loading) {
     return <Loader />
   }
 
   return (
-    <div>
+    <div className="p-3">
       {data?.map((e) => (
         <div key={e._id} className="border p-3 rounded my-1 cursor topic">
           <span>{e.name}</span>

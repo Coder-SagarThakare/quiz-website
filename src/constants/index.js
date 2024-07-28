@@ -187,6 +187,7 @@ export const MenuItem = [
 // api
 const API_V1 = "/api/v1";
 const STUDENT = `${API_V1}/user`;
+
 export const apiPaths = {
   STUDENT: {
     AUTH: {
@@ -195,7 +196,7 @@ export const apiPaths = {
     },
     SELF: `${STUDENT}/self`,
     TOPIC: {
-      FROM_SUBJECT: `${STUDENT}/stream/subject`,
+      FROM_SUBJECT: `${STUDENT}/stream/subject/subjectId/topics`,
     },
     SUBJECT: {
       FROM_STREAM: `${STUDENT}/stream`,
