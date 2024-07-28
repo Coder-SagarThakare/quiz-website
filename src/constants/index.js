@@ -78,7 +78,7 @@ export const CLIENT_PATHS = {
   SIGNIN: "/signin",
   SIGNUP: "/signup",
 
-  STREAM: `${QUIZ}/stream`,
+  STREAM: `${QUIZ}/all-stream`,
   SUBJECT: `${QUIZ}/stream/:streamId`,
   TOPIC: `${QUIZ}/stream/subject/:subjectId`,
 };
