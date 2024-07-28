@@ -3,16 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { CLIENT_PATHS } from "../constants";
 
 const Card = ({ name, backgroundImage, id, type }) => {
-  const navigate = useNavigate();
+  console.log("type : ",type);
 
+  const navigate = useNavigate();
+ 
   const navigateTo = () => {
     if (type === "subject")
       navigate(`${CLIENT_PATHS.STREAM}/subject/${id}`)
-    else navigate(`${CLIENT_PATHS.STREAM}/${id}`,  {
-      state: {
-        
-      }
-    });
+      // navigate(`${CLIENT_PATHS.SUBJECT}`, {
+      //   state: {
+      //     streamId: id
+      //   }
+      // })
+    else navigate(`${CLIENT_PATHS.STREAM}`);
   };
 
   return (

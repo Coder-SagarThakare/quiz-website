@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Card, Loader, SearchBar } from "../components";
 import { get } from "../services";
 import { apiPaths } from "../constants";
-import { useLocation, useParams } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 
 function QuizHomepage() {
   const location = useLocation();
+  console.log(location);
   const [data, setData] = useState();
   const [Loading, setLoading] = useState(true)
-  const { streamId } = useParams();
+  const streamId = location?.state?.streamId;
 
   const fetchData = async (url, setData) => {
     try {
@@ -24,7 +24,9 @@ function QuizHomepage() {
   };
   const streamPath = "Streams >";
 
-  const isStream = location.pathname.endsWith("stream")
+  // 
+  const isStream = location.pathname.endsWith("all-streams")
+  console.log("isStream : ",isStream);
 
   useEffect(() => {
     setLoading(true)

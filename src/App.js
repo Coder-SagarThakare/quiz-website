@@ -69,9 +69,9 @@ function App() {
               }
             >
               <Route path="dashboard" element={<Dashboard />} />
-              <Route path="quiz/all-stream">
-                <Route path="" element={<QuizHomepage />} />
-                <Route path=":streamId" element={<QuizHomepage />} />
+              <Route path="quiz"> 
+                <Route path="all-streams" element={<QuizHomepage />} />
+                <Route path="streams/all-subjects" element={<QuizHomepage />} />
                 <Route path="subject/:subjectId" element={<Topics />} />
               </Route>
               <Route path="interview" element={<Interview />} />
