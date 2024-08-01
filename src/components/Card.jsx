@@ -1,21 +1,22 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { CLIENT_PATHS } from "../constants";
+import { CLIENT_PATHS, CONSTANTS } from "../constants";
 
 const Card = ({ name, backgroundImage, id, type }) => {
-  console.log("type : ",type);
-
   const navigate = useNavigate();
- 
+
   const navigateTo = () => {
-    if (type === "subject")
-      navigate(`${CLIENT_PATHS.STREAM}/subject/${id}`)
-      // navigate(`${CLIENT_PATHS.SUBJECT}`, {
-      //   state: {
-      //     streamId: id
-      //   }
-      // })
-    else navigate(`${CLIENT_PATHS.STREAM}`);
+    if (type === CONSTANTS.CARD_TYPE.SUBJECT)
+      navigate(`${CLIENT_PATHS.TOPIC}`.replace("subjectId", id), {
+        state: {
+          subjectId: id
+        }
+      })
+    else navigate(`${CLIENT_PATHS.SUBJECT}`, {
+      state: {
+        streamId: id
+      }
+    });
   };
 
   return (

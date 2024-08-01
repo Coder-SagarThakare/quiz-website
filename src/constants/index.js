@@ -15,6 +15,9 @@ export const CONSTANTS = {
   INTERVIEW: "Interview",
   PROFILE: "Profile",
   ABOUT: "About",
+  CARD_TYPE : {
+    SUBJECT : "subject"
+  },
   FEATURES: [
     {
       ID: 1,
@@ -80,7 +83,7 @@ export const CLIENT_PATHS = {
 
   STREAM: `${QUIZ}/all-streams`,
   SUBJECT: `${QUIZ}/streams/all-subjects`,
-  TOPIC: `${QUIZ}/stream/subject/:subjectId`,
+  TOPIC: `${QUIZ}/streams/subject/all-topics`,
 };
 
 // sidebar menu items routes
@@ -188,7 +191,7 @@ export const MenuItem = [
 const API_V1 = "/api/v1";
 const STUDENT = `${API_V1}/user`;
 
-export const apiPaths = {
+export const  apiPaths = {
   STUDENT: {
     AUTH: {
       LOGIN: `${API_V1}/auth/student/login`,
@@ -199,7 +202,7 @@ export const apiPaths = {
       FROM_SUBJECT: `${STUDENT}/stream/subject/subjectId/topics`,
     },
     SUBJECT: {
-      FROM_STREAM: `${STUDENT}/stream`,
+      FROM_STREAM: `${STUDENT}/stream/streamId`,
     },
     STREAM: {
       ALL: `${STUDENT}/all-streams`,

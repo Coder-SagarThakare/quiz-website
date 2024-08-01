@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { get } from "../services";
 import { apiPaths } from "../constants";
 import Loader from "./Loader";
 
 function Topics() {
-  const { subjectId } = useParams();
   const [data, setData] = useState();
   const [Loading, setLoading] = useState(true)
+  const location = useLocation()
+  console.log("location : ",location);
+  const subjectId = location?.state?.subjectId;
 
   const getTopics = async () => {
 
@@ -23,6 +25,7 @@ function Topics() {
   };
 
   useEffect(() => {
+    console.log("in topics")
     // setLoading(true)
     getTopics();
 

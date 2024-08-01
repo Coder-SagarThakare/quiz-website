@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Card, Loader, SearchBar } from "../components";
 import { get } from "../services";
-import { apiPaths } from "../constants";
+import { apiPaths, CONSTANTS } from "../constants";
 import { useLocation } from "react-router-dom";
 
 function QuizHomepage() {
   const location = useLocation();
-  console.log(location);
   const [data, setData] = useState();
   const [Loading, setLoading] = useState(true)
   const streamId = location?.state?.streamId;
-
+  
   const fetchData = async (url, setData) => {
     try {
       const data = await get(url);
       setData(data);
     } catch (err) {
-      console.log("in quiz home page");
       console.log(err.message);
     } finally {
       setLoading(false)
@@ -24,9 +22,7 @@ function QuizHomepage() {
   };
   const streamPath = "Streams >";
 
-  // 
   const isStream = location.pathname.endsWith("all-streams")
-  console.log("isStream : ",isStream);
 
   useEffect(() => {
     setLoading(true)
@@ -34,9 +30,8 @@ function QuizHomepage() {
     if (isStream)
       fetchData(apiPaths.STUDENT.STREAM.ALL, setData);
     else {
-
       fetchData(
-        `${apiPaths.STUDENT.SUBJECT.FROM_STREAM}/${streamId}`,
+        `${apiPaths.STUDENT.SUBJECT.FROM_STREAM}`.replace("streamId", streamId),
         setData
       );
     }
@@ -49,10 +44,10 @@ function QuizHomepage() {
   }
 
   return (
-    <div className=" p-2">
+    <div className="p-2">
       <SearchBar />
 
-      <div className="py-2  mb-2">
+      <div className="py-2 mb-2">
         <span>{streamPath}</span>
       </div>
 
@@ -67,7 +62,7 @@ function QuizHomepage() {
                 name={ele.name}
                 backgroundImage={ele.bgImage}
                 id={ele._id}
-                type={!isStream && "subject"}
+                type={!isStream && CONSTANTS.CARD_TYPE.SUBJECT}
               />
             </div>
           ))}

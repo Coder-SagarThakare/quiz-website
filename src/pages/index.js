@@ -4,3 +4,4 @@ export { default as About } from "./About";
 export { default as QuizHomepage } from "./QuizHomepage";
 export {default as Interview} from "./Interview"
 export {default as Profile} from "./profile/Profile"
+export {default as PageNotFound} from "./PageNotFound"

@@ -11,7 +11,7 @@ import {
 import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
-import { About, Dashboard, Homepage, Interview, Profile } from "./pages";
+import { About, Dashboard, Homepage, Interview, PageNotFound, Profile } from "./pages";
 import { AuthGuard, ProtectedRoutes } from "./utils";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
@@ -72,7 +72,7 @@ function App() {
               <Route path="quiz"> 
                 <Route path="all-streams" element={<QuizHomepage />} />
                 <Route path="streams/all-subjects" element={<QuizHomepage />} />
-                <Route path="subject/:subjectId" element={<Topics />} />
+                <Route path="streams/subject/all-topics" element={<Topics />} />
               </Route>
               <Route path="interview" element={<Interview />} />
               <Route path="about" element={<About />} />{" "}
@@ -83,7 +83,7 @@ function App() {
           </Route>
           <Route
             path="/page-not-found"
-            element={<h1 className="text-center ">404 Page Not Found</h1>}
+            element={<PageNotFound />}
           />
           <Route path="*" element={<Navigate to="/page-not-found" />} />
         </Routes>
