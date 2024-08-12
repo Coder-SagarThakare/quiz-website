@@ -84,6 +84,7 @@ export const CLIENT_PATHS = {
   STREAM: `${QUIZ}/all-streams`,
   SUBJECT: `${QUIZ}/streams/all-subjects`,
   TOPIC: `${QUIZ}/streams/subject/all-topics`,
+  Questions : `${QUIZ}/streams/subject/topic/questions`
 };
 
 // sidebar menu items routes
@@ -191,7 +192,7 @@ export const MenuItem = [
 const API_V1 = "/api/v1";
 const STUDENT = `${API_V1}/user`;
 
-export const  apiPaths = {
+export const apiPaths = {
   STUDENT: {
     AUTH: {
       LOGIN: `${API_V1}/auth/student/login`,

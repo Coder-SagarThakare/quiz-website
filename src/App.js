@@ -73,6 +73,7 @@ function App() {
                 <Route path="all-streams" element={<QuizHomepage />} />
                 <Route path="streams/all-subjects" element={<QuizHomepage />} />
                 <Route path="streams/subject/all-topics" element={<Topics />} />
+                <Route path="streams/subject/topic/questions" element={<Question />} />
               </Route>
               <Route path="interview" element={<Interview />} />
               <Route path="about" element={<About />} />{" "}
