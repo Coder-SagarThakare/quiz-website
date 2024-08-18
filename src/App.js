@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Question, Sidebar, SignIn, SignUp, Topics } from "./components";
+import { Questions, Sidebar, SignIn, SignUp, Topics } from "./components";
 import {
   BrowserRouter as Router,
   Outlet,
@@ -59,7 +59,7 @@ function App() {
 
           <Route element={<AppLayout />}>
             {/*make it private route */}
-            <Route path="/question" element={<Question />} />
+            {/* <Route path="/question" element={<Question />} /> */}
             <Route path="/" element={<Homepage />} />
 
             {/* {private routes goes here} */}
@@ -73,7 +73,7 @@ function App() {
                 <Route path="all-streams" element={<QuizHomepage />} />
                 <Route path="streams/all-subjects" element={<QuizHomepage />} />
                 <Route path="streams/subject/all-topics" element={<Topics />} />
-                <Route path="streams/subject/topic/questions" element={<Question />} />
+                <Route path="streams/subject/topic/questions" element={<Questions />} />
               </Route>
               <Route path="interview" element={<Interview />} />
               <Route path="about" element={<About />} />{" "}

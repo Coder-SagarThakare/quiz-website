@@ -84,7 +84,7 @@ export const CLIENT_PATHS = {
   STREAM: `${QUIZ}/all-streams`,
   SUBJECT: `${QUIZ}/streams/all-subjects`,
   TOPIC: `${QUIZ}/streams/subject/all-topics`,
-  Questions : `${QUIZ}/streams/subject/topic/questions`
+  QUESTIONS : `${QUIZ}/streams/subject/topic/questions`
 };
 
 // sidebar menu items routes
@@ -208,6 +208,7 @@ export const apiPaths = {
     STREAM: {
       ALL: `${STUDENT}/all-streams`,
     },
+    QUESTIONS_BY_TOPIC : `${STUDENT}//stream/subject/topics/topicId`
   },
 
   TEACHER: {

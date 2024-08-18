@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { get } from "../services";
-import { apiPaths } from "../constants";
+import { apiPaths, CLIENT_PATHS } from "../constants";
 import Loader from "./Loader";
 
 function Topics() {
@@ -47,7 +47,7 @@ function Topics() {
           key={e._id}
           className="border p-3 rounded my-1 cursor topic"
           onClick={() =>
-            navigate("/quiz/streams/subject/topic/questions", {
+            navigate(CLIENT_PATHS.QUESTIONS , {
               state: { topicId: e._id },
             })
           }
