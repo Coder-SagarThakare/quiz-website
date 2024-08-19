@@ -3,7 +3,7 @@ import Button from './Button';
 
 function Question({question,currentQuestionNo,setCurrentQuestionNo}) {
 
-    const arr = [1, 2, 3, 4];
+    // const arr = [1, 2, 3, 4];
 
     return (
         <div className="p-5 glass-effect d-flex flex-column align-items-start justify-content-between h-75 user-select-none">
