@@ -15,8 +15,8 @@ export const CONSTANTS = {
   INTERVIEW: "Interview",
   PROFILE: "Profile",
   ABOUT: "About",
-  CARD_TYPE : {
-    SUBJECT : "subject"
+  CARD_TYPE: {
+    SUBJECT: "subject",
   },
   FEATURES: [
     {
@@ -63,10 +63,24 @@ export const CONSTANTS = {
     TEACHER: "teacher",
     ADMIN: "admin",
   },
-  GENDER : {
-    MALE:"male",
-    FEMALE : "female"
-  }
+  GENDER: {
+    MALE: "male",
+    FEMALE: "female",
+  },
+  QUESTION_LEVEL: [
+    {
+      TITLE: "Easy",
+      CLASS: "bg-success border-dark text-white px-3",
+    },
+    {
+      TITLE: "Medium",
+      CLASS: "bg-warning border-dark text-dark px-3",
+    },
+    {
+      TITLE: "Hard",
+      CLASS: "bg-danger border-dark text-white px-3",
+    },
+  ],
 };
 
 // client side all routes
@@ -84,7 +98,7 @@ export const CLIENT_PATHS = {
   STREAM: `${QUIZ}/all-streams`,
   SUBJECT: `${QUIZ}/streams/all-subjects`,
   TOPIC: `${QUIZ}/streams/subject/all-topics`,
-  QUESTIONS : `${QUIZ}/streams/subject/topic/questions`
+  QUESTIONS: `${QUIZ}/streams/subject/topic/questions`,
 };
 
 // sidebar menu items routes
@@ -127,7 +141,7 @@ export const MenuItem = [
       CONSTANTS.ROLE.STUDENT,
       CONSTANTS.ROLE.ADMIN,
       CONSTANTS.ROLE.TEACHER,
-    ]
+    ],
   },
   {
     name: CONSTANTS.PROFILE,
@@ -137,7 +151,7 @@ export const MenuItem = [
       CONSTANTS.ROLE.STUDENT,
       CONSTANTS.ROLE.ADMIN,
       CONSTANTS.ROLE.TEACHER,
-    ]
+    ],
   },
   {
     name: CONSTANTS.ABOUT,
@@ -147,16 +161,13 @@ export const MenuItem = [
       CONSTANTS.ROLE.STUDENT,
       CONSTANTS.ROLE.ADMIN,
       CONSTANTS.ROLE.TEACHER,
-    ]
+    ],
   },
   {
     name: "Only for Teacher ",
     // icon: <MdSubject />,
     path: CLIENT_PATHS.STREAM,
-    access: [
-      CONSTANTS.ROLE.ADMIN,
-      CONSTANTS.ROLE.TEACHER,
-    ],
+    access: [CONSTANTS.ROLE.ADMIN, CONSTANTS.ROLE.TEACHER],
   },
 ];
 
@@ -208,14 +219,14 @@ export const apiPaths = {
     STREAM: {
       ALL: `${STUDENT}/all-streams`,
     },
-    QUESTIONS_BY_TOPIC : `${STUDENT}//stream/subject/topics/topicId`
+    QUESTIONS_BY_TOPIC: `${STUDENT}//stream/subject/topics/topicId`,
   },
 
   TEACHER: {
-    AUTH :{
-      LOGIN : `${API_V1}/auth/teacher/login`
+    AUTH: {
+      LOGIN: `${API_V1}/auth/teacher/login`,
     },
-    SELF: `${API_V1}/teacher/self`, 
+    SELF: `${API_V1}/teacher/self`,
     ADD_SUBJECT: "/teacher/add-subject",
   },
   ADMIN: "/admin",
