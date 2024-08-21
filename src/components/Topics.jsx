@@ -58,17 +58,19 @@ function Topics() {
     return <Loader />;
   }
 
-  const ShowQuestionsLevels = (topicId) => {
+  const ShowQuestionsLevels = ({ topicId }) => {
     console.log("topicId", topicId);
 
-    return CONSTANTS.QUESTION_LEVEL.map((button) => (
+    return CONSTANTS.QUESTION_LEVEL.map((button, index) => (
       <Button
         title={button.TITLE}
         className={button.CLASS}
-        onClick={() =>
+        key={index}
+        onClick={() => {
           navigate(CLIENT_PATHS.QUESTIONS, {
-            state: { topicId },
+            state: { topicId, level: button.TITLE },
           })
+        }
         }
       ></Button>
     ));
@@ -85,11 +87,6 @@ function Topics() {
           onMouseOver={() => hoverButtons(ind, "addClass")}
           onMouseLeave={() => hoverButtons(ind)}
           className="d-flex align-items-center border p-2 rounded my-1 topic justify-content-between"
-          // onClick={() =>
-          //   navigate(CLIENT_PATHS.QUESTIONS, {
-          //     state: { topicId: e._id },
-          //   })
-          // }
         >
           <span>{e.name}</span>
           {/* <div style={{ transition: "all 0.5s" }} className="opacity-0">

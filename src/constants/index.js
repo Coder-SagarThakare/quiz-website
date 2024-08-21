@@ -70,15 +70,15 @@ export const CONSTANTS = {
   QUESTION_LEVEL: [
     {
       TITLE: "Easy",
-      CLASS: "bg-success border-dark text-white px-3",
+      CLASS: "bg-success border-dark text-white",
     },
     {
       TITLE: "Medium",
-      CLASS: "bg-warning border-dark text-dark px-3",
+      CLASS: "bg-warning border-dark text-dark",
     },
     {
       TITLE: "Hard",
-      CLASS: "bg-danger border-dark text-white px-3",
+      CLASS: "bg-danger border-dark text-white",
     },
   ],
 };
@@ -219,7 +219,7 @@ export const apiPaths = {
     STREAM: {
       ALL: `${STUDENT}/all-streams`,
     },
-    QUESTIONS_BY_TOPIC: `${STUDENT}//stream/subject/topics/topicId`,
+    QUESTIONS_BY_TOPIC: `${STUDENT}/stream/subject/topics/topicId?level={level}`,
   },
 
   TEACHER: {

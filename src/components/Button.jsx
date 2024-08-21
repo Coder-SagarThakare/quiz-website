@@ -4,7 +4,7 @@ function Button({ className, title, type, Icon, ...props }) {
   console.log('In button title :' , title);
   return (
     <button
-      className={` btn border border-1 d-flex justify-content-center align-items-center text-center gap-3 rounded-3 p-2 ${className}`}
+      className={` btn border border-1 d-flex justify-content-center align-items-center text-center gap-3 rounded-3 py-2 px-3 ${className}`}
       {...props}
     > 
       {Icon && <Icon />}

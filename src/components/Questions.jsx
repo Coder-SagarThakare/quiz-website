@@ -10,12 +10,12 @@ function Questions() {
   const location = useLocation();
   const [loading, setLoading] = useState(true)
   const [currentQuestionNo, setCurrentQuestionNo] = useState(0)
-  console.log("questionsArr", questionsArr);
-  console.log("questionsArr.length", questionsArr.length);
 
   async function getAllQuestions() {
     try {
-      const questionsArr = await get(`${apiPaths.STUDENT.QUESTIONS_BY_TOPIC}`.replace("topicId", location.state.topicId))
+      const questionsArr = await get(`${apiPaths.STUDENT.QUESTIONS_BY_TOPIC}`
+        .replace("topicId?level={level}", `${location.state.topicId}?level=${location.state.level.toLowerCase()}`));
+
       setQuestionsArr(questionsArr)
       setLoading(false)
     } catch (error) {
@@ -24,7 +24,7 @@ function Questions() {
   }
 
   useEffect(() => {
-    console.log("location :", location.state.topicId);
+    console.log("QuestionS component useeffect rendered");
 
     getAllQuestions()
 
@@ -43,6 +43,7 @@ function Questions() {
         question={questionsArr[currentQuestionNo]}
         currentQuestionNo={currentQuestionNo}
         setCurrentQuestionNo={setCurrentQuestionNo}
+        questionCount={questionsArr.length}
       />
       :
       <h1>Question not added yet</h1>
