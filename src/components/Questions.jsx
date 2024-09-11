@@ -18,15 +18,32 @@ function Questions() {
 
       setQuestionsArr(questionsArr)
       setLoading(false)
+
     } catch (error) {
       console.log("error", error);
     }
   }
 
   useEffect(() => {
+
+    const sidebar = document.getElementsByClassName("sidebar")[0];
+
+    console.log("sidebar",sidebar)
+
+    if (sidebar) {
+      sidebar.classList.add("d-none");
+    }
+
     console.log("QuestionS component useeffect rendered");
 
     getAllQuestions()
+
+    return () => {
+      if (sidebar) {
+        sidebar.classList.remove("d-none"); 
+        sidebar.classList.add("d-block"); 
+      }
+    };
 
     // eslint-disable-next-line
   }, []);
