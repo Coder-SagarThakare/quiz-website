@@ -16,14 +16,6 @@ function Topics() {
   const hoverButtons = (ind, operation) => {
     let styleForHoverButton = "d-flex gap-3 ";
 
-    // console.log(refs.current[ind]);
-    // if (operation === "addClass")
-    //   refs.current[ind].children[1].classList =
-    //     styleForHoverButton + " opacity-100";
-    // else
-    //   refs.current[ind].children[1].classList =
-    //     styleForHoverButton + " opacity-0";
-
     refs.current[ind].children[1].classList =
       operation === "addClass"
         ? styleForHoverButton + " opacity-100"
@@ -46,13 +38,11 @@ function Topics() {
 
   useEffect(() => {
     console.log("in topics");
-    // setLoading(true)
     getTopics();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // const getQuestions = (topicId) => {};
 
   if (Loading) {
     return <Loader />;
@@ -89,17 +79,6 @@ function Topics() {
           className="d-flex align-items-center border p-2 rounded my-1 topic justify-content-between"
         >
           <span>{e.name}</span>
-          {/* <div style={{ transition: "all 0.5s" }} className="opacity-0">
-            <Button title={"Easy"} className={""}>
-              eazy
-            </Button>
-            <Button title={"Medium"} className={"bg-warning"}>
-              medium
-            </Button>
-            <Button title={"Hard"} className={"bg-danger"}>
-              Hard
-            </Button>
-          </div> */}
 
           <div style={{ transition: "all 0.5s" }} className="d-flex opacity-0">
             <ShowQuestionsLevels topicId={e._id} />
