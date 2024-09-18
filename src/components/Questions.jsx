@@ -26,12 +26,10 @@ function Questions() {
 
   useEffect(() => {
 
-    const sidebar = document.getElementsByClassName("sidebar")[0];
+    const sidebarDom = document.getElementsByClassName("sidebar")[0];
 
-    console.log("sidebar",sidebar)
-
-    if (sidebar) {
-      sidebar.classList.add("d-none");
+    if (sidebarDom) {
+      sidebarDom.classList.add("d-none");
     }
 
     console.log("QuestionS component useeffect rendered");
@@ -39,9 +37,9 @@ function Questions() {
     getAllQuestions()
 
     return () => {
-      if (sidebar) {
-        sidebar.classList.remove("d-none"); 
-        sidebar.classList.add("d-block"); 
+      if (sidebarDom) {
+        sidebarDom.classList.remove("d-none");
+        sidebarDom.classList.add("d-block");
       }
     };
 
