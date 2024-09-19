@@ -4,6 +4,9 @@ import { get } from "../services";
 import { apiPaths, CLIENT_PATHS, CONSTANTS } from "../constants";
 import Loader from "./Loader";
 import Button from "./custom/Button";
+import { alert } from "./custom/Alert";
+import Swal from "sweetalert2";
+import { type } from "@testing-library/user-event/dist/type";
 
 function Topics() {
   const [data, setData] = useState();
@@ -57,9 +60,27 @@ function Topics() {
         className={button.CLASS}
         key={index}
         onClick={() => {
-          navigate(CLIENT_PATHS.QUESTIONS, {
-            state: { topicId, level: button.TITLE },
-          })
+          alert({
+            title: "Ready to Start the Test?",
+            text: `You are about to begin a 30-minute ${button.TITLE} test in ${'LANGUAGE'}. The test level is ${button.level}. Once started, you must complete it within the allotted time.`,
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Start Test",
+            cancelButtonText: "Cancel"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Perform the action to start the test, for example:
+              navigate(CLIENT_PATHS.QUESTIONS, {
+                state: { topicId, level: button.TITLE },
+              });
+              console.log("Test started");
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+              console.log("Test cancelled");
+            }
+          });
+          // navigate(CLIENT_PATHS.QUESTIONS, {
+          //   state: { topicId, level: button.TITLE },
+          // })
         }
         }
       ></Button>
