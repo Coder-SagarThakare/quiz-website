@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { get } from "../services";
 import { apiPaths, CLIENT_PATHS, CONSTANTS } from "../constants";
 import Loader from "./Loader";
-import Button from "./Button";
+import Button from "./custom/Button";
 
 function Topics() {
   const [data, setData] = useState();
