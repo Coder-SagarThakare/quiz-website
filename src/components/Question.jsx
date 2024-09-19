@@ -10,7 +10,8 @@ function Question({
   console.log("Question child component rendered");
   const callback2 = useCallback((i) => {
     setCurrentQuestionNo(i);
-
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
