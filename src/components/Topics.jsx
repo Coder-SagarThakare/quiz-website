@@ -6,7 +6,6 @@ import Loader from "./Loader";
 import Button from "./custom/Button";
 import { alert } from "./custom/Alert";
 import Swal from "sweetalert2";
-import { type } from "@testing-library/user-event/dist/type";
 
 function Topics() {
   const [data, setData] = useState();
@@ -46,6 +45,28 @@ function Topics() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const alertToStartTest = (button, topicId) => {
+
+    alert({
+      title: "Ready to Start the Test?",
+      text: `You are about to start a 30-minute test of ${'LANGUAGE'}. The test level is ${button.TITLE}. Once started, you must complete it within the allotted time.`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Start Test",
+      cancelButtonText: "Cancel"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Perform the action to start the test, for example:
+        navigate(CLIENT_PATHS.QUESTIONS, {
+          state: { topicId, level: button.TITLE },
+        });
+        console.log("Test started");
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        console.log("Test cancelled");
+      }
+    });
+  }
+
 
   if (Loading) {
     return <Loader />;
@@ -59,30 +80,7 @@ function Topics() {
         title={button.TITLE}
         className={button.CLASS}
         key={index}
-        onClick={() => {
-          alert({
-            title: "Ready to Start the Test?",
-            text: `You are about to begin a 30-minute ${button.TITLE} test in ${'LANGUAGE'}. The test level is ${button.level}. Once started, you must complete it within the allotted time.`,
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonText: "Start Test",
-            cancelButtonText: "Cancel"
-          }).then((result) => {
-            if (result.isConfirmed) {
-              // Perform the action to start the test, for example:
-              navigate(CLIENT_PATHS.QUESTIONS, {
-                state: { topicId, level: button.TITLE },
-              });
-              console.log("Test started");
-            } else if (result.dismiss === Swal.DismissReason.cancel) {
-              console.log("Test cancelled");
-            }
-          });
-          // navigate(CLIENT_PATHS.QUESTIONS, {
-          //   state: { topicId, level: button.TITLE },
-          // })
-        }
-        }
+        onClick={() => alertToStartTest(button, topicId)}
       ></Button>
     ));
   };

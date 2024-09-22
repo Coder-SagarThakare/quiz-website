@@ -1,10 +1,9 @@
-import React from 'react'
 import Swal from 'sweetalert2'
 
 function alert({
     title = 'Are you sure?',
     text,
-    type = 'warning',
+    icon = 'warning',
     showCancelButton = true,
     confirmButtonText = "Confirm",
     cancelButtonText = "Cancel"
@@ -12,7 +11,7 @@ function alert({
     return Swal.fire({
         title: title,
         text: text,
-        type: type,
+        icon: icon,
         showCancelButton: showCancelButton,
         confirmButtonText: confirmButtonText,
         cancelButtonText: cancelButtonText
