@@ -70,7 +70,7 @@ function App() {
             >
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="quiz"> 
-                <Route path="all-streams" element={<QuizHomepage />} />
+                <Route path="all-streams" element={<QuizHomepage />}/>
                 <Route path="streams/all-subjects" element={<QuizHomepage />} />
                 <Route path="streams/subject/all-topics" element={<Topics />} />
                 <Route path="streams/subject/topic/questions" element={<Questions />} />
