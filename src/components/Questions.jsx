@@ -63,7 +63,7 @@ function Questions() {
 
         // Print minutes and seconds with proper formatting
         console.log(`${minutes}:${seconds < 10 ? '0' + seconds : seconds}`);
-        setTestTiming(`${minutes}:${seconds < 10 ? '0' + seconds : seconds}`);
+        // setTestTiming(`${minutes}:${seconds < 10 ? '0' + seconds : seconds}`);
 
       } else {
         clearInterval(timeInterval); // Stop the timer when it reaches 0
@@ -75,10 +75,13 @@ function Questions() {
     return () => clearInterval(timeInterval);
   }, []);
 
+  const submitTest = ()=>{
+    console.log("TEST SUBMITTED...");
+  }
 
   if (loading) {
     <Loader />;
-  }
+  }               
 
   console.log(questionsArr);
 
@@ -88,7 +91,7 @@ function Questions() {
         <div className="d-flex justify-content-between align-items-center w-100 rounded py-2 px-3 question-header primary-white my-2">
           <span>Topic Name : Data types</span>
           <span>Time : {testTiming}</span>
-          <button>Submit</button>
+          <Button title={"Submit"}  className={"bg-success"} onClick={submitTest}/>
         </div>
 
         {/* questions */}
