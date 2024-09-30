@@ -68,7 +68,7 @@ function Questions() {
         <div className="d-flex justify-content-between align-items-center w-100 rounded py-2 px-3 question-header primary-white my-2">
           <span>Topic Name : Data types</span>
           <div>
-            <span>Time </span>
+            <span>Time : </span>
             <Timer />
           </div>
 

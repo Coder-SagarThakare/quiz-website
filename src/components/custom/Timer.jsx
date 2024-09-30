@@ -27,7 +27,16 @@ function Timer() {
     return () => clearInterval(timeInterval);
   }, []);
 
-  return <span className={`${testTiming < 5 ? "text-danger" : "text-success"}`}>{testTiming}</span>;
+  console.log();
+
+  return (
+    <span
+      className={`fw-bold 
+        ${(testTiming + "").split(":")[0] * 1 < 5 ? "text-danger" : "text-success" }`}
+    >
+      {testTiming}
+    </span>
+  );
 }
 
 export default Timer;
