@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
 
         } catch (error) {
           console.log(error); 
-          if (error.response.data.code === 403) {
+          if (error?.response?.data?.code === 403) {
             try {
               data = await get(apiPaths.TEACHER.SELF);
               console.log("teacher login data :", data);
