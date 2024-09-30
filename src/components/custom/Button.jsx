@@ -8,12 +8,12 @@ function Button({
   value,
   Icon = null,
   iconPos = "left",
+  size=20,
   ...props
 }) {
   console.log("In button title :", title);
   return (
     <button
-      // onClick={(i) => callbackk(value)}
       className={` btn border border-1 d-flex justify-content-center align-items-center text-center gap-2 rounded-3 py-2 px-3 ${className}`}
       {...props}
     >
@@ -23,11 +23,11 @@ function Button({
       ) : iconPos === "right" ? (
         <>
           {title}
-          <Icon />
+          <Icon size={size}/>
         </>
       ) : (
         <>
-          <Icon />
+          <Icon size={size}/>
           {title}
         </>
       )}

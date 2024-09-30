@@ -1,5 +1,4 @@
-import { MdOutlineNavigateNext } from "react-icons/md";
-import { GrFormPrevious } from "react-icons/gr";
+import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 
 import Button from "./custom/Button";
 import React from "react";
@@ -34,8 +33,9 @@ function Question({
           title={"Prev"}
           onClick={() => setCurrentQuestionNo(--currentQuestionNo)}
           className={`bg-primary ${currentQuestionNo === 0 && "disabled"}`}
-          Icon={GrFormPrevious}
+          Icon={GrFormPreviousLink}
           iconPos="left"
+          size={25}
         />
         <Button
           title={"Next"}
@@ -44,7 +44,8 @@ function Question({
             currentQuestionNo === questionCount - 1 && "disabled"
           }`}
           iconPos="right"
-          Icon={MdOutlineNavigateNext}
+          Icon={GrFormNextLink}
+          size={25}
         />
       </div>
     </div>
