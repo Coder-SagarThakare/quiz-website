@@ -81,7 +81,7 @@ export const CONSTANTS = {
       CLASS: "bg-danger border-dark text-white",
     },
   ],
-  TEST_TIME_IN_MINUTES : 30,
+  TEST_TIME_IN_MINUTES : 30.00,
 };
 
 // client side all routes
