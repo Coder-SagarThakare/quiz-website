@@ -18,7 +18,7 @@ function Question({
         <span>Question : {question.question} </span>
       </div>
 
-      <div className=" w-100  ">
+      {/* <div className=" w-100  ">
         {question.options.map((e, i) => (
           <div className="d-flex gap-4 px-3 py-2  " key={i}>
             <input type="radio" name="option-1" id="html" />
@@ -27,6 +27,21 @@ function Question({
             </label>
             <RadioButton />
           </div>
+        ))}
+      </div> */}
+
+      <div>
+        {question.options.map((e, i) => (
+          <RadioButton
+            name={"options"}
+            label={e}
+            id={e}
+            htmlFor={e}
+            value = {e}
+            // className=""
+            onChange={(e)=>console.log(e.target.value)}
+            key={i}
+          />
         ))}
       </div>
 

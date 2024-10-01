@@ -1,14 +1,17 @@
 // This component is used to create a radio button with basic property
 
-function RadioButton(props) {
+function RadioButton({htmlFor, ...rest }) {
   const buttonStyle = {
     height: "20px",
     width: "20px",
-    border: props.selected === props.value ? ' : "5px solid #ccff00"' : "",
+    border: rest.selected === rest.value ? ' : "5px solid #ccff00"' : "",
   };
 
   const handleSelect = (e) => {
-    props.setSelected(e.target.value);
+    if (rest.setSelected) {
+      rest.setSelected(e.target.value);
+    }
+    console.log("clicked")
   };
 
   return (
@@ -18,20 +21,17 @@ function RadioButton(props) {
         style={buttonStyle}
       >
         <input
-          style={props.style}
-          className={`form-check-input m-0 ${props.className}`}
+          className={`form-check-input m-0 cursor ${rest?.className ? rest.className : ""}`}
           type="radio"
-          name={`${props.name}`}
-          id={props.id}
-          value={props.value}
-          {...(props.register &&
-            props.register(props.name, {
-              required: props.isRequired,
+          {...(rest.register &&
+            rest.register(rest.name, {
+              required: rest.isRequired,
             }))}
           onChange={handleSelect}
+          {...rest}
         />
       </div>
-      <label className="mx-2 "> {props.label} </label>
+      <label className="mx-2 cursor" htmlFor={htmlFor}> {rest.label} </label>
     </div>
   );
 }
