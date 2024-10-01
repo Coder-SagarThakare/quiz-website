@@ -1,17 +1,24 @@
-import React, { useEffect,useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { unstable_usePrompt, useLocation } from "react-router-dom";
 import { get } from "../services";
 import { apiPaths } from "../constants";
 import Loader from "./Loader";
 import Question from "./Question";
 import Button from "./custom/Button";
 import Timer from "./custom/Timer";
+// import { alert } from "../components/custom/Alert";
 
 function Questions() {
   const [questionsArr, setQuestionsArr] = useState([]);
   const location = useLocation();
   const [loading, setLoading] = useState(true);
   const [currentQuestionNo, setCurrentQuestionNo] = useState(0);
+
+  unstable_usePrompt({
+    message: "Are you sure?",
+    when: ({ currentLocation, nextLocation }) =>
+      currentLocation.pathname !== nextLocation.pathname,
+  });
 
   async function getAllQuestions() {
     try {
@@ -47,6 +54,7 @@ function Questions() {
         sidebarDom.classList.remove("d-none");
         sidebarDom.classList.add("d-block");
       }
+      // alert({ title: "submit test ?" });
     };
 
     // eslint-disable-next-line

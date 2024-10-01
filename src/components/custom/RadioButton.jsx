@@ -1,6 +1,5 @@
 // This component is used to create a radio button with basic property
 
-
 function RadioButton(props) {
   const buttonStyle = {
     height: "20px",
@@ -25,9 +24,10 @@ function RadioButton(props) {
           name={`${props.name}`}
           id={props.id}
           value={props.value}
-          {...props.register(`${props.name}`, {
-            required: `${props.isRequired}`,
-          })}
+          {...(props.register &&
+            props.register(props.name, {
+              required: props.isRequired,
+            }))}
           onChange={handleSelect}
         />
       </div>

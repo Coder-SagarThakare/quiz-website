@@ -2,6 +2,7 @@ import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 
 import Button from "./custom/Button";
 import React from "react";
+import RadioButton from "./custom/RadioButton";
 
 function Question({
   question,
@@ -24,6 +25,7 @@ function Question({
             <label className="fs-4 cursor" htmlFor="html">
               {e}
             </label>
+            <RadioButton />
           </div>
         ))}
       </div>
