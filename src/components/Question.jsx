@@ -18,11 +18,7 @@ function Question({
         <span>Question : {question.question} </span>
       </div>
 
-<<<<<<< HEAD
       <div className="w-100">
-=======
-      {/* <div className=" w-100  ">
->>>>>>> baa6401995bebc54c5666f35fa86c7b08e22daf7
         {question.options.map((e, i) => (
           <div className="d-flex gap-4 px-3 py-2" key={i}>
             <input type="radio" name="option-1" id="html" />
