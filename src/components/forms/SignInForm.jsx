@@ -103,25 +103,6 @@ function SignInForm() {
               errors={errors}
             />
 
-            {/* <>
-              <RadioButton
-                register={register}
-                label=" Login as Teacher"
-                value="teacher"
-                name="role"
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <RadioButton
-                register={register}
-                label=" Login as Student"
-                value="student"
-                name="role"
-                selected={selected}
-                setSelected={setSelected}
-              />
-            </> */}
-
             <Button
               title="Login"
               type="submit"

@@ -17,9 +17,9 @@ function Question({
         <span>Question : {question.question} </span>
       </div>
 
-      <div className=" w-100  ">
+      <div className="w-100">
         {question.options.map((e, i) => (
-          <div className="d-flex gap-4 px-3 py-2  " key={i}>
+          <div className="d-flex gap-4 px-3 py-2" key={i}>
             <input type="radio" name="option-1" id="html" />
             <label className="fs-4 cursor" htmlFor="html">
               {e}
@@ -28,7 +28,7 @@ function Question({
         ))}
       </div>
 
-      <div className="d-flex  justify-content-center w-100 gap-5">
+      <div className="d-flex justify-content-center w-100 gap-5">
         <Button
           title={"Prev"}
           onClick={() => setCurrentQuestionNo(--currentQuestionNo)}
