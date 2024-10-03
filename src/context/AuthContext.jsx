@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
         let data;
         try {
           data = await get(apiPaths.STUDENT.SELF);
-          console.log("student login data :", data);
+          // console.log("student login data :", data);
 
           if (data) setUser(data);
 

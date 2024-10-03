@@ -11,7 +11,7 @@ function Button({
   size=20,
   ...props
 }) {
-  console.log("In button title :", title);
+  // console.log("In button title :");
   return (
     <button
       className={` btn border border-1 d-flex justify-content-center align-items-center text-center gap-2 rounded-3 py-2 px-3 ${className}`}

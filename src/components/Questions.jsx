@@ -9,13 +9,40 @@ import Timer from "./custom/Timer";
 // import { alert } from "../components/custom/Alert";
 
 function Questions() {
+
+  console.log("QuestionS component useeffect rendered");
+
   const [questionsArr, setQuestionsArr] = useState([]);
   const location = useLocation();
   const [loading, setLoading] = useState(true);
   const [currentQuestionNo, setCurrentQuestionNo] = useState(0);
+  const [answers, setAnswers] = useState([]);
+
+  useEffect(() => {
+    const sidebarDom = document.getElementsByClassName("sidebar")[0];
+
+    if (sidebarDom) {
+      sidebarDom.classList.add("d-none");
+    }
+
+
+    getAllQuestions();
+
+    return () => {
+      if (sidebarDom) {
+        sidebarDom.classList.remove("d-none");
+        sidebarDom.classList.add("d-block");
+      }
+      // alert({ title: "submit test ?" });
+    };
+
+    // eslint-disable-next-line
+  }, []);
+
+  console.log(answers);
 
   unstable_usePrompt({
-    message: "Are you sure?",
+    message: "Are you sure to submit test ?",
     when: ({ currentLocation, nextLocation }) =>
       currentLocation.pathname !== nextLocation.pathname,
   });
@@ -32,33 +59,17 @@ function Questions() {
       );
 
       setQuestionsArr(questionsArr);
+      // console.log(setAnswers())
+      setAnswers(
+        questionsArr.map((ele, i) => {
+          return { _id: ele._id, selectedAnswer: -1 };
+        })
+      );
       setLoading(false);
     } catch (error) {
       console.log("error", error);
     }
   }
-
-  useEffect(() => {
-    const sidebarDom = document.getElementsByClassName("sidebar")[0];
-
-    if (sidebarDom) {
-      sidebarDom.classList.add("d-none");
-    }
-
-    console.log("QuestionS component useeffect rendered");
-
-    getAllQuestions();
-
-    return () => {
-      if (sidebarDom) {
-        sidebarDom.classList.remove("d-none");
-        sidebarDom.classList.add("d-block");
-      }
-      // alert({ title: "submit test ?" });
-    };
-
-    // eslint-disable-next-line
-  }, []);
 
   const submitTest = () => {
     console.log("TEST SUBMITTED...");
@@ -67,8 +78,6 @@ function Questions() {
   if (loading) {
     <Loader />;
   }
-
-  console.log(questionsArr);
 
   return (
     <div className="h-100 p-2 d-flex flex-column justify-content-between">
@@ -94,6 +103,8 @@ function Questions() {
             currentQuestionNo={currentQuestionNo}
             setCurrentQuestionNo={setCurrentQuestionNo}
             questionCount={questionsArr.length}
+            answers={answers}
+            setAnswers={setAnswers}
           />
         ) : (
           <h1>Question not added yet</h1>

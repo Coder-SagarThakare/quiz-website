@@ -5,7 +5,6 @@ import { CLIENT_PATHS, CONSTANTS } from "../constants";
 
 function ProtectedRoutes() {
   const { user } = useAuth();
-  console.log(user);
 
   const isAuthenticated =
     localStorage.getItem(CONSTANTS.TOKEN) || user !== null;

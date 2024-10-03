@@ -9,8 +9,19 @@ function Question({
   currentQuestionNo,
   setCurrentQuestionNo,
   questionCount,
+  answers,
+  setAnswers,
 }) {
   console.log("Question child component rendered");
+
+  function updateAns(ans) {
+    console.log(ans);
+    const ans1 = answers.map((item) => ({
+      ...item,
+      selectedAnswer: item._id === question._id ? ans : item.selectedAnswer,
+    }));
+    setAnswers(ans1);
+  }
 
   return (
     <div className="p-5 glass-effect d-flex flex-column align-items-start justify-content-between user-select-none">
@@ -18,28 +29,15 @@ function Question({
         <span>Question : {question.question} </span>
       </div>
 
-      {/* <div className=" w-100  ">
-        {question.options.map((e, i) => (
-          <div className="d-flex gap-4 px-3 py-2  " key={i}>
-            <input type="radio" name="option-1" id="html" />
-            <label className="fs-4 cursor" htmlFor="html">
-              {e}
-            </label>
-            <RadioButton />
-          </div>
-        ))}
-      </div> */}
-
       <div>
         {question.options.map((e, i) => (
           <RadioButton
             name={"options"}
             label={e}
             id={e}
-            htmlFor={e}
-            value = {e}
-            // className=""
-            onChange={(e)=>console.log(e.target.value)}
+            htmlFor={e} //selectedAnswer:prev._id == question._id? '1':"0"
+            value={e}
+            onChange={(e) => updateAns(e.target.value)}
             key={i}
           />
         ))}
