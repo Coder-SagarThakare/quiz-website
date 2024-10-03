@@ -43,7 +43,7 @@ function Question({
         ))}
       </div>
 
-      <div className="d-flex  justify-content-center w-100 gap-5">
+      <div className="d-flex justify-content-center w-100 gap-5">
         <Button
           title={"Prev"}
           onClick={() => setCurrentQuestionNo(--currentQuestionNo)}

@@ -10,13 +10,15 @@ import Swal from "sweetalert2";
 function Topics() {
   const [data, setData] = useState();
   const [Loading, setLoading] = useState(true);
+
   const location = useLocation();
   const navigate = useNavigate();
-  const subjectId = location?.state?.subjectId;
   const refs = useRef([]);
 
+  const subjectId = location?.state?.subjectId;
+
   const hoverButtons = (ind, operation) => {
-    let styleForHoverButton = "d-flex gap-3 ";
+    let styleForHoverButton = "d-flex gap-3";
 
     refs.current[ind].children[1].classList =
       operation === "addClass"
@@ -67,13 +69,11 @@ function Topics() {
     });
   }
 
-
   if (Loading) {
     return <Loader />;
   }
 
   const ShowQuestionsLevels = ({ topicId }) => {
-    console.log("topicId", topicId);
 
     return CONSTANTS.QUESTION_LEVEL.map((button, index) => (
       <Button
@@ -81,7 +81,7 @@ function Topics() {
         className={button.CLASS}
         key={index}
         onClick={() => alertToStartTest(button, topicId)}
-      ></Button>
+      />
     ));
   };
 
