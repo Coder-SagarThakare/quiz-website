@@ -9,8 +9,7 @@ import Timer from "./custom/Timer";
 // import { alert } from "../components/custom/Alert";
 
 function Questions() {
-
-  console.log("QuestionS component useeffect rendered");
+  console.log("parent QuestionS component rendered");
 
   const [questionsArr, setQuestionsArr] = useState([]);
   const location = useLocation();
@@ -19,12 +18,12 @@ function Questions() {
   const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
+    // hide sidebar after start test 
     const sidebarDom = document.getElementsByClassName("sidebar")[0];
 
     if (sidebarDom) {
       sidebarDom.classList.add("d-none");
     }
-
 
     getAllQuestions();
 
@@ -39,8 +38,7 @@ function Questions() {
     // eslint-disable-next-line
   }, []);
 
-  console.log(answers);
-
+  // prevent user from navigating prev url
   unstable_usePrompt({
     message: "Are you sure to submit test ?",
     when: ({ currentLocation, nextLocation }) =>
@@ -82,6 +80,7 @@ function Questions() {
   return (
     <div className="h-100 p-2 d-flex flex-column justify-content-between">
       <div>
+        {/* questions header start */}
         <div className="d-flex justify-content-between align-items-center w-100 rounded py-2 px-3 question-header primary-white my-2">
           <span>Topic Name : Data types</span>
           <div>
@@ -95,8 +94,9 @@ function Questions() {
             onClick={submitTest}
           />
         </div>
+        {/* questions header end */}
 
-        {/* questions */}
+        {/* questions body start */}
         {questionsArr.length > 0 ? (
           <Question
             question={questionsArr[currentQuestionNo]}
@@ -110,18 +110,26 @@ function Questions() {
           <h1>Question not added yet</h1>
         )}
       </div>
+      {/* questions body end */}
 
-      {/* show all buttons */}
+      {/* show all buttons starts */}
       <div className="glass-effect p-2 d-flex justify-content-center gap-2">
         {Array.from({ length: 10 }, (_, i) => (
           <Button
             key={i}
             title={i + 1}
             onClick={() => setCurrentQuestionNo(i)}
-            className={`text-light ${currentQuestionNo === i && "bg-primary"}`}
+            className={`text-light 
+              ${
+                currentQuestionNo === i
+                  ? "bg-primary"
+                  : answers[i]?.selectedAnswer !== -1 && "bg-success"
+              }
+              `}
           />
         ))}
       </div>
+      {/* show all buttons ui ends */}
     </div>
   );
 }

@@ -58,8 +58,11 @@
 
 /* radio button customized css */
 .form-check-input:checked {
-  background: #ccff00;
-  border-color: transparent;
+  /* background: #ccff00;
+  border-color: transparent; */
+
+  background:linear-gradient( #2b1992, rgb(0, 247, 255));
+  border-color: white;
 }
 
 .form-check-input:focus {

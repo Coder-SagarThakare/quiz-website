@@ -12,13 +12,13 @@ function Question({
   answers,
   setAnswers,
 }) {
-  console.log("Question child component rendered");
+  console.log("Child Question  component rendered");
 
-  function updateAns(ans) {
-    console.log(ans);
+  function updateAns(ind) {
+    
     const ans1 = answers.map((item) => ({
       ...item,
-      selectedAnswer: item._id === question._id ? ans : item.selectedAnswer,
+      selectedAnswer: item._id === question._id ? ind : item.selectedAnswer,
     }));
     setAnswers(ans1);
   }
@@ -30,15 +30,16 @@ function Question({
       </div>
 
       <div>
-        {question.options.map((e, i) => (
+        {question.options.map((e, ind) => (
           <RadioButton
             name={"options"}
             label={e}
             id={e}
-            htmlFor={e} //selectedAnswer:prev._id == question._id? '1':"0"
+            htmlFor={e}
             value={e}
-            onChange={(e) => updateAns(e.target.value)}
-            key={i}
+            onChange={(e) => updateAns(ind)}
+            key={ind}
+            checked = {answers[currentQuestionNo].selectedAnswer === ind}
           />
         ))}
       </div>
