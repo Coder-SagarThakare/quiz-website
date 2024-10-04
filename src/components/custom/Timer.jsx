@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { CONSTANTS } from "../../constants";
+import { submitTest } from "../Questions";
 
 function Timer() {
   const [testTiming, setTestTiming] = useState(CONSTANTS.TEST_TIME_IN_MINUTES);
@@ -19,6 +20,7 @@ function Timer() {
         // counterRef.current = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
       } else {
         clearInterval(timeInterval); // Stop the timer when it reaches 0
+        submitTest()
         console.log("Time's up!");
       }
     }, 1000);

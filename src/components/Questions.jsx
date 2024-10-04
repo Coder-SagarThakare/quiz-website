@@ -8,6 +8,10 @@ import Button from "./custom/Button";
 import Timer from "./custom/Timer";
 // import { alert } from "../components/custom/Alert";
 
+export const submitTest = () => {
+  console.log("TEST SUBMITTED...");
+};
+
 function Questions() {
   console.log("parent QuestionS component rendered");
 
@@ -57,7 +61,6 @@ function Questions() {
       );
 
       setQuestionsArr(questionsArr);
-      // console.log(setAnswers())
       setAnswers(
         questionsArr.map((ele, i) => {
           return { _id: ele._id, selectedAnswer: -1 };
@@ -68,10 +71,6 @@ function Questions() {
       console.log("error", error);
     }
   }
-
-  const submitTest = () => {
-    console.log("TEST SUBMITTED...");
-  };
 
   if (loading) {
     <Loader />;

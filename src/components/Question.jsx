@@ -16,11 +16,11 @@ function Question({
 
   function updateAns(ind) {
     
-    const ans1 = answers.map((item) => ({
+    const updatedAns = answers.map((item) => ({
       ...item,
       selectedAnswer: item._id === question._id ? ind : item.selectedAnswer,
     }));
-    setAnswers(ans1);
+    setAnswers(updatedAns);
   }
 
   return (
