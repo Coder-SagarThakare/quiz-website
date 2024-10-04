@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { CLIENT_PATHS, CONSTANTS } from "../constants";
+import { CLIENT_PATHS, CONSTANTS } from "../../constants";
 
 const Card = ({ name, backgroundImage, id, type }) => {
   const navigate = useNavigate();
