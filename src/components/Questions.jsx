@@ -9,7 +9,7 @@ import Timer from "./custom/Timer";
 // import { alert } from "../components/custom/Alert";
 
 export function SubmitTest(navigate) {
-  navigate(CLIENT_PATHS.TEST_RESULT);
+  navigate(CLIENT_PATHS.TEST_RESULT, { replace: true });
   console.log("TEST SUBMITTED...");
 }
 
