@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { unstable_usePrompt, useLocation } from "react-router-dom";
+import { unstable_usePrompt, useLocation, useNavigate } from "react-router-dom";
 import { get } from "../services";
-import { apiPaths } from "../constants";
+import { apiPaths, CLIENT_PATHS } from "../constants";
 import Loader from "./Loader";
 import Question from "./Question";
 import Button from "./custom/Button";
 import Timer from "./custom/Timer";
 // import { alert } from "../components/custom/Alert";
 
-export const submitTest = () => {
+export function SubmitTest(navigate) {
+  navigate(CLIENT_PATHS.TEST_RESULT);
   console.log("TEST SUBMITTED...");
-};
+}
 
 function Questions() {
   console.log("parent QuestionS component rendered");
@@ -20,10 +21,11 @@ function Questions() {
   const [loading, setLoading] = useState(true);
   const [currentQuestionNo, setCurrentQuestionNo] = useState(0);
   const [answers, setAnswers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    // hide sidebar after start test
     toggleSidebar({ hide: true });
-
     getAllQuestions();
 
     return () => {
@@ -47,9 +49,13 @@ function Questions() {
   }
   // prevent user from navigating prev url
   unstable_usePrompt({
-    message: "Are you sure to submit test ?",
-    when: ({ currentLocation, nextLocation }) =>
-      currentLocation.pathname !== nextLocation.pathname,
+    message: "Your test will be submit automatically after this action ",
+    when: ({ currentLocation, nextLocation }) => {
+      return (
+        currentLocation.pathname !== nextLocation.pathname &&
+        nextLocation.pathname !== CLIENT_PATHS.TEST_RESULT
+      );
+    },
   });
 
   async function getAllQuestions() {
@@ -93,7 +99,7 @@ function Questions() {
           <Button
             title={"Submit"}
             className={"bg-success"}
-            onClick={submitTest}
+            onClick={() => SubmitTest(navigate)}
           />
         </div>
         {/* questions header end */}

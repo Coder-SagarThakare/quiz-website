@@ -81,7 +81,7 @@ export const CONSTANTS = {
       CLASS: "bg-danger border-dark text-white",
     },
   ],
-  TEST_TIME_IN_MINUTES : 30.00,
+  TEST_TIME_IN_MINUTES : 10.00,
 };
 
 // client side all routes
@@ -100,6 +100,7 @@ export const CLIENT_PATHS = {
   SUBJECT: `${QUIZ}/streams/all-subjects`,
   TOPIC: `${QUIZ}/streams/subject/all-topics`,
   QUESTIONS: `${QUIZ}/streams/subject/topic/questions`,
+  TEST_RESULT: `${QUIZ}/result`,
 };
 
 // sidebar menu items routes

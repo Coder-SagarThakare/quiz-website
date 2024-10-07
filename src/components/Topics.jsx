@@ -31,7 +31,6 @@ function Topics() {
       const data = await get(
         `${apiPaths.STUDENT.TOPIC.FROM_SUBJECT}`.replace("subjectId", subjectId)
       );
-      console.log(data);
       setData(data);
     } catch (e) {
       console.log(e);

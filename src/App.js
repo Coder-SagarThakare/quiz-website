@@ -10,6 +10,7 @@ import { AuthGuard, ProtectedRoutes } from "./utils";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import QuizHomepage from "./pages/QuizHomepage";
+import TestResult from "./components/TestResult";
 
 function AppLayout() {
   const checkDevice = () => {
@@ -62,6 +63,7 @@ const router = createBrowserRouter([
               { path: "streams/all-subjects", element: <QuizHomepage /> },
               { path: "streams/subject/all-topics", element: <Topics /> },
               { path: "streams/subject/topic/questions", element: <Questions /> },
+              { path: "result", element: <TestResult /> },
             ],
           },
           { path: "interview", element: <Interview /> },

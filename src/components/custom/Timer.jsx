@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { CONSTANTS } from "../../constants";
-import { submitTest } from "../Questions";
+import { SubmitTest } from "../Questions";
+import { useNavigate } from "react-router-dom";
 
 function Timer() {
   const [testTiming, setTestTiming] = useState(CONSTANTS.TEST_TIME_IN_MINUTES);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let time = CONSTANTS.TEST_TIME_IN_MINUTES * 60; // Total time in seconds
@@ -20,16 +22,16 @@ function Timer() {
         // counterRef.current = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
       } else {
         clearInterval(timeInterval); // Stop the timer when it reaches 0
-        submitTest()
         console.log("Time's up!");
+        SubmitTest(navigate)
       }
     }, 1000);
 
     // Cleanup the interval when the component unmounts
     return () => clearInterval(timeInterval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log();
 
   return (
     <span
