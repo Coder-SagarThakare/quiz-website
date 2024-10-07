@@ -22,26 +22,29 @@ function Questions() {
   const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
-    // hide sidebar after start test 
-    const sidebarDom = document.getElementsByClassName("sidebar")[0];
-
-    if (sidebarDom) {
-      sidebarDom.classList.add("d-none");
-    }
+    toggleSidebar({ hide: true });
 
     getAllQuestions();
 
     return () => {
-      if (sidebarDom) {
-        sidebarDom.classList.remove("d-none");
-        sidebarDom.classList.add("d-block");
-      }
+      toggleSidebar({ hide: false });
       // alert({ title: "submit test ?" });
     };
 
     // eslint-disable-next-line
   }, []);
 
+  function toggleSidebar({ hide }) {
+    // hide sidebar after start test
+    const sidebarDom = document.getElementsByClassName("sidebar")[0];
+
+    if (sidebarDom && hide) {
+      sidebarDom.classList.add("d-none");
+    } else {
+      sidebarDom.classList.remove("d-none");
+      sidebarDom.classList.add("d-block");
+    }
+  }
   // prevent user from navigating prev url
   unstable_usePrompt({
     message: "Are you sure to submit test ?",

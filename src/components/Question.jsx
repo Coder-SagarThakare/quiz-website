@@ -14,6 +14,7 @@ function Question({
 }) {
   console.log("Child Question  component rendered");
 
+  // update answers in array
   function updateAns(ind) {
     
     const updatedAns = answers.map((item) => ({
