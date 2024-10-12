@@ -11,5 +11,5 @@ export { default as Feature } from './Features'
 export { default as Topics } from './Topics'
 export { default as Questions } from './Questions'
 export { default as Loader } from './Loader'
-// export { default as Loader } from './Loader'
+export { default as TestResult } from './TestResult'
 

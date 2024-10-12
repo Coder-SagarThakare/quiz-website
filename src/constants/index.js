@@ -173,33 +173,6 @@ export const MenuItem = [
   },
 ];
 
-// // frontend routes of sidebar menu
-// export const routes = [
-//   {
-//     path: "/",
-//     element: <Outlet />,
-//     children: [
-//       { path: "", element: <Homepage /> },
-//       { path: "dashboard", element: <Dashboard /> },
-//       { path: "interview", element: <Interview /> },
-//       { path: "quiz/stream", element: <SubjectAreas /> },
-//       { path: "about", element: <About /> },
-//       { path: "profile", element: <Profile /> },
-//     ],
-//   },
-//   {
-//     path: "/admin",
-//     element: <Outlet />,
-//     children: [
-//       { path: "", element: <h1>Working on Admin Routes</h1> },
-//       { path: "dashboard", element: <h1>Working on Admin Dashboard</h1> },
-//     ],
-//   },
-//   {
-//     path: "*",
-//     element: <h1>URL chukliy bhava</h1>,
-//   },
-// ];
 
 // api
 const API_V1 = "/api/v1";
@@ -222,6 +195,8 @@ export const apiPaths = {
       ALL: `${STUDENT}/all-streams`,
     },
     QUESTIONS_BY_TOPIC: `${STUDENT}/stream/subject/topics/topicId?level={level}`,
+    CHECK_ANSWERS :  `${STUDENT}/result`
+
   },
 
   TEACHER: {
@@ -233,3 +208,5 @@ export const apiPaths = {
   },
   ADMIN: "/admin",
 };
+
+
