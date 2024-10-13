@@ -1,8 +1,8 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { AnswersContext } from "../context/AnswersContext";
+import { AnswersProvider } from "../context/AnswersContext";
 import { About, Dashboard, Homepage, Interview, PageNotFound, Profile, QuizHomepage } from "../pages";
-import { AuthGuard,ProtectedRoutes } from "../utils";
-import { Questions, Sidebar, SignIn, SignUp, Topics } from "../components";
+import { AuthGuard, ProtectedRoutes } from "../utils";
+import { Questions, SignIn, SignUp, Topics } from "../components";
 import { AppLayout } from "../App";
 import { TestResult } from "../components";
 
@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
                             { path: "streams/all-subjects", element: <QuizHomepage /> },
                             { path: "streams/subject/all-topics", element: <Topics /> },
                             {
-                                element: <AnswersContext />,
+                                element: <AnswersProvider />,
                                 children: [
                                     { path: "streams/subject/topic/questions", element: <Questions /> },
                                     { path: "result", element: <TestResult /> },

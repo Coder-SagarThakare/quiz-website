@@ -1,12 +1,19 @@
-import React, { useContext } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 
-export function AnswersContext({children}) {
-    
-  return (
-    <div>AnswersContext</div>
-  )
+const AnswersContext = createContext();
+
+export function AnswersProvider({ children }) {
+
+    console.log("children", children)
+    const [answers, setAnswers] = useState([])
+
+    return (
+        <AnswersContext.Provider value={{ answers, setAnswers }}>
+            {children}
+        </AnswersContext.Provider>
+    )
 }
 
-export const useAnswers = ()=>{
+export const useAnswers = () => {
     return useContext(AnswersContext)
 }
