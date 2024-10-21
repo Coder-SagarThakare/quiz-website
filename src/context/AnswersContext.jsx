@@ -3,9 +3,8 @@ import { Outlet } from "react-router-dom";
 
 const AnswersContext = createContext();
 
-export function AnswersProvider({ children }) {
-  console.log("children", children);
-  const [answers, setAnswers] = useState([{ name: "sagar" }]);
+export function AnswersProvider() {
+  const [answers, setAnswers] = useState([]);
 
   return (
     <AnswersContext.Provider value={{ answers, setAnswers }}>
