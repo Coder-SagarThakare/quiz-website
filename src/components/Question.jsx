@@ -3,20 +3,22 @@ import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import Button from "./custom/Button";
 import React from "react";
 import RadioButton from "./custom/RadioButton";
+import { answer, setAnswers } from "./"
+import { useAnswers } from "../context/AnswersContext";
 
 function Question({
   question,
   currentQuestionNo,
   setCurrentQuestionNo,
   questionCount,
-  answers,
-  setAnswers,
 }) {
   console.log("Child Question  component rendered");
 
+  const { answers, setAnswers } = useAnswers();
+
   // update answers in array
   function updateAns(ind) {
-    
+
     const updatedAns = answers.map((item) => ({
       ...item,
       selectedAnswer: item._id === question._id ? ind : item.selectedAnswer,
@@ -40,7 +42,7 @@ function Question({
             value={e}
             onChange={(e) => updateAns(ind)}
             key={ind}
-            checked = {answers[currentQuestionNo].selectedAnswer === ind}
+            checked={answers[currentQuestionNo].selectedAnswer === ind}
           />
         ))}
       </div>
@@ -57,9 +59,8 @@ function Question({
         <Button
           title={"Next"}
           onClick={() => setCurrentQuestionNo(++currentQuestionNo)}
-          className={`bg-primary ${
-            currentQuestionNo === questionCount - 1 && "disabled"
-          }`}
+          className={`bg-primary ${currentQuestionNo === questionCount - 1 && "disabled"
+            }`}
           iconPos="right"
           Icon={GrFormNextLink}
           size={25}

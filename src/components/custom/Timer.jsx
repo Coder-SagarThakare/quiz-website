@@ -32,7 +32,6 @@ function Timer() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
   return (
     <span
       className={`fw-bold 

@@ -6,7 +6,7 @@ import Loader from "./Loader";
 import Question from "./Question";
 import Button from "./custom/Button";
 import Timer from "./custom/Timer";
-// import { alert } from "../components/custom/Alert";
+import { useAnswers } from "../context/AnswersContext";
 
 export function SubmitTest(navigate) {
   navigate(CLIENT_PATHS.TEST_RESULT, { replace: true });
@@ -20,8 +20,8 @@ function Questions() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
   const [currentQuestionNo, setCurrentQuestionNo] = useState(0);
-  const [answers, setAnswers] = useState([]);
   const navigate = useNavigate();
+  const { answers, setAnswers } = useAnswers();
 
   useEffect(() => {
     // hide sidebar after start test
@@ -30,7 +30,6 @@ function Questions() {
 
     return () => {
       toggleSidebar({ hide: false });
-      // alert({ title: "submit test ?" });
     };
 
     // eslint-disable-next-line
@@ -63,8 +62,7 @@ function Questions() {
       const questionsArr = await get(
         `${apiPaths.STUDENT.QUESTIONS_BY_TOPIC}`.replace(
           "topicId?level={level}",
-          `${
-            location.state.topicId
+          `${location.state.topicId
           }?level=${location.state.level.toLowerCase()}`
         )
       );
@@ -111,8 +109,8 @@ function Questions() {
             currentQuestionNo={currentQuestionNo}
             setCurrentQuestionNo={setCurrentQuestionNo}
             questionCount={questionsArr.length}
-            answers={answers}
-            setAnswers={setAnswers}
+          // answers={answers}
+          // setAnswers={setAnswers}
           />
         ) : (
           <h1>Question not added yet</h1>
@@ -128,10 +126,9 @@ function Questions() {
             title={i + 1}
             onClick={() => setCurrentQuestionNo(i)}
             className={`text-light 
-              ${
-                currentQuestionNo === i
-                  ? "bg-primary"
-                  : answers[i]?.selectedAnswer !== -1 && "bg-success"
+              ${currentQuestionNo === i
+                ? "bg-primary"
+                : answers[i]?.selectedAnswer !== -1 && "bg-success"
               }
               `}
           />
