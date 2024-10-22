@@ -9,7 +9,7 @@ function TestResult() {
   return (
     <div>
       <h1>Congragulations</h1>
-      <div>5/10</div>
+      <div>Attended questions : {answers.filter(item => item.selectedAnswer !== -1).length}/10</div>
     </div>
   );
 }

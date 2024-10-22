@@ -8,18 +8,14 @@ import Button from "./custom/Button";
 import Timer from "./custom/Timer";
 import { useAnswers } from "../context/AnswersContext";
 
-export function SubmitTest(navigate) {
-  navigate(CLIENT_PATHS.TEST_RESULT, { replace: true });
-  console.log("TEST SUBMITTED...");
-}
-
 function Questions() {
   console.log("parent QuestionS component rendered");
 
   const [questionsArr, setQuestionsArr] = useState([]);
-  const location = useLocation();
-  const [loading, setLoading] = useState(true);
   const [currentQuestionNo, setCurrentQuestionNo] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  const location = useLocation();
   const navigate = useNavigate();
   const { answers, setAnswers } = useAnswers();
 
@@ -79,6 +75,12 @@ function Questions() {
     }
   }
 
+  function SubmitTest() {
+    navigate(CLIENT_PATHS.TEST_RESULT, { replace: true });
+    console.log("selected answer count : ", answers.filter(item => item.selectedAnswer !== -1).length)
+    console.log("TEST SUBMITTED...");
+  }
+
   if (loading) {
     <Loader />;
   }
@@ -91,7 +93,7 @@ function Questions() {
           <span>Topic Name : Data types</span>
           <div>
             <span>Time : </span>
-            <Timer />
+            <Timer SubmitTest={SubmitTest}/>
           </div>
 
           <Button
@@ -109,8 +111,6 @@ function Questions() {
             currentQuestionNo={currentQuestionNo}
             setCurrentQuestionNo={setCurrentQuestionNo}
             questionCount={questionsArr.length}
-          // answers={answers}
-          // setAnswers={setAnswers}
           />
         ) : (
           <h1>Question not added yet</h1>

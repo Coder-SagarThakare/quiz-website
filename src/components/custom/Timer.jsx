@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import { CONSTANTS } from "../../constants";
-import { SubmitTest } from "../Questions";
-import { useNavigate } from "react-router-dom";
 
-function Timer() {
+function Timer({SubmitTest}) {
   const [testTiming, setTestTiming] = useState(CONSTANTS.TEST_TIME_IN_MINUTES);
-  const navigate = useNavigate();
 
   useEffect(() => {
     let time = CONSTANTS.TEST_TIME_IN_MINUTES * 60; // Total time in seconds
@@ -23,7 +20,7 @@ function Timer() {
       } else {
         clearInterval(timeInterval); // Stop the timer when it reaches 0
         console.log("Time's up!");
-        SubmitTest(navigate)
+        SubmitTest()
       }
     }, 1000);
 

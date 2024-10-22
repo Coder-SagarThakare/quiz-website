@@ -3,7 +3,6 @@ import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import Button from "./custom/Button";
 import React from "react";
 import RadioButton from "./custom/RadioButton";
-import { answer, setAnswers } from "./"
 import { useAnswers } from "../context/AnswersContext";
 
 function Question({
@@ -15,7 +14,6 @@ function Question({
   console.log("Child Question  component rendered");
 
   const { answers, setAnswers } = useAnswers();
-  console.log("answers : ", answers)
 
   // update answers in array
   function updateAns(ind) {
