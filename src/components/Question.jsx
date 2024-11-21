@@ -11,8 +11,6 @@ function Question({
   setCurrentQuestionNo,
   questionCount,
 }) {
-  console.log("Child Question  component rendered");
-
   const { answers, setAnswers } = useAnswers();
 
   // update answers in array

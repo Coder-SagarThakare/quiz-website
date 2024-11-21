@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { unstable_usePrompt, useLocation, useNavigate } from "react-router-dom";
-import { get } from "../services";
+import { get, post } from "../services";
 import { apiPaths, CLIENT_PATHS } from "../constants";
 import Loader from "./Loader";
 import Question from "./Question";
 import Button from "./custom/Button";
 import Timer from "./custom/Timer";
 import { useAnswers } from "../context/AnswersContext";
+import { useAuth } from "../context/AuthContext";
 
 function Questions() {
-  console.log("parent QuestionS component rendered");
 
   const [questionsArr, setQuestionsArr] = useState([]);
   const [currentQuestionNo, setCurrentQuestionNo] = useState(0);
@@ -18,6 +18,8 @@ function Questions() {
   const location = useLocation();
   const navigate = useNavigate();
   const { answers, setAnswers } = useAnswers();
+  const { user } = useAuth();
+  const answersRef = useRef(answers);
 
   useEffect(() => {
     // hide sidebar after start test
@@ -30,6 +32,10 @@ function Questions() {
 
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    answersRef.current = answers;
+  }, [answers]);
 
   function toggleSidebar({ hide }) {
     // hide sidebar after start test
@@ -75,10 +81,23 @@ function Questions() {
     }
   }
 
-  function SubmitTest() {
-    navigate(CLIENT_PATHS.TEST_RESULT, { replace: true });
-    console.log("selected answer count : ", answers.filter(item => item.selectedAnswer !== -1).length)
-    console.log("TEST SUBMITTED...");
+  async function SubmitTest() {
+    setLoading(true);
+    const currentAnswers = answersRef.current;
+
+    const payload = {
+      user: user._id,
+      level: location.state.level.toLowerCase(),
+      topic: location.state.topicId,
+      questions: currentAnswers
+    }
+
+    await post(apiPaths.STUDENT.CHECK_RESULT, payload);
+    setLoading(false);
+
+    // navigate(CLIENT_PATHS.TEST_RESULT, { replace: true });
+    // console.log("selected answer count : ", answers.filter(item => item.selectedAnswer !== -1).length);
+    // console.log("TEST SUBMITTED...");
   }
 
   if (loading) {
@@ -93,7 +112,7 @@ function Questions() {
           <span>Topic Name : Data types</span>
           <div>
             <span>Time : </span>
-            <Timer SubmitTest={SubmitTest}/>
+            <Timer SubmitTest={SubmitTest} />
           </div>
 
           <Button

@@ -40,7 +40,6 @@ function Topics() {
   };
 
   useEffect(() => {
-    console.log("in topics");
     getTopics();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -57,7 +56,6 @@ function Topics() {
       cancelButtonText: "Cancel"
     }).then((result) => {
       if (result.isConfirmed) {
-        // Perform the action to start the test, for example:
         navigate(CLIENT_PATHS.QUESTIONS, {
           state: { topicId, level: button.TITLE },
         });
