@@ -173,7 +173,6 @@ export const MenuItem = [
   },
 ];
 
-
 // api
 const API_V1 = "/api/v1";
 const STUDENT = `${API_V1}/user`;
@@ -195,7 +194,8 @@ export const apiPaths = {
       ALL: `${STUDENT}/all-streams`,
     },
     QUESTIONS_BY_TOPIC: `${STUDENT}/stream/subject/topics/topicId?level={level}`,
-    CHECK_RESULT :  `${STUDENT}/result`
+    CHECK_RESULT :  `${STUDENT}/result`,
+    GET_RESULT : `${STUDENT}/result/topicId`
 
   },
 

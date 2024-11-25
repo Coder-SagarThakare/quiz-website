@@ -92,12 +92,20 @@ function Questions() {
       questions: currentAnswers
     }
 
-    await post(apiPaths.STUDENT.CHECK_RESULT, payload);
-    setLoading(false);
+    try {
 
-    // navigate(CLIENT_PATHS.TEST_RESULT, { replace: true });
-    // console.log("selected answer count : ", answers.filter(item => item.selectedAnswer !== -1).length);
-    // console.log("TEST SUBMITTED...");
+      const resultId = await post(apiPaths.STUDENT.CHECK_RESULT, payload);
+      console.log("resultId : ", resultId);
+
+      setLoading(false);
+      navigate(CLIENT_PATHS.TEST_RESULT, {
+        replace: true,
+        state: { resultId }
+      }
+      );
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   if (loading) {

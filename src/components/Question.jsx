@@ -11,6 +11,7 @@ function Question({
   setCurrentQuestionNo,
   questionCount,
 }) {
+
   const { answers, setAnswers } = useAnswers();
 
   // update answers in array
@@ -18,7 +19,7 @@ function Question({
 
     const updatedAns = answers.map((item) => ({
       ...item,
-      selectedAnswer: item._id === question._id ? ind : item.selectedAnswer,
+      selectedAnswer: item._id === question._id ? (ind + 1) : item.selectedAnswer,
     }));
     setAnswers(updatedAns);
   }
@@ -39,7 +40,7 @@ function Question({
             value={e}
             onChange={(e) => updateAns(ind)}
             key={ind}
-            checked={answers[currentQuestionNo].selectedAnswer === ind}
+            checked={answers[currentQuestionNo].selectedAnswer === ind+1}
           />
         ))}
       </div>
