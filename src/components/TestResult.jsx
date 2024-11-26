@@ -8,17 +8,14 @@ import { apiPaths } from "../constants";
 function TestResult() {
   const { answers } = useAnswers();
   const location = useLocation();
-  const [result, setResult] = useState({})
+  const [result, setResult] = useState({});
 
   async function getResult(resultId) {
     const result = await get(apiPaths.STUDENT.GET_RESULT.replace("topicId", resultId));
     setResult(result);
-    console.log(result)
-
   }
 
   useEffect(() => {
-    console.log("location.state.resultId : ", location.state.resultId)
     try {
       getResult(location.state.resultId)
     } catch (e) {

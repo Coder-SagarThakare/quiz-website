@@ -75,7 +75,6 @@ const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
 });
 
 function Sidebar({ isOpen, setIsOpen }) {
-  console.log("in sidebar");
 
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
