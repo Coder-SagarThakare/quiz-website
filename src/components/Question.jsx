@@ -4,6 +4,7 @@ import Button from "./custom/Button";
 import React from "react";
 import RadioButton from "./custom/RadioButton";
 import { useAnswers } from "../context/AnswersContext";
+import Checkbox from "./custom/Checkbox";
 
 function Question({
   question,
@@ -23,6 +24,19 @@ function Question({
     }));
     setAnswers(updatedAns);
   }
+  function updateMultiSelect(ind) {
+    const updatedAns = answers.map((item) => {
+      if (item._id === question._id) {
+        const currentAnswers = item.selectedAnswer || [];
+        const updatedSelection = currentAnswers.includes(ind + 1)
+          ? currentAnswers.filter((ans) => ans !== ind + 1)
+          : [...currentAnswers, ind + 1];
+        return { ...item, selectedAnswer: updatedSelection };
+      }
+      return item;
+    });
+    setAnswers(updatedAns);
+  }
 
   return (
     <div className="p-5 glass-effect d-flex flex-column align-items-start justify-content-between user-select-none">
@@ -32,6 +46,7 @@ function Question({
 
       <div>
         {question.options.map((e, ind) => (
+          question.type === "singleSelect" ?
           <RadioButton
             name={"options"}
             label={e}
@@ -42,6 +57,17 @@ function Question({
             key={ind}
             checked={answers[currentQuestionNo].selectedAnswer === ind+1}
           />
+          :
+          <Checkbox
+          label={e}
+          id={`checkbox-${ind}`}
+          value={e}
+          key={ind}
+          checked={(answers[currentQuestionNo].selectedAnswer || []).includes(
+            ind + 1
+          )}
+          onChange={() => updateMultiSelect(ind)}
+        />
         ))}
       </div>
 

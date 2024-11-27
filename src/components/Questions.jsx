@@ -18,7 +18,8 @@ function Questions() {
   const navigate = useNavigate();
   const { answers, setAnswers } = useAnswers();
   const answersRef = useRef(answers);
-
+  console.log({questionsArr})
+  
   useEffect(() => {
     // hide sidebar after start test
     toggleSidebar({ hide: true });
@@ -92,7 +93,6 @@ function Questions() {
     try {
 
       const resultId = await post(apiPaths.STUDENT.CHECK_RESULT, payload);
-      console.log("resultId : ", resultId);
 
       setLoading(false);
       navigate(CLIENT_PATHS.TEST_RESULT, {
