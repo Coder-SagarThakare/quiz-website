@@ -7,7 +7,6 @@ import Question from "./Question";
 import Button from "./custom/Button";
 import Timer from "./custom/Timer";
 import { useAnswers } from "../context/AnswersContext";
-import { useAuth } from "../context/AuthContext";
 
 function Questions() {
 
@@ -18,7 +17,6 @@ function Questions() {
   const location = useLocation();
   const navigate = useNavigate();
   const { answers, setAnswers } = useAnswers();
-  const { user } = useAuth();
   const answersRef = useRef(answers);
 
   useEffect(() => {
@@ -86,7 +84,6 @@ function Questions() {
     const currentAnswers = answersRef.current;
 
     const payload = {
-      user: user._id,
       level: location.state.level.toLowerCase(),
       topic: location.state.topicId,
       questions: currentAnswers
