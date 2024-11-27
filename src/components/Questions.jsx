@@ -147,7 +147,7 @@ function Questions() {
 
       {/* show all buttons starts */}
       <div className="glass-effect p-2 d-flex justify-content-center gap-2">
-        {Array.from({ length: 10 }, (_, i) => (
+        {Array.from({ length: questionsArr.length }, (_, i) => (
           <Button
             key={i}
             title={i + 1}
