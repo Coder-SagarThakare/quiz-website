@@ -18,8 +18,8 @@ function Questions() {
   const navigate = useNavigate();
   const { answers, setAnswers } = useAnswers();
   const answersRef = useRef(answers);
-  console.log({questionsArr})
-  
+  console.log(answers[0]?.selectedAnswer)
+
   useEffect(() => {
     // hide sidebar after start test
     toggleSidebar({ hide: true });
@@ -70,10 +70,16 @@ function Questions() {
 
       setQuestionsArr(questionsArr);
       setAnswers(
-        questionsArr.map((ele, i) => {
-          return { _id: ele._id, selectedAnswer: -1 };
+        questionsArr.map((ele) => {
+          return {
+            _id: ele._id,
+            selectedAnswer: ele.type === "singleSelect"
+              ? -1
+              : Array(ele.options.length).fill(-1),
+          };
         })
       );
+
       setLoading(false);
     } catch (error) {
       console.log("error", error);
@@ -149,12 +155,15 @@ function Questions() {
             key={i}
             title={i + 1}
             onClick={() => setCurrentQuestionNo(i)}
-            className={`text-light 
-              ${currentQuestionNo === i
-                ? "bg-primary"
-                : answers[i]?.selectedAnswer !== -1 && "bg-success"
-              }
-              `}
+            className={`text-light ${currentQuestionNo === i
+              ? "bg-primary"
+              : (questionsArr[i].type === "singleSelect" && answers[i]?.selectedAnswer !== -1) ||
+                (questionsArr[i].type === "multiSelect" &&
+                  Array.isArray(answers[i]?.selectedAnswer) &&
+                  answers[i]?.selectedAnswer.some((ans) => ans !== -1))
+                ? "bg-success"
+                : ""
+              }`}
           />
         ))}
       </div>
