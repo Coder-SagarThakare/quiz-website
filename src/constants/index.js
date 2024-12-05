@@ -81,7 +81,7 @@ export const CONSTANTS = {
       CLASS: "bg-danger border-dark text-white",
     },
   ],
-  TEST_TIME_IN_MINUTES : 30.00,
+  TEST_TIME_IN_MINUTES: 30.0,
 };
 
 // client side all routes
@@ -194,9 +194,9 @@ export const apiPaths = {
       ALL: `${STUDENT}/all-streams`,
     },
     QUESTIONS_BY_TOPIC: `${STUDENT}/stream/subject/topics/topicId?level={level}`,
-    CHECK_RESULT :  `${STUDENT}/result`,
-    GET_RESULT : `${STUDENT}/result/topicId`
-
+    CHECK_RESULT: `${STUDENT}/result`,
+    GET_RESULT: `${STUDENT}/result/topicId`,
+    DASHBOARD: `${STUDENT}/dashboard`,
   },
 
   TEACHER: {
@@ -208,5 +208,3 @@ export const apiPaths = {
   },
   ADMIN: "/admin",
 };
-
-

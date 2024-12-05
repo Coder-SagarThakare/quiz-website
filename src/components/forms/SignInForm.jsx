@@ -30,7 +30,7 @@ function SignInForm() {
    */
   const onsubmit = async (data) => {
     try {
-      var result;
+      var result; 
       if (role === CONSTANTS.ROLE.STUDENT) {
         result = await post(
           `${apiPaths.STUDENT.AUTH.LOGIN}?captcha=false`,
