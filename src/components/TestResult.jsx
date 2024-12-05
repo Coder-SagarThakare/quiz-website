@@ -27,12 +27,12 @@ function TestResult() {
   return (
     <div>
       <h1>Congragulations</h1>
-      <div>Attended questions : {answers.filter(item => item.selectedAnswer !== -1).length}/10</div>
       {/* <p>{result}</p> */}
-      <div className="border border-red-500 ">
+      <div className="border ">
         <p>result.topic</p>
         <p>level : {result.level}</p>
         <p>percentage : {result.percentage}</p>
+        <p>correct Answers : {result.correctAnsCount}</p>
         <p>totalAttendedQuestions : {result.totalAttendedQuestions}</p>
       </div>
     </div>
