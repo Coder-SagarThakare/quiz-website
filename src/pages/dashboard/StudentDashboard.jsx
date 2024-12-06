@@ -5,14 +5,14 @@ import { get } from "../../services";
 function StudentDashboard() {
   const [results, setResults] = useState([]);
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(5);
+  const [limit, setLimit] = useState(2);
   const [totalPages, setTotalPages] = useState(1);
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
 
   const fetchData = async () => {
     try {
       const response = await get(
-        `${apiPaths.STUDENT.DASHBOARD}?page=${page}&limit=${limit}&search=${search}`
+        `${apiPaths.STUDENT.DASHBOARD}?page=${page}&limit=${limit}`
       );
       console.log(response);
       setResults(response.results);
@@ -24,12 +24,13 @@ function StudentDashboard() {
 
   useEffect(() => {
     fetchData();
-  }, [page, limit, search]);
+     // eslint-disable-next-line
+  }, [page, limit]);
 
-  const handleSearchChange = (e) => {
-    setSearch(e.target.value);
-    setPage(1); // Reset to the first page when searching
-  };
+  // const handleSearchChange = (e) => {
+  //   setSearch(e.target.value);
+  //   setPage(1); // Reset to the first page when searching
+  // };
 
   const handleLimitChange = (e) => {
     setLimit(parseInt(e.target.value, 10));
@@ -55,6 +56,7 @@ function StudentDashboard() {
           placeholder="Search by topic..."
           value={"work in progress"}
           // onChange={handleSearchChange}
+          onChange={()=>{}}
         />
         {/* Limit Selector */}
         <select
@@ -62,7 +64,7 @@ function StudentDashboard() {
           value={limit}
           onChange={handleLimitChange}
         >
-          <option value={5}>5 per page</option>
+          <option value={2}>2 per page</option>
           <option value={10}>10 per page</option>
           <option value={15}>15 per page</option>
           <option value={20}>20 per page</option>
@@ -71,7 +73,7 @@ function StudentDashboard() {
 
       {/* Results Grid */}
       <div className="row">
-        {results.map((quiz) => (
+        {results?.map((quiz) => (
           <div key={quiz._id} className="col-md-4 mb-4">
             <div className="card glass-effect shadow-sm cursor text-light">
               <div className="card-body">

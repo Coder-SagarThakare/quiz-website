@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { useAnswers } from "../context/AnswersContext";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { get } from "../services";
 import { apiPaths } from "../constants";
 
 function TestResult() {
-  const { answers } = useAnswers();
   const location = useLocation();
   const [result, setResult] = useState({});
 
