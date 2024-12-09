@@ -29,6 +29,7 @@ export const router = createBrowserRouter([
                             { path: "all-streams", element: <QuizHomepage /> },
                             { path: "streams/all-subjects", element: <QuizHomepage /> },
                             { path: "streams/subject/all-topics", element: <Topics /> },
+                            { path: "all-results", element: <TestResult /> },
                             {
                                 element: <AnswersProvider />,
                                 children: [

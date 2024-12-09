@@ -15,6 +15,7 @@ export const CONSTANTS = {
   INTERVIEW: "Interview",
   PROFILE: "Profile",
   ABOUT: "About",
+  ALL_RESULTS: "Results",
   CARD_TYPE: {
     SUBJECT: "subject",
   },
@@ -95,6 +96,7 @@ export const CLIENT_PATHS = {
   ABOUT: "/about",
   SIGNIN: "/signin",
   SIGNUP: "/signup",
+  RESULTS: "/results",
 
   STREAM: `${QUIZ}/all-streams`,
   SUBJECT: `${QUIZ}/streams/all-subjects`,
@@ -133,6 +135,15 @@ export const MenuItem = [
       CONSTANTS.ROLE.STUDENT,
       CONSTANTS.ROLE.ADMIN,
       CONSTANTS.ROLE.TEACHER,
+    ],
+  },
+  {
+    name: CONSTANTS.ALL_RESULTS,
+    icon: <MdSubject />,
+    path: CLIENT_PATHS.TEST_RESULT,
+    access: [
+      CONSTANTS.ROLE.STUDENT,
+      CONSTANTS.ROLE.ADMIN,
     ],
   },
   {
