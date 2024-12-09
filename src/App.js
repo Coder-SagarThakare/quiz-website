@@ -6,8 +6,8 @@ import "../src/styles/global.css";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
 import { useState } from "react";
-import { FaBars } from "react-icons/fa6";
 import { router } from "./routes/Router";
+import { Menu } from "lucide-react";
 
 export function AppLayout() {
   const checkDevice = () => {
@@ -21,7 +21,7 @@ export function AppLayout() {
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
 
       {!isOpen && (
-        <FaBars
+        <Menu
           size={25}
           className="burger-menu cursor primary-white border p-2"
           onClick={() => {

@@ -1,10 +1,10 @@
+import { Search } from "lucide-react";
 import React from "react";
-import { IoSearch } from "react-icons/io5";
 
 function SearchBar({ props }) {
   return (
     <div className="w-100 glass-effect d-flex align-items-center overflow-hidden ps-3 gap-2 ">
-      <IoSearch className="search " />
+      <Search className="search " />
       <input
         type="input"
         placeholder="Search"

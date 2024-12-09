@@ -1,11 +1,11 @@
 import React, { useCallback } from "react";
-import { FaBars } from "react-icons/fa";
 import "../../styles/subcomponents.css";
 import "./Sidebar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { MenuItem, CONSTANTS, CLIENT_PATHS } from "../../constants";
 import { useAuth } from "../../context/AuthContext";
 import IsUserLoggedIn from "../IsUserLoggedIn";
+import { Menu } from "lucide-react";
 
 // Return all menu of sidebar
 const AllMenus = React.memo(({ isOpen, view = undefined, setIsOpen, role }) => {
@@ -65,7 +65,7 @@ const Header = React.memo(({ isOpen, setIsOpen, navigate }) => {
       >
         {CONSTANTS.WEBAPP_TITLE}
       </h3>
-      <FaBars
+      <Menu
         size={25}
         className="cursor primary-white"
         onClick={() => setIsOpen(!isOpen)}
@@ -107,7 +107,7 @@ function Sidebar({ isOpen, setIsOpen }) {
         </div>
 
         {!isOpen && (
-          <FaBars
+          <Menu
             size={25}
             className="burger-menu cursor primary-white"
             onClick={() => {

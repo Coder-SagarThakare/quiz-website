@@ -1,10 +1,10 @@
-import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 
 import Button from "./custom/Button";
 import React from "react";
 import RadioButton from "./custom/RadioButton";
 import { useAnswers } from "../context/AnswersContext";
 import Checkbox from "./custom/Checkbox";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function Question({
   question,
@@ -76,11 +76,12 @@ function Question({
       </div>
 
       <div className="d-flex justify-content-center w-100 gap-5">
+
         <Button
           title={"Prev"}
           onClick={() => setCurrentQuestionNo(--currentQuestionNo)}
           className={`bg-primary ${currentQuestionNo === 0 && "disabled"}`}
-          Icon={GrFormPreviousLink}
+          Icon={ChevronLeft}
           iconPos="left"
           size={25}
         />
@@ -90,7 +91,7 @@ function Question({
           className={`bg-primary ${currentQuestionNo === questionCount - 1 && "disabled"
             }`}
           iconPos="right"
-          Icon={GrFormNextLink}
+          Icon={ChevronRight}
           size={25}
         />
       </div>

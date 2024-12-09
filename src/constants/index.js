@@ -1,8 +1,5 @@
-import { RiHomeHeartFill } from "react-icons/ri";
-import { MdSubject } from "react-icons/md";
-import { RxDashboard } from "react-icons/rx";
-import { FaUserAlt, FaUserCircle } from "react-icons/fa";
-import { PiStudentFill } from "react-icons/pi";
+import { BarChart, Calendar, ClipboardList, House, Info, LayoutDashboard, User } from "lucide-react";
+
 
 // Object containing global constants used throughout the app.
 export const CONSTANTS = {
@@ -109,7 +106,7 @@ export const CLIENT_PATHS = {
 export const MenuItem = [
   {
     name: CONSTANTS.HOMEPAGE,
-    icon: <RiHomeHeartFill />,
+    icon: <House />,
     path: `${CLIENT_PATHS.HOME}`,
     access: [
       CONSTANTS.ROLE.STUDENT,
@@ -119,7 +116,7 @@ export const MenuItem = [
   },
   {
     name: CONSTANTS.DASHBOARD,
-    icon: <RxDashboard />,
+    icon: <LayoutDashboard />,
     path: CLIENT_PATHS.DASHBOARD,
     access: [
       CONSTANTS.ROLE.STUDENT,
@@ -129,7 +126,7 @@ export const MenuItem = [
   },
   {
     name: CONSTANTS.QUIZES,
-    icon: <MdSubject />,
+    icon: <ClipboardList />,
     path: CLIENT_PATHS.STREAM,
     access: [
       CONSTANTS.ROLE.STUDENT,
@@ -139,7 +136,7 @@ export const MenuItem = [
   },
   {
     name: CONSTANTS.ALL_RESULTS,
-    icon: <MdSubject />,
+    icon: <BarChart />,
     path: CLIENT_PATHS.TEST_RESULT,
     access: [
       CONSTANTS.ROLE.STUDENT,
@@ -148,7 +145,7 @@ export const MenuItem = [
   },
   {
     name: CONSTANTS.INTERVIEW,
-    icon: <PiStudentFill />,
+    icon: <Calendar />,
     path: CLIENT_PATHS.INTERVIEW,
     access: [
       CONSTANTS.ROLE.STUDENT,
@@ -158,7 +155,7 @@ export const MenuItem = [
   },
   {
     name: CONSTANTS.PROFILE,
-    icon: <FaUserCircle />,
+    icon: <User />,
     path: CLIENT_PATHS.PROFILE,
     access: [
       CONSTANTS.ROLE.STUDENT,
@@ -168,7 +165,7 @@ export const MenuItem = [
   },
   {
     name: CONSTANTS.ABOUT,
-    icon: <FaUserAlt />,
+    icon: <Info />,
     path: CLIENT_PATHS.ABOUT,
     access: [
       CONSTANTS.ROLE.STUDENT,
