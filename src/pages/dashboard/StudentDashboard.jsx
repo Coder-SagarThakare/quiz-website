@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { apiPaths } from "../../constants";
 import { get } from "../../services";
+import SearchBar from "../../components/SearchBar";
 
 function StudentDashboard() {
   const [results, setResults] = useState([]);
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(2);
+  const [limit, setLimit] = useState(5);
   const [totalPages, setTotalPages] = useState(1);
-  // const [search, setSearch] = useState("");
 
   const fetchData = async () => {
     try {
@@ -24,7 +24,7 @@ function StudentDashboard() {
 
   useEffect(() => {
     fetchData();
-     // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [page, limit]);
 
   // const handleSearchChange = (e) => {
@@ -44,27 +44,20 @@ function StudentDashboard() {
   };
 
   return (
-    <div className="container mt-4">
-      <h1 className="text-center mb-4">Student Dashboard</h1>
-
+    <div className="p-4">
       {/* Search and Limit Section */}
-      <div className="d-flex justify-content-between align-items-center mb-3">
+      <div className="d-flex justify-content-between align-items-center gap-1">
         {/* Search Bar */}
-        <input
-          type="text"
-          className="form-control w-50 glass-effect"
-          placeholder="Search by topic..."
-          value={"work in progress"}
-          // onChange={handleSearchChange}
-          onChange={()=>{}}
-        />
+
+        <SearchBar />
+
         {/* Limit Selector */}
         <select
-          className="form-select w-25 glass-effect"
+          className="form-select w-25 glass-effect p-2"
           value={limit}
           onChange={handleLimitChange}
         >
-          <option value={2}>2 per page</option>
+          <option value={5}>5 per page</option>
           <option value={10}>10 per page</option>
           <option value={15}>15 per page</option>
           <option value={20}>20 per page</option>
@@ -72,16 +65,22 @@ function StudentDashboard() {
       </div>
 
       {/* Results Grid */}
-      <div className="row">
+      <div className="row mt-4 ">
         {results?.map((quiz) => (
           <div key={quiz._id} className="col-md-4 mb-4">
             <div className="card glass-effect shadow-sm cursor text-light">
               <div className="card-body">
                 <h5 className="card-title">Topic: {quiz.topic?.name}</h5>
                 <p className="card-text">Level: {quiz.level}</p>
-                <p className="card-text">Total Questions: {quiz.questions.length}</p>
-                <p className="card-text">Questions Attempted: {quiz.totalAttendedQuestions}</p>
-                <p className="card-text">Correct Answers: {quiz.correctAnsCount}</p>
+                <p className="card-text">
+                  Total Questions: {quiz.questions.length}
+                </p>
+                <p className="card-text">
+                  Questions Attempted: {quiz.totalAttendedQuestions}
+                </p>
+                <p className="card-text">
+                  Correct Answers: {quiz.correctAnsCount}
+                </p>
                 <p className="card-text">Percentage: {quiz.percentage}%</p>
               </div>
             </div>
@@ -90,8 +89,8 @@ function StudentDashboard() {
       </div>
 
       {/* Pagination */}
-      <nav className="d-flex justify-content-center mt-4">
-        <ul className="pagination">
+      <div className="d-flex justify-content-center sticky-bottom">
+        <ul className="pagination m-0">
           <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
             <button
               className="page-link"
@@ -122,7 +121,7 @@ function StudentDashboard() {
             </button>
           </li>
         </ul>
-      </nav>
+      </div>
     </div>
   );
 }
