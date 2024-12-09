@@ -19,7 +19,7 @@ const Interview = () => {
         <h1 class="mt-4 mt-lg-0">We are building something awesome!</h1>
         {/* <!-- info --> */}
         <p>
-        Hey you! QuizEasy is on its way. We are working hard to launch our platform, and we’ll be back soon with exciting quizzes for you!
+        Hey you! QuizEasy is on its way. We are working hard to launch our platform, and well be back soon with exciting quizzes for you!
         </p>
         {/* <!-- Progress bar --> */}
         <div class="overflow-hidden mt-4">
@@ -32,12 +32,12 @@ const Interview = () => {
               data-aos-duration="1000"
               data-aos-easing="ease-in-out"
               role="progressbar"
-              aria-valuenow="85"
+              aria-valuenow="20"
               aria-valuemin="0"
               aria-valuemax="100"
-              style={{ width: "85%" }}
+              style={{ width: "20%" }}
             >
-              <span class="progress-percent text-white">85%</span>
+              <span class="progress-percent text-white">20%</span>
             </div>
           </div>
         </div>
