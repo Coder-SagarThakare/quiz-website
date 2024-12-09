@@ -204,7 +204,10 @@ export const apiPaths = {
     QUESTIONS_BY_TOPIC: `${STUDENT}/stream/subject/topics/topicId?level={level}`,
     CHECK_RESULT: `${STUDENT}/result`,
     GET_RESULT: `${STUDENT}/result/topicId`,
-    DASHBOARD: `${STUDENT}/dashboard`,
+    ALL_RESULTS: `${STUDENT}/all-results`,
+    DASHBOARD : {
+      LEVEL_DISTRIBUTION : `${STUDENT}/dashboard/results/level-distribution`
+    }
   },
 
   TEACHER: {

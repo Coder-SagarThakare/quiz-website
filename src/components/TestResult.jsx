@@ -23,7 +23,7 @@ function TestResult() {
   const fetchData = async () => {
     try {
       const response = await get(
-        `${apiPaths.STUDENT.DASHBOARD}?page=${page}&limit=${limit}`
+        `${apiPaths.STUDENT.ALL_RESULTS}?page=${page}&limit=${limit}`
       );
       console.log(response);
       setResults(response.results);

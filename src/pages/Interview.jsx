@@ -5,6 +5,7 @@ import React from "react";
 const Interview = () => {
   return (
     // better UI for production dont delete
+    
     // <div className="w-100 h-100 d-flex justify-content-center align-items-center">
     //   <div className="text-center">
     //     <img src={InterviewImg} alt={InterviewImg}/>
