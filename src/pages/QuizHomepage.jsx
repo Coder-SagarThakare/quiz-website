@@ -13,6 +13,7 @@ function QuizHomepage() {
   const fetchData = async (url, setData) => {
     try {
       const data = await get(url);
+      console.log(data)
       setData(data);
     } catch (err) {
       console.log(err.message);
