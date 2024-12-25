@@ -105,7 +105,7 @@ function Topics() {
         </div>
       ))
         :
-        <NoDataFound description={"no subject added yet"} />
+        <NoDataFound description={"No Topics added yet. Please check back later!"} />
       }
     </div>
   );

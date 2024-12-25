@@ -3,18 +3,17 @@ import { Loader, SearchBar } from "../components";
 import { get } from "../services";
 import { apiPaths, CONSTANTS } from "../constants";
 import { useLocation } from "react-router-dom";
-import { Card } from "../components/reusable";
+import { Card, NoDataFound } from "../components/reusable";
 
 function QuizHomepage() {
   const location = useLocation();
   const [data, setData] = useState();
   const [Loading, setLoading] = useState(true)
   const streamId = location?.state?.streamId;
-  
+
   const fetchData = async (url, setData) => {
     try {
       const data = await get(url);
-      console.log(data)
       setData(data);
     } catch (err) {
       console.log(err.message);
@@ -54,7 +53,7 @@ function QuizHomepage() {
       </div>
 
       {data?.length === 0 ? (
-        <h1>Subject not added yet</h1>
+        <NoDataFound description={"No subjects added yet. Please check back later!"} />
       ) : (
         <div className="wrapper">
           {data?.map((ele) => (

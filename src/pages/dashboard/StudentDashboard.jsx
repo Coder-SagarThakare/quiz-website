@@ -3,33 +3,36 @@ import { get } from '../../services';
 import { apiPaths } from '../../constants';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { NoDataFound } from '../../components/reusable';
+import {Loader} from "../../components/index.js"
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
 const StudentDashboard = () => {
   const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   const fetchData = async () => {
     const response = await get(apiPaths.STUDENT.DASHBOARD.LEVEL_DISTRIBUTION)
     setData(response)
-    console.log(response)
+    setIsLoading(false)
   }
 
   useEffect(() => {
     fetchData()
   }, [])
+
   return (
     <>
       <div className='glass-effect m-3 p-3'>
-        {!data.length ?
-          <NoDataFound description={"Looks like you haven't started yet. Take a quiz to see your progress here!"} />
+        {!isLoading && !data.length ?
+          <NoDataFound  description={"Looks like you haven't started yet. Take a quiz to see your progress here!"} />
           :
           <>
             <div>
               <h2 className='text-center'>Quiz Summary</h2>
             </div>
             <div style={{ height: "400px" }} >
-              <ResponsiveContainer width="100%"  >
+              {isLoading ? <Loader /> :  <ResponsiveContainer width="100%"  >
                 <PieChart width={400} height={400} >
                   <Pie
 
@@ -49,7 +52,8 @@ const StudentDashboard = () => {
                   <Tooltip />
                   <Legend />
                 </PieChart>
-              </ResponsiveContainer>
+              </ResponsiveContainer>}
+             
             </div>
           </>}
       </div>
