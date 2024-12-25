@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { get } from "../services";
 import SearchBar from "../components/SearchBar";
-import { apiPaths } from "../constants";
+import { apiPaths } from "../constants"; 
+import Loader from "../components/Loader"
 
 function TestResult() {
   const location = useLocation();
@@ -14,18 +15,20 @@ function TestResult() {
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading,setIsLoading] = useState(true);
 
-  async function getResult(resultId) {
+  async function getResultById(resultId) {
     const result = await get(
       apiPaths.STUDENT.GET_RESULT.replace("topicId", resultId)
     );
     setResult(result);
   }
 
-  const fetchData = async () => {
+  const getAllResults = async () => {
     try {
       const response = await get(
         `${apiPaths.STUDENT.ALL_RESULTS}?page=${page}&limit=${limit}`
       );
+      console.log(response)
+
       setIsLoading(false);
       setResults(response.results);
       setTotalPages(response.totalPages || 1);
@@ -36,7 +39,8 @@ function TestResult() {
 
   useEffect(() => {
     try {
-      getResult(location.state.resultId);
+      if(location?.state?.resultId)
+      getResultById(location.state.resultId);
     } catch (e) {
       console.log(e);
     }
@@ -44,13 +48,13 @@ function TestResult() {
   }, []);
 
   useEffect(() => {
-    fetchData();
+    getAllResults();
     // eslint-disable-next-line
   }, [page, limit]);
 
   const handleLimitChange = (e) => {
     setLimit(parseInt(e.target.value, 10));
-    setPage(1); // Reset to the first page when limit changes
+    setPage(1); 
   };
 
   const handlePageChange = (newPage) => {
@@ -58,6 +62,11 @@ function TestResult() {
       setPage(newPage);
     }
   };
+
+  if(isLoading){
+    return <Loader />
+  }
+
 
   return (
     <div>
@@ -76,7 +85,7 @@ function TestResult() {
       ) : (
         <div className="p-4">
           {/* Search and Limit Section */}
-          {isLoading && results?.length ? <>
+            {!isLoading && results?.length ? <>
             <div className="d-flex justify-content-between align-items-center gap-1">
               {/* Search Bar */}
               <SearchBar />
