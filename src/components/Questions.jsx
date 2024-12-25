@@ -4,8 +4,8 @@ import { get, post } from "../services";
 import { apiPaths, CLIENT_PATHS } from "../constants";
 import Loader from "./Loader";
 import Question from "./Question";
-import Button from "./custom/Button";
-import Timer from "./custom/Timer";
+import Button from "./reusable/Button";
+import Timer from "./reusable/Timer";
 import { useAnswers } from "../context/AnswersContext";
 
 function Questions() {

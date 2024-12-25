@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
 import { CLIENT_PATHS, CONSTANTS, apiPaths } from "../../constants";
 import { post } from "../../services";
-import { Button } from "../custom";
+import { Button } from "../reusable";
 
 function SignInForm() {
   console.log("in sign in form");

@@ -7,7 +7,7 @@ import { FaGithub } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaLinkedin } from "react-icons/fa";
 import { Cake, Mail, Phone, User } from "lucide-react";
-import { Button } from "../../components/custom";
+import { Button } from "../../components/reusable";
 
 function TeacherProfile() {
   const { user, setUser } = useAuth();

@@ -80,6 +80,7 @@ export const CONSTANTS = {
     },
   ],
   TEST_TIME_IN_MINUTES: 30.0,
+  NO_DATA_IMG : "https://res.cloudinary.com/difupvzin/image/upload/v1734893320/QuizEasy/public/no-data.png"
 };
 
 // client side all routes

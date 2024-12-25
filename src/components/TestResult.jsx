@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { get } from "../services";
 import SearchBar from "../components/SearchBar";
-import { apiPaths } from "../constants"; 
+import { apiPaths, CONSTANTS } from "../constants"; 
 import Loader from "../components/Loader"
 
 function TestResult() {
@@ -66,7 +66,6 @@ function TestResult() {
   if(isLoading){
     return <Loader />
   }
-
 
   return (
     <div>
@@ -171,7 +170,7 @@ function TestResult() {
             </div> </> :
             <div className="text-center">
               <img
-                src="https://res.cloudinary.com/difupvzin/image/upload/v1734893320/QuizEasy/public/no-data.png"
+                src={CONSTANTS.NO_DATA_IMG}
                 alt="solve quiz and get result img"
                 className="w-50"
               />

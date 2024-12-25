@@ -1,9 +1,9 @@
 
-import Button from "./custom/Button";
+import Button from "./reusable/Button";
 import React from "react";
-import RadioButton from "./custom/RadioButton";
+import RadioButton from "./reusable/RadioButton";
 import { useAnswers } from "../context/AnswersContext";
-import Checkbox from "./custom/Checkbox";
+import Checkbox from "./reusable/Checkbox";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function Question({

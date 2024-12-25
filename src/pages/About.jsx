@@ -1,14 +1,14 @@
 import React from "react";
 import { About as AboutImg } from "../images";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components/custom";
+import { Button } from "../components/reusable";
 import { CLIENT_PATHS } from "../constants";
 
 function About() {
   const navigate = useNavigate();
 
   return (
-    <div className="container my-5">
+    <div className=" my-5">
       <div className="text-center mb-4">
         <h1 className="display-4 font-weight-bold">Welcome to QuizEasy</h1>
         <p className="lead">

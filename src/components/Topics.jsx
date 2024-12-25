@@ -3,8 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { get } from "../services";
 import { apiPaths, CLIENT_PATHS, CONSTANTS } from "../constants";
 import Loader from "./Loader";
-import Button from "./custom/Button";
-import { alert } from "./custom/Alert";
+import Button from "./reusable/Button";
+import { alert } from "./reusable/Alert";
 import Swal from "sweetalert2";
 
 function Topics() {
@@ -31,6 +31,7 @@ function Topics() {
       const data = await get(
         `${apiPaths.STUDENT.TOPIC.FROM_SUBJECT}`.replace("subjectId", subjectId)
       );
+      console.log(data)
       setData(data);
     } catch (e) {
       console.log(e);
@@ -84,7 +85,8 @@ function Topics() {
 
   return (
     <div className="p-3">
-      {data?.map((e, ind) => (
+
+      {data.length ? data?.map((e, ind) => (
         <div
           id={e._id}
           key={e._id}
@@ -100,7 +102,17 @@ function Topics() {
             <ShowQuestionsLevels topicId={e._id} />
           </div>
         </div>
-      ))}
+      ))
+        :
+        <div className="text-center">
+          <img
+            src={CONSTANTS.NO_DATA_IMG}
+            alt="solve quiz and get result img"
+            className="w-50"
+          />
+          <p>no subject added yet</p>
+        </div>
+      }
     </div>
   );
 }

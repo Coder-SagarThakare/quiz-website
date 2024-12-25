@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import { CLIENT_PATHS, apiPaths } from "../../constants";
 import { useState } from "react";
 import { post } from "../../services";
-import { Button ,RadioButton} from "../custom";
+import { Button ,RadioButton} from "../reusable";
 
 function SignUpForm() {
   const [selected, setSelected] = useState("");
