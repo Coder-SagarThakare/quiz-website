@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Card, Loader, SearchBar } from "../components";
+import { Loader, SearchBar } from "../components";
 import { get } from "../services";
 import { apiPaths, CONSTANTS } from "../constants";
 import { useLocation } from "react-router-dom";
+import { Card } from "../components/reusable";
 
 function QuizHomepage() {
   const location = useLocation();

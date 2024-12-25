@@ -1,7 +1,7 @@
 export { default as SearchBar } from "./SearchBar";
 export { default as Footer } from './footer/Footer';
-export { default as Card } from './custom/Card';
-export { default as LabelledInput } from './custom/LabelledInput';
+// export { default as Card } from './custom/Card';
+// export { default as LabelledInput } from './custom/LabelledInput';
 export { default as SignIn } from './auth/SignIn'
 export { default as SignUp } from './auth/SignUp'
 export { default as Img } from './Img'

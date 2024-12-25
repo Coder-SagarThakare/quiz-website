@@ -1,5 +1,5 @@
 import React from "react";
-import { LabelledInput } from "..";
+import { LabelledInput } from "../reusable/index.js";
 import { useForm } from "react-hook-form";
 import Img from "../Img";
 import { SignUp } from "../../images";
@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import { CLIENT_PATHS, apiPaths } from "../../constants";
 import { useState } from "react";
 import { post } from "../../services";
-import { Button ,RadioButton} from "../reusable";
+import { Button ,RadioButton} from "../reusable/index.js";
 
 function SignUpForm() {
   const [selected, setSelected] = useState("");

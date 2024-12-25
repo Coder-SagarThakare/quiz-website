@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { LabelledInput } from "..";
+import { LabelledInput } from "../reusable/index.js";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { SignIn } from "../../images";
