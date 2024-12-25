@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { get } from "../services";
 import SearchBar from "../components/SearchBar";
-import { apiPaths, CONSTANTS } from "../constants"; 
+import { apiPaths } from "../constants";
 import Loader from "../components/Loader"
+import { NoDataFound } from "./reusable";
 
 function TestResult() {
   const location = useLocation();
@@ -13,7 +14,7 @@ function TestResult() {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(5);
   const [totalPages, setTotalPages] = useState(1);
-  const [isLoading,setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   async function getResultById(resultId) {
     const result = await get(
@@ -39,8 +40,8 @@ function TestResult() {
 
   useEffect(() => {
     try {
-      if(location?.state?.resultId)
-      getResultById(location.state.resultId);
+      if (location?.state?.resultId)
+        getResultById(location.state.resultId);
     } catch (e) {
       console.log(e);
     }
@@ -54,7 +55,7 @@ function TestResult() {
 
   const handleLimitChange = (e) => {
     setLimit(parseInt(e.target.value, 10));
-    setPage(1); 
+    setPage(1);
   };
 
   const handlePageChange = (newPage) => {
@@ -63,7 +64,7 @@ function TestResult() {
     }
   };
 
-  if(isLoading){
+  if (isLoading) {
     return <Loader />
   }
 
@@ -84,7 +85,7 @@ function TestResult() {
       ) : (
         <div className="p-4">
           {/* Search and Limit Section */}
-            {!isLoading && results?.length ? <>
+          {!isLoading && results?.length ? <>
             <div className="d-flex justify-content-between align-items-center gap-1">
               {/* Search Bar */}
               <SearchBar />
@@ -168,14 +169,7 @@ function TestResult() {
                 </ul>
               </div>
             </div> </> :
-            <div className="text-center">
-              <img
-                src={CONSTANTS.NO_DATA_IMG}
-                alt="solve quiz and get result img"
-                className="w-50"
-              />
-              <p>You haven't taken any Quiz yet. Start your first Quiz to see your results here.</p>
-            </div>
+            <NoDataFound description={"You haven't taken any Quiz yet. Start your first Quiz to see your results here."} />
           }
         </div>
       )}

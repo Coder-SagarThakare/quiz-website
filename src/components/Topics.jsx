@@ -6,6 +6,7 @@ import Loader from "./Loader";
 import Button from "./reusable/Button";
 import { alert } from "./reusable/Alert";
 import Swal from "sweetalert2";
+import { NoDataFound } from "./reusable";
 
 function Topics() {
   const [data, setData] = useState();
@@ -104,14 +105,7 @@ function Topics() {
         </div>
       ))
         :
-        <div className="text-center">
-          <img
-            src={CONSTANTS.NO_DATA_IMG}
-            alt="solve quiz and get result img"
-            className="w-50"
-          />
-          <p>no subject added yet</p>
-        </div>
+        <NoDataFound description={"no subject added yet"} />
       }
     </div>
   );
