@@ -141,7 +141,7 @@ function TeacherProfile() {
               style={{ width: "500px" }}
             />
           </div>
-          <p>Role : {user.role}</p>
+          <p>Role : {user?.role}</p>
           <p>Teaching Experience : {user.teachingExperience}</p>
           <p>specialization : {user.specialization}</p>
           <p>Email verified : {user.isEmailVerified ? "yes" : "no"}</p>

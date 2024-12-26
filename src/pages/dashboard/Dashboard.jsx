@@ -11,9 +11,9 @@ function Dashboard() {
   console.log(user);
   return (
     <div className="h-100" >
-      {user.role === CONSTANTS.ROLE.STUDENT ? (
+      {user?.role === CONSTANTS.ROLE.STUDENT ? (
         <StudentDashboard />
-      ) : user.role === CONSTANTS.ROLE.TEACHER ? (
+      ) : user?.role === CONSTANTS.ROLE.TEACHER ? (
         <TeacherDashboard />
       ) : (
         <AdminDashboard />

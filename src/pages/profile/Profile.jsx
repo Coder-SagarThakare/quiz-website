@@ -9,9 +9,9 @@ function Profile() {
 
   return (
     <div className="h-100 ">
-      {user.role === CONSTANTS.ROLE.STUDENT ? (
+      {user?.role === CONSTANTS.ROLE.STUDENT ? (
         <StudentProfile />
-      ) : user.role === CONSTANTS.ROLE.TEACHER ? (
+      ) : user?.role === CONSTANTS.ROLE.TEACHER ? (
         <TeacherProfile />
       ) : (
         <AdminProfile />
