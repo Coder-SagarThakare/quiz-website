@@ -4,9 +4,9 @@ import toast from "react-hot-toast";
 
 // Create a reusable Axios instance with a base URL
 // The base URL for all HTTP requests
-
+console.log("CONSTANTS.BASE_URL",CONSTANTS.BASE_URL)
 export const axiosInstance = axios.create({
-  baseURL: CONSTANTS.BASE_URL,
+  baseURL: "http://localhost:8022",
 });
 
 /**

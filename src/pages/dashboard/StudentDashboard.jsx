@@ -13,6 +13,7 @@ const StudentDashboard = () => {
 
   const fetchData = async () => {
     const response = await get(apiPaths.STUDENT.DASHBOARD.LEVEL_DISTRIBUTION)
+    console.log(response)
     setData(response)
     setIsLoading(false)
   }
@@ -35,7 +36,6 @@ const StudentDashboard = () => {
               {isLoading ? <Loader /> :  <ResponsiveContainer width="100%"  >
                 <PieChart width={400} height={400} >
                   <Pie
-
                     data={data}
                     dataKey="value"
                     nameKey="level"
