@@ -72,21 +72,28 @@ function Topics() {
     return <Loader />;
   }
 
-  const ShowQuestionsLevels = ({ topicId }) => {
+  const ShowQuestionsLevels = ({ topicId, disabled }) => {
+    return CONSTANTS.QUESTION_LEVEL.map((button, index) => {
+      const isDisabled = !disabled[button.TITLE.toLowerCase()];
 
-    return CONSTANTS.QUESTION_LEVEL.map((button, index) => (
-      <Button
+      return (<Button
         title={button.TITLE}
-        className={button.CLASS}
+        className={`${isDisabled ? "bg-secondary" : button.BG_COLOR} ${button.CLASS} `}
         key={index}
+        disabled={isDisabled}
         onClick={() => alertToStartTest(button, topicId)}
-      />
-    ));
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+      />)
+    }
+    );
   };
 
   return (
     <div className="p-3">
-
+      <div class="alert alert-warning fixed-note">
+        <strong>Note:</strong> If a question's topic level is marked as "disabled," it means no questions have been added to this topic yet.
+      </div>
       {data.length ? data?.map((e, ind) => (
         <div
           id={e._id}
@@ -100,7 +107,8 @@ function Topics() {
           <span>{e.name}</span>
 
           <div style={{ transition: "all 0.5s" }} className="d-flex opacity-0">
-            <ShowQuestionsLevels topicId={e._id} />
+            <ShowQuestionsLevels topicId={e._id} disabled={e.isQuestionsAdded} />
+
           </div>
         </div>
       ))

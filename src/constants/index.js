@@ -68,15 +68,18 @@ export const CONSTANTS = {
   QUESTION_LEVEL: [
     {
       TITLE: "Easy",
-      CLASS: "bg-success border-dark text-white",
+      CLASS: "border-dark text-white",
+      BG_COLOR : "bg-success"
     },
     {
       TITLE: "Medium",
-      CLASS: "bg-warning border-dark text-dark",
+      CLASS: "border-dark text-dark",
+      BG_COLOR : "bg-warning"
     },
     {
       TITLE: "Hard",
-      CLASS: "bg-danger border-dark text-white",
+      CLASS: "border-dark text-white",
+      BG_COLOR : "bg-danger"
     },
   ],
   TEST_TIME_IN_MINUTES: 30.0,
