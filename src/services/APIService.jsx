@@ -33,6 +33,9 @@ export const post = (url,payload)=>{
   return axiosInstance.post(url,payload)
 }
 
+export const patch = (url, payload) => {
+  return axiosInstance.patch(url, payload)
+}
 export const delet = (q)=>{
   return axiosInstance.delete()
 }

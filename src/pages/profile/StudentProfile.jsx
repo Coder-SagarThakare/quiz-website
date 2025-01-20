@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { CONSTANTS, apiPaths } from "../../constants";
 import { get } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import { Pencil } from "lucide-react";
+import Modals from "../../components/Modal";
 
 function StudentProfile() {
   const { user, setUser } = useAuth();
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
 
   async function fetchUserData() {
     try {
@@ -22,6 +25,7 @@ function StudentProfile() {
   }
 
   useEffect(() => {
+
     fetchUserData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -89,8 +93,10 @@ function StudentProfile() {
             <div className="card-body">
               <div className="border-bottom border-dashed">
                 <h4 className="mb-3">
-                  Default Address
-                  <button className="btn btn-link p-0" type="button">
+                  Address
+                  <button className="btn btn-link p-0" type="button"
+                    onClick={handleShow}
+                  >
                     {" "}
                     <svg
                       className="svg-inline--fa fa-pen-to-square fs-9 ms-3 text-body-quaternary"
@@ -118,7 +124,7 @@ function StudentProfile() {
                     <h5 className="text-body-highlight">Address</h5>
                   </div>
                   <div className="col-auto">
-                    <p className="">Vancouver, British Columbia Canada</p>
+                    <p className="">{user?.address?.country} {user?.address?.state} {user?.address?.district} {user?.address?.taluka} {user?.address?.pincode}</p>
                   </div>
                 </div>
               </div>
@@ -129,16 +135,16 @@ function StudentProfile() {
                   </div>
                   <div className="col-auto">
                     <a className="lh-1" href="mailto:shatinon@jeemail.com">
-                      shatinon@jeemail.com
+                      {user?.email}
                     </a>
                   </div>
                 </div>
                 <div className="row flex-between-center">
                   <div className="col-auto">
                     <h5 className="text-body-highlight mb-0">Phone</h5>
-                  </div>  
-                  <div className="col-auto">  
-                    <a href="tel:+1234567890">+1234567890</a>
+                  </div>
+                  <div className="col-auto">
+                    <a href="tel:+1234567890">{user?.phone}</a>
                   </div>
                 </div>
               </div>
@@ -146,6 +152,8 @@ function StudentProfile() {
           </div>
         </div>
       </div>
+
+      {show && <Modals show={show} setShow={setShow} address={user.address} />}
     </>
   );
 }
