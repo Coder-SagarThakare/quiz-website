@@ -214,7 +214,7 @@ export const apiPaths = {
     DASHBOARD: {
       LEVEL_DISTRIBUTION: `${STUDENT}/dashboard/results/level-distribution`
     },
-    UPDATE_ADDRESS: `${STUDENT}/self`
+    UPDATE_INFO: `${STUDENT}/self`
   },
 
   TEACHER: {

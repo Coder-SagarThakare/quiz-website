@@ -82,19 +82,34 @@ function Modals({ show, setShow, address, editType, user, setUser }) {
         return;
       }
       payload = formData;
+    } else if (editType === "Personal") {
+      const { name, email, gender, bio, github } = data;
+      payload = { name, email, gender, bio, github };
     }
 
     setIsLoading(true);
     try {
       if (editType === "Address") {
 
-        await patch(apiPaths.STUDENT.UPDATE_ADDRESS, payload);
+        await patch(apiPaths.STUDENT.UPDATE_INFO, payload);
         setUser((prev) => ({ ...prev, address: { ...payload.address } }))
 
       } else if (editType === "Image") {
         const result = await patch(apiPaths.STUDENT.UPDATE_PROFILE_IMAGE, payload);
-        console.log({ result, payload })
+        console.log(result);;
+        
+        
+        setUser((prev) => ({
+          ...prev,
+          picture : result.picture, 
+        }));
         console.log("image uploaded succesfully")
+      }else if (editType === "Personal") {
+        await patch(apiPaths.STUDENT.UPDATE_INFO, payload);
+        setUser((prev) => ({
+          ...prev,
+          ...payload, 
+        }));
       }
     } catch (err) {
       console.log(err);
@@ -216,7 +231,96 @@ function Modals({ show, setShow, address, editType, user, setUser }) {
               </>
             ) : (
               <>
-                <p>Personal</p>
+                <div className="mb-3">
+                  <label className="form-label">Name</label>
+                  <input
+                    type="text"
+                    className={`form-control ${errors.name ? "is-invalid" : ""}`}
+                    {...register("name", {
+                      required: "Name is required",
+                      maxLength: 50,
+                    })}
+                    placeholder='Enter name'
+                    defaultValue={user.name}
+                  />
+                  {errors.name && (
+                    <div className="invalid-feedback">{errors.name.message}</div>
+                  )}
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input
+                    type="email"
+                    className={`form-control ${errors.email ? "is-invalid" : ""}`}
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                        message: "Enter a valid email",
+                      },
+                    })}
+                    placeholder='Enter email'
+                    defaultValue={user.email}
+                  />
+                  {errors.email && (
+                    <div className="invalid-feedback">{errors.email.message}</div>
+                  )}
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Gender</label>
+                  <select
+                    className={`form-control ${errors.gender ? "is-invalid" : ""}`}
+                    {...register("gender", {
+                      required: "Gender is required",
+                    })}
+                    placeholder='Gender'
+                    defaultValue={user.gender}
+                  >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                  {errors.gender && (
+                    <div className="invalid-feedback">{errors.gender.message}</div>
+                  )}
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Bio</label>
+                  <textarea
+                    className={`form-control ${errors.bio ? "is-invalid" : ""}`}
+                    {...register("bio", {
+                      maxLength: {
+                        value: 200,
+                        message: "Bio cannot exceed 200 characters",
+                      },
+                    })}
+                    rows="3"
+                    defaultValue={user.bio}
+                  />
+                  {errors.bio && (
+                    <div className="invalid-feedback">{errors.bio.message}</div>
+                  )}
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Github</label>
+                  <input
+                    type="text"
+                    className={`form-control ${errors.github ? "is-invalid" : ""}`}
+                    {...register("github", {
+                      required: "Github is required",
+                    })}
+                    placeholder='Github link'
+                    defaultValue={user.github}
+                  />
+                  {errors.github && (
+                    <div className="invalid-feedback">{errors.github.message}</div>
+                  )}
+                </div>
+
               </>
             )}
 
