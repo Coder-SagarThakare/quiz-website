@@ -69,23 +69,23 @@ export const CONSTANTS = {
     {
       TITLE: "Easy",
       CLASS: "border-dark text-white",
-      BG_COLOR : "bg-success"
+      BG_COLOR: "bg-success"
     },
     {
       TITLE: "Medium",
       CLASS: "border-dark text-dark",
-      BG_COLOR : "bg-warning"
+      BG_COLOR: "bg-warning"
     },
     {
       TITLE: "Hard",
       CLASS: "border-dark text-white",
-      BG_COLOR : "bg-danger"
+      BG_COLOR: "bg-danger"
     },
   ],
   TEST_TIME_IN_MINUTES: 30.0,
-  NO_DATA_IMG : "https://res.cloudinary.com/difupvzin/image/upload/v1734893320/QuizEasy/public/no-data.png"
+  NO_DATA_IMG: "https://res.cloudinary.com/difupvzin/image/upload/v1734893320/QuizEasy/public/no-data.png"
 };
-console.log("process.env.REACT_APP_BASE_URL",process.env.REACT_APP_BASE_URL);
+console.log("process.env.REACT_APP_BASE_URL", process.env.REACT_APP_BASE_URL);
 
 // client side all routes
 const QUIZ = "/quiz";
@@ -197,6 +197,7 @@ export const apiPaths = {
       REGISTER: `${API_V1}/auth/student/register`,
     },
     SELF: `${STUDENT}/self`,
+    UPDATE_PROFILE_IMAGE: `${STUDENT}/update-profile-image`,
     TOPIC: {
       FROM_SUBJECT: `${STUDENT}/stream/subject/subjectId/topics`,
     },
@@ -210,10 +211,10 @@ export const apiPaths = {
     CHECK_RESULT: `${STUDENT}/result`,
     GET_RESULT: `${STUDENT}/result/topicId`,
     ALL_RESULTS: `${STUDENT}/all-results`,
-    DASHBOARD : {
-      LEVEL_DISTRIBUTION : `${STUDENT}/dashboard/results/level-distribution`
+    DASHBOARD: {
+      LEVEL_DISTRIBUTION: `${STUDENT}/dashboard/results/level-distribution`
     },
-    UPDATE_ADDRESS : `${STUDENT}/self`
+    UPDATE_ADDRESS: `${STUDENT}/self`
   },
 
   TEACHER: {

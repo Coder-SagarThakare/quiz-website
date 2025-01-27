@@ -4,13 +4,20 @@ import { get } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import { Pencil } from "lucide-react";
 import Modals from "../../components/Modal";
+import { Loader } from "../../components";
 
 function StudentProfile() {
   const { user, setUser } = useAuth();
-  const [show, setShow] = useState(false);
-  const handleShow = () => setShow(true);
+  const [editAddress, setEditAddress] = useState(false);
+  const [editImage, setEditImage] = useState(false);
+  const [editPersonalInfo, setEditPesonalInfo] = useState(false);
+  const [isLoading, setIsLoading] = useState(true)
 
+  console.log(user);
+  
   async function fetchUserData() {
+    setIsLoading(true)
+
     try {
       let data;
       if (user.role === CONSTANTS.ROLE.STUDENT) {
@@ -22,13 +29,22 @@ function StudentProfile() {
       setUser(data);
       console.log(data);
     } catch (err) { }
+    finally {
+      setIsLoading(false);
+    }
   }
 
   useEffect(() => {
-
     fetchUserData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (isLoading) {
+    return (
+      <Loader />
+    )
+
+  }
 
   return (
     <>
@@ -37,16 +53,64 @@ function StudentProfile() {
           <div className="card h-100  bg-transparent glass-effect text-light">
             <div className="card-body">
               <div className="border-bottom border-dashed pb-4">
-                <div className="row align-items-center g-3 g-sm-5 text-center text-sm-start">
-                  <div className="col-4 col-sm-3 ">
+                <div className="row align-items-center g-3 g-sm-5 text-center text-sm-start d-flex   align-items-start">
+                  <div className="col-4 col-sm-3 d-flex align-items-start w-25 ">
                     <img
-                      className="rounded-circle h-100 w-100 border p-1"
-                      src={user.picture}
-                      alt=""
+                      className="rounded-circle h-100 w-100 p-1"
+                      src={user?.picture}
+                      alt={user?.picture}
                     />
+
+                    <button className="btn btn-link p-0" type="button"
+                      onClick={() => setEditImage(true)}
+                    >
+                      <svg
+                        className="svg-inline--fa fa-pen-to-square fs-9 text-body-quaternary "
+                        style={{ width: "16px" }}
+                        aria-hidden="true"
+                        focusable="false"
+                        data-prefix="fas"
+                        data-icon="pen-to-square"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        data-fa-i2svg=""
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
+                        ></path>
+                      </svg>
+                    </button>
                   </div>
-                  <div className="col-12 col-sm-auto flex-1">
-                    <h3>{user.name}</h3>
+                  <div className="col-12 col-sm-auto flex-1 w-75 ">
+                    <div className="d-flex d-flex justify-content-between align-items-start ">
+                      <h3>{user.name}</h3>
+                      {""}
+                      <button className="btn btn-link p-0 m-0" type="button"
+                        onClick={() => setEditPesonalInfo(true)}
+                      >
+                        <svg
+                          className="svg-inline--fa fa-pen-to-square fs-9 text-body-quaternary "
+                          style={{ width: "16px" }}
+                          aria-hidden="true"
+                          focusable="false"
+                          data-prefix="fas"
+                          data-icon="pen-to-square"
+                          role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          data-fa-i2svg=""
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
+                          ></path>
+                        </svg>
+                      </button>
+
+                      {""}
+                    </div>
                     <div className="d-flex align-items-center m-1">
                       <p className="m-0">{user.email}</p>{" "}
                       <span className="ms-1 badge text-bg-primary cursor ">
@@ -91,15 +155,15 @@ function StudentProfile() {
         <div className="col-12 col-lg-4">
           <div className="card h-100 bg-transparent glass-effect  text-light ">
             <div className="card-body">
-              <div className="border-bottom border-dashed">
-                <h4 className="mb-3">
+              <div className="border-bottom border-dashed ">
+                <h4 className="mb-3 d-flex justify-content-between">
                   Address
                   <button className="btn btn-link p-0" type="button"
-                    onClick={handleShow}
+                    onClick={() => setEditAddress(true)}
                   >
                     {" "}
                     <svg
-                      className="svg-inline--fa fa-pen-to-square fs-9 ms-3 text-body-quaternary"
+                      className="svg-inline--fa fa-pen-to-square fs-9 text-body-quaternary"
                       aria-hidden="true"
                       focusable="false"
                       data-prefix="fas"
@@ -121,9 +185,6 @@ function StudentProfile() {
               <div className="pt-4 mb-7 mb-lg-4 mb-xl-7">
                 <div className="row justify-content-between">
                   <div className="col-auto">
-                    <h5 className="text-body-highlight">Address</h5>
-                  </div>
-                  <div className="col-auto">
                     <p className="">{user?.address?.country} {user?.address?.state} {user?.address?.district} {user?.address?.taluka} {user?.address?.pincode}</p>
                   </div>
                 </div>
@@ -134,7 +195,7 @@ function StudentProfile() {
                     <h5 className="text-body-highlight mb-0">Email</h5>
                   </div>
                   <div className="col-auto">
-                    <a className="lh-1" href="mailto:shatinon@jeemail.com">
+                    <a className="lh-1" href={`mailto:${user?.email}`}>
                       {user?.email}
                     </a>
                   </div>
@@ -144,7 +205,7 @@ function StudentProfile() {
                     <h5 className="text-body-highlight mb-0">Phone</h5>
                   </div>
                   <div className="col-auto">
-                    <a href="tel:+1234567890">{user?.phone}</a>
+                    <a href={`tel:+${user?.phone}`}>{user?.phone}</a>
                   </div>
                 </div>
               </div>
@@ -153,7 +214,11 @@ function StudentProfile() {
         </div>
       </div>
 
-      {show && <Modals show={show} setShow={setShow} address={user.address} />}
+      {editAddress && <Modals show={editAddress} setShow={setEditAddress} address={user.address} editType={"Address"} user={user} setUser={setUser} />}
+
+      {editImage && <Modals show={editImage} setShow={setEditImage} editType={"Image"} user={user} setUser={setUser} />}
+
+      {editPersonalInfo && <Modals show={editPersonalInfo} setShow={setEditPesonalInfo} editType={"Personal Info"} user={user} setUser={setUser} />}
     </>
   );
 }
