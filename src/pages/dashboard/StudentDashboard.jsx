@@ -13,7 +13,6 @@ const StudentDashboard = () => {
 
   const fetchData = async () => {
     const response = await get(apiPaths.STUDENT.DASHBOARD.LEVEL_DISTRIBUTION)
-    console.log(response)
     setData(response)
     setIsLoading(false)
   }

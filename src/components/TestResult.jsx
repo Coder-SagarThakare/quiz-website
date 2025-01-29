@@ -12,9 +12,10 @@ function TestResult() {
 
   const [results, setResults] = useState([]);
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(5);
+  const [limit, setLimit] = useState(6);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [search, setSearch] = useState();
 
   async function getResultById(resultId) {
     const result = await get(
@@ -24,11 +25,29 @@ function TestResult() {
   }
 
   const getAllResults = async () => {
+    let response;
+    let url = `${apiPaths.STUDENT.ALL_RESULTS}?`;
+
+    // Append page if available
+    if (page) {
+      url += `page=${page}&`;
+    }
+
+    // Append limit if available
+    if (limit) {
+      url += `limit=${limit}&`;
+    }
+
+    // Append search if available
+    if (search) {
+      url += `search=${encodeURIComponent(search)}&`;
+    }
+
+    // Remove trailing "&" if it exists
+    url = url.replace(/&$/, "");
+
     try {
-      const response = await get(
-        `${apiPaths.STUDENT.ALL_RESULTS}?page=${page}&limit=${limit}`
-      );
-      console.log(response)
+      response = await get(url);
 
       setIsLoading(false);
       setResults(response.results);
@@ -37,6 +56,7 @@ function TestResult() {
       console.error("Failed to fetch dashboard data:", error);
     }
   };
+
 
   useEffect(() => {
     try {
@@ -51,7 +71,7 @@ function TestResult() {
   useEffect(() => {
     getAllResults();
     // eslint-disable-next-line
-  }, [page, limit]);
+  }, [page, limit, search]);
 
   const handleLimitChange = (e) => {
     setLimit(parseInt(e.target.value, 10));
@@ -64,13 +84,33 @@ function TestResult() {
     }
   };
 
+  const onChange = (value) => {
+    setSearch(value)
+  }
+
   if (isLoading) {
     return <Loader />
   }
 
   return (
-    <div>
-      {/* <p>{result}</p> */}
+    <div className="p-4">
+      <div className="d-flex justify-content-between align-items-center gap-1">
+
+        {/* Search Bar */}
+        <SearchBar onSearch={onChange} />
+
+        {/* Limit Selector */}
+        <select
+          className="form-select w-25 glass-effect p-2"
+          value={limit}
+          onChange={handleLimitChange}
+        >
+          <option value={6}>6 per page</option>
+          <option value={12}>12 per page</option>
+          <option value={15}>15 per page</option>
+          <option value={18}>18 per page</option>
+        </select>
+      </div>
       {location?.state?.resultId ? (
         <div>
           <h1>Congragulations</h1>
@@ -83,25 +123,9 @@ function TestResult() {
           </div>
         </div>
       ) : (
-        <div className="p-4">
+        <div >
           {/* Search and Limit Section */}
           {!isLoading && results?.length ? <>
-            <div className="d-flex justify-content-between align-items-center gap-1">
-              {/* Search Bar */}
-              <SearchBar />
-
-              {/* Limit Selector */}
-              <select
-                className="form-select w-25 glass-effect p-2"
-                value={limit}
-                onChange={handleLimitChange}
-              >
-                <option value={5}>5 per page</option>
-                <option value={10}>10 per page</option>
-                <option value={15}>15 per page</option>
-                <option value={20}>20 per page</option>
-              </select>
-            </div>
 
             <div>
               {/* Results Grid */}

@@ -63,7 +63,6 @@ function Modals({ show, setShow, address, editType, user, setUser }) {
   };
 
   const onSubmit = async (data) => {
-    console.log('Submitted data:', data);
     let payload;
 
     if (editType === "Address") {
@@ -96,14 +95,10 @@ function Modals({ show, setShow, address, editType, user, setUser }) {
 
       } else if (editType === "Image") {
         const result = await patch(apiPaths.STUDENT.UPDATE_PROFILE_IMAGE, payload);
-        console.log(result);;
-        
-        
         setUser((prev) => ({
           ...prev,
           picture : result.picture, 
         }));
-        console.log("image uploaded succesfully")
       }else if (editType === "Personal") {
         await patch(apiPaths.STUDENT.UPDATE_INFO, payload);
         setUser((prev) => ({
