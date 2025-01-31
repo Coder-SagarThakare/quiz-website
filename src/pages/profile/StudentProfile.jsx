@@ -53,11 +53,18 @@ function StudentProfile() {
             <div className="card-body">
               <div className="border-bottom border-dashed pb-4">
                 <div className="row align-items-center g-3 g-sm-5 text-center text-sm-start d-flex   align-items-start">
-                  <div className="col-4 col-sm-3 d-flex align-items-start w-25 ">
+                  <div className="col-4 col-sm-3 d-flex align-items-start"
+                  >
                     <img
-                      className="rounded-circle h-100 w-100 p-1"
+                      className="rounded-circle border p-1"
                       src={user?.picture}
-                      alt={user?.picture}
+                      alt="Profile"
+                      style={{
+                        width: "125px",  
+                        height: "125px", 
+                        objectFit: "cover", 
+                        aspectRatio: "1/1",
+                      }}
                     />
 
                     <button className="btn btn-link p-0" type="button"
