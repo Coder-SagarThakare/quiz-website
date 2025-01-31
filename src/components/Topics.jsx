@@ -91,12 +91,12 @@ function Topics() {
 
   return (
     <div className="p-3">
-
-      {data.length ? data?.map((e, ind) => (
-        <>
-          <div class="alert alert-warning fixed-note">
+<div class="alert alert-warning fixed-note">
             <strong>Note:</strong> If a question's topic level is marked as "disabled," it means no questions have been added to this topic yet.
           </div>
+      {data.length ? data?.map((e, ind) => (
+        <>
+          
           <div
             id={e._id}
             key={e._id}
