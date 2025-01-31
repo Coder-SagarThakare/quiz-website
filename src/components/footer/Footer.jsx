@@ -15,7 +15,6 @@ import { memo } from "react";
 
 
 function Footer() {
-  console.log('footer');
   // const footer = [
   //   {
   //     heading: "GET IN TOUCH",

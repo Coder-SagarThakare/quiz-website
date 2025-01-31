@@ -27,7 +27,6 @@ function Question({
   function updateMultiSelect(ind) {
     const updatedAns = answers.map((item) => {
       if (item._id === question._id) {
-        console.log(item.selectedAnswer);
 
         const currentAnswers = [...item.selectedAnswer]
 

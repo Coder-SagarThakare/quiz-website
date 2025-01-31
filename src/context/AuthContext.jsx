@@ -18,7 +18,6 @@ export const AuthProvider = ({ children }) => {
         let data;
         try {
           data = await get(apiPaths.STUDENT.SELF);
-          // console.log("student login data :", data);
 
           if (data) setUser(data);
 
@@ -27,7 +26,6 @@ export const AuthProvider = ({ children }) => {
           if (error?.response?.data?.code === 403) {
             try {
               data = await get(apiPaths.TEACHER.SELF);
-              console.log("teacher login data :", data);
 
               if (data) setUser(data);
             } catch (error) {

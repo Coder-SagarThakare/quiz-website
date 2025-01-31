@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:8022",
+  baseURL: process.env.REACT_APP_BASE_URL,
 });
 
 /**

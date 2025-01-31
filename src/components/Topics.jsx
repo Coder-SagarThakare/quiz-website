@@ -32,7 +32,6 @@ function Topics() {
       const data = await get(
         `${apiPaths.STUDENT.TOPIC.FROM_SUBJECT}`.replace("subjectId", subjectId)
       );
-      console.log(data)
       setData(data);
     } catch (e) {
       console.log(e);
@@ -61,9 +60,7 @@ function Topics() {
         navigate(CLIENT_PATHS.QUESTIONS, {
           state: { topicId, level: button.TITLE },
         });
-        console.log("Test started");
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        console.log("Test cancelled");
       }
     });
   }

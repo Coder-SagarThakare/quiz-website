@@ -18,7 +18,6 @@ function Questions() {
   const navigate = useNavigate();
   const { answers, setAnswers } = useAnswers();
   const answersRef = useRef(answers);
-  console.log(answers)
 
   useEffect(() => {
     // hide sidebar after start test
@@ -95,7 +94,6 @@ function Questions() {
       topic: location.state.topicId,
       questions: currentAnswers
     }
-    console.log({payload})
 
     try {
 

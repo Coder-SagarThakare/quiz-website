@@ -18,7 +18,6 @@ function TeacherProfile() {
       let data = await get(apiPaths.TEACHER.SELF);
 
       setUser(data);
-      console.log(data);
     } catch (err) { }
   }
 

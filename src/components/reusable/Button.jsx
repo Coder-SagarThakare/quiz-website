@@ -11,7 +11,6 @@ function Button({
   size=20,
   ...props
 }) {
-  // console.log("In button title :");
   return (
     <button
     

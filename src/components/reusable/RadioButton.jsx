@@ -11,7 +11,6 @@ function RadioButton({htmlFor, ...rest }) {
     if (rest.setSelected) {
       rest.setSelected(e.target.value);
     }
-    console.log("clicked")
   };
 
   return (

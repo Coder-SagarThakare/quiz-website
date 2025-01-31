@@ -24,7 +24,6 @@ function SignUpForm() {
 
   // This registerUser function is used to register data  into the database using Axios and then redirecting user to dashboard page if registration is successful otherwise
   const registerUser = async (Data) => {
-    console.log(Data);
     if (Data.password !== Data.confirmPassword) {
       toast.error("Passwords not match !!!");
     } else {

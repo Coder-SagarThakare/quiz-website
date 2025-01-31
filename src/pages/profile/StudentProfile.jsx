@@ -13,8 +13,6 @@ function StudentProfile() {
   const [editPersonalInfo, setEditPesonalInfo] = useState(false);
   const [isLoading, setIsLoading] = useState(true)
 
-  console.log(user);
-
   async function fetchUserData() {
     setIsLoading(true)
 
@@ -25,9 +23,7 @@ function StudentProfile() {
       } else {
         data = await get(apiPaths.TEACHER.SELF);
       }
-      console.log(data)
       setUser(data);
-      console.log(data);
     } catch (err) { }
     finally {
       setIsLoading(false);

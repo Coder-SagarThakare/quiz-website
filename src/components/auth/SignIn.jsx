@@ -13,7 +13,6 @@ import { post } from "../../services";
 import { Button } from "../reusable";
 
 function SignInForm() {
-  console.log("in sign in form");
   const {
     handleSubmit,
     register,
@@ -38,7 +37,6 @@ function SignInForm() {
         );
       } else {
         result = await post(`${apiPaths.TEACHER.AUTH.LOGIN}`, data);
-        console.log("result : ", result);
       }
 
       localStorage.setItem(CONSTANTS.TOKEN, result.token);

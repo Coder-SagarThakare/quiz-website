@@ -53,7 +53,6 @@ function Modals({ show, setShow, address, editType, user, setUser }) {
       selectedOption?.value // State ISO code
     ).map((city) => ({ label: city.name, value: city.name }));
 
-    console.log({ cityOptions });
     setCities(cityOptions);
     setValue('district', 'satara');
   };

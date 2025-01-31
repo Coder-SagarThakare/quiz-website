@@ -8,7 +8,6 @@ import AdminDashboard from "./AdminDashboard";
 function Dashboard() {
   const { user } = useAuth();
 
-  console.log(user);
   return (
     <div className="h-100" >
       {user?.role === CONSTANTS.ROLE.STUDENT ? (

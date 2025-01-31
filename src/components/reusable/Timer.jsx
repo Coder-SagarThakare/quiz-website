@@ -19,7 +19,6 @@ function Timer({SubmitTest}) {
         // counterRef.current = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
       } else {
         clearInterval(timeInterval); // Stop the timer when it reaches 0
-        console.log("Time's up!");
         SubmitTest()
       }
     }, 1000);

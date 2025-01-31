@@ -1,7 +1,6 @@
 import React from "react";
 
 function Features({ path, title, desc_1, desc_2, isReverse }) {
-  console.log("in features");
 
   return (
     <div className={`d-flex flex-column flex-sm-row ${isReverse && "flex-sm-row-reverse"} `}>
