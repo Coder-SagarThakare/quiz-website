@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import { get } from "../services";
 import SearchBar from "../components/SearchBar";
 import { apiPaths } from "../constants";
-import Loader from "../components/Loader";
 import { NoDataFound } from "./reusable";
+import { HashLoader } from "react-spinners";
 
 function TestResult() {
   const location = useLocation();
@@ -47,7 +47,10 @@ function TestResult() {
     url = url.replace(/&$/, "");
 
     try {
+      setIsLoading(true);
+
       response = await get(url);
+
       setIsLoading(false);
       setResults(response.results);
       setTotalPages(response.totalPages || 1);
@@ -85,28 +88,29 @@ function TestResult() {
     setSearch(value);
   };
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
   return (
     <div className="p-4">
-      <div className="d-flex justify-content-between align-items-center gap-1">
-        {/* Search Bar */}
-        <SearchBar onSearch={onChange} />
 
-        {/* Limit Selector */}
-        <select
-          className="form-select w-25 glass-effect p-2"
-          value={limit}
-          onChange={handleLimitChange}
-        >
-          <option value={6}>6 per page</option>
-          <option value={12}>12 per page</option>
-          <option value={15}>15 per page</option>
-          <option value={18}>18 per page</option>
-        </select>
-      </div>
+      {
+        !(location?.state?.resultId)
+        &&
+        <div className="d-flex justify-content-between align-items-center gap-1">
+          {/* Search Bar */}
+          <SearchBar onSearch={onChange} />
+
+          {/* Limit Selector */}
+          <select
+            className="form-select w-25 glass-effect p-2"
+            value={limit}
+            onChange={handleLimitChange}
+          >
+            <option value={6}>6 per page</option>
+            <option value={12}>12 per page</option>
+            <option value={15}>15 per page</option>
+            <option value={18}>18 per page</option>
+          </select>
+        </div>}
+
       {location?.state?.resultId ? (
         <div>
           <h1>Congragulations</h1>
@@ -119,89 +123,90 @@ function TestResult() {
           </div>
         </div>
       ) : (
-        <div>
-          {/* Search and Limit Section */}
-          {!isLoading && results?.length ? (
-            <>
-              <div>
-                {/* Results Grid */}
-                <div className="row mt-4 ">
-                  {results?.map((quiz) => (
-                    <div key={quiz._id} className="col-md-4 mb-4">
-                      <div className="card glass-effect shadow-sm cursor text-light">
-                        <div className="card-body">
-                          <h5 className="card-title">
-                            Topic: {quiz.topic?.name}
-                          </h5>
-                          <p className="card-text">Level: {quiz.level}</p>
-                          <p className="card-text">
-                            Total Questions: {quiz.questions.length}
-                          </p>
-                          <p className="card-text">
-                            Questions Attempted: {quiz.totalAttendedQuestions}
-                          </p>
-                          <p className="card-text">
-                            Correct Answers: {quiz.correctAnsCount}
-                          </p>
-                          <p className="card-text">
-                            Percentage: {quiz.percentage}%
-                          </p>
-                        </div>
+        !isLoading && results?.length ? (
+          <>
+            <div>
+              {/* Results Grid */}
+              <div className="row mt-4 ">
+                {results?.map((quiz) => (
+                  <div key={quiz._id} className="col-md-4 mb-4">
+                    <div className="card glass-effect shadow-sm cursor text-light">
+                      <div className="card-body">
+                        <h5 className="card-title">
+                          Topic: {quiz.topic?.name}
+                        </h5>
+                        <p className="card-text">Level: {quiz.level}</p>
+                        <p className="card-text">
+                          Total Questions: {quiz.questions.length}
+                        </p>
+                        <p className="card-text">
+                          Questions Attempted: {quiz.totalAttendedQuestions}
+                        </p>
+                        <p className="card-text">
+                          Correct Answers: {quiz.correctAnsCount}
+                        </p>
+                        <p className="card-text">
+                          Percentage: {quiz.percentage}%
+                        </p>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
 
-                {/* Pagination */}
-                <div className="d-flex justify-content-center sticky-bottom">
-                  <ul className="pagination m-0">
-                    <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
-                      <button
-                        className="page-link"
-                        onClick={() => handlePageChange(page - 1)}
-                      >
-                        Previous
-                      </button>
-                    </li>
-                    {Array.from({ length: totalPages }, (_, index) => (
-                      <li
-                        key={index + 1}
-                        className={`page-item ${
-                          page === index + 1 ? "active" : ""
-                        }`}
-                      >
-                        <button
-                          className="page-link"
-                          onClick={() => handlePageChange(index + 1)}
-                        >
-                          {index + 1}
-                        </button>
-                      </li>
-                    ))}
+              {/* Pagination */}
+              <div className="d-flex justify-content-center sticky-bottom">
+                <ul className="pagination m-0">
+                  <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
+                    <button
+                      className="page-link"
+                      onClick={() => handlePageChange(page - 1)}
+                    >
+                      Previous
+                    </button>
+                  </li>
+                  {Array.from({ length: totalPages }, (_, index) => (
                     <li
-                      className={`page-item ${
-                        page === totalPages ? "disabled" : ""
-                      }`}
+                      key={index + 1}
+                      className={`page-item ${page === index + 1 ? "active" : ""
+                        }`}
                     >
                       <button
                         className="page-link"
-                        onClick={() => handlePageChange(page + 1)}
+                        onClick={() => handlePageChange(index + 1)}
                       >
-                        Next
+                        {index + 1}
                       </button>
                     </li>
-                  </ul>
-                </div>
-              </div>{" "}
-            </>
-          ) : (
+                  ))}
+                  <li
+                    className={`page-item ${page === totalPages ? "disabled" : ""
+                      }`}
+                  >
+                    <button
+                      className="page-link"
+                      onClick={() => handlePageChange(page + 1)}
+                    >
+                      Next
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>{" "}
+          </>
+        ) : (
+          (!isLoading && results?.length === 0) ?
             <NoDataFound
               description={
                 "You haven't taken any Quiz yet. Start your first Quiz to see your results here."
               }
-            />
-          )}
-        </div>
+            /> :
+            <div className="min-vh-100 d-flex justify-content-center align-items-center ">
+              <HashLoader color='#36d7b7' size={50} />
+            </div>
+        )
+
+
       )}
     </div>
   );
